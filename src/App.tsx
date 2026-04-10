@@ -1,331 +1,183 @@
-import React, { useState, useEffect } from 'react';
-import { AuthProvider, useAuth } from './lib/AuthContext';
+import React, { useState } from 'react';
+import { useAuth } from './lib/AuthContext';
 import { Dashboard } from './components/Dashboard';
 import { LessonSession } from './components/LessonSession';
 import { ReviewSession } from './components/ReviewSession';
 import { ItemsView } from './components/ItemsView';
-import { CommunityView } from './components/CommunityView';
 import { JLPTView } from './components/JLPTView';
-import { db } from './lib/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { CommunityView } from './components/CommunityView';
+import { SettingsView } from './components/SettingsView';
 import { Item, UserItem } from './types';
 import { INITIAL_ITEMS } from './lib/initialData';
+import { persistence } from './lib/persistence';
+import { Layout, Menu, BookOpen, GraduationCap, Users, Settings, Package, Info } from 'lucide-react';
 import { Button } from './components/ui/button';
-import { GraduationCap, LogOut, BookOpen } from 'lucide-react';
-import { Switch } from './components/ui/switch';
-import { motion } from 'motion/react';
-import { toast } from 'sonner';
+import { Toaster } from 'sonner';
 
 export type JLPTLevel = 'n5' | 'n4' | 'n3' | 'n2' | 'n1';
 export type JLPTSection = 'kanji' | 'vocabulary' | 'grammar' | 'dokkai';
 
-const AppContent: React.FC = () => {
-  const { user, profile, loading, isMock, signIn, mockSignIn, logout, showFurigana, setShowFurigana } = useAuth();
-  const [view, setView] = useState<'dashboard' | 'lessons' | 'reviews' | 'items' | 'community' | 'jlpt'>('dashboard');
-  const [selectedLevel, setSelectedLevel] = useState<JLPTLevel>('n5');
-  const [selectedSection, setSelectedSection] = useState<JLPTSection>('kanji');
-  const [lessonItems, setLessonItems] = useState<Item[]>([]);
-  const [reviewItems, setReviewItems] = useState<(Item & { userItem: UserItem })[]>([]);
-  
-  const [mockId, setMockId] = useState('');
-  const [mockPwd, setMockPwd] = useState('');
+function App() {
+  const { user, profile, loading, mockSignIn } = useAuth();
+  const [currentTab, setCurrentTab] = useState<'dashboard' | 'items' | 'jlpt' | 'community' | 'settings'>('dashboard');
+  const [session, setSession] = useState<{ type: 'lesson' | 'review', items: any[] } | null>(null);
+  const [jlptState, setJlptState] = useState<{ level: JLPTLevel, section: JLPTSection }>({ level: 'n5', section: 'kanji' });
 
-  const startLessons = async () => {
-    if (!user) return;
-    try {
-      let allItems: Item[] = [];
-      let userItemIds: string[] = [];
-
-      if (isMock) {
-        allItems = INITIAL_ITEMS;
-        userItemIds = []; // Assume no items learned for mock fresh start
-      } else {
-        const itemsSnap = await getDocs(collection(db, 'items'));
-        allItems = itemsSnap.docs.map(doc => doc.data() as Item);
-        
-        const userItemsSnap = await getDocs(collection(db, `users/${user.uid}/userItems`));
-        userItemIds = userItemsSnap.docs.map(doc => doc.data().itemId);
-      }
-      
-      const available = allItems.filter(item => 
-        !userItemIds.includes(item.id) && item.level <= (profile?.level || 1)
-      ).slice(0, 5); // Take 5 items at a time
-
-      if (available.length > 0) {
-        setLessonItems(available);
-        setView('lessons');
-      } else {
-        toast.info("No lessons available right now!");
-      }
-    } catch (error) {
-      console.error("Lesson start error:", error);
-      toast.error("Failed to start lessons. Check permissions.");
-    }
-  };
-
-  const startReviews = async () => {
-    if (!user) return;
-    try {
-      let allItems: Record<string, Item> = {};
-      let userItems: UserItem[] = [];
-
-      if (isMock) {
-        allItems = INITIAL_ITEMS.reduce((acc, item) => {
-          acc[item.id] = item;
-          return acc;
-        }, {} as Record<string, Item>);
-        // Mock 3 items ready for review
-        userItems = INITIAL_ITEMS.slice(0, 3).map(item => ({
-          uid: user.uid,
-          itemId: item.id,
-          srsStage: 1,
-          nextReviewAt: new Date().toISOString(),
-          streak: 0
-        }));
-      } else {
-        const itemsSnap = await getDocs(collection(db, 'items'));
-        allItems = itemsSnap.docs.reduce((acc, doc) => {
-          const data = doc.data() as Item;
-          acc[data.id] = data;
-          return acc;
-        }, {} as Record<string, Item>);
-        
-        const userItemsSnap = await getDocs(collection(db, `users/${user.uid}/userItems`));
-        userItems = userItemsSnap.docs.map(doc => doc.data() as UserItem);
-      }
-      
-      const ready = userItems
-        .filter(ui => {
-          if (ui.srsStage === 0 || ui.srsStage === 9) return false;
-          if (!ui.nextReviewAt) return true;
-          return new Date(ui.nextReviewAt) <= new Date();
-        })
-        .map(ui => ({ ...allItems[ui.itemId], userItem: ui }));
-
-      if (ready.length > 0) {
-        setReviewItems(ready);
-        setView('reviews');
-      } else {
-        toast.info("No reviews available right now!");
-      }
-    } catch (error) {
-      console.error("Review start error:", error);
-      toast.error("Failed to start reviews. Check permissions.");
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-slate-50">
-        <div className="animate-pulse flex flex-col items-center">
-          <div className="w-16 h-16 bg-sky-200 rounded-full mb-4" />
-          <div className="h-4 w-32 bg-slate-200 rounded" />
-        </div>
-      </div>
-    );
-  }
+  if (loading) return null;
 
   if (!user) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-sky-500 to-indigo-600 p-6">
-        <div className="bg-white p-10 rounded-3xl shadow-2xl max-w-md w-full text-center space-y-8">
-          <div className="flex justify-center">
-            <div className="bg-sky-100 p-4 rounded-2xl">
-              <GraduationCap className="w-12 h-12 text-sky-600" />
+      <div className="min-h-screen bg-slate-50 dark:bg-background flex items-center justify-center p-6">
+        <div className="max-w-md w-full space-y-8 animate-in fade-in duration-700">
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-sky-600 shadow-2xl shadow-sky-200 dark:shadow-none mb-4">
+              <span className="text-4xl">🇯🇵</span>
             </div>
+            <h1 className="text-4xl font-black text-slate-900 dark:text-white tracking-tighter uppercase">Jhakkas Nihongo</h1>
+            <p className="text-slate-500 font-medium italic">Master Japanese Offline. v2.0.0</p>
           </div>
-          <div>
-            <h1 className="text-4xl font-black text-slate-900 tracking-tight">Jhakkas Nihongo</h1>
-            <p className="text-slate-500 mt-2">Master Japanese Kanji and Vocabulary with SRS</p>
-          </div>
-          <div className="space-y-4 pt-4 border-t border-slate-100">
-            <p className="text-sm font-bold text-slate-700">Developer Preview Login</p>
-            <div className="space-y-2">
-              <input 
-                type="text" 
-                placeholder="ID (user)" 
-                className="w-full h-11 px-4 rounded-lg bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
-                value={mockId}
-                onChange={(e) => setMockId(e.target.value)}
+          <div className="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800">
+            <h2 className="text-xl font-bold mb-6 text-center text-slate-800 dark:text-slate-200">Local Offline Login</h2>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              mockSignIn(formData.get('username') as string, formData.get('password') as string);
+            }} className="space-y-4">
+              <input
+                name="username"
+                className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 ring-sky-500 transition-all font-medium"
+                placeholder="Enter Student ID"
+                required
               />
-              <input 
-                type="password" 
-                placeholder="Password (user123)" 
-                className="w-full h-11 px-4 rounded-lg bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
-                value={mockPwd}
-                onChange={(e) => setMockPwd(e.target.value)}
+              <input
+                name="password"
+                type="password"
+                className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 ring-sky-500 transition-all font-medium"
+                placeholder="Password"
+                required
               />
-            </div>
-            <Button 
-              onClick={() => mockSignIn(mockId, mockPwd)} 
-              variant="outline"
-              className="w-full h-11 border-sky-200 text-sky-700 hover:bg-sky-50"
-            >
-              Sign in with ID
-            </Button>
+              <Button type="submit" className="w-full h-14 bg-sky-600 hover:bg-sky-700 text-lg font-bold rounded-2xl shadow-lg shadow-sky-100 dark:shadow-none">
+                Access Dashboard
+              </Button>
+            </form>
           </div>
-          
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center"><span className="w-full border-t border-slate-100"></span></div>
-            <div className="relative flex justify-center text-xs uppercase"><span className="bg-white px-2 text-slate-400">Or use Google</span></div>
-          </div>
-
-          <Button onClick={signIn} className="w-full h-14 text-lg bg-sky-600 hover:bg-sky-700 rounded-xl">
-            Sign in with Google
-          </Button>
-          <p className="text-xs text-slate-400">
-            By signing in, you agree to our terms of service.
-          </p>
         </div>
       </div>
     );
   }
 
+  if (session) {
+    if (session.type === 'lesson') {
+      return <LessonSession items={session.items} onComplete={() => setSession(null)} onCancel={() => setSession(null)} />;
+    }
+    return <ReviewSession items={session.items} onComplete={() => setSession(null)} onCancel={() => setSession(null)} />;
+  }
+
+  const startLessons = () => {
+    const userItems = persistence.getUserItems();
+    const available = INITIAL_ITEMS.filter(item => 
+      !userItems.find(ui => ui.itemId === item.id) && (item.level || 1) <= (profile?.level || 1)
+    ).slice(0, 5);
+    if (available.length > 0) setSession({ type: 'lesson', items: available });
+  };
+
+  const startReviews = () => {
+    const userItems = persistence.getUserItems();
+    const ready = userItems.filter(ui => {
+      if (ui.srsStage === 0 || ui.srsStage === 9) return false;
+      return !ui.nextReviewAt || new Date(ui.nextReviewAt) <= new Date();
+    }).map(ui => {
+      const item = INITIAL_ITEMS.find(i => i.id === ui.itemId);
+      return item ? { ...item, userItem: ui } : null;
+    }).filter(Boolean);
+    
+    if (ready.length > 0) setSession({ type: 'review', items: ready });
+  };
+
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Navbar */}
-      <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="h-16 flex items-center justify-between">
-            <div className="flex items-center gap-8">
-              <h1 
-                className="text-2xl font-black text-sky-600 cursor-pointer shrink-0" 
-                onClick={() => setView('dashboard')}
-              >
-                Jhakkas Nihongo
-              </h1>
-              <div className="flex overflow-x-auto no-scrollbar gap-2 py-2 md:py-0 md:overflow-visible md:gap-4">
-                <button 
-                  onClick={() => setView('dashboard')}
-                  className={`text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${view === 'dashboard' ? 'bg-sky-50 text-sky-600' : 'text-slate-500 hover:text-slate-900'}`}
-                >
-                  Dashboard
-                </button>
-                {(['n5', 'n4', 'n3', 'n2', 'n1'] as JLPTLevel[]).map((level) => (
-                  <button 
-                    key={level}
-                    onClick={() => {
-                      setSelectedLevel(level);
-                      setView('jlpt');
-                    }}
-                    className={`text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition-colors uppercase whitespace-nowrap ${view === 'jlpt' && selectedLevel === level ? 'bg-sky-50 text-sky-600' : 'text-slate-500 hover:text-slate-900'}`}
-                  >
-                    {level}
-                  </button>
-                ))}
-                <button 
-                  onClick={() => setView('items')}
-                  className={`text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${view === 'items' ? 'bg-sky-50 text-sky-600' : 'text-slate-500 hover:text-slate-900'}`}
-                >
-                  Items
-                </button>
-                <button 
-                  onClick={() => setView('community')}
-                  className={`text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${view === 'community' ? 'bg-sky-50 text-sky-600' : 'text-slate-500 hover:text-slate-900'}`}
-                >
-                  Community
-                </button>
-              </div>
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Furigana</span>
-                <Switch checked={showFurigana} onCheckedChange={setShowFurigana} />
-              </div>
-              <div className="text-right hidden sm:block">
-                <p className="text-sm font-bold text-slate-900 leading-none">{profile?.displayName}</p>
-                <p className="text-[10px] text-slate-500 font-medium uppercase mt-1">Level {profile?.level}</p>
-              </div>
-              <Button variant="ghost" size="icon" onClick={logout} className="text-slate-400 hover:text-rose-600">
-                <LogOut className="w-5 h-5" />
-              </Button>
-            </div>
+    <div className="min-h-screen bg-slate-50 dark:bg-background pb-24 md:pb-0 md:pl-20 transition-colors duration-500">
+      <Toaster position="top-center" richColors />
+      
+      {/* Desktop Sidebar / Tablet Navigation */}
+      <nav className="fixed bottom-0 left-0 right-0 h-20 md:h-screen md:w-20 bg-white dark:bg-slate-900 border-t md:border-t-0 md:border-r border-slate-100 dark:border-slate-800 flex md:flex-col items-center justify-around md:justify-center gap-2 md:gap-8 z-50 transition-colors">
+        <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-2xl bg-sky-600 text-white font-black text-xl mb-auto mt-6">
+          J
+        </div>
+        
+        <NavButton active={currentTab === 'dashboard'} onClick={() => setCurrentTab('dashboard')} icon={<Layout />} label="Home" />
+        <NavButton active={currentTab === 'items'} onClick={() => setCurrentTab('items')} icon={<Package />} label="Market" />
+        <NavButton active={currentTab === 'jlpt'} onClick={() => setCurrentTab('jlpt')} icon={<GraduationCap />} label="Learn" />
+        <NavButton active={currentTab === 'community'} onClick={() => setCurrentTab('community')} icon={<Info />} label="About" />
+        <NavButton active={currentTab === 'settings'} onClick={() => setCurrentTab('settings')} icon={<Settings />} label="Config" />
+        
+        <div className="hidden md:block mt-auto mb-6">
+          <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs text-slate-500">
+            {profile?.displayName?.charAt(0)}
           </div>
-          
-          {/* Sub-navbar for JLPT Sections */}
-          {view === 'jlpt' && (
-            <div className="h-12 flex items-center gap-8 border-t border-slate-100">
-              {(['kanji', 'vocabulary', 'grammar', 'dokkai'] as JLPTSection[]).map((section) => (
-                <button
-                  key={section}
-                  onClick={() => setSelectedSection(section)}
-                  className={`text-xs font-bold uppercase tracking-widest transition-colors relative h-full flex items-center ${selectedSection === section ? 'text-sky-600' : 'text-slate-400 hover:text-slate-600'}`}
-                >
-                  {section}
-                  {selectedSection === section && (
-                    <motion.div 
-                      layoutId="activeSection"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-sky-600"
-                    />
-                  )}
-                </button>
-              ))}
-            </div>
-          )}
         </div>
       </nav>
 
-      <main className="py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          {view === 'dashboard' && (
-            <Dashboard onStartLessons={startLessons} onStartReviews={startReviews} />
-          )}
-          {view === 'jlpt' && (
-            <div className="space-y-8">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div>
-                  <h2 className="text-4xl font-black text-slate-900 uppercase tracking-tight">
-                    JLPT <span className="text-sky-600">{selectedLevel}</span> <span className="text-slate-300">/</span> {selectedSection}
-                  </h2>
-                  <p className="text-slate-500 mt-2 font-medium">Mastering {selectedLevel} {selectedSection} with Minna no Nihongo curriculum.</p>
-                </div>
+      {/* Main Content Area */}
+      <main className="p-4 md:p-8">
+        {currentTab === 'dashboard' && <Dashboard onStartLessons={startLessons} onStartReviews={startReviews} />}
+        {currentTab === 'items' && <ItemsView />}
+        {currentTab === 'jlpt' && (
+          <div className="space-y-8">
+            <div className="flex flex-col gap-6">
+              <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Learning Hub</h2>
+              <div className="flex flex-wrap gap-2">
+                {(['n5', 'n4', 'n3', 'n2', 'n1'] as JLPTLevel[]).map(level => (
+                  <Button 
+                    key={level}
+                    variant={jlptState.level === level ? 'default' : 'outline'}
+                    onClick={() => setJlptState({ ...jlptState, level })}
+                    className={`h-11 px-6 rounded-xl font-bold uppercase tracking-widest text-xs ${
+                      jlptState.level === level ? 'bg-sky-600' : 'border-slate-200 dark:border-slate-800'
+                    }`}
+                  >
+                    {level}
+                  </Button>
+                ))}
               </div>
-              <JLPTView level={selectedLevel} section={selectedSection} />
+              <div className="flex overflow-x-auto no-scrollbar gap-2">
+                {(['kanji', 'vocabulary', 'grammar', 'dokkai'] as JLPTSection[]).map(section => (
+                  <Button 
+                    key={section}
+                    variant={jlptState.section === section ? 'secondary' : 'ghost'}
+                    onClick={() => setJlptState({ ...jlptState, section })}
+                    className={`rounded-xl font-bold uppercase tracking-widest text-xs h-10 px-5 ${
+                      jlptState.section === section ? 'bg-sky-100 dark:bg-sky-900/30 text-sky-600' : 'text-slate-400'
+                    }`}
+                  >
+                    {section}
+                  </Button>
+                ))}
+              </div>
             </div>
-          )}
-          {view === 'items' && (
-            <div className="space-y-8">
-              <h2 className="text-4xl font-black text-slate-900 tracking-tight">All Items</h2>
-              <ItemsView />
-            </div>
-          )}
-          {view === 'community' && (
-            <div className="space-y-8">
-              <h2 className="text-4xl font-black text-slate-900 tracking-tight">Community</h2>
-              <CommunityView />
-            </div>
-          )}
-        </div>
-
-        {view === 'lessons' && (
-          <LessonSession 
-            items={lessonItems} 
-            onComplete={() => {
-              setView('dashboard');
-              toast.success("Lessons completed! New items added to your SRS queue.");
-            }}
-            onCancel={() => setView('dashboard')}
-          />
+            <JLPTView level={jlptState.level} section={jlptState.section} />
+          </div>
         )}
-        {view === 'reviews' && (
-          <ReviewSession 
-            items={reviewItems} 
-            onComplete={() => {
-              setView('dashboard');
-              toast.success("Reviews finished! Your SRS levels have been updated.");
-            }}
-            onCancel={() => setView('dashboard')}
-          />
-        )}
+        {currentTab === 'community' && <CommunityView />}
+        {currentTab === 'settings' && <SettingsView />}
       </main>
     </div>
   );
-};
+}
 
-export default function App() {
+function NavButton({ active, onClick, icon, label }: { active: boolean, onClick: () => void, icon: React.ReactNode, label: string }) {
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <button 
+      onClick={onClick}
+      className={`flex flex-col items-center gap-1 p-3 rounded-2xl transition-all duration-300 ${
+        active 
+          ? 'bg-sky-50 dark:bg-sky-900/30 text-sky-600 scale-110 shadow-sm' 
+          : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
+      }`}
+    >
+      {React.cloneElement(icon as React.ReactElement, { className: 'w-6 h-6' })}
+      <span className="text-[10px] font-black uppercase tracking-widest hidden md:block">{label}</span>
+    </button>
   );
 }
+
+export default App;

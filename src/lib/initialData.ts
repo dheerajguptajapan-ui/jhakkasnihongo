@@ -1023,5 +1023,199 @@ export const INITIAL_ITEMS: Item[] = [
     level: 1,
     lessonNumber: 1,
     explanation: 'Federative Republic of Brazil.'
-  }
+  },
+  // --- Minna no Nihongo Lesson 2 (COMPLETE) ---
+  { id: 'mn2-v1', type: 'vocabulary', character: 'これ', meanings: ['this (near me)'], readings: ['kore'], level: 1, lessonNumber: 2, explanation: 'Demonstrative pronoun for things near the speaker.' },
+  { id: 'mn2-v2', type: 'vocabulary', character: 'それ', meanings: ['that (near you)'], readings: ['sore'], level: 1, lessonNumber: 2, explanation: 'Demonstrative pronoun for things near the listener.' },
+  { id: 'mn2-v3', type: 'vocabulary', character: 'あれ', meanings: ['that over there'], readings: ['are'], level: 1, lessonNumber: 2, explanation: 'Demonstrative pronoun for things far from both.' },
+  { id: 'mn2-v4', type: 'vocabulary', character: 'この', meanings: ['this ~'], readings: ['kono'], level: 1, lessonNumber: 2, explanation: 'Used before a noun (e.g., kono hon).' },
+  { id: 'mn2-v5', type: 'vocabulary', character: 'その', meanings: ['that ~'], readings: ['sono'], level: 1, lessonNumber: 2, explanation: 'Used before a noun.' },
+  { id: 'mn2-v6', type: 'vocabulary', character: 'あの', meanings: ['that ~ over there'], readings: ['ano'], level: 1, lessonNumber: 2, explanation: 'Used before a noun.' },
+  { id: 'mn2-v7', type: 'vocabulary', character: 'ほん', meanings: ['book'], readings: ['hon'], level: 1, lessonNumber: 2, explanation: '本 in Kanji.' },
+  { id: 'mn2-v8', type: 'vocabulary', character: 'じしょ', meanings: ['dictionary'], readings: ['jisho'], level: 1, lessonNumber: 2, explanation: '辞書 in Kanji.' },
+  { id: 'mn2-v9', type: 'vocabulary', character: 'ざっし', meanings: ['magazine'], readings: ['zasshi'], level: 1, lessonNumber: 2, explanation: '雑誌 in Kanji.' },
+  { id: 'mn2-v10', type: 'vocabulary', character: 'しんぶん', meanings: ['newspaper'], readings: ['shinbun'], level: 1, lessonNumber: 2, explanation: '新聞 in Kanji.' },
+  { id: 'mn2-v11', type: 'vocabulary', character: 'ノート', meanings: ['notebook'], readings: ['no-to'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v12', type: 'vocabulary', character: 'てちょう', meanings: ['pocket diary'], readings: ['techou'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v13', type: 'vocabulary', character: 'めいし', meanings: ['business card'], readings: ['meishi'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v14', type: 'vocabulary', character: 'カード', meanings: ['card'], readings: ['ka-do'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v15', type: 'vocabulary', character: 'えんぴつ', meanings: ['pencil'], readings: ['enpitsu'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v16', type: 'vocabulary', character: 'ボールペン', meanings: ['ballpoint pen'], readings: ['bo-rupen'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v17', type: 'vocabulary', character: 'シャープペンシル', meanings: ['mechanical pencil'], readings: ['sha-pupenshiru'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v18', type: 'vocabulary', character: 'かぎ', meanings: ['key'], readings: ['kagi'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v19', type: 'vocabulary', character: 'とけい', meanings: ['watch', 'clock'], readings: ['tokei'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v20', type: 'vocabulary', character: 'かさ', meanings: ['umbrella'], readings: ['kasa'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v21', type: 'vocabulary', character: 'かばん', meanings: ['bag', 'briefcase'], readings: ['kaban'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v22', type: 'vocabulary', character: 'ＣＤ', meanings: ['CD'], readings: ['shi-di-'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v23', type: 'vocabulary', character: 'テレビ', meanings: ['television'], readings: ['terebi'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v24', type: 'vocabulary', character: 'ラジオ', meanings: ['radio'], readings: ['rajio'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v25', type: 'vocabulary', character: 'カメラ', meanings: ['camera'], readings: ['kamera'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v26', type: 'vocabulary', character: 'コンピューター', meanings: ['computer'], readings: ['konpyu-ta-'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v27', type: 'vocabulary', character: 'くるま', meanings: ['car', 'vehicle'], readings: ['kuruma'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v28', type: 'vocabulary', character: 'つくえ', meanings: ['desk'], readings: ['tsukue'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v29', type: 'vocabulary', character: 'いす', meanings: ['chair'], readings: ['isu'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v30', type: 'vocabulary', character: 'チョコレート', meanings: ['chocolate'], readings: ['chokore-to'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v31', type: 'vocabulary', character: 'コーヒー', meanings: ['coffee'], readings: ['ko-hi-'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v32', type: 'vocabulary', character: '［お］みやげ', meanings: ['souvenir', 'present'], readings: ['omiyage'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v33', type: 'vocabulary', character: 'えいご', meanings: ['English language'], readings: ['eigo'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v34', type: 'vocabulary', character: 'にほんご', meanings: ['Japanese language'], readings: ['nihongo'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v35', type: 'vocabulary', character: 'ご', meanings: ['~ language'], readings: ['go'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v36', type: 'vocabulary', character: 'なん', meanings: ['what'], readings: ['nan'], level: 1, lessonNumber: 2 },
+  { id: 'mn2-v37', type: 'vocabulary', character: 'そう', meanings: ['so'], readings: ['sou'], level: 1, lessonNumber: 2 },
+
+  // --- Minna no Nihongo Lesson 3 (COMPLETE) ---
+  { id: 'mn3-v1', type: 'vocabulary', character: 'ここ', meanings: ['here'], readings: ['koko'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v2', type: 'vocabulary', character: 'そこ', meanings: ['there'], readings: ['soko'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v3', type: 'vocabulary', character: 'あそこ', meanings: ['that place over there'], readings: ['asoko'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v4', type: 'vocabulary', character: 'どこ', meanings: ['where'], readings: ['doko'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v5', type: 'vocabulary', character: 'こちら', meanings: ['this way (polite)'], readings: ['kochira'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v6', type: 'vocabulary', character: 'そちら', meanings: ['that way (polite)'], readings: ['sochira'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v7', type: 'vocabulary', character: 'あちら', meanings: ['that way over there (polite)'], readings: ['achira'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v8', type: 'vocabulary', character: 'どちら', meanings: ['which way (polite)'], readings: ['dochira'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v9', type: 'vocabulary', character: 'きょうしつ', meanings: ['classroom'], readings: ['kyoushitsu'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v10', type: 'vocabulary', character: 'しょくどう', meanings: ['dining hall', 'canteen'], readings: ['shokudou'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v11', type: 'vocabulary', character: 'じむしょ', meanings: ['office'], readings: ['jimusho'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v12', type: 'vocabulary', character: 'かいぎしつ', meanings: ['conference room'], readings: ['kaigishitsu'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v13', type: 'vocabulary', character: 'うけつけ', meanings: ['reception desk'], readings: ['uketsuke'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v14', type: 'vocabulary', character: 'ロビー', meanings: ['lobby'], readings: ['robi-'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v15', type: 'vocabulary', character: 'へや', meanings: ['room'], readings: ['heya'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v16', type: 'vocabulary', character: 'トイレ', meanings: ['toilet', 'restroom'], readings: ['toire'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v17', type: 'vocabulary', character: 'おてあらい', meanings: ['restroom'], readings: ['otearai'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v18', type: 'vocabulary', character: 'かいだん', meanings: ['staircase'], readings: ['kaidan'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v19', type: 'vocabulary', character: 'エレベーター', meanings: ['elevator', 'lift'], readings: ['erebe-ta-'], level: 1, lessonNumber: 3 },
+  { id: 'mn3-v20', type: 'vocabulary', character: 'エスカレーター', meanings: ['escalator'], readings: ['esukare-ta-'], level: 1, lessonNumber: 3 },
+
+  // --- Grammar Expansion (Lessons 2-3) ---
+  {
+    id: 'mn2-g3',
+    type: 'grammar',
+    character: 'N1 の N2',
+    meanings: ['Possession / Attribute'],
+    readings: ['no'],
+    level: 1,
+    lessonNumber: 2,
+    explanation: 'The particle の connects two nouns. N1 modifies N2. It often indicates possession (my book) or content (a Japanese book).',
+    sentences: [
+      { japanese: 'これは私の本です。', english: 'This is my book.', furigana: 'これは私[わたし]の本[ほん]です。' },
+      { japanese: 'それはコンピューターの本です。', english: 'That is a book about computers.', furigana: 'それはコンピューターの本[ほん]です。' }
+    ]
+  },
+  {
+    id: 'mn3-g1',
+    type: 'grammar',
+    character: 'N1 は どこ（こちら） ですか',
+    meanings: ['Asking where N1 is'],
+    readings: ['wa doko desu ka'],
+    level: 1,
+    lessonNumber: 3,
+    explanation: 'Used to ask the location of a person, thing, or place. こちら/そちら/あちら are polite versions of the location.',
+    sentences: [
+      { japanese: 'お手洗いはどこですか。', english: 'Where is the restroom?', furigana: 'お手[て]洗[あら]いはどこですか。' },
+      { japanese: 'エレベーターはどちらですか. ', english: 'Where (which way) is the elevator?', furigana: 'エレベーターはどちらですか。' }
+    ]
+  },
+  // --- Minna no Nihongo Lesson 4 (COMPLETE) ---
+  { id: 'mn4-v1', type: 'vocabulary', character: 'おきます', meanings: ['get up', 'wake up'], readings: ['okimasu'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v2', type: 'vocabulary', character: 'ねます', meanings: ['sleep', 'go to bed'], readings: ['nemasu'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v3', type: 'vocabulary', character: 'はたらきます', meanings: ['work'], readings: ['hatarakimasu'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v4', type: 'vocabulary', character: 'やすみます', meanings: ['take a rest', 'take a holiday'], readings: ['yasumimasu'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v5', type: 'vocabulary', character: 'べんきょうします', meanings: ['study'], readings: ['benkyoushimasu'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v6', type: 'vocabulary', character: 'おわります', meanings: ['finish'], readings: ['owarimasu'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v7', type: 'vocabulary', character: 'デパート', meanings: ['department store'], readings: ['depa-to'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v8', type: 'vocabulary', character: 'ぎんこう', meanings: ['bank'], readings: ['ginkou'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v9', type: 'vocabulary', character: 'ゆうびんきょく', meanings: ['post office'], readings: ['yuubinkyoku'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v10', type: 'vocabulary', character: 'としょかん', meanings: ['library'], readings: ['toshokan'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v11', type: 'vocabulary', character: 'びじゅつかん', meanings: ['art museum'], readings: ['bijutsukan'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v12', type: 'vocabulary', character: 'いま', meanings: ['now'], readings: ['ima'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v13', type: 'vocabulary', character: '〜じ', meanings: ['~ o\'clock'], readings: ['~ ji'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v14', type: 'vocabulary', character: '〜ふん', meanings: ['~ minute'], readings: ['~ fun'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v15', type: 'vocabulary', character: 'はん', meanings: ['half'], readings: ['han'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v16', type: 'vocabulary', character: 'なんじ', meanings: ['what time'], readings: ['nanji'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v17', type: 'vocabulary', character: 'なんぷん', meanings: ['what minute'], readings: ['nanpun'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v18', type: 'vocabulary', character: 'ごぜん', meanings: ['a.m.', 'morning'], readings: ['gozen'], level: 1, lessonNumber: 4 },
+  { id: 'mn4-v19', type: 'vocabulary', character: 'ごご', meanings: ['p.m.', 'afternoon'], readings: ['gogo'], level: 1, lessonNumber: 4 },
+
+  // --- Minna no Nihongo Lesson 5 (COMPLETE) ---
+  { id: 'mn5-v1', type: 'vocabulary', character: 'いきます', meanings: ['go'], readings: ['ikimasu'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v2', type: 'vocabulary', character: 'きます', meanings: ['come'], readings: ['kimasu'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v3', type: 'vocabulary', character: 'かえります', meanings: ['go home', 'return'], readings: ['kaerimasu'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v4', type: 'vocabulary', character: 'がっこう', meanings: ['school'], readings: ['gakkou'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v5', type: 'vocabulary', character: 'スーパー', meanings: ['supermarket'], readings: ['su-pa-'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v6', type: 'vocabulary', character: 'えき', meanings: ['station'], readings: ['eki'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v7', type: 'vocabulary', character: 'ひこうき', meanings: ['airplane'], readings: ['hikouki'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v8', type: 'vocabulary', character: 'ふね', meanings: ['ship', 'boat'], readings: ['fune'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v9', type: 'vocabulary', character: 'でんしゃ', meanings: ['electric train'], readings: ['densha'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v10', type: 'vocabulary', character: 'ちかてつ', meanings: ['subway', 'underground'], readings: ['chikatetsu'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v11', type: 'vocabulary', character: 'しんかんせん', meanings: ['bullet train'], readings: ['shinkansen'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v12', type: 'vocabulary', character: 'バス', meanings: ['bus'], readings: ['basu'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v13', type: 'vocabulary', character: 'タクシー', meanings: ['taxi'], readings: ['takushi-'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v14', type: 'vocabulary', character: 'じてんしゃ', meanings: ['bicycle'], readings: ['jitensha'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v15', type: 'vocabulary', character: 'あるいて', meanings: ['on foot'], readings: ['aruite'], level: 1, lessonNumber: 5 },
+  { id: 'mn5-v16', type: 'vocabulary', character: 'ひと', meanings: ['person'], readings: ['hito'], level: 1, lessonNumber: 5 },
+
+  // --- Grammar Expansion (Lessons 4-5) ---
+  {
+    id: 'mn4-g1',
+    type: 'grammar',
+    character: 'いま 〜じ 〜ふん です',
+    meanings: ['Telling time'],
+    readings: ['ima ~ji ~fun desu'],
+    level: 1,
+    lessonNumber: 4,
+    explanation: 'To tell time, we use numbers followed by じ (hour) and ふん/ぷん (minutes).',
+    sentences: [
+      { japanese: '今、九時三十分です。', english: 'It is 9:30 now.', furigana: '今[いま]、九[く]時[じ]三[さん]十[じゅう]分[ぷん]です。' }
+    ]
+  },
+  {
+    id: 'mn5-g1',
+    type: 'grammar',
+    character: 'N（場所）へ 行きます/来ます/帰ります',
+    meanings: ['Going/Coming/Returning to a place'],
+    readings: ['place e ikimasu'],
+    level: 1,
+    lessonNumber: 5,
+    explanation: 'The particle へ (pronounced "e") indicates the direction or destination of a movement verb.',
+    sentences: [
+      { japanese: '京都へ行きます。', english: 'I am going to Kyoto.', furigana: '京[きょう]都[と]へ行[い]きます。' },
+      { japanese: 'うちへ帰ります。', english: 'I am going home.', furigana: 'うちへ帰[かえ]ります。' }
+    ]
+  },
+  // --- Minna no Nihongo Lesson 6 ---
+  { id: 'mn6-v1', type: 'vocabulary', character: 'たべます', meanings: ['eat'], readings: ['tabemasu'], level: 1, lessonNumber: 6 },
+  { id: 'mn6-v2', type: 'vocabulary', character: 'のみます', meanings: ['drink'], readings: ['nomimasu'], level: 1, lessonNumber: 6 },
+  { id: 'mn6-v3', type: 'vocabulary', character: 'すいます', meanings: ['smoke (tobacco)'], readings: ['suimasu'], level: 1, lessonNumber: 6 },
+  { id: 'mn6-v4', type: 'vocabulary', character: 'みます', meanings: ['see', 'look at', 'watch'], readings: ['mimasu'], level: 1, lessonNumber: 6 },
+  { id: 'mn6-v5', type: 'vocabulary', character: 'ききます', meanings: ['hear', 'listen'], readings: ['kikimasu'], level: 1, lessonNumber: 6 },
+  { id: 'mn6-g1', type: 'grammar', character: 'N を V（他動詞）', meanings: ['Object marker particle'], readings: ['wo'], level: 1, lessonNumber: 6, explanation: 'The particle を indicates the direct object of a transitive verb.' },
+
+  // --- Minna no Nihongo Lesson 7 ---
+  { id: 'mn7-v1', type: 'vocabulary', character: 'きります', meanings: ['cut', 'slice'], readings: ['kirimasu'], level: 1, lessonNumber: 7 },
+  { id: 'mn7-v2', type: 'vocabulary', character: 'おくります', meanings: ['send'], readings: ['okurimasu'], level: 1, lessonNumber: 7 },
+  { id: 'mn7-v3', type: 'vocabulary', character: 'あげます', meanings: ['give'], readings: ['agemasu'], level: 1, lessonNumber: 7 },
+  { id: 'mn7-v4', type: 'vocabulary', character: 'もらいます', meanings: ['receive'], readings: ['moraimasu'], level: 1, lessonNumber: 7 },
+  { id: 'mn7-v5', type: 'vocabulary', character: 'かします', meanings: ['lend'], readings: ['kashimasu'], level: 1, lessonNumber: 7 },
+  { id: 'mn7-v6', type: 'vocabulary', character: 'かります', meanings: ['borrow'], readings: ['karimasu'], level: 1, lessonNumber: 7 },
+
+  // --- Minna no Nihongo Lesson 8 ---
+  { id: 'mn8-v1', type: 'vocabulary', character: 'るい', meanings: ['handsome'], readings: ['hansamu'], level: 1, lessonNumber: 8 },
+  { id: 'mn8-v2', type: 'vocabulary', character: 'きれいい（な）', meanings: ['beautiful', 'clean'], readings: ['kirei'], level: 1, lessonNumber: 8 },
+  { id: 'mn8-v3', type: 'vocabulary', character: 'しずか（な）', meanings: ['quiet'], readings: ['shizuka'], level: 1, lessonNumber: 8 },
+  { id: 'mn8-v4', type: 'vocabulary', character: 'にぎやか（な）', meanings: ['lively', 'busy'], readings: ['nigiyaka'], level: 1, lessonNumber: 8 },
+  { id: 'mn8-v5', type: 'vocabulary', character: 'ゆうめい（な）', meanings: ['famous'], readings: ['yuumei'], level: 1, lessonNumber: 8 },
+  { id: 'mn8-v6', type: 'vocabulary', character: 'おおきい', meanings: ['big', 'large'], readings: ['ookii'], level: 1, lessonNumber: 8 },
+  { id: 'mn8-v7', type: 'vocabulary', character: 'ちいさい', meanings: ['small', 'little'], readings: ['chiisai'], level: 1, lessonNumber: 8 },
+
+  // --- Minna no Nihongo Lesson 9 ---
+  { id: 'mn9-v1', type: 'vocabulary', character: 'わかります', meanings: ['understand'], readings: ['wakarimasu'], level: 1, lessonNumber: 9 },
+  { id: 'mn9-v2', type: 'vocabulary', character: 'あります', meanings: ['have', 'exist (things)'], readings: ['arimasu'], level: 1, lessonNumber: 9 },
+  { id: 'mn9-v3', type: 'vocabulary', character: 'すき（な）', meanings: ['like'], readings: ['suki'], level: 1, lessonNumber: 9 },
+  { id: 'mn9-v4', type: 'vocabulary', character: 'きらい（な）', meanings: ['dislike'], readings: ['kirai'], level: 1, lessonNumber: 9 },
+  { id: 'mn9-v5', type: 'vocabulary', character: 'じょうず（な）', meanings: ['skillful', 'good at'], readings: ['jouzu'], level: 1, lessonNumber: 9 },
+  { id: 'mn9-v6', type: 'vocabulary', character: 'へた（な）', meanings: ['unskillful', 'bad at'], readings: ['heta'], level: 1, lessonNumber: 9 },
+
+  // --- Minna no Nihongo Lesson 10 ---
+  { id: 'mn10-v1', type: 'vocabulary', character: 'あります', meanings: ['exist (non-living)'], readings: ['arimasu'], level: 1, lessonNumber: 10 },
+  { id: 'mn10-v2', type: 'vocabulary', character: 'います', meanings: ['exist (living)'], readings: ['imasu'], level: 1, lessonNumber: 10 },
+  { id: 'mn10-v3', type: 'vocabulary', character: 'いろいろ（な）', meanings: ['various', 'all kinds of'], readings: ['iroiro'], level: 1, lessonNumber: 10 }
 ];

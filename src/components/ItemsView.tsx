@@ -1,37 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { db } from '../lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
 import { Item } from '../types';
-import { useAuth } from '../lib/AuthContext';
 import { INITIAL_ITEMS } from '../lib/initialData';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Search } from 'lucide-react';
 
 export const ItemsView: React.FC = () => {
-  const { isMock } = useAuth();
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    const fetchItems = async () => {
-      if (isMock) {
-        setItems(INITIAL_ITEMS);
-        setLoading(false);
-        return;
-      }
-      try {
-        const snap = await getDocs(collection(db, 'items'));
-        setItems(snap.docs.map(doc => doc.data() as Item));
-      } catch (err) {
-        console.error("Firestore items fetch error:", err);
-        setItems(INITIAL_ITEMS);
-      }
-      setLoading(false);
-    };
-    fetchItems();
-  }, [isMock]);
+    // In offline mode, we always use INITIAL_ITEMS as the source
+    setItems(INITIAL_ITEMS);
+    setLoading(false);
+  }, []);
 
   const filtered = items.filter(item => 
     item.character.includes(search) || 

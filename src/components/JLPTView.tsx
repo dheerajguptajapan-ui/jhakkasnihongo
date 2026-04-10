@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { db } from '../lib/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
 import { Item, ItemType } from '../types';
 import { JLPTLevel, JLPTSection } from '../App';
 import { KanjiExplorer } from './KanjiExplorer';
@@ -9,7 +7,6 @@ import { VocabularyListView } from './VocabularyListView';
 import { GrammarView } from './GrammarView';
 import { DokkaiView } from './DokkaiView';
 import { LessonTabsView } from './LessonTabsView';
-import { useAuth } from '../lib/AuthContext';
 import { INITIAL_ITEMS } from '../lib/initialData';
 
 interface JLPTViewProps {
@@ -18,13 +15,12 @@ interface JLPTViewProps {
 }
 
 export const JLPTView: React.FC<JLPTViewProps> = ({ level, section }) => {
-  const { profile, isMock } = useAuth();
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedLesson, setSelectedLesson] = useState<number>(1);
 
   useEffect(() => {
-    const fetchItems = async () => {
+    const fetchItems = () => {
       setLoading(true);
       const levelNum = parseInt(level.replace('n', ''));
       // Map JLPT level to internal level (N5=1, N4=2, etc.)
@@ -35,49 +31,27 @@ export const JLPTView: React.FC<JLPTViewProps> = ({ level, section }) => {
       if (section === 'grammar') itemType = 'grammar';
       if (section === 'dokkai') itemType = 'dokkai';
 
-      if (isMock) {
-        let filtered = INITIAL_ITEMS.filter(i => i.level === internalLevel && i.type === itemType);
-        // Filter by lesson if it's N5
-        if (level === 'n5') {
-          filtered = filtered.filter(i => i.lessonNumber === selectedLesson);
-        }
-        setItems(filtered);
-        setLoading(false);
-        return;
-      }
-
-      try {
-        let q;
-        if (level === 'n5') {
-          q = query(
-            collection(db, 'items'),
-            where('level', '==', internalLevel),
-            where('type', '==', itemType),
-            where('lessonNumber', '==', selectedLesson)
-          );
+      // Always use INITIAL_ITEMS in offline-only mode
+      let filtered = INITIAL_ITEMS.filter(i => i.level === internalLevel && i.type === itemType);
+      
+      // Filter by lesson if it's N5
+      if (level === 'n5') {
+        const lessonItems = filtered.filter(i => i.lessonNumber === selectedLesson);
+        // If it's vocabulary and no lesson specific items, maybe show all (or keep specific)
+        if (section === 'vocabulary') {
+          setItems(lessonItems);
         } else {
-          q = query(
-            collection(db, 'items'),
-            where('level', '==', internalLevel),
-            where('type', '==', itemType)
-          );
+          setItems(filtered);
         }
-
-        const snap = await getDocs(q);
-        setItems(snap.docs.map(doc => doc.data() as Item));
-      } catch (err) {
-        console.error("Firestore JLPT fetch error:", err);
-        let filtered = INITIAL_ITEMS.filter(i => i.level === internalLevel && i.type === itemType);
-        if (level === 'n5') {
-          filtered = filtered.filter(i => i.lessonNumber === selectedLesson);
-        }
+      } else {
         setItems(filtered);
       }
+      
       setLoading(false);
     };
 
     fetchItems();
-  }, [level, section, isMock, selectedLesson]);
+  }, [level, section, selectedLesson]);
 
   if (loading) {
     return (
@@ -91,10 +65,10 @@ export const JLPTView: React.FC<JLPTViewProps> = ({ level, section }) => {
   if (items.length === 0) {
     return (
       <div className="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-100">
-        <p className="text-slate-400 font-medium text-lg mb-4">No {section} found for this level.</p>
-        {profile?.role === 'admin' && (
-          <p className="text-sm text-slate-500 italic uppercase tracking-widest font-bold">Go to Dashboard to seed global items.</p>
-        )}
+        <p className="text-slate-400 font-medium text-lg mb-4">No {section} found for this level/lesson.</p>
+        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+          Lesson {selectedLesson} might not have {section} data yet.
+        </p>
       </div>
     );
   }
@@ -133,24 +107,15 @@ export const JLPTView: React.FC<JLPTViewProps> = ({ level, section }) => {
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-black text-slate-800 uppercase tracking-tight">Lesson {selectedLesson} Vocabulary</h3>
               <Badge variant="outline" className="bg-sky-50 text-sky-600 border-sky-100 uppercase font-black text-[10px] tracking-widest px-3 py-1">
-                Tabbed View
+                Explorer
               </Badge>
             </div>
-            {items.length > 0 ? (
-              <LessonTabsView items={items.filter(i => i.lessonNumber === selectedLesson)} />
-            ) : (
-              <div className="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-100">
-                <p className="text-slate-400 font-medium text-lg mb-2">Lesson {selectedLesson} data is not yet available.</p>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Feed data to see content here</p>
-              </div>
-            )}
+            <LessonTabsView items={items} />
             
-            {items.length > 0 && (
-              <div className="pt-12 border-t border-slate-100">
-                <h3 className="text-xl font-black text-slate-800 uppercase tracking-tight mb-6">List View</h3>
-                <VocabularyListView items={items} />
-              </div>
-            )}
+            <div className="pt-12 border-t border-slate-100">
+              <h3 className="text-xl font-black text-slate-800 uppercase tracking-tight mb-6">Full List</h3>
+              <VocabularyListView items={items} />
+            </div>
           </div>
         ) : (
           <VocabularyListView items={items} />

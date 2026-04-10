@@ -4,11 +4,10 @@ import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Progress } from './ui/progress';
 import { Badge } from './ui/badge';
-import { ChevronLeft, X, CheckCircle2, AlertCircle } from 'lucide-react';
+import { X, CheckCircle2, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { db } from '../lib/firebase';
-import { doc, updateDoc, increment } from 'firebase/firestore';
 import { useAuth } from '../lib/AuthContext';
+import { persistence } from '../lib/persistence';
 
 interface ReviewSessionProps {
   items: (Item & { userItem: UserItem })[];
@@ -35,19 +34,17 @@ export const ReviewSession: React.FC<ReviewSessionProps> = ({ items, onComplete,
         ...prev,
         [currentItem.id]: { meaningDone: false, readingDone: currentItem.type === 'radical', incorrectCount: 0 }
       }));
-      if (currentItem.type === 'radical') {
-        setSubStep('meaning');
-      }
+      setSubStep('meaning');
     }
-  }, [currentIndex, currentItem]);
+  }, [currentIndex, currentItem, itemStates]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (feedback) return;
 
     const isCorrect = subStep === 'meaning'
-      ? currentItem.meanings.some(m => m.toLowerCase() === input.toLowerCase())
-      : currentItem.readings.some(r => r === input);
+      ? currentItem.meanings.some(m => m.toLowerCase() === input.trim().toLowerCase())
+      : currentItem.readings.some(r => r === input.trim());
 
     if (isCorrect) {
       setFeedback('correct');
@@ -97,12 +94,11 @@ export const ReviewSession: React.FC<ReviewSessionProps> = ({ items, onComplete,
     const nextInterval = SRS_INTERVALS[newStage];
     const nextReviewAt = nextInterval === -1 ? null : new Date(Date.now() + nextInterval).toISOString();
 
-    const userItemRef = doc(db, `users/${user.uid}/userItems`, currentItem.id);
-    await updateDoc(userItemRef, {
+    persistence.updateUserItem(user.uid, currentItem.id, {
       srsStage: newStage,
       nextReviewAt,
       lastReviewedAt: new Date().toISOString(),
-      streak: incorrectCount === 0 ? increment(1) : 0
+      streak: incorrectCount === 0 ? (userItem.streak || 0) + 1 : 0
     });
 
     setCompletedCount(prev => prev + 1);
@@ -116,6 +112,8 @@ export const ReviewSession: React.FC<ReviewSessionProps> = ({ items, onComplete,
 
   const progress = (completedCount / items.length) * 100;
 
+  if (!currentItem) return null;
+
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-8">
       <div className="flex justify-between items-center">
@@ -125,7 +123,7 @@ export const ReviewSession: React.FC<ReviewSessionProps> = ({ items, onComplete,
         </Button>
         <div className="flex items-center gap-2">
           <Badge variant="secondary" className="bg-emerald-100 text-emerald-700">
-            {completedCount} Correct
+            {completedCount} Done
           </Badge>
           <Badge variant="secondary" className="bg-rose-100 text-rose-700">
             {items.length - completedCount} Remaining

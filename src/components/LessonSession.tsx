@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Item, UserItem } from '../types';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Progress } from './ui/progress';
 import { Badge } from './ui/badge';
-import { ChevronLeft, ChevronRight, CheckCircle2, BookOpen } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { db } from '../lib/firebase';
-import { collection, doc, setDoc } from 'firebase/firestore';
 import { useAuth } from '../lib/AuthContext';
+import { persistence } from '../lib/persistence';
 
 interface LessonSessionProps {
   items: Item[];
@@ -20,7 +19,6 @@ export const LessonSession: React.FC<LessonSessionProps> = ({ items, onComplete,
   const { user } = useAuth();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isQuizMode, setIsQuizMode] = useState(false);
-  const [quizAnswers, setQuizAnswers] = useState<Record<string, { meaning: string, reading: string }>>({});
   const [quizStep, setQuizStep] = useState(0);
   const [quizInput, setQuizInput] = useState('');
   const [quizSubStep, setQuizSubStep] = useState<'meaning' | 'reading'>('meaning');
@@ -71,20 +69,17 @@ export const LessonSession: React.FC<LessonSessionProps> = ({ items, onComplete,
 
   const finalizeLessons = async () => {
     if (!user) return;
-    const batch = items.map(item => {
-      const userItemRef = doc(db, `users/${user.uid}/userItems`, item.id);
-      const userItem: UserItem = {
-        uid: user.uid,
-        itemId: item.id,
+    
+    // Save all items to local persistent storage
+    items.forEach(item => {
+      persistence.updateUserItem(user.uid, item.id, {
         srsStage: 1, // Apprentice 1
         nextReviewAt: new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString(),
         lastReviewedAt: new Date().toISOString(),
         streak: 0
-      };
-      return setDoc(userItemRef, userItem);
+      });
     });
 
-    await Promise.all(batch);
     onComplete();
   };
 
@@ -138,7 +133,7 @@ export const LessonSession: React.FC<LessonSessionProps> = ({ items, onComplete,
           <BookOpen className="w-5 h-5 text-sky-600" />
           <span className="font-bold">Lesson Session</span>
         </div>
-        <div className="w-24" /> {/* Spacer */}
+        <div className="w-24" />
       </div>
 
       <Progress value={progress} className="h-2" />

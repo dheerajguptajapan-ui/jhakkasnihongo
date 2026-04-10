@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../lib/AuthContext';
-import { db } from '../lib/firebase';
-import { collection, query, where, getDocs, writeBatch, doc, onSnapshot } from 'firebase/firestore';
 import { INITIAL_ITEMS } from '../lib/initialData';
 import { Item, UserItem, SRS_STAGES_NAMES } from '../types';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Progress } from './ui/progress';
 import { Badge } from './ui/badge';
-import { BookOpen, GraduationCap, Trophy, BarChart3, Settings } from 'lucide-react';
+import { BookOpen, GraduationCap, Trophy, BarChart3 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
-import { ScrollArea } from './ui/scroll-area';
-import { Furigana } from './Furigana';
 import { KanjiExplorer } from './KanjiExplorer';
-import { Switch } from './ui/switch';
-import { toast } from 'sonner';
+import { persistence } from '../lib/persistence';
 
 interface DashboardProps {
   onStartLessons: () => void;
@@ -24,91 +18,22 @@ interface DashboardProps {
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartReviews }) => {
-  const { user, profile, isMock, showFurigana, setShowFurigana } = useAuth();
+  const { user, profile } = useAuth();
   const [items, setItems] = useState<Item[]>([]);
   const [userItems, setUserItems] = useState<UserItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedKanji, setSelectedKanji] = useState<Item | null>(null);
 
   useEffect(() => {
     if (!user) return;
 
-    if (isMock) {
-      setItems(INITIAL_ITEMS);
-      setUserItems([]); // Fresh start for mock
-      setLoading(false);
-      return;
-    }
-
-    // Fetch all items
-    const fetchItems = async () => {
-      try {
-        const itemsSnap = await getDocs(collection(db, 'items'));
-        const itemsData = itemsSnap.docs.map(doc => doc.data() as Item);
-        setItems(itemsData);
-      } catch (err) {
-        console.error("Firestore error:", err);
-        setItems(INITIAL_ITEMS); // Fallback to initial data on error
-      }
-    };
-
-    fetchItems();
-
-    // Listen for user items
-    const q = query(collection(db, `users/${user.uid}/userItems`));
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const data = snapshot.docs.map(doc => doc.data() as UserItem);
-      setUserItems(data);
-      setLoading(false);
-    }, (err) => {
-      console.error("UserItems fetch error:", err);
-      setUserItems([]);
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, [user, isMock]);
-
-  const seedData = async () => {
-    try {
-      const batch = writeBatch(db);
-      INITIAL_ITEMS.forEach(item => {
-        const itemRef = doc(db, 'items', item.id);
-        batch.set(itemRef, item);
-      });
-      await batch.commit();
-      toast.success('Global items seeded successfully!');
-    } catch (error) {
-      console.error("Seed error:", error);
-      toast.error('Failed to seed global items. Check permissions.');
-    }
-  };
-
-  const seedUserProgress = async () => {
-    if (!user) return;
-    try {
-      const batch = writeBatch(db);
-      // Seed first 5 items as Apprentice 1
-      const firstFive = items.slice(0, 5);
-      firstFive.forEach(item => {
-        const userItemRef = doc(db, `users/${user.uid}/userItems`, item.id);
-        const userItem: UserItem = {
-          uid: user.uid,
-          itemId: item.id,
-          srsStage: 1,
-          nextReviewAt: new Date().toISOString(), // Ready now
-          lastReviewedAt: new Date().toISOString(),
-          streak: 0
-        };
-        batch.set(userItemRef, userItem);
-      });
-      await batch.commit();
-      toast.success('User progress seeded! You have 5 reviews ready.');
-    } catch (error) {
-      console.error("Seed progress error:", error);
-      toast.error('Failed to seed user progress.');
-    }
-  };
+    // Use local persistence only
+    const allItems = INITIAL_ITEMS;
+    const storedUserItems = persistence.getUserItems();
+    
+    setItems(allItems);
+    setUserItems(storedUserItems);
+    setLoading(false);
+  }, [user]);
 
   const reviewsAvailable = userItems.filter(ui => {
     if (ui.srsStage === 0) return false; // Not started
@@ -118,7 +43,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
   }).length;
 
   const lessonsAvailable = items.filter(item => 
-    !userItems.find(ui => ui.itemId === item.id) && item.level <= (profile?.level || 1)
+    !userItems.find(ui => ui.itemId === item.id) && (item.level || 1) <= (profile?.level || 1)
   ).length;
 
   const srsDistribution = SRS_STAGES_NAMES.map((name, index) => ({
@@ -128,36 +53,22 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
 
   const COLORS = ['#94a3b8', '#38bdf8', '#0ea5e9', '#0284c7', '#0369a1', '#10b981', '#059669', '#8b5cf6', '#7c3aed', '#f43f5e'];
 
-  const kanjiItems = items.filter(item => item.type === 'kanji');
-
-  if (loading) return <div className="flex items-center justify-center h-screen">Loading...</div>;
+  if (loading) return <div className="flex items-center justify-center h-64">Loading Dashboard...</div>;
 
   return (
-    <div className="max-w-6xl mx-auto p-6 space-y-8">
+    <div className="max-w-6xl mx-auto p-6 space-y-8 animate-in fade-in duration-500">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900">
+          <h1 className="text-4xl font-black tracking-tight text-slate-900">
             Welcome back, <span className="text-sky-600">{profile?.displayName}</span>!
           </h1>
-          <p className="text-slate-500 mt-1">Level {profile?.level} • {profile?.xp} XP</p>
+          <p className="text-slate-500 mt-1 font-medium italic">Your progress is safely stored on this device.</p>
         </div>
         <div className="flex gap-3">
-          {profile?.role === 'admin' && (
-            <>
-              <Button variant="outline" size="sm" onClick={seedData}>
-                <Settings className="w-4 h-4 mr-2" />
-                Seed Global Items
-              </Button>
-              <Button variant="outline" size="sm" onClick={seedUserProgress}>
-                <Settings className="w-4 h-4 mr-2" />
-                Seed User Progress
-              </Button>
-            </>
-          )}
-          <Badge variant="secondary" className="px-3 py-1 text-sm">
+          <Badge variant="secondary" className="px-3 py-1 text-sm bg-sky-50 text-sky-700 border-sky-100">
             <Trophy className="w-4 h-4 mr-2 text-yellow-500" />
-            Rank: Apprentice
+            Rank: {profile?.level && profile.level > 5 ? 'Master' : 'Apprentice'}
           </Badge>
         </div>
       </div>
@@ -169,19 +80,19 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="h-full border-2 border-sky-100 shadow-sm hover:shadow-md transition-shadow">
-            <CardHeader className="bg-sky-50/50">
-              <CardTitle className="flex items-center text-sky-900">
-                <BookOpen className="w-5 h-5 mr-2" />
-                Lessons
+          <Card className="h-full border-none shadow-2xl shadow-slate-200/50 hover:scale-[1.01] transition-transform overflow-hidden rounded-3xl">
+            <CardHeader className="bg-sky-600 p-6">
+              <CardTitle className="flex items-center text-white text-xl font-black uppercase tracking-widest">
+                <BookOpen className="w-5 h-5 mr-3" />
+                Available Lessons
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-6">
+            <CardContent className="pt-10 pb-8 px-8">
               <div className="text-center space-y-4">
-                <div className="text-5xl font-black text-sky-600">{lessonsAvailable}</div>
-                <p className="text-slate-600">New items available to learn</p>
+                <div className="text-7xl font-black text-slate-900 tracking-tighter">{lessonsAvailable}</div>
+                <p className="text-slate-500 font-medium">New vocabulary items ready to learn</p>
                 <Button 
-                  className="w-full bg-sky-600 hover:bg-sky-700 h-12 text-lg" 
+                  className="w-full bg-sky-600 hover:bg-sky-700 h-14 text-lg font-bold rounded-2xl shadow-lg shadow-sky-100" 
                   disabled={lessonsAvailable === 0}
                   onClick={onStartLessons}
                 >
@@ -197,19 +108,19 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="h-full border-2 border-rose-100 shadow-sm hover:shadow-md transition-shadow">
-            <CardHeader className="bg-rose-50/50">
-              <CardTitle className="flex items-center text-rose-900">
-                <GraduationCap className="w-5 h-5 mr-2" />
-                Reviews
+          <Card className="h-full border-none shadow-2xl shadow-slate-200/50 hover:scale-[1.01] transition-transform overflow-hidden rounded-3xl">
+            <CardHeader className="bg-rose-500 p-6">
+              <CardTitle className="flex items-center text-white text-xl font-black uppercase tracking-widest">
+                <GraduationCap className="w-5 h-5 mr-3" />
+                Pending Reviews
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-6">
+            <CardContent className="pt-10 pb-8 px-8">
               <div className="text-center space-y-4">
-                <div className="text-5xl font-black text-rose-600">{reviewsAvailable}</div>
-                <p className="text-slate-600">Items ready for SRS review</p>
+                <div className="text-7xl font-black text-slate-900 tracking-tighter">{reviewsAvailable}</div>
+                <p className="text-slate-500 font-medium">Items waiting for your review</p>
                 <Button 
-                  className="w-full bg-rose-600 hover:bg-rose-700 h-12 text-lg" 
+                  className="w-full bg-rose-500 hover:bg-rose-600 h-14 text-lg font-bold rounded-2xl shadow-lg shadow-rose-100" 
                   disabled={reviewsAvailable === 0}
                   onClick={onStartReviews}
                 >
@@ -222,15 +133,15 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
       </div>
 
       {/* Progress & Distribution */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <BarChart3 className="w-5 h-5 mr-2" />
-              SRS Distribution
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <Card className="lg:col-span-2 border-none shadow-xl shadow-slate-100 rounded-3xl">
+          <CardHeader className="border-b border-slate-50 p-6">
+            <CardTitle className="flex items-center text-slate-800 font-black uppercase tracking-widest text-sm">
+              <BarChart3 className="w-4 h-4 mr-2 text-sky-500" />
+              SRS Progress Distribution
             </CardTitle>
           </CardHeader>
-          <CardContent className="h-[300px]">
+          <CardContent className="h-[350px] p-6">
             {userItems.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -238,56 +149,56 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
                     data={srsDistribution}
                     cx="50%"
                     cy="50%"
-                    innerRadius={60}
-                    outerRadius={80}
-                    paddingAngle={5}
+                    innerRadius={70}
+                    outerRadius={100}
+                    paddingAngle={8}
                     dataKey="value"
                   >
                     {srsDistribution.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip />
-                  <Legend />
+                  <Tooltip 
+                    contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                  />
+                  <Legend verticalAlign="bottom" height={36}/>
                 </PieChart>
               </ResponsiveContainer>
             ) : (
-              <div className="flex items-center justify-center h-full text-slate-400 italic">
-                Start learning to see your progress!
+              <div className="flex flex-col items-center justify-center h-full text-slate-400 space-y-4">
+                <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center">
+                  <BarChart3 className="w-8 h-8 opacity-20" />
+                </div>
+                <p className="font-bold uppercase tracking-widest text-xs">No progress data yet</p>
               </div>
             )}
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Level Progress</CardTitle>
+        <Card className="border-none shadow-xl shadow-slate-100 rounded-3xl">
+          <CardHeader className="border-b border-slate-50 p-6">
+            <CardTitle className="text-slate-800 font-black uppercase tracking-widest text-sm">Personal Stats</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-6">
-            <div>
-              <div className="flex justify-between text-sm mb-2">
-                <span className="text-slate-600 font-medium">Kanji Mastery</span>
-                <span className="text-sky-600 font-bold">45%</span>
+          <CardContent className="p-6 space-y-8">
+            <div className="space-y-4">
+              <div className="flex justify-between items-end">
+                <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Level Progress</span>
+                <span className="text-sm font-black text-sky-600">{Math.min(100, (profile?.xp || 0) % 1000 / 10)}%</span>
               </div>
-              <Progress value={45} className="h-2" />
+              <Progress value={Math.min(100, (profile?.xp || 0) % 1000 / 10)} className="h-3 rounded-full bg-slate-100" />
             </div>
-            <div>
-              <div className="flex justify-between text-sm mb-2">
-                <span className="text-slate-600 font-medium">Vocab Mastery</span>
-                <span className="text-rose-600 font-bold">20%</span>
-              </div>
-              <Progress value={20} className="h-2" />
-            </div>
-            <div className="pt-4 border-t">
-              <h4 className="text-sm font-semibold text-slate-900 mb-3">Recent Achievements</h4>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-xs text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-yellow-400" />
-                  First 10 items learned!
-                </div>
-                <div className="flex items-center gap-2 text-xs text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-sky-400" />
-                  Reached Level 2!
+            
+            <div className="space-y-3 pt-4 border-t border-slate-50">
+              <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Milestones</h4>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl">
+                  <div className="w-8 h-8 rounded-xl bg-yellow-100 flex items-center justify-center text-yellow-600">
+                    <Trophy className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-black text-slate-700 uppercase tracking-tight">Apprentice I</p>
+                    <p className="text-[10px] text-slate-400 font-bold uppercase">Beginner Journey</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -296,22 +207,16 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
       </div>
 
       {/* Kanji Explorer (N5) */}
-      <section className="space-y-4">
-        <div className="flex items-center justify-between border-b pb-4">
+      <section className="space-y-6 pt-8">
+        <div className="flex items-center justify-between border-b border-slate-100 pb-6">
           <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tight">
-            JLPT <span className="text-sky-600">N5</span> Kanji Explorer
+            N5 <span className="text-sky-600">Kanji</span> Collection
           </h2>
-          <Badge variant="outline" className="text-slate-400 font-bold">
-            {items.filter(i => i.type === 'kanji' && i.level === 1).length} KANJI
+          <Badge variant="outline" className="bg-white text-slate-400 font-black text-[10px] tracking-widest px-3 py-1 uppercase">
+            {items.filter(i => i.type === 'kanji' && i.level === 1).length} Characters
           </Badge>
         </div>
         <KanjiExplorer items={items.filter(i => i.type === 'kanji' && i.level === 1)} />
-        {items.length === 0 && profile?.role === 'admin' && (
-          <div className="text-center py-12 bg-white rounded-2xl border-2 border-dashed border-slate-200">
-            <p className="text-slate-400 font-medium mb-4">No data found. Please seed the global items first.</p>
-            <Button variant="outline" onClick={seedData}>Seed Global Items</Button>
-          </div>
-        )}
       </section>
     </div>
   );
