@@ -470,6 +470,7 @@ export const INITIAL_ITEMS: Item[] = [
     readings: ['わたし'],
     level: 1,
     mnemonic: 'Minna no Nihongo Lesson 1',
+    lessonNumber: 1,
     sentences: [{ japanese: '私はマイク・ミラーです。', english: 'I am Mike Miller.', furigana: '私[わたし]はマイク・ミラーです。' }]
   },
   {
@@ -480,6 +481,7 @@ export const INITIAL_ITEMS: Item[] = [
     readings: ['せんせい'],
     level: 1,
     mnemonic: 'Minna no Nihongo Lesson 1',
+    lessonNumber: 1,
     sentences: [{ japanese: 'ワット先生は親切です。', english: 'Mr. Watt is kind.', furigana: 'ワット先[せん]生[せい]は親[しん]切[せつ]です。' }]
   },
   {
@@ -490,6 +492,7 @@ export const INITIAL_ITEMS: Item[] = [
     readings: ['がくせい'],
     level: 1,
     mnemonic: 'Minna no Nihongo Lesson 1',
+    lessonNumber: 1,
     sentences: [{ japanese: 'サントスさんは学生じゃありません。', english: 'Mr. Santos is not a student.', furigana: 'サントスさんは学[がく]生[せい]じゃありません。' }]
   },
   // Minna no Nihongo Lesson 1 Grammar
@@ -610,5 +613,415 @@ export const INITIAL_ITEMS: Item[] = [
     sentences: [
       { japanese: 'この本は私のです。', english: 'This book is mine.', furigana: 'この本[ほん]は私[わたし]のです。' }
     ]
+  },
+  // --- Minna no Nihongo Lesson 1 (EXTRACTED FROM IMAGE) ---
+  {
+    id: 'mn1-v-1',
+    type: 'vocabulary',
+    character: 'わたし',
+    meanings: ['I'],
+    readings: ['watashi'],
+    level: 1,
+    explanation: 'Personal pronoun referring to oneself. Used in both formal and neutral situations.'
+  },
+  {
+    id: 'mn1-v-2',
+    type: 'vocabulary',
+    character: 'わたしたち',
+    meanings: ['we'],
+    readings: ['watashitachi'],
+    level: 1,
+    explanation: 'The plural form of "watashi". Used to refer to a group including the speaker.'
+  },
+  {
+    id: 'mn1-v-3',
+    type: 'vocabulary',
+    character: 'あなた',
+    meanings: ['you'],
+    readings: ['anata'],
+    level: 1,
+    explanation: 'Personal pronoun for the listener. Note: In Japanese, it is more polite to use the person\'s name + san instead of "anata".'
+  },
+  {
+    id: 'mn1-v-4',
+    type: 'vocabulary',
+    character: 'あのひと',
+    meanings: ['that person', 'he', 'she'],
+    readings: ['ano hito'],
+    level: 1,
+    explanation: 'Used to refer to someone at a distance. (あの方 [ano kata] is the polite equivalent).'
+  },
+  {
+    id: 'mn1-v-5',
+    type: 'vocabulary',
+    character: 'みなさん',
+    meanings: ['ladies and gentlemen', 'all of you'],
+    readings: ['minasan'],
+    level: 1,
+    explanation: 'Used when addressing or referring to a group of people. (皆さん in Kanji).'
+  },
+  {
+    id: 'mn1-v-6',
+    type: 'vocabulary',
+    character: '〜さん',
+    meanings: ['Mr.', 'Ms.'],
+    readings: ['~san'],
+    level: 1,
+    explanation: 'A title of respect added to a name. It is gender-neutral and can be used for both first and last names.'
+  },
+  {
+    id: 'mn1-v-7',
+    type: 'vocabulary',
+    character: '〜ちゃん',
+    meanings: ['suffix for children'],
+    readings: ['~chan'],
+    level: 1,
+    explanation: 'A suffix often added to a child\'s name instead of 〜さん to show affection or familiarity.'
+  },
+  {
+    id: 'mn1-v-8',
+    type: 'vocabulary',
+    character: '〜くん',
+    meanings: ['suffix for boys'],
+    readings: ['~kun'],
+    level: 1,
+    explanation: 'A suffix often added to a boy\'s name (〜君 in Kanji).'
+  },
+  {
+    id: 'mn1-v-9',
+    type: 'vocabulary',
+    character: '〜じん',
+    meanings: ['national of'],
+    readings: ['~jin'],
+    level: 1,
+    explanation: 'Suffix meaning "a national of" (〜人 in Kanji). Example: アメリカじん (an American).'
+  },
+  {
+    id: 'mn1-v-10',
+    type: 'vocabulary',
+    character: 'せんせい',
+    meanings: ['teacher', 'instructor'],
+    readings: ['sensei'],
+    level: 1,
+    explanation: 'Used for teachers, doctors, or experts. (Note: Not used when referring to one\'s own job; use "kyoushi" instead). (先生 in Kanji).'
+  },
+  {
+    id: 'mn1-v-11',
+    type: 'vocabulary',
+    character: 'きょうし',
+    meanings: ['teacher', 'instructor'],
+    readings: ['kyoushi'],
+    level: 1,
+    explanation: 'Used when referring to one\'s own occupation as a teacher. (教師 in Kanji).'
+  },
+  {
+    id: 'mn1-v-12',
+    type: 'vocabulary',
+    character: 'がくせい',
+    meanings: ['student'],
+    readings: ['gakusei'],
+    level: 1,
+    explanation: 'A student at school or university. (学生 in Kanji).'
+  },
+  {
+    id: 'mn1-v-13',
+    type: 'vocabulary',
+    character: 'かいしゃいん',
+    meanings: ['company employee'],
+    readings: ['kaishain'],
+    level: 1,
+    explanation: 'A general term for someone who works for a company. (会社員 in Kanji).'
+  },
+  {
+    id: 'mn1-v-14',
+    type: 'vocabulary',
+    character: 'しゃいん',
+    meanings: ['employee of ~ company'],
+    readings: ['shain'],
+    level: 1,
+    explanation: 'Used with a company\'s name (e.g., IMCの しゃいん). (社員 in Kanji).'
+  },
+  {
+    id: 'mn1-v-15',
+    type: 'vocabulary',
+    character: 'ぎんこういん',
+    meanings: ['bank employee'],
+    readings: ['ginkouin'],
+    level: 1,
+    explanation: 'Someone working at a bank. (銀行員 in Kanji).'
+  },
+  {
+    id: 'mn1-v-16',
+    type: 'vocabulary',
+    character: 'いしゃ',
+    meanings: ['medical doctor'],
+    readings: ['isha'],
+    level: 1,
+    explanation: 'A medical doctor. (医者 in Kanji).'
+  },
+  {
+    id: 'mn1-v-17',
+    type: 'vocabulary',
+    character: 'けんきゅうしゃ',
+    meanings: ['researcher', 'scholar'],
+    readings: ['kenkyuusha'],
+    level: 1,
+    explanation: 'Someone who conducts research or scholarly work. (研究者 in Kanji).'
+  },
+  {
+    id: 'mn1-v-18',
+    type: 'vocabulary',
+    character: 'エンジニア',
+    meanings: ['engineer'],
+    readings: ['enjinia'],
+    level: 1,
+    explanation: 'A professional in the field of engineering.'
+  },
+  {
+    id: 'mn1-v-19',
+    type: 'vocabulary',
+    character: 'だいがく',
+    meanings: ['university'],
+    readings: ['daigaku'],
+    level: 1,
+    explanation: 'An institution for higher education. (大学 in Kanji).'
+  },
+  {
+    id: 'mn1-v-20',
+    type: 'vocabulary',
+    character: 'びょういん',
+    meanings: ['hospital'],
+    readings: ['byouin'],
+    level: 1,
+    explanation: 'A medical facility where patients receive treatment. (病院 in Kanji).'
+  },
+  {
+    id: 'mn1-v-21',
+    type: 'vocabulary',
+    character: 'でんき',
+    meanings: ['electricity', 'light'],
+    readings: ['denki'],
+    level: 1,
+    explanation: 'Electricity or the electrical lights in a room. (電気 in Kanji).'
+  },
+  {
+    id: 'mn1-v-22',
+    type: 'vocabulary',
+    character: 'だれ',
+    meanings: ['who'],
+    readings: ['dare'],
+    level: 1,
+    explanation: 'Interrogative for people. (どなた [donata] is the polite equivalent).',
+    lessonNumber: 1
+  },
+  {
+    id: 'mn1-v-23',
+    type: 'vocabulary',
+    character: '～さい',
+    meanings: ['~ years old'],
+    readings: ['~sai'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Suffix added to numbers to express age. (〜歳 in Kanji).'
+  },
+  {
+    id: 'mn1-v-24',
+    type: 'vocabulary',
+    character: 'なんさい',
+    meanings: ['how old'],
+    readings: ['nansai'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Question word for age. (何歳 in Kanji). (おいくつ [oikutsu] is the polite equivalent).'
+  },
+  {
+    id: 'mn1-v-25',
+    type: 'vocabulary',
+    character: 'はい',
+    meanings: ['yes'],
+    readings: ['hai'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Used to answer affirmatively or to show that you are listening.'
+  },
+  {
+    id: 'mn1-v-26',
+    type: 'vocabulary',
+    character: 'いいえ',
+    meanings: ['no'],
+    readings: ['iie'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Used to answer negatively or to deny something.'
+  },
+  {
+    id: 'mn1-v-27',
+    type: 'vocabulary',
+    character: 'しつれいですが',
+    meanings: ['excuse me, but'],
+    readings: ['shitsurei desu ga'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Used when asking for personal information like a name or address. (失礼ですが in Kanji).'
+  },
+  {
+    id: 'mn1-v-28',
+    type: 'vocabulary',
+    character: 'おなまえは？',
+    meanings: ['May I have your name?'],
+    readings: ['o-namae wa?'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Polite way to ask someone\'s name. (お名前は？ in Kanji).'
+  },
+  {
+    id: 'mn1-v-29',
+    type: 'vocabulary',
+    character: 'はじめまして',
+    meanings: ['How do you do?'],
+    readings: ['hajimemashite'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Literally "I am meeting you for the first time". Used as the first phrase when introducing oneself.'
+  },
+  {
+    id: 'mn1-v-30',
+    type: 'vocabulary',
+    character: 'どうぞよろしく',
+    meanings: ['Pleased to meet you'],
+    readings: ['douzo yoroshiku'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Literally "Please be nice to me". Usually used at the end of a self-introduction.'
+  },
+  {
+    id: 'mn1-v-31',
+    type: 'vocabulary',
+    character: 'こちらは～さんです',
+    meanings: ['This is Mr./Ms. ~'],
+    readings: ['kochira wa ~san desu'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Used when introducing someone to another person.'
+  },
+  {
+    id: 'mn1-v-32',
+    type: 'vocabulary',
+    character: '～からきました',
+    meanings: ['I came from ~'],
+    readings: ['~kara kimashita'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Used to say where you are from. (〜から来ました in Kanji).'
+  },
+  {
+    id: 'mn1-v-33',
+    type: 'vocabulary',
+    character: 'アメリカ',
+    meanings: ['U.S.A.'],
+    readings: ['Amerika'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'United States of America.'
+  },
+  {
+    id: 'mn1-v-34',
+    type: 'vocabulary',
+    character: 'イギリス',
+    meanings: ['U.K.'],
+    readings: ['Igirisu'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'United Kingdom.'
+  },
+  {
+    id: 'mn1-v-35',
+    type: 'vocabulary',
+    character: 'インド',
+    meanings: ['India'],
+    readings: ['Indo'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Republic of India.'
+  },
+  {
+    id: 'mn1-v-36',
+    type: 'vocabulary',
+    character: 'インドネシア',
+    meanings: ['Indonesia'],
+    readings: ['Indoneshia'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Republic of Indonesia.'
+  },
+  {
+    id: 'mn1-v-37',
+    type: 'vocabulary',
+    character: 'かんこく',
+    meanings: ['South Korea'],
+    readings: ['Kankoku'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Republic of Korea. (韓国 in Kanji).'
+  },
+  {
+    id: 'mn1-v-38',
+    type: 'vocabulary',
+    character: 'タイ',
+    meanings: ['Thailand'],
+    readings: ['Tai'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Kingdom of Thailand.'
+  },
+  {
+    id: 'mn1-v-39',
+    type: 'vocabulary',
+    character: 'ちゅうごく',
+    meanings: ['China'],
+    readings: ['Chuugoku'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'People\'s Republic of China. (中国 in Kanji).'
+  },
+  {
+    id: 'mn1-v-40',
+    type: 'vocabulary',
+    character: 'ドイツ',
+    meanings: ['Germany'],
+    readings: ['Doitsu'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Federal Republic of Germany.'
+  },
+  {
+    id: 'mn1-v-41',
+    type: 'vocabulary',
+    character: 'にほん',
+    meanings: ['Japan'],
+    readings: ['Nihon'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Nation of Japan. (日本 in Kanji).'
+  },
+  {
+    id: 'mn1-v-42',
+    type: 'vocabulary',
+    character: 'フランス',
+    meanings: ['France'],
+    readings: ['Furansu'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'French Republic.'
+  },
+  {
+    id: 'mn1-v-43',
+    type: 'vocabulary',
+    character: 'ブラジル',
+    meanings: ['Brazil'],
+    readings: ['Burajiru'],
+    level: 1,
+    lessonNumber: 1,
+    explanation: 'Federative Republic of Brazil.'
   }
 ];

@@ -45,6 +45,7 @@ export interface Item {
   content?: string;
   translation?: string;
   questions?: any[];
+  lessonNumber?: number;
 }
 
 export interface UserProfile {

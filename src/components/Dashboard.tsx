@@ -24,7 +24,7 @@ interface DashboardProps {
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartReviews }) => {
-  const { user, profile, showFurigana, setShowFurigana } = useAuth();
+  const { user, profile, isMock, showFurigana, setShowFurigana } = useAuth();
   const [items, setItems] = useState<Item[]>([]);
   const [userItems, setUserItems] = useState<UserItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -33,11 +33,23 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
   useEffect(() => {
     if (!user) return;
 
+    if (isMock) {
+      setItems(INITIAL_ITEMS);
+      setUserItems([]); // Fresh start for mock
+      setLoading(false);
+      return;
+    }
+
     // Fetch all items
     const fetchItems = async () => {
-      const itemsSnap = await getDocs(collection(db, 'items'));
-      const itemsData = itemsSnap.docs.map(doc => doc.data() as Item);
-      setItems(itemsData);
+      try {
+        const itemsSnap = await getDocs(collection(db, 'items'));
+        const itemsData = itemsSnap.docs.map(doc => doc.data() as Item);
+        setItems(itemsData);
+      } catch (err) {
+        console.error("Firestore error:", err);
+        setItems(INITIAL_ITEMS); // Fallback to initial data on error
+      }
     };
 
     fetchItems();
@@ -48,10 +60,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
       const data = snapshot.docs.map(doc => doc.data() as UserItem);
       setUserItems(data);
       setLoading(false);
+    }, (err) => {
+      console.error("UserItems fetch error:", err);
+      setUserItems([]);
+      setLoading(false);
     });
 
     return () => unsubscribe();
-  }, [user]);
+  }, [user, isMock]);
 
   const seedData = async () => {
     try {

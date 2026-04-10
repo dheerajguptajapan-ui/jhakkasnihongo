@@ -9,6 +9,7 @@ import { JLPTView } from './components/JLPTView';
 import { db } from './lib/firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { Item, UserItem } from './types';
+import { INITIAL_ITEMS } from './lib/initialData';
 import { Button } from './components/ui/button';
 import { GraduationCap, LogOut, BookOpen } from 'lucide-react';
 import { Switch } from './components/ui/switch';
@@ -19,21 +20,32 @@ export type JLPTLevel = 'n5' | 'n4' | 'n3' | 'n2' | 'n1';
 export type JLPTSection = 'kanji' | 'vocabulary' | 'grammar' | 'dokkai';
 
 const AppContent: React.FC = () => {
-  const { user, profile, loading, signIn, logout, showFurigana, setShowFurigana } = useAuth();
+  const { user, profile, loading, isMock, signIn, mockSignIn, logout, showFurigana, setShowFurigana } = useAuth();
   const [view, setView] = useState<'dashboard' | 'lessons' | 'reviews' | 'items' | 'community' | 'jlpt'>('dashboard');
   const [selectedLevel, setSelectedLevel] = useState<JLPTLevel>('n5');
   const [selectedSection, setSelectedSection] = useState<JLPTSection>('kanji');
   const [lessonItems, setLessonItems] = useState<Item[]>([]);
   const [reviewItems, setReviewItems] = useState<(Item & { userItem: UserItem })[]>([]);
+  
+  const [mockId, setMockId] = useState('');
+  const [mockPwd, setMockPwd] = useState('');
 
   const startLessons = async () => {
     if (!user) return;
     try {
-      const itemsSnap = await getDocs(collection(db, 'items'));
-      const allItems = itemsSnap.docs.map(doc => doc.data() as Item);
-      
-      const userItemsSnap = await getDocs(collection(db, `users/${user.uid}/userItems`));
-      const userItemIds = userItemsSnap.docs.map(doc => doc.data().itemId);
+      let allItems: Item[] = [];
+      let userItemIds: string[] = [];
+
+      if (isMock) {
+        allItems = INITIAL_ITEMS;
+        userItemIds = []; // Assume no items learned for mock fresh start
+      } else {
+        const itemsSnap = await getDocs(collection(db, 'items'));
+        allItems = itemsSnap.docs.map(doc => doc.data() as Item);
+        
+        const userItemsSnap = await getDocs(collection(db, `users/${user.uid}/userItems`));
+        userItemIds = userItemsSnap.docs.map(doc => doc.data().itemId);
+      }
       
       const available = allItems.filter(item => 
         !userItemIds.includes(item.id) && item.level <= (profile?.level || 1)
@@ -46,6 +58,7 @@ const AppContent: React.FC = () => {
         toast.info("No lessons available right now!");
       }
     } catch (error) {
+      console.error("Lesson start error:", error);
       toast.error("Failed to start lessons. Check permissions.");
     }
   };
@@ -53,16 +66,35 @@ const AppContent: React.FC = () => {
   const startReviews = async () => {
     if (!user) return;
     try {
-      const itemsSnap = await getDocs(collection(db, 'items'));
-      const allItems = itemsSnap.docs.reduce((acc, doc) => {
-        const data = doc.data() as Item;
-        acc[data.id] = data;
-        return acc;
-      }, {} as Record<string, Item>);
+      let allItems: Record<string, Item> = {};
+      let userItems: UserItem[] = [];
+
+      if (isMock) {
+        allItems = INITIAL_ITEMS.reduce((acc, item) => {
+          acc[item.id] = item;
+          return acc;
+        }, {} as Record<string, Item>);
+        // Mock 3 items ready for review
+        userItems = INITIAL_ITEMS.slice(0, 3).map(item => ({
+          uid: user.uid,
+          itemId: item.id,
+          srsStage: 1,
+          nextReviewAt: new Date().toISOString(),
+          streak: 0
+        }));
+      } else {
+        const itemsSnap = await getDocs(collection(db, 'items'));
+        allItems = itemsSnap.docs.reduce((acc, doc) => {
+          const data = doc.data() as Item;
+          acc[data.id] = data;
+          return acc;
+        }, {} as Record<string, Item>);
+        
+        const userItemsSnap = await getDocs(collection(db, `users/${user.uid}/userItems`));
+        userItems = userItemsSnap.docs.map(doc => doc.data() as UserItem);
+      }
       
-      const userItemsSnap = await getDocs(collection(db, `users/${user.uid}/userItems`));
-      const ready = userItemsSnap.docs
-        .map(doc => doc.data() as UserItem)
+      const ready = userItems
         .filter(ui => {
           if (ui.srsStage === 0 || ui.srsStage === 9) return false;
           if (!ui.nextReviewAt) return true;
@@ -77,6 +109,7 @@ const AppContent: React.FC = () => {
         toast.info("No reviews available right now!");
       }
     } catch (error) {
+      console.error("Review start error:", error);
       toast.error("Failed to start reviews. Check permissions.");
     }
   };
@@ -105,6 +138,38 @@ const AppContent: React.FC = () => {
             <h1 className="text-4xl font-black text-slate-900 tracking-tight">Jhakkas Nihongo</h1>
             <p className="text-slate-500 mt-2">Master Japanese Kanji and Vocabulary with SRS</p>
           </div>
+          <div className="space-y-4 pt-4 border-t border-slate-100">
+            <p className="text-sm font-bold text-slate-700">Developer Preview Login</p>
+            <div className="space-y-2">
+              <input 
+                type="text" 
+                placeholder="ID (user)" 
+                className="w-full h-11 px-4 rounded-lg bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                value={mockId}
+                onChange={(e) => setMockId(e.target.value)}
+              />
+              <input 
+                type="password" 
+                placeholder="Password (user123)" 
+                className="w-full h-11 px-4 rounded-lg bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                value={mockPwd}
+                onChange={(e) => setMockPwd(e.target.value)}
+              />
+            </div>
+            <Button 
+              onClick={() => mockSignIn(mockId, mockPwd)} 
+              variant="outline"
+              className="w-full h-11 border-sky-200 text-sky-700 hover:bg-sky-50"
+            >
+              Sign in with ID
+            </Button>
+          </div>
+          
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center"><span className="w-full border-t border-slate-100"></span></div>
+            <div className="relative flex justify-center text-xs uppercase"><span className="bg-white px-2 text-slate-400">Or use Google</span></div>
+          </div>
+
           <Button onClick={signIn} className="w-full h-14 text-lg bg-sky-600 hover:bg-sky-700 rounded-xl">
             Sign in with Google
           </Button>
