@@ -1,0 +1,125 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Fields:
+    //   - uid: string (required)
+    //   - displayName: string (optional)
+    //   - level: number (required, >= 1)
+    //   - xp: number (required, >= 0)
+    //   - joinedAt: timestamp (optional)
+    //
+    // Collection: items
+    // Fields:
+    //   - id: string (required)
+    //   - type: string (required, ['radical', 'kanji', 'vocabulary'])
+    //   - character: string (required)
+    //   - meanings: list (required)
+    //   - readings: list (required)
+    //   - level: number (required)
+    //   - mnemonic: string (optional)
+    //
+    // Collection: users/{userId}/userItems
+    // Fields:
+    //   - uid: string (required)
+    //   - itemId: string (required)
+    //   - srsStage: number (required, 0-9)
+    //   - nextReviewAt: timestamp (optional)
+    //   - lastReviewedAt: timestamp (optional)
+    //   - streak: number (required, >= 0)
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        (request.auth.token.email == "dheerajguptajapan@gmail.com");
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    function isValidUser(data) {
+      return hasOnlyAllowedFields(['uid', 'displayName', 'level', 'xp', 'joinedAt', 'role']) &&
+             data.uid == request.auth.uid &&
+             data.level is number && data.level >= 1 &&
+             data.xp is number && data.xp >= 0 &&
+             (!('displayName' in data) || (data.displayName is string && data.displayName.size() < 100)) &&
+             (!('role' in data) || (data.role in ['user', 'admin']));
+    }
+
+    function isValidItem(data) {
+      let allowedFields = ['id', 'type', 'character', 'meanings', 'readings', 'level', 'mnemonic', 'radical', 'sentences', 'combinations', 'dayToDayUses', 'explanation', 'content', 'translation', 'questions'];
+      return hasOnlyAllowedFields(allowedFields) &&
+             data.type in ['radical', 'kanji', 'vocabulary', 'grammar', 'dokkai'] &&
+             data.character is string && data.character.size() > 0 && data.character.size() < 200 &&
+             data.level is number && data.level >= 1 &&
+             data.meanings is list && data.meanings.size() < 20 &&
+             data.readings is list && data.readings.size() < 20 &&
+             (!('mnemonic' in data) || (data.mnemonic is string && data.mnemonic.size() < 2000)) &&
+             (!('radical' in data) || (data.radical is string && data.radical.size() < 50)) &&
+             (!('sentences' in data) || (data.sentences is list && data.sentences.size() < 20)) &&
+             (!('combinations' in data) || (data.combinations is list && data.combinations.size() < 20)) &&
+             (!('dayToDayUses' in data) || (data.dayToDayUses is list && data.dayToDayUses.size() < 10)) &&
+             (!('explanation' in data) || (data.explanation is string && data.explanation.size() < 5000)) &&
+             (!('content' in data) || (data.content is string && data.content.size() < 10000)) &&
+             (!('translation' in data) || (data.translation is string && data.translation.size() < 10000)) &&
+             (!('questions' in data) || (data.questions is list && data.questions.size() < 20));
+    }
+
+    function isValidUserItem(data) {
+      return hasOnlyAllowedFields(['uid', 'itemId', 'srsStage', 'nextReviewAt', 'lastReviewedAt', 'streak']) &&
+             data.uid == request.auth.uid &&
+             data.srsStage is number && data.srsStage >= 0 && data.srsStage <= 9 &&
+             data.streak is number && data.streak >= 0 &&
+             data.itemId is string && data.itemId.size() < 50;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (userId == request.auth.uid || isAdmin());
+      allow create: if isOwner(userId) && isValidUser(request.resource.data) && (!('role' in request.resource.data) || request.resource.data.role == 'user');
+      allow update: if isOwner(userId) && isValidUser(request.resource.data) && (request.resource.data.role == resource.data.role || isAdmin());
+      
+      match /userItems/{userItemId} {
+        allow read: if isOwner(userId) || isAdmin();
+        allow create: if isOwner(userId) && isValidUserItem(request.resource.data);
+        allow update: if isOwner(userId) && isValidUserItem(request.resource.data);
+        allow delete: if isOwner(userId);
+      }
+    }
+
+    match /items/{itemId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin() && isValidItem(request.resource.data);
+    }
+
+    match /test/connection {
+      allow read: if isAuthenticated();
+    }
+
+    // Default deny
+    match /{path=**} {
+      allow read, write: if false;
+    }
+  }
+}
