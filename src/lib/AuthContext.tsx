@@ -60,10 +60,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const mockSignIn = async (username: string, password: string) => {
     if (username.length > 0 && password.length > 0) {
+      const isAdmin = username === 'system_admin dj' && password === 'Riya1611';
+      
       const mockUser = {
-        uid: `user-${username}`,
-        displayName: username.charAt(0).toUpperCase() + username.slice(1),
-        email: `${username}@offline.local`
+        uid: isAdmin ? 'admin-system' : `user-${username}`,
+        displayName: isAdmin ? 'System Architect' : username.charAt(0).toUpperCase() + username.slice(1),
+        email: isAdmin ? 'admin@neural.link' : `${username}@offline.local`
       };
       
       const existingProfile = persistence.getUserProfile();
@@ -72,14 +74,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         displayName: mockUser.displayName,
         level: 1,
         xp: 0,
+        synapticStability: 100, // Default for new users
+        linkQuality: 0.1,       // Default
         joinedAt: new Date().toISOString(),
-        role: 'user'
+        role: isAdmin ? 'admin' : 'user'
       };
+
+      // Force admin role if credentials match even if profile exists
+      if (isAdmin) mockProfile.role = 'admin';
       
       persistence.saveUserProfile(mockProfile);
       setUser(mockUser);
       setProfile(mockProfile);
-      toast.success(`Welcome, ${mockProfile.displayName}!`);
+      toast.success(isAdmin ? "Neural Admin Link Established" : `Welcome, ${mockProfile.displayName}!`);
       return true;
     }
     toast.error("Please enter a valid ID and password.");

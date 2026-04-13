@@ -7,6 +7,7 @@ import { ItemsView } from './components/ItemsView';
 import { JLPTView } from './components/JLPTView';
 import { CommunityView } from './components/CommunityView';
 import { SettingsView } from './components/SettingsView';
+import { AdminView } from './components/AdminView';
 import { Item, UserItem } from './types';
 import { getAllItems } from './lib/curriculum';
 import { persistence } from './lib/persistence';
@@ -19,7 +20,7 @@ export type JLPTSection = 'kanji' | 'vocabulary' | 'grammar' | 'dokkai';
 
 function App() {
   const { user, profile, loading, mockSignIn } = useAuth();
-  const [currentTab, setCurrentTab] = useState<'dashboard' | 'items' | 'jlpt' | 'community' | 'settings'>('dashboard');
+  const [currentTab, setCurrentTab] = useState<'dashboard' | 'items' | 'jlpt' | 'community' | 'settings' | 'admin'>('dashboard');
   const [session, setSession] = useState<{ type: 'lesson' | 'review', items: any[] } | null>(null);
   const [jlptState, setJlptState] = useState<{ level: JLPTLevel, section: JLPTSection }>({ level: 'n5', section: 'vocabulary' });
   const [focusMode, setFocusMode] = useState(false);
@@ -124,6 +125,10 @@ function App() {
         <NavButton active={currentTab === 'community'} onClick={() => setCurrentTab('community')} icon={<Users />} label="NEXUS" />
         <NavButton active={currentTab === 'settings'} onClick={() => setCurrentTab('settings')} icon={<Settings />} label="CONFIG" />
         
+        {profile?.role === 'admin' && (
+          <NavButton active={currentTab === 'admin'} onClick={() => setCurrentTab('admin')} icon={<Package className="text-rose-500" />} label="CORE" />
+        )}
+        
         <div className="hidden md:block mt-auto mb-10">
           <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center font-black text-xs text-indigo-400">
             {profile?.displayName?.charAt(0)}
@@ -181,6 +186,7 @@ function App() {
         )}
         {currentTab === 'community' && < CommunityView />}
         {currentTab === 'settings' && <SettingsView />}
+        {currentTab === 'admin' && <AdminView />}
       </main>
     </div>
   );
