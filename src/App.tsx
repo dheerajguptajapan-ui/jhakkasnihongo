@@ -204,7 +204,7 @@ function NavButton({ active, onClick, icon, label }: { active: boolean, onClick:
       }`}
     >
       <div className={`transition-transform duration-500 ${active ? 'scale-110' : 'group-hover:scale-110'}`}>
-        {React.cloneElement(icon as React.ReactElement, { size: 24, strokeWidth: active ? 3 : 2 })}
+        {React.cloneElement(icon as React.ReactElement, { size: 24, strokeWidth: active ? 3 : 2 } as any)}
       </div>
       <span className="text-[9px] font-black uppercase tracking-[0.3em] hidden md:block">{label}</span>
       {active && <motion.div layoutId="nav-active" className="absolute left-0 w-1 h-8 bg-indigo-500 rounded-r-full hidden md:block" />}

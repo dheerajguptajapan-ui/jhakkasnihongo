@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Trophy, Info, Share2, GlobeLock } from 'lucide-react';
+import { Trophy, Info, Share2, GlobeLock, Smartphone, Download } from 'lucide-react';
 import { useAuth } from '../lib/AuthContext';
 import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 
 export const CommunityView: React.FC = () => {
   const { profile } = useAuth();
@@ -89,6 +90,37 @@ export const CommunityView: React.FC = () => {
           <strong>Pro Tip:</strong> Currently, because we prioritize your privacy, there is no global leaderboard. You are always #1 in your own journey!
         </p>
       </div>
+
+      <Card className="border-none shadow-xl shadow-indigo-100 rounded-3xl overflow-hidden bg-indigo-900 text-white">
+        <CardContent className="p-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex items-center gap-6">
+              <div className="p-4 bg-white/10 rounded-2xl backdrop-blur-md">
+                <Smartphone className="w-10 h-10 text-indigo-300" />
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-2xl font-black uppercase tracking-tighter">🚀 Mobile Portal (Android)</h3>
+                <p className="text-indigo-200 font-medium">Access your learning nexus anywhere with the official application.</p>
+              </div>
+            </div>
+            
+            <div className="flex flex-col items-center md:items-end gap-3 w-full md:w-auto">
+              <Button 
+                render={
+                  <a href="https://github.com/dheerajguptajapan-ui/jhakkasnihongo/releases" target="_blank" rel="noopener noreferrer" />
+                }
+                className="w-full md:w-auto bg-white text-indigo-900 hover:bg-indigo-50 h-14 px-8 rounded-2xl font-black gap-2 transition-transform active:scale-95"
+              >
+                <Download className="w-5 h-5" />
+                Download APK (v1.0.0)
+              </Button>
+              <p className="text-[10px] text-indigo-300 font-bold uppercase tracking-widest text-center md:text-right">
+                Note: "Install from Unknown Sources" must be enabled.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

@@ -165,7 +165,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
             {userItems.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
-                  <kp-tooltip />
                   <Pie
                     data={srsDistribution}
                     cx="50%"

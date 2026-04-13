@@ -29,34 +29,33 @@ export const KanjiExplorer: React.FC<KanjiExplorerProps> = ({ items }) => {
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
       {items.map((kanji, idx) => (
         <Dialog key={kanji.id}>
-          <DialogTrigger asChild>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.05 }}
-              whileHover={{ y: -8, scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="cursor-pointer group"
-              onClick={() => setSelectedKanji(kanji)}
-            >
-              <Card className="h-full bg-white/5 border-white/10 hover:border-indigo-500/50 transition-all duration-500 backdrop-blur-xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <CardContent className="p-6 flex flex-col items-center text-center space-y-4 relative z-10">
-                  <div className="text-5xl font-black text-white group-hover:text-indigo-400 transition-colors duration-300">
-                    {kanji.character}
+          <DialogTrigger
+            render={
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="relative group cursor-pointer"
+              />
+            }
+          >
+            <Card className="h-full bg-white/5 border-white/10 hover:border-indigo-500/50 transition-all duration-500 backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-6 flex flex-col items-center text-center space-y-4 relative z-10">
+                <div className="text-5xl font-black text-white group-hover:text-indigo-400 transition-colors duration-300">
+                  {kanji.character}
+                </div>
+                <div className="space-y-1">
+                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-500 group-hover:text-gray-300 transition-colors">
+                    {kanji.readings.slice(0, 1).join(', ')}
                   </div>
-                  <div className="space-y-1">
-                    <div className="text-[10px] font-black uppercase tracking-widest text-gray-500 group-hover:text-gray-300 transition-colors">
-                      {kanji.readings.slice(0, 1).join(', ')}
-                    </div>
-                    <div className="text-sm text-indigo-400 font-bold line-clamp-1">
-                      {kanji.meanings[0]}
-                    </div>
+                  <div className="text-sm text-indigo-400 font-bold line-clamp-1">
+                    {kanji.meanings[0]}
                   </div>
-                </CardContent>
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-indigo-500/0 group-hover:bg-indigo-500 transition-all duration-500" />
-              </Card>
-            </motion.div>
+                </div>
+              </CardContent>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-indigo-500/0 group-hover:bg-indigo-500 transition-all duration-500" />
+            </Card>
           </DialogTrigger>
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col p-0 bg-slate-950 border-white/10 rounded-[3rem] shadow-[0_0_50px_rgba(0,0,0,0.5)]">
             <DialogHeader className="p-10 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border-b border-white/5 relative">

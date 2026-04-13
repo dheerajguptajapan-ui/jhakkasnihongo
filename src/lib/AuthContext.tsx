@@ -11,6 +11,7 @@ interface AuthContextType {
   signIn: () => Promise<void>;
   mockSignIn: (username: string, password: string) => Promise<boolean>;
   logout: () => Promise<void>;
+  showFurigana: boolean;
   settings: AppSettings;
   updateSettings: (settings: Partial<AppSettings>) => void;
 }
@@ -114,6 +115,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       signIn, 
       mockSignIn, 
       logout, 
+      showFurigana: settings.showFurigana,
       settings,
       updateSettings
     }}>
