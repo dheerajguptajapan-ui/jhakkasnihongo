@@ -3,6 +3,7 @@ import { Item } from '../types';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Furigana } from './Furigana';
 import { useAuth } from '../lib/AuthContext';
+import { motion } from 'framer-motion';
 
 interface GrammarViewProps {
   items: Item[];
@@ -13,48 +14,58 @@ export const GrammarView: React.FC<GrammarViewProps> = ({ items }) => {
 
   if (items.length === 0) {
     return (
-      <div className="text-center py-12 bg-white rounded-2xl border-2 border-dashed border-slate-200">
-        <p className="text-slate-400 font-medium text-lg">No grammar points found for this level.</p>
+      <div className="text-center py-20 bg-white/5 rounded-[2.5rem] border-2 border-dashed border-white/10">
+        <p className="text-gray-400 font-medium text-lg">No grammar points found.</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-8">
-      {items.map((item) => (
-        <Card key={item.id} className="overflow-hidden border-2 border-slate-100 hover:border-sky-200 transition-colors">
-          <CardHeader className="bg-slate-50/50 border-b border-slate-100">
-            <div className="flex justify-between items-start">
-              <div>
-                <CardTitle className="text-2xl font-black text-slate-900">
-                  <Furigana text={item.character} show={showFurigana} />
-                </CardTitle>
-                <p className="text-sky-600 font-bold mt-1 uppercase tracking-wider text-xs">{item.meanings[0]}</p>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent className="p-6 space-y-6">
-            <div className="bg-amber-50 p-4 rounded-xl border border-amber-100">
-              <h4 className="text-xs font-black uppercase tracking-widest text-amber-700 mb-2">Explanation</h4>
-              <p className="text-slate-700 leading-relaxed">{item.explanation}</p>
-            </div>
-
-            <div className="space-y-4">
-              <h4 className="text-xs font-black uppercase tracking-widest text-slate-400">Example Sentences</h4>
-              <div className="space-y-4">
-                {item.sentences?.map((s, i) => (
-                  <div key={i} className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
-                    <div className="text-lg font-bold text-slate-900">
-                      <Furigana text={s.furigana || s.japanese} show={showFurigana} />
-                    </div>
-                    <p className="text-sm text-slate-500 italic">{s.english}</p>
+    <div className="space-y-8 pb-10">
+      {items.map((item, index) => (
+        <motion.div
+          key={item.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1 }}
+        >
+          <Card className="overflow-hidden bg-white/5 border-white/10 hover:border-indigo-500/30 transition-all duration-500 backdrop-blur-xl group">
+            <CardHeader className="bg-white/[0.02] border-b border-white/5 p-6">
+              <div className="flex justify-between items-start">
+                <div>
+                  <CardTitle className="text-3xl font-black text-white group-hover:text-indigo-400 transition-colors">
+                    <Furigana text={item.character} show={showFurigana} />
+                  </CardTitle>
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 mt-3">
+                    <p className="text-indigo-400 font-bold uppercase tracking-widest text-[10px]">{item.meanings[0]}</p>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardHeader>
+            <CardContent className="p-8 space-y-8">
+              <div className="bg-purple-500/5 p-6 rounded-3xl border border-purple-500/10">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400 mb-3">Usage & Rules</h4>
+                <p className="text-gray-300 leading-relaxed text-lg">{item.explanation}</p>
+              </div>
+
+              <div className="space-y-6">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">Live Examples</h4>
+                <div className="space-y-4">
+                  {item.sentences?.map((s, i) => (
+                    <div key={i} className="p-6 bg-white/[0.02] rounded-3xl border border-white/5 hover:border-white/10 transition-colors space-y-3">
+                      <div className="text-xl font-bold text-white">
+                        <Furigana text={s.furigana || s.japanese} show={showFurigana} />
+                      </div>
+                      <p className="text-gray-400 italic text-sm border-l-2 border-indigo-500/30 pl-4">{s.english}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       ))}
     </div>
   );
 };
+

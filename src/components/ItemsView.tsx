@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Item } from '../types';
-import { INITIAL_ITEMS } from '../lib/initialData';
+import { getAllItems } from '../lib/curriculum';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Search } from 'lucide-react';
@@ -11,8 +11,7 @@ export const ItemsView: React.FC = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    // In offline mode, we always use INITIAL_ITEMS as the source
-    setItems(INITIAL_ITEMS);
+    setItems(getAllItems());
     setLoading(false);
   }, []);
 

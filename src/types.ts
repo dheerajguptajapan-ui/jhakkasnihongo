@@ -28,6 +28,12 @@ export interface DokkaiPassage {
   level: number;
 }
 
+export interface DokkaiQuestion {
+  question: string;
+  options: string[];
+  answerIndex: number;
+}
+
 export interface Item {
   id: string;
   type: ItemType;
@@ -40,19 +46,22 @@ export interface Item {
   sentences?: Sentence[];
   combinations?: { word: string; reading: string; meaning: string }[];
   dayToDayUses?: string[];
-  // For Grammar/Dokkai specific fields if we use the same Item interface
+  // For Grammar/Dokkai specific fields
   explanation?: string;
   content?: string;
   translation?: string;
-  questions?: any[];
+  questions?: DokkaiQuestion[];
   lessonNumber?: number;
 }
+
 
 export interface UserProfile {
   uid: string;
   displayName: string;
   level: number;
   xp: number;
+  synapticStability: number; // For Neural Link: Replaces XP/Level in UI
+  linkQuality: number;       // For Neural Link: 0.1% style naming
   joinedAt?: any;
   role?: 'user' | 'admin';
 }
@@ -64,6 +73,10 @@ export interface UserItem {
   nextReviewAt?: any;
   lastReviewedAt?: any;
   streak: number;
+  // SM-2 Algorithm metrics
+  easinessFactor: number;
+  interval: number;
+  repetitions: number;
 }
 
 export const SRS_INTERVALS = [

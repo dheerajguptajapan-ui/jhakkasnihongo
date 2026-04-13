@@ -45,6 +45,9 @@ export const persistence = {
         srsStage: 0,
         nextReviewAt: null,
         streak: 0,
+        easinessFactor: 2.5,
+        interval: 0,
+        repetitions: 0,
         ...update
       };
       items.push(newItem);

@@ -8,6 +8,7 @@ import { X, CheckCircle2, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useAuth } from '../lib/AuthContext';
 import { persistence } from '../lib/persistence';
+import { processReviewResult } from '../lib/srs';
 
 interface ReviewSessionProps {
   items: (Item & { userItem: UserItem })[];
@@ -53,8 +54,16 @@ export const ReviewSession: React.FC<ReviewSessionProps> = ({ items, onComplete,
         setInput('');
         
         const newState = { ...currentState };
-        if (subStep === 'meaning') newState.meaningDone = true;
-        else newState.readingDone = true;
+        if (subStep === 'meaning') {
+          newState.meaningDone = true;
+          // Play character audio on meaning success if reading is also done
+          if (newState.readingDone) {
+            window.speechSynthesis?.speak(new SpeechSynthesisUtterance(currentItem.character));
+          }
+        } else {
+          newState.readingDone = true;
+          window.speechSynthesis?.speak(new SpeechSynthesisUtterance(currentItem.character));
+        }
 
         setItemStates(prev => ({ ...prev, [currentItem.id]: newState }));
 
@@ -82,23 +91,18 @@ export const ReviewSession: React.FC<ReviewSessionProps> = ({ items, onComplete,
     if (!user) return;
 
     const { userItem } = currentItem;
-    let newStage = userItem.srsStage;
+    const isPerfect = incorrectCount === 0;
     
-    if (incorrectCount === 0) {
-      newStage = Math.min(9, newStage + 1);
-    } else {
-      const penalty = userItem.srsStage >= 5 ? 2 : 1;
-      newStage = Math.max(1, newStage - penalty);
-    }
-
-    const nextInterval = SRS_INTERVALS[newStage];
-    const nextReviewAt = nextInterval === -1 ? null : new Date(Date.now() + nextInterval).toISOString();
+    // Use SM-2 Algorithm for calculation
+    const sm2 = processReviewResult(isPerfect, userItem);
 
     persistence.updateUserItem(user.uid, currentItem.id, {
-      srsStage: newStage,
-      nextReviewAt,
+      nextReviewAt: sm2.nextReviewAt.toISOString(),
       lastReviewedAt: new Date().toISOString(),
-      streak: incorrectCount === 0 ? (userItem.streak || 0) + 1 : 0
+      easinessFactor: sm2.easinessFactor,
+      interval: sm2.interval,
+      repetitions: sm2.repetitions,
+      streak: isPerfect ? (userItem.streak || 0) + 1 : 0
     });
 
     setCompletedCount(prev => prev + 1);

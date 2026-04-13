@@ -8,9 +8,9 @@ import { JLPTView } from './components/JLPTView';
 import { CommunityView } from './components/CommunityView';
 import { SettingsView } from './components/SettingsView';
 import { Item, UserItem } from './types';
-import { INITIAL_ITEMS } from './lib/initialData';
+import { getAllItems } from './lib/curriculum';
 import { persistence } from './lib/persistence';
-import { Layout, Menu, BookOpen, GraduationCap, Users, Settings, Package, Info } from 'lucide-react';
+import { Layout, Menu, BookOpen, GraduationCap, Users, Settings, Package, Info, Activity } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { Toaster } from 'sonner';
 
@@ -21,43 +21,53 @@ function App() {
   const { user, profile, loading, mockSignIn } = useAuth();
   const [currentTab, setCurrentTab] = useState<'dashboard' | 'items' | 'jlpt' | 'community' | 'settings'>('dashboard');
   const [session, setSession] = useState<{ type: 'lesson' | 'review', items: any[] } | null>(null);
-  const [jlptState, setJlptState] = useState<{ level: JLPTLevel, section: JLPTSection }>({ level: 'n5', section: 'kanji' });
+  const [jlptState, setJlptState] = useState<{ level: JLPTLevel, section: JLPTSection }>({ level: 'n5', section: 'vocabulary' });
+  const [focusMode, setFocusMode] = useState(false);
 
   if (loading) return null;
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-slate-50 dark:bg-background flex items-center justify-center p-6">
-        <div className="max-w-md w-full space-y-8 animate-in fade-in duration-700">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-sky-600 shadow-2xl shadow-sky-200 dark:shadow-none mb-4">
-              <span className="text-4xl">🇯🇵</span>
+      <div className="min-h-screen bg-[#0A0A0F] flex items-center justify-center p-6 font-sans">
+        <div className="max-w-md w-full space-y-12 animate-in fade-in zoom-in duration-700">
+          <div className="text-center space-y-6">
+            <div className="relative inline-flex">
+              <div className="absolute inset-0 bg-indigo-500 blur-2xl opacity-30 animate-pulse" />
+              <div className="relative inline-flex items-center justify-center w-24 h-24 rounded-[2rem] bg-indigo-600 shadow-2xl text-white font-black text-4xl">
+                J
+              </div>
             </div>
-            <h1 className="text-4xl font-black text-slate-900 dark:text-white tracking-tighter uppercase">Jhakkas Nihongo</h1>
-            <p className="text-slate-500 font-medium italic">Master Japanese Offline. v2.0.0</p>
+            <div className="space-y-2">
+              <h1 className="text-5xl font-black text-white tracking-tighter uppercase">Jhakkas Nihongo</h1>
+              <p className="text-indigo-400 font-bold tracking-[0.3em] text-[10px] uppercase">Neural Language Interface v2.5</p>
+            </div>
           </div>
-          <div className="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800">
-            <h2 className="text-xl font-bold mb-6 text-center text-slate-800 dark:text-slate-200">Local Offline Login</h2>
+          <div className="bg-white/5 backdrop-blur-2xl p-10 rounded-[3rem] border border-white/10 shadow-2xl shadow-indigo-500/10">
+            <h2 className="text-sm font-black mb-8 text-center text-gray-500 uppercase tracking-[0.2em]">Authentication Required</h2>
             <form onSubmit={(e) => {
               e.preventDefault();
               const formData = new FormData(e.currentTarget);
               mockSignIn(formData.get('username') as string, formData.get('password') as string);
-            }} className="space-y-4">
-              <input
-                name="username"
-                className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 ring-sky-500 transition-all font-medium"
-                placeholder="Enter Student ID"
-                required
-              />
-              <input
-                name="password"
-                type="password"
-                className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 ring-sky-500 transition-all font-medium"
-                placeholder="Password"
-                required
-              />
-              <Button type="submit" className="w-full h-14 bg-sky-600 hover:bg-sky-700 text-lg font-bold rounded-2xl shadow-lg shadow-sky-100 dark:shadow-none">
-                Access Dashboard
+            }} className="space-y-6">
+              <div className="space-y-2">
+                <input
+                  name="username"
+                  className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 outline-none focus:ring-2 ring-indigo-500 transition-all font-bold"
+                  placeholder="STUDENT_ID"
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <input
+                  name="password"
+                  type="password"
+                  className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 outline-none focus:ring-2 ring-indigo-500 transition-all font-bold"
+                  placeholder="PASS_CODE"
+                  required
+                />
+              </div>
+              <Button type="submit" className="w-full h-16 bg-indigo-600 hover:bg-indigo-500 text-lg font-black rounded-2xl shadow-xl shadow-indigo-500/20 transition-all">
+                INITIATE SYNC
               </Button>
             </form>
           </div>
@@ -74,20 +84,22 @@ function App() {
   }
 
   const startLessons = () => {
+    const allItems = getAllItems();
     const userItems = persistence.getUserItems();
-    const available = INITIAL_ITEMS.filter(item => 
+    const available = allItems.filter(item => 
       !userItems.find(ui => ui.itemId === item.id) && (item.level || 1) <= (profile?.level || 1)
     ).slice(0, 5);
     if (available.length > 0) setSession({ type: 'lesson', items: available });
   };
 
   const startReviews = () => {
+    const allItems = getAllItems();
     const userItems = persistence.getUserItems();
     const ready = userItems.filter(ui => {
-      if (ui.srsStage === 0 || ui.srsStage === 9) return false;
+      if (ui.srsStage === 9) return false; // Burned
       return !ui.nextReviewAt || new Date(ui.nextReviewAt) <= new Date();
     }).map(ui => {
-      const item = INITIAL_ITEMS.find(i => i.id === ui.itemId);
+      const item = allItems.find(i => i.id === ui.itemId);
       return item ? { ...item, userItem: ui } : null;
     }).filter(Boolean);
     
@@ -95,69 +107,79 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-background pb-24 md:pb-0 md:pl-20 transition-colors duration-500">
-      <Toaster position="top-center" richColors />
+    <div className={`min-h-screen bg-[#0A0A0F] text-white pb-24 md:pb-0 md:pl-24 font-sans selection:bg-indigo-500 selection:text-white neural-grid ${focusMode ? 'focus-active' : ''}`}>
+      <div className="scanline" />
+      <Toaster position="top-center" theme="dark" richColors />
       
-      {/* Desktop Sidebar / Tablet Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 h-20 md:h-screen md:w-20 bg-white dark:bg-slate-900 border-t md:border-t-0 md:border-r border-slate-100 dark:border-slate-800 flex md:flex-col items-center justify-around md:justify-center gap-2 md:gap-8 z-50 transition-colors">
-        <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-2xl bg-sky-600 text-white font-black text-xl mb-auto mt-6">
+      {/* Tokyo Midnight Navigation */}
+      <nav className="fixed bottom-0 left-0 right-0 h-24 md:h-screen md:w-24 bg-[#0A0A14]/80 backdrop-blur-3xl border-t md:border-t-0 md:border-r border-white/5 flex md:flex-col items-center justify-around md:justify-center gap-2 md:gap-10 z-50">
+        <div className="hidden md:flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-600 text-white font-black text-2xl mb-auto mt-10 shadow-lg shadow-indigo-500/20">
           J
         </div>
         
-        <NavButton active={currentTab === 'dashboard'} onClick={() => setCurrentTab('dashboard')} icon={<Layout />} label="Home" />
-        <NavButton active={currentTab === 'items'} onClick={() => setCurrentTab('items')} icon={<Package />} label="Market" />
-        <NavButton active={currentTab === 'jlpt'} onClick={() => setCurrentTab('jlpt')} icon={<GraduationCap />} label="Learn" />
-        <NavButton active={currentTab === 'community'} onClick={() => setCurrentTab('community')} icon={<Info />} label="About" />
-        <NavButton active={currentTab === 'settings'} onClick={() => setCurrentTab('settings')} icon={<Settings />} label="Config" />
+        <NavButton active={currentTab === 'dashboard'} onClick={() => setCurrentTab('dashboard')} icon={<Activity />} label="HQ" />
+        <NavButton active={currentTab === 'jlpt'} onClick={() => setCurrentTab('jlpt')} icon={<GraduationCap />} label="LEARN" />
+        <NavButton active={currentTab === 'items'} onClick={() => setCurrentTab('items')} icon={<Package />} label="DATA" />
+        <NavButton active={false} onClick={() => setFocusMode(!focusMode)} icon={<Zap className={focusMode ? 'text-indigo-400' : ''} />} label="FOCUS" />
+        <NavButton active={currentTab === 'community'} onClick={() => setCurrentTab('community')} icon={<Users />} label="NEXUS" />
+        <NavButton active={currentTab === 'settings'} onClick={() => setCurrentTab('settings')} icon={<Settings />} label="CONFIG" />
         
-        <div className="hidden md:block mt-auto mb-6">
-          <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs text-slate-500">
+        <div className="hidden md:block mt-auto mb-10">
+          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center font-black text-xs text-indigo-400">
             {profile?.displayName?.charAt(0)}
           </div>
         </div>
       </nav>
 
       {/* Main Content Area */}
-      <main className="p-4 md:p-8">
+      <main className="animate-in fade-in duration-700">
         {currentTab === 'dashboard' && <Dashboard onStartLessons={startLessons} onStartReviews={startReviews} />}
-        {currentTab === 'items' && <ItemsView />}
+        {currentTab === 'items' && <div className="p-8"><ItemsView /></div>}
         {currentTab === 'jlpt' && (
-          <div className="space-y-8">
-            <div className="flex flex-col gap-6">
-              <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Learning Hub</h2>
-              <div className="flex flex-wrap gap-2">
-                {(['n5', 'n4', 'n3', 'n2', 'n1'] as JLPTLevel[]).map(level => (
-                  <Button 
-                    key={level}
-                    variant={jlptState.level === level ? 'default' : 'outline'}
-                    onClick={() => setJlptState({ ...jlptState, level })}
-                    className={`h-11 px-6 rounded-xl font-bold uppercase tracking-widest text-xs ${
-                      jlptState.level === level ? 'bg-sky-600' : 'border-slate-200 dark:border-slate-800'
-                    }`}
-                  >
-                    {level}
-                  </Button>
-                ))}
+          <div className="p-8 space-y-12">
+            <div className="max-w-7xl mx-auto space-y-8">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div className="space-y-2">
+                  <h2 className="text-5xl font-black text-white uppercase tracking-tighter">Learning Hub</h2>
+                  <p className="text-gray-500 font-medium italic">Architecting your Japanese knowledge base.</p>
+                </div>
+                <div className="flex bg-white/5 p-1.5 rounded-2xl border border-white/10 backdrop-blur-xl">
+                  {(['n5', 'n4', 'n3', 'n2', 'n1'] as JLPTLevel[]).map(level => (
+                    <button 
+                      key={level}
+                      onClick={() => setJlptState({ ...jlptState, level })}
+                      className={`h-11 px-6 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all ${
+                        jlptState.level === level ? 'bg-indigo-600 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300'
+                      }`}
+                    >
+                      {level}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <div className="flex overflow-x-auto no-scrollbar gap-2">
-                {(['kanji', 'vocabulary', 'grammar', 'dokkai'] as JLPTSection[]).map(section => (
-                  <Button 
+
+              <div className="flex overflow-x-auto no-scrollbar gap-4 border-b border-white/5 pb-6">
+                {(['vocabulary', 'grammar', 'kanji', 'dokkai'] as JLPTSection[]).map(section => (
+                  <button 
                     key={section}
-                    variant={jlptState.section === section ? 'secondary' : 'ghost'}
                     onClick={() => setJlptState({ ...jlptState, section })}
-                    className={`rounded-xl font-bold uppercase tracking-widest text-xs h-10 px-5 ${
-                      jlptState.section === section ? 'bg-sky-100 dark:bg-sky-900/30 text-sky-600' : 'text-slate-400'
+                    className={`rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] h-12 px-8 transition-all border ${
+                      jlptState.section === section 
+                        ? 'bg-white/10 border-indigo-500 text-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.1)]' 
+                        : 'text-gray-600 border-white/5 hover:border-white/10'
                     }`}
                   >
                     {section}
-                  </Button>
+                  </button>
                 ))}
               </div>
             </div>
-            <JLPTView level={jlptState.level} section={jlptState.section} />
+            <div className="max-w-7xl mx-auto">
+              <JLPTView level={jlptState.level} section={jlptState.section} />
+            </div>
           </div>
         )}
-        {currentTab === 'community' && <CommunityView />}
+        {currentTab === 'community' && < CommunityView />}
         {currentTab === 'settings' && <SettingsView />}
       </main>
     </div>
@@ -168,16 +190,20 @@ function NavButton({ active, onClick, icon, label }: { active: boolean, onClick:
   return (
     <button 
       onClick={onClick}
-      className={`flex flex-col items-center gap-1 p-3 rounded-2xl transition-all duration-300 ${
+      className={`flex flex-col items-center gap-2 p-4 rounded-3xl transition-all duration-500 group ${
         active 
-          ? 'bg-sky-50 dark:bg-sky-900/30 text-sky-600 scale-110 shadow-sm' 
-          : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
+          ? 'bg-indigo-600/10 text-indigo-400 shadow-[inset_0_0_20px_rgba(99,102,241,0.05)]' 
+          : 'text-gray-600 hover:text-gray-400'
       }`}
     >
-      {React.cloneElement(icon as React.ReactElement, { className: 'w-6 h-6' })}
-      <span className="text-[10px] font-black uppercase tracking-widest hidden md:block">{label}</span>
+      <div className={`transition-transform duration-500 ${active ? 'scale-110' : 'group-hover:scale-110'}`}>
+        {React.cloneElement(icon as React.ReactElement, { size: 24, strokeWidth: active ? 3 : 2 })}
+      </div>
+      <span className="text-[9px] font-black uppercase tracking-[0.3em] hidden md:block">{label}</span>
+      {active && <motion.div layoutId="nav-active" className="absolute left-0 w-1 h-8 bg-indigo-500 rounded-r-full hidden md:block" />}
     </button>
   );
 }
 
 export default App;
+
