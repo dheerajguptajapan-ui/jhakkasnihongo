@@ -1,15 +1,15 @@
 import { Item } from '../../types';
 
 export const lesson4: Item[] = [
+  // Vocabulary
   {
     id: 'mn4-v1',
     lessonNumber: 4,
     type: 'vocabulary',
     character: 'おきます',
     readings: ['okimasu'],
-    meanings: ['get up', 'wake up'],
-    explanation: '起きます.',
-    sentences: [{ japanese: '６時に 起きます。', english: 'I get up at 6.' }]
+    meanings: ['wake up', 'get up'],
+    explanation: '起きる.'
   },
   {
     id: 'mn4-v2',
@@ -18,63 +18,212 @@ export const lesson4: Item[] = [
     character: 'ねます',
     readings: ['nemasu'],
     meanings: ['sleep', 'go to bed'],
-    explanation: '寝ます.',
-    sentences: [{ japanese: '１１時に 寝ます。', english: 'I go to bed at 11.' }]
+    explanation: '寝る.'
   },
+  {
+    id: 'mn4-v3',
+    lessonNumber: 4,
+    type: 'vocabulary',
+    character: 'はたらきます',
+    readings: ['hatarakimasu'],
+    meanings: ['work'],
+    explanation: '働く.'
+  },
+  {
+    id: 'mn4-v4',
+    lessonNumber: 4,
+    type: 'vocabulary',
+    character: 'やすみます',
+    readings: ['yasumimasu'],
+    meanings: ['rest', 'take a holiday', 'be absent'],
+    explanation: '休み.'
+  },
+  {
+    id: 'mn4-v5',
+    lessonNumber: 4,
+    type: 'vocabulary',
+    character: 'べんきょうします',
+    readings: ['benkyou shimasu'],
+    meanings: ['study'],
+    explanation: '勉強.'
+  },
+  {
+    id: 'mn4-v6',
+    lessonNumber: 4,
+    type: 'vocabulary',
+    character: 'おわります',
+    readings: ['owarimasu'],
+    meanings: ['finish', 'end'],
+    explanation: '終わる.'
+  },
+
+  // Grammar
   {
     id: 'mn4-g1',
     lessonNumber: 4,
     type: 'grammar',
-    character: '〜ます / 〜ません',
-    readings: ['~masu / ~masen'],
-    meanings: ['Verb forms'],
-    explanation: 'ます is the polite present affirmative. ません is negative.',
-    sentences: [{ japanese: '働きます。', english: 'I work.' }, { japanese: '働きません。', english: 'I don\'t work.' }]
+    character: '今 〜時 〜分 です',
+    readings: ['ima ~ji ~fun desu'],
+    meanings: ['It is ~o\'clock ~minutes now'],
+    explanation: 'Grammar point for telling time.',
+    sentences: [{ japanese: '今 ９時１５分です。', english: 'It is 9:15 now.', furigana: '今[いま]９時[じ]１５分[ふん]です。' }]
   },
-  {
-    id: 'mn4-d1',
-    lessonNumber: 4,
-    type: 'dokkai',
-    character: 'そちらは何時までですか',
-    readings: ['Sochira wa nanji made desu ka'],
-    meanings: ['Until what time are you open?'],
-    content: '番号案内：はい、１０４の石田です。\nカリナ：大和美術館の電話番号をお願いします。\n番号案内：大和美術館ですね。かしこまりました。\n（テープ）：０７９７ー３８ー２１５１です。\n***\nカリナ：すみません。そちらは何時から何時までですか。\n美術館員：９時から４時までです。\nカリナ：休みは何曜日ですか。\n美術館員：月曜日です。\nカリナ：どうもありがとうございました。',
-    translation: 'Directory: Yes, Ishida from 104.\nKarina: The phone number for the Yamato Museum, please.\nDirectory: Yamato Museum. Understood.\n(Tape): 0797-38-2151.\n***\nKarina: Excuse me. From what time to what time are you open?\nMuseum: From 9:00 to 4:00.\nKarina: What is the holiday?\nMuseum: Monday.\nKarina: Thank you very much.',
-    questions: [
-      {
-        question: '美術館は何時に終わりますか。',
-        options: ['４時', '５時', '９時', '１０時'],
-        answerIndex: 0
-      },
-      {
-        question: '休みは何曜日ですか。',
-        options: ['日曜日', '月曜日', '火曜日', '水曜日'],
-        answerIndex: 1
-      }
-    ]
-  },
+
+  // Kanji (Unit 4)
   {
     id: 'mn4-k1',
     lessonNumber: 4,
-    level: 1,
     type: 'kanji',
-    character: '日',
-    readings: ['にち', 'び', 'ひ'],
-    meanings: ['Sun', 'Day'],
-    radical: '日',
-    mnemonic: 'A window looking at the sun.',
-    combinations: [{ word: '日曜日', reading: 'にちようび', meaning: 'Sunday' }]
+    character: '今',
+    readings: ['こん', 'いま'],
+    meanings: ['Now'],
+    level: 1,
+    radical: '人',
+    mnemonic: 'A clock face or a person pointing to the present moment.',
+    combinations: [{ word: '今日', reading: 'きょう', meaning: 'Today' }]
   },
   {
     id: 'mn4-k2',
     lessonNumber: 4,
-    level: 1,
     type: 'kanji',
-    character: '月',
-    readings: ['げつ', 'がつ', 'つき'],
-    meanings: ['Moon', 'Month'],
+    character: '朝',
+    readings: ['ちょう', 'あさ'],
+    meanings: ['Morning'],
+    level: 1,
     radical: '月',
-    mnemonic: 'Crescent moon.',
-    combinations: [{ word: '月曜日', reading: 'げつようび', meaning: 'Monday' }]
+    mnemonic: 'The sun rising through the trees in the morning.',
+    combinations: [{ word: '朝食', reading: 'ちょうしょく', meaning: 'Breakfast' }]
+  },
+  {
+    id: 'mn4-k3',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '昼',
+    readings: ['ちゅう', 'ひる'],
+    meanings: ['Noon', 'Daytime'],
+    level: 1,
+    radical: '日',
+    mnemonic: 'The sun is high up in the middle of the sky.',
+    combinations: [{ word: '昼ご飯', reading: 'ひるごはん', meaning: 'Lunch' }]
+  },
+  {
+    id: 'mn4-k4',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '晩',
+    readings: ['ばん'],
+    meanings: ['Night', 'Evening'],
+    level: 1,
+    radical: '日',
+    mnemonic: 'The sun going down as evening begins.',
+    combinations: [{ word: '今晩', reading: 'こんばん', meaning: 'Tonight' }]
+  },
+  {
+    id: 'mn4-k5',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '時',
+    readings: ['じ', 'とき'],
+    meanings: ['Time', 'Hour'],
+    level: 1,
+    radical: '日',
+    mnemonic: 'Sun (day) and temple (measuring time).',
+    combinations: [{ word: '時間', reading: 'jikan', meaning: 'Time' }]
+  },
+  {
+    id: 'mn4-k6',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '分',
+    readings: ['ぶん', 'ふん', 'わか'],
+    meanings: ['Minute', 'Part', 'To understand'],
+    level: 1,
+    radical: '刀',
+    mnemonic: 'A knife cutting something into parts.',
+    combinations: [{ word: '半分', reading: 'hanbun', meaning: 'Half' }]
+  },
+  {
+    id: 'mn4-k7',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '半',
+    readings: ['はん', 'なか'],
+    meanings: ['Half'],
+    level: 1,
+    radical: '十',
+    mnemonic: 'Something split right down the middle.',
+    combinations: [{ word: '三時半', reading: 'sanjihan', meaning: '3:30' }]
+  },
+  {
+    id: 'mn4-k8',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '午',
+    readings: ['ご'],
+    meanings: ['Noon'],
+    level: 1,
+    radical: '十',
+    mnemonic: 'Used for AM/PM marking.',
+    combinations: [{ word: '午前', reading: 'gozen', meaning: 'AM' }]
+  },
+  {
+    id: 'mn4-k9',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '前',
+    readings: ['ぜん', 'まえ'],
+    meanings: ['In front', 'Before', 'Previous'],
+    level: 1,
+    radical: '刀',
+    mnemonic: 'A person standing before a knife or a clock.',
+    combinations: [{ word: '名前', reading: 'namae', meaning: 'Name' }]
+  },
+  {
+    id: 'mn4-k10',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '後',
+    readings: ['ご', 'あと', 'のち', 'うし'],
+    meanings: ['Behind', 'After', 'Later'],
+    level: 1,
+    radical: '彳',
+    mnemonic: 'A person walking behind others on a path.',
+    combinations: [{ word: '午後', reading: 'gogo', meaning: 'PM' }]
+  },
+  {
+    id: 'mn4-k11',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '休',
+    readings: ['きゅう', 'やす'],
+    meanings: ['Rest', 'Day off', 'Vacation'],
+    level: 1,
+    radical: '人',
+    mnemonic: 'A person leaning against a tree to rest.',
+    combinations: [{ word: '休み', reading: 'yasumi', meaning: 'Rest' }]
+  },
+  {
+    id: 'mn4-k12',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '毎',
+    readings: ['まい'],
+    meanings: ['Every'],
+    level: 1,
+    radical: '毋',
+    mnemonic: 'Women doing chores every day.',
+    combinations: [{ word: '毎日', reading: 'mainichi', meaning: 'Every day' }]
+  },
+  {
+    id: 'mn4-k13',
+    lessonNumber: 4,
+    type: 'kanji',
+    character: '何',
+    readings: ['か', 'なに', 'なん'],
+    meanings: ['What'],
+    level: 1,
+    radical: '人',
+    mnemonic: 'A person carrying something, wondering what it is.',
+    combinations: [{ word: '何か', reading: 'nanika', meaning: 'Something' }]
   }
 ];

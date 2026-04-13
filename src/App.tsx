@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { useAuth } from './lib/AuthContext';
 import { Dashboard } from './components/Dashboard';
 import { LessonSession } from './components/LessonSession';
@@ -11,7 +12,7 @@ import { AdminView } from './components/AdminView';
 import { Item, UserItem } from './types';
 import { getAllItems } from './lib/curriculum';
 import { persistence } from './lib/persistence';
-import { Layout, Menu, BookOpen, GraduationCap, Users, Settings, Package, Info, Activity } from 'lucide-react';
+import { Layout, Menu, BookOpen, GraduationCap, Users, Settings, Package, Info, Activity, Zap } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { Toaster } from 'sonner';
 

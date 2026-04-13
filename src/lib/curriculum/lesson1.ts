@@ -1,6 +1,7 @@
 import { Item } from '../../types';
 
 export const lesson1: Item[] = [
+  // Vocabulary
   {
     id: 'mn1-v1',
     lessonNumber: 1,
@@ -17,7 +18,7 @@ export const lesson1: Item[] = [
     character: 'わたしたち',
     readings: ['watashitachi'],
     meanings: ['we'],
-    explanation: 'Plural form of "watashi". (私たちは in Kanji).'
+    explanation: 'Plural form of "watashi".'
   },
   {
     id: 'mn1-v3',
@@ -32,85 +33,13 @@ export const lesson1: Item[] = [
     id: 'mn1-v4',
     lessonNumber: 1,
     type: 'vocabulary',
-    character: 'あのひと',
-    readings: ['ano hito'],
-    meanings: ['that person', 'he', 'she'],
-    explanation: 'あの人. Polite equivalent is あのかた.'
-  },
-  {
-    id: 'mn1-v5',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: 'あのかた',
-    readings: ['ano kata'],
-    meanings: ['that person (polite)'],
-    explanation: 'あの方. Polite equivalent of あのひと.'
-  },
-  {
-    id: 'mn1-v6',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: 'みなさん',
-    readings: ['minasan'],
-    meanings: ['all of you', 'ladies and gentlemen'],
-    explanation: '皆さん.'
-  },
-  {
-    id: 'mn1-v7',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: '〜さん',
-    readings: ['~san'],
-    meanings: ['Mr.', 'Ms.'],
-    explanation: 'Gender-neutral title of respect.'
-  },
-  {
-    id: 'mn1-v8',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: '〜ちゃん',
-    readings: ['~chan'],
-    meanings: ['suffix for children'],
-    explanation: 'Often added to child names instead of 〜さん.'
-  },
-  {
-    id: 'mn1-v9',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: '〜くん',
-    readings: ['~kun'],
-    meanings: ['suffix for boys'],
-    explanation: '〜君. Commonly used for boys.'
-  },
-  {
-    id: 'mn1-v10',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: '〜じん',
-    readings: ['~jin'],
-    meanings: ['national of'],
-    explanation: '〜人. Example: アメリカじん.'
-  },
-  {
-    id: 'mn1-v11',
-    lessonNumber: 1,
-    type: 'vocabulary',
     character: 'せんせい',
     readings: ['sensei'],
     meanings: ['teacher', 'instructor'],
     explanation: '先生. Not used for one\'s own job.'
   },
   {
-    id: 'mn1-v12',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: 'きょうし',
-    readings: ['kyoushi'],
-    meanings: ['teacher (occupation)'],
-    explanation: '教師. Used for one\'s own job.'
-  },
-  {
-    id: 'mn1-v13',
+    id: 'mn1-v5',
     lessonNumber: 1,
     type: 'vocabulary',
     character: 'がくせい',
@@ -119,7 +48,7 @@ export const lesson1: Item[] = [
     explanation: '学生.'
   },
   {
-    id: 'mn1-v14',
+    id: 'mn1-v6',
     lessonNumber: 1,
     type: 'vocabulary',
     character: 'かいしゃいん',
@@ -128,16 +57,7 @@ export const lesson1: Item[] = [
     explanation: '会社員.'
   },
   {
-    id: 'mn1-v15',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: 'しゃいん',
-    readings: ['shain'],
-    meanings: ['employee of ~ company'],
-    explanation: '社員. e.g. IMCの しゃいん.'
-  },
-  {
-    id: 'mn1-v16',
+    id: 'mn1-v7',
     lessonNumber: 1,
     type: 'vocabulary',
     character: 'ぎんこういん',
@@ -146,7 +66,7 @@ export const lesson1: Item[] = [
     explanation: '銀行員.'
   },
   {
-    id: 'mn1-v17',
+    id: 'mn1-v8',
     lessonNumber: 1,
     type: 'vocabulary',
     character: 'いしゃ',
@@ -155,25 +75,15 @@ export const lesson1: Item[] = [
     explanation: '医者.'
   },
   {
-    id: 'mn1-v18',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: 'けんきゅうしゃ',
-    readings: ['kenkyuusha'],
-    meanings: ['researcher', 'scholar'],
-    explanation: '研究者.'
-  },
-  {
-    id: 'mn1-v19',
+    id: 'mn1-v9',
     lessonNumber: 1,
     type: 'vocabulary',
     character: 'エンジニア',
     readings: ['enjinia'],
-    meanings: ['engineer'],
-    explanation: 'Engineer (Katakana).'
+    meanings: ['engineer']
   },
   {
-    id: 'mn1-v20',
+    id: 'mn1-v10',
     lessonNumber: 1,
     type: 'vocabulary',
     character: 'だいがく',
@@ -181,211 +91,148 @@ export const lesson1: Item[] = [
     meanings: ['university'],
     explanation: '大学.'
   },
-  {
-    id: 'mn1-v21',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: 'びょういん',
-    readings: ['byouin'],
-    meanings: ['hospital'],
-    explanation: '病院.'
-  },
-  {
-    id: 'mn1-v22',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: 'でんき',
-    readings: ['denki'],
-    meanings: ['electricity', 'light'],
-    explanation: '電気.'
-  },
-  {
-    id: 'mn1-v23',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: 'だれ',
-    readings: ['dare'],
-    meanings: ['who'],
-    explanation: '誰. Interrogative for "who". Donta is polite equivalent.'
-  },
-  {
-    id: 'mn1-v24',
-    lessonNumber: 1,
-    type: 'vocabulary',
-    character: 'どなた',
-    readings: ['donata'],
-    meanings: ['who (polite)'],
-    explanation: 'Polite equivalent of だれ.'
-  },
+
+  // Grammar
   {
     id: 'mn1-g1',
     lessonNumber: 1,
     type: 'grammar',
-    character: '〜は 〜です',
-    readings: ['wa ... desu'],
+    character: 'N1 は N2 です',
+    readings: ['N1 wa N2 desu'],
     meanings: ['Noun 1 is Noun 2'],
-    explanation: 'The particle は indicates that the word before it is the topic of the sentence. です indicates judgement or assertion and shows respect toward the listener.',
-    sentences: [
-      { japanese: '私はマイク・ミラーです。', english: 'I am Mike Miller.', furigana: '私[わたし]はマイク・ミラーです。' }
-    ]
+    explanation: 'は is the topic marker. です is a copula indicating assertion.',
+    sentences: [{ japanese: '私は 会社員です。', english: 'I am a company employee.', furigana: '私[わたし]は会[かい]社[しゃ]員[いん]です。' }]
   },
   {
     id: 'mn1-g2',
     lessonNumber: 1,
     type: 'grammar',
-    character: '〜は 〜じゃ ありません',
-    readings: ['wa ... ja arimasen'],
+    character: 'N1 は N2 じゃ ありません',
+    readings: ['N1 wa N2 ja arimasen'],
     meanings: ['Noun 1 is not Noun 2'],
-    explanation: 'じゃ ありません is the negative form of です. In formal speech, では ありません is used.',
-    sentences: [
-      { japanese: 'サントスさんは学生じゃありません。', english: 'Mr. Santos is not a student.', furigana: 'サントスさんは学[がく]生[せい]じゃありません。' }
-    ]
+    explanation: 'Negative form of です. Formal version is では ありません.',
+    sentences: [{ japanese: 'サントスさんは 先生じゃありません。', english: 'Mr. Santos is not a teacher.', furigana: 'サントスさんは先[せん]生[せい]じゃありません。' }]
   },
-  {
-    id: 'mn1-g3',
-    lessonNumber: 1,
-    type: 'grammar',
-    character: '〜か',
-    readings: ['ka'],
-    meanings: ['Question particle'],
-    explanation: 'The particle か is added to the end of a sentence to turn it into a question. The sentence ends with a rising intonation.',
-    sentences: [
-      { japanese: 'ミラーさんはアメリカ人ですか。', english: 'Is Mr. Miller American?', furigana: 'ミラーさんはアメリカ人[じん]ですか。' }
-    ]
-  },
-  {
-    id: 'mn1-g4',
-    lessonNumber: 1,
-    type: 'grammar',
-    character: '〜も',
-    readings: ['mo'],
-    meanings: ['also', 'too'],
-    explanation: 'も is used when the same thing applies to the new topic. It replaces は.',
-    sentences: [
-      { japanese: 'ミラーさんも会社員です。', english: 'Mr. Miller is also a company employee.', furigana: 'ミラーさんも会[かい]社[しゃ]員[いん]です。' }
-    ]
-  },
-  {
-    id: 'mn1-g5',
-    lessonNumber: 1,
-    type: 'grammar',
-    character: '〜の',
-    readings: ['no'],
-    meanings: ['possessive particle'],
-    explanation: 'の connects two nouns. N1 modifies N2. It often indicates possession or belonging.',
-    sentences: [
-      { japanese: 'ミラーさんはIMCの社員です。', english: 'Mr. Miller is an employee of IMC.', furigana: 'ミラーさんはIMCの社[しゃ]員[いん]です。' }
-    ]
-  },
-  {
-    id: 'mn1-d1',
-    lessonNumber: 1,
-    type: 'dokkai',
-    character: 'はじめまして',
-    readings: ['Hajimemashite'],
-    meanings: ['How do you do?'],
-    content: '佐藤：おはようございます。\n山田：おはようございます。佐藤さん、こちらはミラーさんです。\nミラー：はじめまして。マイク・ミラーです。アメリカから来ました。どうぞよろしく。\n佐藤：佐藤けいこです。どうぞよろしく。',
-    translation: 'Sato: Good morning.\nYamada: Good morning. Ms. Sato, this is Mr. Miller.\nMiller: How do you do? I am Mike Miller. I came from America. Nice to meet you.\nSato: I am Keiko Sato. Nice to meet you.',
-    questions: [
-      {
-        question: 'ミラーさんはどこから来ましたか。',
-        options: ['イギリス', 'アメリカ', 'インド', 'ブラジル'],
-        answerIndex: 1
-      },
-      {
-        question: '佐藤さんの名前は何ですか。',
-        options: ['さとう まりこ', 'さとう けいこ', 'やまだ けいこ', 'ミラー けいこ'],
-        answerIndex: 1
-      }
-    ]
-  },
+
+  // Kanji (Unit 1)
   {
     id: 'mn1-k1',
     lessonNumber: 1,
     type: 'kanji',
-    character: '私',
-    readings: ['し', 'わたし', 'わたくし'],
-    meanings: ['I', 'Me', 'Private'],
+    character: '日',
+    readings: ['にち', 'じつ', 'ひ', 'び'],
+    meanings: ['Day', 'Sun', 'Japan'],
     level: 1,
-    radical: '禾',
-    mnemonic: 'A person holding a grain stalk, representing their own private property.',
-    combinations: [
-      { word: '私立大学', reading: 'しりつだいがく', meaning: 'Private university' }
-    ],
-    sentences: [
-      { japanese: '私は学生です。', english: 'I am a student.', furigana: '私[わたし]は学[がく]生[せい]です。' }
-    ]
+    radical: '日',
+    mnemonic: 'The sun is a circle with a line in the middle, stylized as a box.',
+    combinations: [{ word: '日本', reading: 'にほん', meaning: 'Japan' }]
   },
   {
     id: 'mn1-k2',
     lessonNumber: 1,
     type: 'kanji',
-    character: '人',
-    readings: ['じん', 'にん', 'ひと'],
-    meanings: ['Person'],
+    character: '月',
+    readings: ['げつ', 'がつ', 'つき'],
+    meanings: ['Month', 'Moon'],
     level: 1,
-    radical: '人',
-    mnemonic: 'A person standing on two legs.',
-    combinations: [
-      { word: '日本人', reading: 'にほんじん', meaning: 'Japanese person' },
-      { word: '一人', reading: 'ひとり', meaning: 'One person' }
-    ],
-    sentences: [
-      { japanese: 'あの人は誰ですか。', english: 'Who is that person?', furigana: 'あの人[ひと]は誰[だれ]ですか。' }
-    ]
+    radical: '月',
+    mnemonic: 'A crescent moon with two marks.',
+    combinations: [{ word: '一月', reading: 'いちがつ', meaning: 'January' }]
   },
   {
     id: 'mn1-k3',
     lessonNumber: 1,
     type: 'kanji',
-    character: '先',
-    readings: ['せん', 'さき'],
-    meanings: ['Before', 'Ahead', 'Previous'],
+    character: '火',
+    readings: ['か', 'ひ', 'ほ'],
+    meanings: ['Fire'],
     level: 1,
-    radical: '儿',
-    mnemonic: 'A person walking forward, representing being ahead or before others.',
-    combinations: [
-      { word: '先生', reading: 'せんせい', meaning: 'Teacher' },
-      { word: '先週', reading: 'せんしゅう', meaning: 'Last week' }
-    ],
-    sentences: [
-      { japanese: '先生、おはようございます。', english: 'Teacher, good morning.', furigana: '先[せん]生[せい]、おはようございます。' }
-    ]
+    radical: '火',
+    mnemonic: 'Flames rising up from a central point.',
+    combinations: [{ word: '火曜日', reading: 'かようび', meaning: 'Tuesday' }]
   },
   {
     id: 'mn1-k4',
     lessonNumber: 1,
     type: 'kanji',
-    character: '生',
-    readings: ['せい', 'しょう', 'い', 'う', 'な', 'き'],
-    meanings: ['Life', 'Birth'],
+    character: '水',
+    readings: ['すい', 'みず'],
+    meanings: ['Water'],
     level: 1,
-    radical: '生',
-    mnemonic: 'A plant growing out of the ground, representing life and growth.',
-    combinations: [
-      { word: '学生', reading: 'がくせい', meaning: 'Student' },
-      { word: '先生', reading: 'せんせい', meaning: 'Teacher' }
-    ],
-    sentences: [
-      { japanese: '学生です。', english: 'I am a student.', furigana: '学[がく]生[せい]です。' }
-    ]
+    radical: '水',
+    mnemonic: 'Water splashing or flowing in a stream.',
+    combinations: [{ word: '水曜日', reading: 'すいようび', meaning: 'Wednesday' }]
   },
   {
     id: 'mn1-k5',
     lessonNumber: 1,
     type: 'kanji',
-    character: '学',
-    readings: ['がく', 'まな'],
-    meanings: ['Study', 'Learning'],
+    character: '木',
+    readings: ['もく', 'ぼく', 'き'],
+    meanings: ['Tree', 'Wood'],
     level: 1,
-    radical: '子',
-    mnemonic: 'A child under a roof with three marks representing knowledge sparks.',
-    combinations: [
-      { word: '学校', reading: 'がっこう', meaning: 'School' },
-      { word: '学生', reading: 'がくせい', meaning: 'Student' }
-    ],
-    sentences: [
-      { japanese: '学校に行きます。', english: 'I go to school.', furigana: '学[がっ]校[こう]に行[い]きます。' }
-    ]
+    radical: '木',
+    mnemonic: 'A tree with branches and roots.',
+    combinations: [{ word: '木曜日', reading: 'もくようび', meaning: 'Thursday' }]
+  },
+  {
+    id: 'mn1-k6',
+    lessonNumber: 1,
+    type: 'kanji',
+    character: '金',
+    readings: ['きん', 'こん', 'かね'],
+    meanings: ['Gold', 'Money'],
+    level: 1,
+    radical: '金',
+    mnemonic: 'Gold nuggets in the earth under a roof.',
+    combinations: [{ word: 'お金', reading: 'おかね', meaning: 'Money' }]
+  },
+  {
+    id: 'mn1-k7',
+    lessonNumber: 1,
+    type: 'kanji',
+    character: '土',
+    readings: ['ど', 'と', 'つち'],
+    meanings: ['Earth', 'Soil', 'Ground'],
+    level: 1,
+    radical: '土',
+    mnemonic: 'A sprout growing out of the earth.',
+    combinations: [{ word: '土曜日', reading: 'どようび', meaning: 'Saturday' }]
+  },
+  {
+    id: 'mn1-k8',
+    lessonNumber: 1,
+    type: 'kanji',
+    character: '山',
+    readings: ['さん', 'やま'],
+    meanings: ['Mountain'],
+    level: 1,
+    radical: '山',
+    mnemonic: 'Three peaks of a mountain range.',
+    combinations: [{ word: '富士山', reading: 'ふじさん', meaning: 'Mt. Fuji' }]
+  },
+  {
+    id: 'mn1-k9',
+    lessonNumber: 1,
+    type: 'kanji',
+    character: '川',
+    readings: ['せん', 'かわ'],
+    meanings: ['River'],
+    level: 1,
+    radical: '川',
+    mnemonic: 'Flowing lines of a river.',
+    combinations: [{ word: 'ミシシッピ川', reading: 'ミシシッピがわ', meaning: 'Mississippi River' }]
+  },
+  {
+    id: 'mn1-k10',
+    lessonNumber: 1,
+    type: 'kanji',
+    character: '田',
+    readings: ['でん', 'た'],
+    meanings: ['Rice field'],
+    level: 1,
+    radical: '田',
+    mnemonic: 'A rice field divided into four sections.',
+    combinations: [{ word: '田中さん', reading: 'たなかさん', meaning: 'Mr./Ms. Tanaka' }]
   }
 ];

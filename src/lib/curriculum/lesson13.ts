@@ -1,36 +1,73 @@
 import { Item } from '../../types';
 
 export const lesson13: Item[] = [
+  // Vocabulary
   {
     id: 'mn13-v1',
     lessonNumber: 13,
     type: 'vocabulary',
     character: 'あそびます',
     readings: ['asobimasu'],
-    meanings: ['play', 'visit'],
-    explanation: '遊びます.',
-    sentences: [{ japanese: '公園で 遊びます。', english: 'I play in the park.' }]
+    meanings: ['play', 'enjoy oneself'],
+    explanation: '遊ぶ.'
   },
   {
-    id: 'mn13-d1',
+    id: 'mn13-v2',
     lessonNumber: 13,
-    type: 'dokkai',
-    character: '別々にお願いします',
-    readings: ['Betsubetsu ni onegai shimasu'],
-    meanings: ['Separately, please'],
-    content: '店員：いらっしゃいませ。ご注文は？\nミラー：私は天ぷら定食。 \nカリナ：私は牛丼をお願いします。\n***\n店員：天ぷら定食と牛丼ですね。かしこまりました。\n***\n店員：１,８００円でございます。\nミラー：すみません。別々にお願いします。',
-    translation: 'Server: Welcome. Your order?\nMiller: Tempura set for me.\nKarina: Gyudon for me, please.\n***\nServer: Tempura set and Gyudon. Understood.\n***\nServer: That will be 1,800 yen.\nMiller: Excuse me. Separately, please.',
-    questions: [
-      {
-        question: 'ミラーさんは何を食べましたか。',
-        options: ['牛丼', '天ぷら定食', 'うどん', 'ラーメン'],
-        answerIndex: 1
-      },
-      {
-        question: 'お金はどう払いましたか。',
-        options: ['いっしょに払いました', '別々に払いました', 'カードで払いました', 'サントスさんが払いました'],
-        answerIndex: 1
-      }
-    ]
+    type: 'vocabulary',
+    character: 'およぎます',
+    readings: ['oyogimasu'],
+    meanings: ['swim'],
+    explanation: '泳ぐ.'
+  },
+
+  // Grammar
+  {
+    id: 'mn13-g1',
+    lessonNumber: 13,
+    type: 'grammar',
+    character: 'V (masu-form) たい です',
+    readings: ['V tai desu'],
+    meanings: ['Want to [Verb]'],
+    explanation: 'Expressing desires for actions.',
+    sentences: [{ japanese: 'お茶を 飲みたいです。', english: 'I want to drink tea.', furigana: 'お茶[ちゃ]を飲[の]みたいです。' }]
+  },
+
+  // Kanji (Unit 12 - Part 1)
+  {
+    id: 'mn13-k1',
+    lessonNumber: 13,
+    type: 'kanji',
+    character: '歩',
+    readings: ['ほ', 'ふ', 'ぶ', 'ある', 'あゆ'],
+    meanings: ['Walk', 'Step'],
+    level: 1,
+    radical: '止',
+    mnemonic: 'Stopping (止) and starting again correctly.',
+    combinations: [{ word: '散歩', reading: 'sanpo', meaning: 'Stroll' }]
+  },
+  {
+    id: 'mn13-k2',
+    lessonNumber: 13,
+    type: 'kanji',
+    character: '立',
+    readings: ['りつ', 'りゅう', 'た', 'だ'],
+    meanings: ['Stand up', 'Establish'],
+    level: 1,
+    radical: '立',
+    mnemonic: 'A person standing on the ground.',
+    combinations: [{ word: '起立', reading: 'kiritsu', meaning: 'Standing up' }]
+  },
+  {
+    id: 'mn13-k3',
+    lessonNumber: 13,
+    type: 'kanji',
+    character: '止',
+    readings: ['し', 'と', 'ど'],
+    meanings: ['Stop', 'Halt'],
+    level: 1,
+    radical: '止',
+    mnemonic: 'A footprint showing where someone stopped.',
+    combinations: [{ word: '中止', reading: 'chuushi', meaning: 'Cancellation/Suspension' }]
   }
 ];

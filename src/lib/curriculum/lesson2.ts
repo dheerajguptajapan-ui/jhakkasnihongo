@@ -1,6 +1,7 @@
 import { Item } from '../../types';
 
 export const lesson2: Item[] = [
+  // Vocabulary
   {
     id: 'mn2-v1',
     lessonNumber: 2,
@@ -45,54 +46,186 @@ export const lesson2: Item[] = [
     id: 'mn2-v5',
     lessonNumber: 2,
     type: 'vocabulary',
-    character: 'ほん',
-    readings: ['hon'],
-    meanings: ['book'],
-    explanation: '本.'
+    character: 'つくえ',
+    readings: ['tsukue'],
+    meanings: ['desk'],
+    explanation: '机.'
   },
+  {
+    id: 'mn2-v6',
+    lessonNumber: 2,
+    type: 'vocabulary',
+    character: 'とけい',
+    readings: ['tokei'],
+    meanings: ['watch', 'clock'],
+    explanation: '時計.'
+  },
+
+  // Grammar
   {
     id: 'mn2-g1',
     lessonNumber: 2,
     type: 'grammar',
-    character: 'これ/それ/あれ',
-    readings: ['kore/sore/are'],
-    meanings: ['Demonstrative Nouns'],
-    explanation: 'これ (near speaker), それ (near listener), あれ (far from both) function as nouns.',
+    character: 'N1 は 何ですか',
+    readings: ['N1 wa nan desu ka'],
+    meanings: ['What is N1?'],
+    explanation: 'Interrogative sentence using "nan" (what).',
     sentences: [{ japanese: 'それは 何ですか。', english: 'What is that?', furigana: 'それは何[なん]ですか。' }]
   },
-  {
-    id: 'mn2-d1',
-    lessonNumber: 2,
-    type: 'dokkai',
-    character: 'ほんのきもちです',
-    readings: ['Hon no kimochi desu'],
-    meanings: ['It\'s just a token of my gratitude'],
-    content: '山田：はい、どなたですか。\nサントス：４０８のサントスです。\nサントス：こんにちは。サントスです。これからお世話になります。どうぞよろしくお願いします。\n山田：こちらこそよろしく。\nサントス：あの、これ、ほんの気持ちです。\n山田：あ、どうも・・・何ですか。\nサントス：コーヒーです。どうぞ。\n山田：どうもありがとうございます。',
-    translation: 'Yamada: Yes, who is it?\nSantos: It\'s Santos from 408.\nSantos: Hello, I\'m Santos. I\'ll be in your care from now on. Pleased to meet you.\nYamada: Likewise.\nSantos: Um, this is just a token of my gratitude.\nYamada: Oh, thank you... what is it?\nSantos: It\'s coffee. Please take it.\nYamada: Thank you very much.',
-    questions: [
-      {
-        question: 'サントスさんは何番の部屋に住んでいますか。',
-        options: ['４０１', '４０８', '３０８', '５０８'],
-        answerIndex: 1
-      },
-      {
-        question: 'サントスさんは何をあげましたか。',
-        options: ['お茶', 'コーヒー', 'チョコレート', '本'],
-        answerIndex: 1
-      }
-    ]
-  },
+
+  // Kanji (Unit 2)
   {
     id: 'mn2-k1',
     lessonNumber: 2,
     type: 'kanji',
-    character: '本',
-    readings: ['ほん', 'もと'],
-    meanings: ['Book', 'Origin'],
+    character: '一',
+    readings: ['いち', 'いつ', 'ひと'],
+    meanings: ['One'],
     level: 1,
-    radical: '木',
-    mnemonic: 'A tree with a mark showing its roots.',
-    combinations: [{ word: '日本語', reading: 'にほんご', meaning: 'Japanese language' }],
-    sentences: [{ japanese: '本を読みます。', english: 'I read a book.', furigana: '本[ほん]を読[よ]みます。' }]
+    radical: '一',
+    mnemonic: 'A single horizontal line representing the number one.'
+  },
+  {
+    id: 'mn2-k2',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '二',
+    readings: ['に', 'じ', 'ふた'],
+    meanings: ['Two'],
+    level: 1,
+    radical: '二',
+    mnemonic: 'Two horizontal lines representing the number two.'
+  },
+  {
+    id: 'mn2-k3',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '三',
+    readings: ['さん', 'み'],
+    meanings: ['Three'],
+    level: 1,
+    radical: '一',
+    mnemonic: 'Three horizontal lines representing the number three.'
+  },
+  {
+    id: 'mn2-k4',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '四',
+    readings: ['し', 'よ', 'よん', 'よっ'],
+    meanings: ['Four'],
+    level: 1,
+    radical: '囗',
+    mnemonic: 'A box with two lines inside, representing four directions.'
+  },
+  {
+    id: 'mn2-k5',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '五',
+    readings: ['ご', 'いつ'],
+    meanings: ['Five'],
+    level: 1,
+    radical: '二',
+    mnemonic: 'Five strokes form this kanji.'
+  },
+  {
+    id: 'mn2-k6',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '六',
+    readings: ['ろく', 'りく', 'む'],
+    meanings: ['Six'],
+    level: 1,
+    radical: '八',
+    mnemonic: 'A top hat with legs.'
+  },
+  {
+    id: 'mn2-k7',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '七',
+    readings: ['しち', 'なな', 'なの'],
+    meanings: ['Seven'],
+    level: 1,
+    radical: '一',
+    mnemonic: 'An upside-down number seven.'
+  },
+  {
+    id: 'mn2-k8',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '八',
+    readings: ['はち', 'や', 'よう'],
+    meanings: ['Eight'],
+    level: 1,
+    radical: '八',
+    mnemonic: 'Two sides of a mountain or an open space.'
+  },
+  {
+    id: 'mn2-k9',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '九',
+    readings: ['きゅう', 'く', 'ここの'],
+    meanings: ['Nine'],
+    level: 1,
+    radical: '乙',
+    mnemonic: 'A hook with a stroke.'
+  },
+  {
+    id: 'mn2-k10',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '十',
+    readings: ['じゅう', 'じっ', 'とお', 'と'],
+    meanings: ['Ten'],
+    level: 1,
+    radical: '十',
+    mnemonic: 'A cross representing the intersection of two bundles of five.'
+  },
+  {
+    id: 'mn2-k11',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '百',
+    readings: ['ひゃく', 'びゃく', 'ぴゃく', 'もも'],
+    meanings: ['Hundred'],
+    level: 1,
+    radical: '白',
+    mnemonic: 'The number one over white (representing a clear value).'
+  },
+  {
+    id: 'mn2-k12',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '千',
+    readings: ['せん', 'ぜん', 'ち'],
+    meanings: ['Thousand'],
+    level: 1,
+    radical: '十',
+    mnemonic: 'Ten with an extra stroke for magnitude.'
+  },
+  {
+    id: 'mn2-k13',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '万',
+    readings: ['まん', 'ばん', 'よろず'],
+    meanings: ['Ten thousand', 'Myriad'],
+    level: 1,
+    radical: '一',
+    mnemonic: 'A flag representing a large gathering.'
+  },
+  {
+    id: 'mn2-k14',
+    lessonNumber: 2,
+    type: 'kanji',
+    character: '円',
+    readings: ['えん', 'まる'],
+    meanings: ['Yen', 'Circle', 'Round'],
+    level: 1,
+    radical: '冂',
+    mnemonic: 'A coin-shaped box representing currency.'
   }
 ];
