@@ -1,201 +1,301 @@
 import { Item } from '../../types';
 
 export const n3chapter1: Item[] = [
-  // --- VOCABULARY (~60 Items) ---
   {
-    id: 'tr3-ch1-v1',
-    lessonNumber: 1,
-    type: 'vocabulary',
+    id: 'kj-n3-c1-1',
+    type: 'kanji',
+    character: '政',
+    readings: ["せい","しょう","まつりごと","まん"],
+    meanings: ["Politics","Government"],
     level: 3,
-    character: '登山',
-    readings: ['tozan'],
-    meanings: ['mountain climbing']
+    explanation: 'Strokes: 9'
   },
-  {
-    id: 'tr3-ch1-v2',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-2',
+    type: 'kanji',
+    character: '議',
+    readings: ["ぎ"],
+    meanings: ["Deliberation","Consultation","Debate","Consideration"],
     level: 3,
-    character: '山登り',
-    readings: ['yamanobori'],
-    meanings: ['mountain climbing']
+    explanation: 'Strokes: 20'
   },
-  {
-    id: 'tr3-ch1-v3',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-3',
+    type: 'kanji',
+    character: '民',
+    readings: ["みん","たみ"],
+    meanings: ["People","Nation","Subjects"],
     level: 3,
-    character: '富士山',
-    readings: ['fujisan'],
-    meanings: ['Mt. Fuji']
+    explanation: 'Strokes: 5'
   },
-  {
-    id: 'tr3-ch1-v4',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-4',
+    type: 'kanji',
+    character: '連',
+    readings: ["れん","つらなる","つらねる","つれる","づれ"],
+    meanings: ["Take Along","Lead","Join","Connect","Party","Gang","Clique"],
     level: 3,
-    character: '頂上',
-    readings: ['choujou'],
-    meanings: ['summit', 'top']
+    explanation: 'Strokes: 10'
   },
-  {
-    id: 'tr3-ch1-v5',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-5',
+    type: 'kanji',
+    character: '対',
+    readings: ["たい","つい","あいて","こたえる","そろい","つれあい","ならぶ","むかう"],
+    meanings: ["Vis-a-vis","Opposite","Even","Equal","Versus","Anti-","Compare"],
     level: 3,
-    character: '景色',
-    readings: ['keshiki'],
-    meanings: ['scenery', 'view']
+    explanation: 'Strokes: 7'
   },
-  {
-    id: 'tr3-ch1-v6',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-6',
+    type: 'kanji',
+    character: '部',
+    readings: ["ぶ","べ"],
+    meanings: ["Section","Bureau","Dept","Class","Copy","Part","Portion","Counter For Copies Of A Newspaper Or Magazine"],
     level: 3,
-    character: '朝日',
-    readings: ['asahi'],
-    meanings: ['morning sun', 'sunrise']
+    explanation: 'Strokes: 11'
   },
-  {
-    id: 'tr3-ch1-v7',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-7',
+    type: 'kanji',
+    character: '合',
+    readings: ["ごう","がっ","かっ","あう","あう","あい","あい","あい","あい","あわす","あわせる","あわせる"],
+    meanings: ["Fit","Suit","Join","0.1"],
     level: 3,
-    character: '感動',
-    readings: ['kandou'],
-    meanings: ['being moved', 'inspiration']
+    explanation: 'Strokes: 6'
   },
-  {
-    id: 'tr3-ch1-v8',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-8',
+    type: 'kanji',
+    character: '市',
+    readings: ["し","いち"],
+    meanings: ["Market","City","Town"],
     level: 3,
-    character: '準備',
-    readings: ['junbi'],
-    meanings: ['preparation']
+    explanation: 'Strokes: 5'
   },
-  {
-    id: 'tr3-ch1-v9',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-9',
+    type: 'kanji',
+    character: '内',
+    readings: ["ない","だい","うち"],
+    meanings: ["Inside","Within","Between","Among","House","Home"],
     level: 3,
-    character: '装備',
-    readings: ['soubi'],
-    meanings: ['equipment']
+    explanation: 'Strokes: 4'
   },
-  {
-    id: 'tr3-ch1-v10',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-10',
+    type: 'kanji',
+    character: '相',
+    readings: ["そう","しょう","あい"],
+    meanings: ["Inter-","Mutual","Together","Each Other","Minister Of State","Councillor","Aspect","Phase","Physiognomy"],
     level: 3,
-    character: '計画',
-    readings: ['keikaku'],
-    meanings: ['plan']
+    explanation: 'Strokes: 9'
   },
-  {
-    id: 'tr3-ch1-v11',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-11',
+    type: 'kanji',
+    character: '定',
+    readings: ["てい","じょう","さだめる","さだまる","さだか"],
+    meanings: ["Determine","Fix","Establish","Decide"],
     level: 3,
-    character: '無理',
-    readings: ['muri'],
-    meanings: ['impossible', 'excessive']
+    explanation: 'Strokes: 8'
   },
-  {
-    id: 'tr3-ch1-v12',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-12',
+    type: 'kanji',
+    character: '回',
+    readings: ["かい","え","まわる","まわる","まわり","まわす","まわす","まわし","まわし","もとおる","かえる"],
+    meanings: ["-times","Round","Game","Revolve","Counter For Occurrences"],
     level: 3,
-    character: '安全',
-    readings: ['anzen'],
-    meanings: ['safety']
+    explanation: 'Strokes: 6'
   },
-  {
-    id: 'tr3-ch1-v13',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-13',
+    type: 'kanji',
+    character: '選',
+    readings: ["せん","えらぶ"],
+    meanings: ["Elect","Select","Choose","Prefer"],
     level: 3,
-    character: '経験',
-    readings: ['keiken'],
-    meanings: ['experience']
+    explanation: 'Strokes: 15'
   },
-  {
-    id: 'tr3-ch1-v14',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-14',
+    type: 'kanji',
+    character: '米',
+    readings: ["べい","まい","めえとる","こめ","よね"],
+    meanings: ["Rice","Usa","Metre"],
     level: 3,
-    character: '初心者',
-    readings: ['shoshinsha'],
-    meanings: ['beginner']
+    explanation: 'Strokes: 6'
   },
-  {
-    id: 'tr3-ch1-v15',
-    lessonNumber: 1,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c1-15',
+    type: 'kanji',
+    character: '実',
+    readings: ["じつ","しつ","み","みのる","まこと","みの","みちる"],
+    meanings: ["Reality","Truth"],
     level: 3,
-    character: '目標',
-    readings: ['mokuhyou'],
-    meanings: ['goal', 'target']
+    explanation: 'Strokes: 8'
   },
-
-  // --- GRAMMAR (~10 Points) ---
-  {
-    id: 'tr3-ch1-g1',
-    lessonNumber: 1,
-    type: 'grammar',
+{
+    id: 'kj-n3-c1-16',
+    type: 'kanji',
+    character: '関',
+    readings: ["かん","せき","ぜき","かかわる","からくり","かんぬき"],
+    meanings: ["Connection","Barrier","Gateway","Involve","Concerning"],
     level: 3,
-    character: '〜切る (Completion)',
-    readings: ['~kiru'],
-    meanings: ['To do something completely'],
-    explanation: 'Expresses that an action has been finished entirely or done with great effort.',
-    sentences: [
-      { japanese: '最後まで 走り切りました。', english: 'I ran all the way to the end.', furigana: '最後[さいご]まで走[はし]り切[き]りました。' }
-    ]
+    explanation: 'Strokes: 14'
   },
-  {
-    id: 'tr3-ch1-g2',
-    lessonNumber: 1,
-    type: 'grammar',
+{
+    id: 'kj-n3-c1-17',
+    type: 'kanji',
+    character: '決',
+    readings: ["けつ","きめる","ぎめ","きまる","さく"],
+    meanings: ["Decide","Fix","Agree Upon","Appoint"],
     level: 3,
-    character: '〜出す (Beginning/Outward)',
-    readings: ['~dasu'],
-    meanings: ['To start suddenly / To do outward'],
-    explanation: 'Used for sudden starts or movements from inside to outside.',
-    sentences: [
-      { japanese: '急に 雨が 降り出しました。', english: 'It suddenly started raining.', furigana: '急[きゅう]に雨[あめ]が降[ふ]り出[だ]しました。' }
-    ]
+    explanation: 'Strokes: 7'
   },
-  {
-    id: 'tr3-ch1-g3',
-    lessonNumber: 1,
-    type: 'grammar',
+{
+    id: 'kj-n3-c1-18',
+    type: 'kanji',
+    character: '全',
+    readings: ["ぜん","まったく","すべて"],
+    meanings: ["Whole","Entire","All","Complete","Fulfill"],
     level: 3,
-    character: '〜かける (Incomplete)',
-    readings: ['~kakeru'],
-    meanings: ['Half-finished / About to'],
-    explanation: 'Indicates an action that was started but not yet finished.',
-    sentences: [
-      { japanese: '食べかけの パンが あります。', english: 'There is a half-eaten bread.', furigana: '食[た]べかけのパンがあります。' }
-    ]
+    explanation: 'Strokes: 6'
   },
-
-  // --- DOKKAI (3 Sections) ---
-  {
-    id: 'tr3-ch1-d1',
-    lessonNumber: 1,
-    type: 'dokkai',
+{
+    id: 'kj-n3-c1-19',
+    type: 'kanji',
+    character: '表',
+    readings: ["ひょう","おもて","おもて","あらわす","あらわれる","あらわす"],
+    meanings: ["Surface","Table","Chart","Diagram"],
     level: 3,
-    readings: [],
-    character: '初めての 富士登山',
-    meanings: ['First Time Climbing Mt. Fuji'],
-    content: '去年の 夏、初めて 富士山に 登りました。頂上まで 登り切った とき、目の前に 広がる 景色に 感動しました。朝日の 美しさは 一生 忘れません。',
-    translation: 'Last summer, I climbed Mt. Fuji for the first time. When I finished climbing to the summit, I was moved by the scenery spreading out before me. I will never forget the beauty of the sunrise.',
-    questions: [
-      {
-        question: 'いつ 富士山に 登りましたか。',
-        options: ['去年の 夏', '今年の 春', '去年の 冬', '先週'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n3-c1-20',
+    type: 'kanji',
+    character: '戦',
+    readings: ["せん","いくさ","たたかう","おののく","そよぐ","わななく"],
+    meanings: ["War","Battle","Match"],
+    level: 3,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n3-c1-21',
+    type: 'kanji',
+    character: '経',
+    readings: ["けい","きょう","きん","へる","たつ","たていと","はかる","のり"],
+    meanings: ["Sutra","Longitude","Pass Thru","Expire","Warp"],
+    level: 3,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n3-c1-22',
+    type: 'kanji',
+    character: '最',
+    readings: ["さい","しゅ","もっとも","つま"],
+    meanings: ["Utmost","Most","Extreme"],
+    level: 3,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n3-c1-23',
+    type: 'kanji',
+    character: '現',
+    readings: ["げん","あらわれる","あらわす","うつつ","うつつ"],
+    meanings: ["Present","Existing","Actual"],
+    level: 3,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n3-c1-24',
+    type: 'kanji',
+    character: '調',
+    readings: ["ちょう","しらべる","しらべ","ととのう","ととのえる"],
+    meanings: ["Tune","Tone","Meter","Key (music)","Writing Style","Prepare","Exorcise","Investigate","Harmonize","Mediate"],
+    level: 3,
+    explanation: 'Strokes: 15'
+  },
+{
+    id: 'kj-n3-c1-25',
+    type: 'kanji',
+    character: '化',
+    readings: ["か","け","ばける","ばかす","ふける","けする"],
+    meanings: ["Change","Take The Form Of","Influence","Enchant","Delude","-ization"],
+    level: 3,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n3-c1-26',
+    type: 'kanji',
+    character: '当',
+    readings: ["とう","あたる","あたり","あてる","あて","まさに","まさにべし"],
+    meanings: ["Hit","Right","Appropriate","Himself"],
+    level: 3,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n3-c1-27',
+    type: 'kanji',
+    character: '約',
+    readings: ["やく","つづまる","つづめる","つづまやか"],
+    meanings: ["Promise","Approximately","Shrink"],
+    level: 3,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n3-c1-28',
+    type: 'kanji',
+    character: '首',
+    readings: ["しゅ","くび"],
+    meanings: ["Neck","Counter For Songs And Poems"],
+    level: 3,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n3-c1-29',
+    type: 'kanji',
+    character: '法',
+    readings: ["ほう","はっ","ほっ","ふらん","のり"],
+    meanings: ["Method","Law","Rule","Principle","Model","System"],
+    level: 3,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n3-c1-30',
+    type: 'kanji',
+    character: '性',
+    readings: ["せい","しょう","さが"],
+    meanings: ["Sex","Gender","Nature"],
+    level: 3,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n3-c1-31',
+    type: 'kanji',
+    character: '要',
+    readings: ["よう","いる","かなめ"],
+    meanings: ["Need","Main Point","Essence","Pivot","Key To"],
+    level: 3,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n3-c1-32',
+    type: 'kanji',
+    character: '制',
+    readings: ["せい"],
+    meanings: ["System","Law","Rule"],
+    level: 3,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n3-c1-33',
+    type: 'kanji',
+    character: '治',
+    readings: ["じ","ち","おさめる","おさまる","なおる","なおす"],
+    meanings: ["Reign","Be At Peace","Calm Down","Subdue","Quell","Govt","Cure","Heal","Rule","Conserve"],
+    level: 3,
+    explanation: 'Strokes: 8'
   }
 ];

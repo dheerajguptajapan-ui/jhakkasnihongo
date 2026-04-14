@@ -2,74 +2,237 @@ import { Item } from '../../types';
 
 export const n2chapter13: Item[] = [
   {
-    id: 'tr2-ch13-v1',
-    lessonNumber: 13,
-    type: 'vocabulary',
+    id: 'kj-n2-c13-1',
+    type: 'kanji',
+    character: '乾',
+    readings: ["かん","けん","かわく","かわかす","ほす","ひる","いぬい"],
+    meanings: ["Drought","Dry","Dessicate","Drink Up","Heaven","Emperor"],
     level: 4,
-    character: '芸術的',
-    readings: ['geijutsuteki'],
-    meanings: ['artistic']
+    explanation: 'Strokes: 11'
   },
-  {
-    id: 'tr2-ch13-v2',
-    lessonNumber: 13,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c13-2',
+    type: 'kanji',
+    character: '棒',
+    readings: ["ぼう"],
+    meanings: ["Rod","Stick","Cane","Pole","Club","Line"],
     level: 4,
-    character: '伝統文化',
-    readings: ['dentou bunka'],
-    meanings: ['traditional culture']
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch13-v3',
-    lessonNumber: 13,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c13-3',
+    type: 'kanji',
+    character: '祈',
+    readings: ["き","いのる"],
+    meanings: ["Pray","Wish"],
     level: 4,
-    character: '継承',
-    readings: ['keishou'],
-    meanings: ['inheritance', 'succession']
+    explanation: 'Strokes: 8'
   },
-  {
-    id: 'tr2-ch13-g1',
-    lessonNumber: 13,
-    type: 'grammar',
+{
+    id: 'kj-n2-c13-4',
+    type: 'kanji',
+    character: '拾',
+    readings: ["しゅう","じゅう","ひろう"],
+    meanings: ["Pick Up","Gather","Find","Go On Foot","Ten"],
     level: 4,
-    character: '〜にわたって (Throughout / Across)',
-    readings: ['~ni watatte'],
-    meanings: ['Throughout / Across a whole area or time period'],
-    explanation: 'Used to express that an action or state extends over a wide range of space or time.',
-    sentences: [
-      { japanese: '議論は １０時間に わたって 続いた。', english: 'The discussion continued over 10 hours.', furigana: '議論[ぎろん]は１０時間[じゅうじかん]にわたって続[つづ]いた。' }
-    ]
+    explanation: 'Strokes: 9'
   },
-  {
-    id: 'tr2-ch13-g2',
-    lessonNumber: 13,
-    type: 'grammar',
+{
+    id: 'kj-n2-c13-5',
+    type: 'kanji',
+    character: '粉',
+    readings: ["ふん","デシメートル","こ","こな"],
+    meanings: ["Flour","Powder","Dust"],
     level: 4,
-    character: '〜にかかわらず (Regardless of)',
-    readings: ['~ni kakawarazu'],
-    meanings: ['Regardless of / Irrespective of'],
-    explanation: 'Expresses that something is not affected by a certain factor or condition.',
-    sentences: [
-      { japanese: '天候に かかわらず、イベントは 行われます。', english: 'Regardless of the weather, the event will take place.', furigana: '天候[てんこう]にかかわらず、イベントは行[おこな]われます。' }
-    ]
+    explanation: 'Strokes: 10'
   },
-  {
-    id: 'tr2-ch13-d1',
-    lessonNumber: 13,
-    type: 'dokkai',
+{
+    id: 'kj-n2-c13-6',
+    type: 'kanji',
+    character: '糸',
+    readings: ["し","いと"],
+    meanings: ["Thread"],
     level: 4,
-    readings: [],
-    character: '伝統芸術の継承',
-    meanings: ['Succession of Traditional Arts'],
-    content: '伝統文化は、長い 年月に わたって 守られてきました。時代の 変化に かかわらず、その 価値を 正しく 継承していくことが 私たちの 責任です。',
-    translation: 'Traditional culture has been protected over many long years. Regardless of changes in the times, it is our responsibility to correctly inherit its value.',
-    questions: [
-      {
-        question: '伝統文化に ついて 何が 言われていますか。',
-        options: ['長い 年月に わたって 守られた', 'すぐに 消える', '新しく 作られた', '分からない'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c13-7',
+    type: 'kanji',
+    character: '綿',
+    readings: ["めん","わた"],
+    meanings: ["Cotton"],
+    level: 4,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n2-c13-8',
+    type: 'kanji',
+    character: '汗',
+    readings: ["かん","あせ"],
+    meanings: ["Sweat","Perspire"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c13-9',
+    type: 'kanji',
+    character: '銅',
+    readings: ["どう","あかがね"],
+    meanings: ["Copper"],
+    level: 4,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n2-c13-10',
+    type: 'kanji',
+    character: '湿',
+    readings: ["しつ","しゅう","しめる","しめす","うるおう","うるおす"],
+    meanings: ["Damp","Wet","Moist"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c13-11',
+    type: 'kanji',
+    character: '瓶',
+    readings: ["びん","かめ"],
+    meanings: ["Bottle","Vial","Jar","Jug","Vat","Urn"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c13-12',
+    type: 'kanji',
+    character: '咲',
+    readings: ["しょう","さく","ざき"],
+    meanings: ["Blossom","Bloom"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c13-13',
+    type: 'kanji',
+    character: '召',
+    readings: ["しょう","めす"],
+    meanings: ["Seduce","Call","Send For","Wear","Put On","Ride In","Buy","Eat","Drink","Catch (cold)"],
+    level: 4,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n2-c13-14',
+    type: 'kanji',
+    character: '缶',
+    readings: ["かん","かま"],
+    meanings: ["Tin Can","Container","Jar Radical (no. 121)"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c13-15',
+    type: 'kanji',
+    character: '隻',
+    readings: ["せき"],
+    meanings: ["Vessels","Counter For Ships","Fish","Birds","Arrows","One Of A Pair"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c13-16',
+    type: 'kanji',
+    character: '脂',
+    readings: ["し","あぶら"],
+    meanings: ["Fat","Grease","Tallow","Lard","Rosin","Gum","Tar"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c13-17',
+    type: 'kanji',
+    character: '蒸',
+    readings: ["じょう","せい","むす","むれる","むらす"],
+    meanings: ["Steam","Heat","Sultry","Foment","Get Musty"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c13-18',
+    type: 'kanji',
+    character: '肌',
+    readings: ["き","はだ"],
+    meanings: ["Texture","Skin","Body","Grain"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c13-19',
+    type: 'kanji',
+    character: '耕',
+    readings: ["こう","たがやす"],
+    meanings: ["Till","Plow","Cultivate"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c13-20',
+    type: 'kanji',
+    character: '鈍',
+    readings: ["どん","にぶい","にぶる","にぶ","なまる","なまくら"],
+    meanings: ["Dull","Slow","Foolish","Blunt"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c13-21',
+    type: 'kanji',
+    character: '泥',
+    readings: ["でい","ない","で","に","どろ","なずむ"],
+    meanings: ["Mud","Mire","Adhere To","Be Attached To"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c13-22',
+    type: 'kanji',
+    character: '隅',
+    readings: ["ぐう","すみ"],
+    meanings: ["Corner","Nook"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c13-23',
+    type: 'kanji',
+    character: '灯',
+    readings: ["とう","ひ","ほ","ともしび","ともす","あかり"],
+    meanings: ["Lamp","A Light","Light","Counter For Lights"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c13-24',
+    type: 'kanji',
+    character: '辛',
+    readings: ["しん","からい","つらい","づらい","かのと"],
+    meanings: ["Spicy","Bitter","Hot","Acrid"],
+    level: 4,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n2-c13-25',
+    type: 'kanji',
+    character: '磨',
+    readings: ["ま","みがく","する"],
+    meanings: ["Grind","Polish","Scour","Improve","Brush (teeth)"],
+    level: 4,
+    explanation: 'Strokes: 16'
+  },
+{
+    id: 'kj-n2-c13-26',
+    type: 'kanji',
+    character: '麦',
+    readings: ["ばく","むぎ"],
+    meanings: ["Barley","Wheat"],
+    level: 4,
+    explanation: 'Strokes: 7'
   }
 ];

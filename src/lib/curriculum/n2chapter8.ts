@@ -2,74 +2,237 @@ import { Item } from '../../types';
 
 export const n2chapter8: Item[] = [
   {
-    id: 'tr2-ch8-v1',
-    lessonNumber: 8,
-    type: 'vocabulary',
+    id: 'kj-n2-c8-1',
+    type: 'kanji',
+    character: '布',
+    readings: ["ふ","ぬの"],
+    meanings: ["Linen","Cloth","Spread","Distribute"],
     level: 4,
-    character: '誠実',
-    readings: ['seijitsu'],
-    meanings: ['sincerity', 'honesty']
+    explanation: 'Strokes: 5'
   },
-  {
-    id: 'tr2-ch8-v2',
-    lessonNumber: 8,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c8-2',
+    type: 'kanji',
+    character: '寺',
+    readings: ["じ","てら"],
+    meanings: ["Buddhist Temple"],
     level: 4,
-    character: '責任感',
-    readings: ['sekininkan'],
-    meanings: ['sense of responsibility']
+    explanation: 'Strokes: 6'
   },
-  {
-    id: 'tr2-ch8-v3',
-    lessonNumber: 8,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c8-3',
+    type: 'kanji',
+    character: '宇',
+    readings: ["う"],
+    meanings: ["Eaves","Roof","House","Heaven"],
     level: 4,
-    character: '遂行',
-    readings: ['suikou'],
-    meanings: ['accomplishment', 'execution']
+    explanation: 'Strokes: 6'
   },
-  {
-    id: 'tr2-ch8-g1',
-    lessonNumber: 8,
-    type: 'grammar',
+{
+    id: 'kj-n2-c8-4',
+    type: 'kanji',
+    character: '巨',
+    readings: ["きょ"],
+    meanings: ["Gigantic","Big","Large","Great"],
     level: 4,
-    character: '〜を込めて (With / Full of)',
-    readings: ['~o komete'],
-    meanings: ['With (feeling, heart) / Full of'],
-    explanation: 'Used when doing something while putting one\'s feelings or effort into it.',
-    sentences: [
-      { japanese: '感謝の 気持ちを 込めて、手紙を 書いた。', english: 'I wrote a letter with feelings of gratitude.', furigana: '感謝[かんしゃ]の気持[きも]ちを込[こ]めて、手紙[てがみ]を書[か]いた。' }
-    ]
+    explanation: 'Strokes: 5'
   },
-  {
-    id: 'tr2-ch8-g2',
-    lessonNumber: 8,
-    type: 'grammar',
+{
+    id: 'kj-n2-c8-5',
+    type: 'kanji',
+    character: '震',
+    readings: ["しん","ふるう","ふるえる"],
+    meanings: ["Quake","Shake","Tremble","Quiver","Shiver"],
     level: 4,
-    character: '〜ぬく (To do completely)',
-    readings: ['~nuku'],
-    meanings: ['To do something all the way to the end / To do thoroughly'],
-    explanation: 'Expresses that an action is completed entirely, often despite difficulty or hardship.',
-    sentences: [
-      { japanese: '最後まで 走りぬいた。', english: 'I ran all the way to the end.', furigana: '最後[さいご]まで走[はし]りぬいた。' }
-    ]
+    explanation: 'Strokes: 15'
   },
-  {
-    id: 'tr2-ch8-d1',
-    lessonNumber: 8,
-    type: 'dokkai',
+{
+    id: 'kj-n2-c8-6',
+    type: 'kanji',
+    character: '希',
+    readings: ["き","け","まれ"],
+    meanings: ["Hope","Beg","Request","Pray","Beseech","Greece","Dilute (acid)","Rare","Few","Phenomenal"],
     level: 4,
-    readings: [],
-    character: 'プロとしての責任',
-    meanings: ['Responsibility as a Professional'],
-    content: 'どんな 仕事に おいても、真心を 込めて 取り組むことが 大切です。途中で 困難が あっても、最後まで 遂行しぬく 責任感が プロには 求められます。',
-    translation: 'In any job, it is important to work with sincerity. Even if there are difficulties on the way, the sense of responsibility to execute until the end is required from a professional.',
-    questions: [
-      {
-        question: 'プロに 求められる ものは 何ですか。',
-        options: ['遂行しぬく 責任感', '早く 終わらせること', 'お金', '分からない'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n2-c8-7',
+    type: 'kanji',
+    character: '触',
+    readings: ["しょく","ふれる","さわる","さわ"],
+    meanings: ["Contact","Touch","Feel","Hit","Proclaim","Announce","Conflict"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c8-8',
+    type: 'kanji',
+    character: '依',
+    readings: ["い","え","よる"],
+    meanings: ["Reliant","Depend On","Consequently","Therefore","Due To"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c8-9',
+    type: 'kanji',
+    character: '籍',
+    readings: ["せき"],
+    meanings: ["Enroll","Domiciliary Register","Membership"],
+    level: 4,
+    explanation: 'Strokes: 20'
+  },
+{
+    id: 'kj-n2-c8-10',
+    type: 'kanji',
+    character: '汚',
+    readings: ["お","けがす","けがれる","けがらわしい","よごす","よごれる","きたない"],
+    meanings: ["Dirty","Pollute","Disgrace","Rape","Defile"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c8-11',
+    type: 'kanji',
+    character: '枚',
+    readings: ["まい","ばい"],
+    meanings: ["Sheet Of...","Counter For Flat Thin Objects Or Sheets"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c8-12',
+    type: 'kanji',
+    character: '複',
+    readings: ["ふく"],
+    meanings: ["Duplicate","Double","Compound","Multiple"],
+    level: 4,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n2-c8-13',
+    type: 'kanji',
+    character: '郵',
+    readings: ["ゆう"],
+    meanings: ["Mail","Stagecoach Stop"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c8-14',
+    type: 'kanji',
+    character: '仲',
+    readings: ["ちゅう","なか"],
+    meanings: ["Go-between","Relationship"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c8-15',
+    type: 'kanji',
+    character: '栄',
+    readings: ["えい","よう","さかえる","はえ","ばえ","はえる","え"],
+    meanings: ["Flourish","Prosperity","Honor","Glory","Splendor"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c8-16',
+    type: 'kanji',
+    character: '札',
+    readings: ["さつ","ふだ"],
+    meanings: ["Tag","Paper Money","Counter For Bonds","Placard","Bid"],
+    level: 4,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n2-c8-17',
+    type: 'kanji',
+    character: '板',
+    readings: ["はん","ばん","いた"],
+    meanings: ["Plank","Board","Plate","Stage"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c8-18',
+    type: 'kanji',
+    character: '骨',
+    readings: ["こつ","ほね"],
+    meanings: ["Skeleton","Bone","Remains","Frame"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c8-19',
+    type: 'kanji',
+    character: '傾',
+    readings: ["けい","かたむく","かたむける","かたぶく","かたげる","かしげる"],
+    meanings: ["Lean","Incline","Tilt","Trend","Wane","Sink","Ruin","Bias"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c8-20',
+    type: 'kanji',
+    character: '届',
+    readings: ["かい","とどける","とどけ","とどく"],
+    meanings: ["Deliver","Reach","Arrive","Report","Notify","Forward"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c8-21',
+    type: 'kanji',
+    character: '巻',
+    readings: ["かん","けん","まく","まき","まき"],
+    meanings: ["Scroll","Volume","Book","Part","Roll Up","Wind Up","Tie","Coil","Counter For Texts (or Book Scrolls)"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c8-22',
+    type: 'kanji',
+    character: '燃',
+    readings: ["ねん","もえる","もやす","もす"],
+    meanings: ["Burn","Blaze","Glow"],
+    level: 4,
+    explanation: 'Strokes: 16'
+  },
+{
+    id: 'kj-n2-c8-23',
+    type: 'kanji',
+    character: '跡',
+    readings: ["せき","あと"],
+    meanings: ["Tracks","Mark","Print","Impression"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c8-24',
+    type: 'kanji',
+    character: '包',
+    readings: ["ほう","つつむ","くるむ"],
+    meanings: ["Wrap","Pack Up","Cover","Conceal"],
+    level: 4,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n2-c8-25',
+    type: 'kanji',
+    character: '駐',
+    readings: ["ちゅう"],
+    meanings: ["Stop-over","Reside In","Resident"],
+    level: 4,
+    explanation: 'Strokes: 15'
+  },
+{
+    id: 'kj-n2-c8-26',
+    type: 'kanji',
+    character: '弱',
+    readings: ["じゃく","よわい","よわる","よわまる","よわめる"],
+    meanings: ["Weak","Frail"],
+    level: 4,
+    explanation: 'Strokes: 10'
   }
 ];

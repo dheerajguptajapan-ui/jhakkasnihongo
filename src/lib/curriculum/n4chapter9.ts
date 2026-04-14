@@ -563,4 +563,141 @@ export const n4chapter9: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c9-1',
+    type: 'kanji',
+    character: '歌',
+    readings: ["か","うた","うたう"],
+    meanings: ["Song","Sing"],
+    level: 2,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n4-c9-2',
+    type: 'kanji',
+    character: '買',
+    readings: ["ばい","かう"],
+    meanings: ["Buy"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c9-3',
+    type: 'kanji',
+    character: '悪',
+    readings: ["あく","お","わるい","わる","あし","にくい","にくい","ああ","いずくに","いずくんぞ","にくむ"],
+    meanings: ["Bad","Vice","Rascal","False","Evil","Wrong"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c9-4',
+    type: 'kanji',
+    character: '図',
+    readings: ["ず","と","え","はかる"],
+    meanings: ["Map","Drawing","Plan","Extraordinary","Audacious"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c9-5',
+    type: 'kanji',
+    character: '週',
+    readings: ["しゅう"],
+    meanings: ["Week"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c9-6',
+    type: 'kanji',
+    character: '室',
+    readings: ["しつ","むろ"],
+    meanings: ["Room","Apartment","Chamber","Greenhouse","Cellar"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c9-7',
+    type: 'kanji',
+    character: '歩',
+    readings: ["ほ","ぶ","ふ","あるく","あゆむ"],
+    meanings: ["Walk","Counter For Steps"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c9-8',
+    type: 'kanji',
+    character: '風',
+    readings: ["ふう","ふ","かぜ","かざ","かぜ"],
+    meanings: ["Wind","Air","Style","Manner"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c9-9',
+    type: 'kanji',
+    character: '紙',
+    readings: ["し","かみ"],
+    meanings: ["Paper"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c9-10',
+    type: 'kanji',
+    character: '黒',
+    readings: ["こく","くろ","くろずむ","くろい"],
+    meanings: ["Black"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c9-11',
+    type: 'kanji',
+    character: '花',
+    readings: ["か","け","はな"],
+    meanings: ["Flower"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c9-12',
+    type: 'kanji',
+    character: '春',
+    readings: ["しゅん","はる"],
+    meanings: ["Springtime","Spring (season)"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c9-13',
+    type: 'kanji',
+    character: '赤',
+    readings: ["せき","しゃく","あか","あか","あかい","あからむ","あからめる"],
+    meanings: ["Red"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c9-14',
+    type: 'kanji',
+    character: '青',
+    readings: ["せい","しょう","あお","あお","あおい"],
+    meanings: ["Blue","Green"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c9-15',
+    type: 'kanji',
+    character: '館',
+    readings: ["かん","やかた","たて"],
+    meanings: ["Building","Mansion","Large Building","Palace"],
+    level: 2,
+    explanation: 'Strokes: 16'
+  }
 ];

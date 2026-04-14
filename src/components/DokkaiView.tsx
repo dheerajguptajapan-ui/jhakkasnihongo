@@ -40,7 +40,7 @@ export const DokkaiView: React.FC<DokkaiViewProps> = ({ items }) => {
           transition={{ delay: index * 0.1 }}
         >
           <Card className="overflow-hidden bg-white/5 border-white/10 backdrop-blur-2xl rounded-[2.5rem] shadow-2xl">
-            <CardHeader className="bg-gradient-to-r from-indigo-600/20 to-purple-600/20 p-10 border-b border-white/5">
+            <CardHeader className="bg-gradient-to-r from-indigo-600/20 to-purple-600/20 p-6 md:p-10 border-b border-white/5">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
                   <BookOpen size={20} />
@@ -49,12 +49,12 @@ export const DokkaiView: React.FC<DokkaiViewProps> = ({ items }) => {
                   Reading Comprehension
                 </Badge>
               </div>
-              <CardTitle className="text-4xl font-black text-white">{item.character}</CardTitle>
-              <p className="text-gray-400 mt-2 font-medium italic text-lg">{item.meanings[0]}</p>
+              <CardTitle className="text-2xl md:text-4xl font-black text-white">{item.character}</CardTitle>
+              <p className="text-gray-400 mt-2 font-medium italic text-base md:text-lg">{item.meanings[0]}</p>
             </CardHeader>
-            <CardContent className="p-10 space-y-12">
-              <div className="space-y-8">
-                <div className="text-2xl leading-[2.8] text-gray-200 font-medium bg-white/[0.02] p-10 rounded-[2.5rem] border border-white/5 shadow-inner">
+            <CardContent className="p-6 md:p-10 space-y-8 md:space-y-12">
+              <div className="space-y-6 md:space-y-8">
+                <div className="text-xl md:text-2xl leading-[2] md:leading-[2.8] text-gray-200 font-medium bg-white/[0.02] p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] border border-white/5 shadow-inner">
                   <Furigana text={item.content || ''} show={showFurigana} />
                 </div>
                 

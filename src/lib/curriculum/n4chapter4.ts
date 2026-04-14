@@ -582,4 +582,141 @@ export const n4chapter4: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c4-1',
+    type: 'kanji',
+    character: '安',
+    readings: ["あん","やすい","やすまる","やす","やすらか"],
+    meanings: ["Relax","Cheap","Low","Quiet","Rested","Contented","Peaceful"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c4-2',
+    type: 'kanji',
+    character: '院',
+    readings: ["いん"],
+    meanings: ["Inst.","Institution","Temple","Mansion","School"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c4-3',
+    type: 'kanji',
+    character: '心',
+    readings: ["しん","こころ","ごころ"],
+    meanings: ["Heart","Mind","Spirit","Heart Radical (no. 61)"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c4-4',
+    type: 'kanji',
+    character: '界',
+    readings: ["かい"],
+    meanings: ["World","Boundary"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c4-5',
+    type: 'kanji',
+    character: '教',
+    readings: ["きょう","おしえる","おそわる"],
+    meanings: ["Teach","Faith","Doctrine"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c4-6',
+    type: 'kanji',
+    character: '文',
+    readings: ["ぶん","もん","ふみ","あや"],
+    meanings: ["Sentence","Literature","Style","Art","Decoration","Figures","Plan","Literary Radical (no. 67)"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c4-7',
+    type: 'kanji',
+    character: '元',
+    readings: ["げん","がん","もと"],
+    meanings: ["Beginning","Former Time","Origin"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c4-8',
+    type: 'kanji',
+    character: '重',
+    readings: ["じゅう","ちょう","え","おもい","おもり","おもなう","かさねる","かさなる","おも"],
+    meanings: ["Heavy","Important","Esteem","Respect","Heap Up","Pile Up","Nest Of Boxes","-fold"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c4-9',
+    type: 'kanji',
+    character: '近',
+    readings: ["きん","こん","ちかい"],
+    meanings: ["Near","Early","Akin","Tantamount"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c4-10',
+    type: 'kanji',
+    character: '考',
+    readings: ["こう","かんがえる","かんがえ"],
+    meanings: ["Consider","Think Over"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c4-11',
+    type: 'kanji',
+    character: '画',
+    readings: ["が","かく","え","かい","えがく","かくする","かぎる","はかりごと","はかる"],
+    meanings: ["Brush-stroke","Picture"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c4-12',
+    type: 'kanji',
+    character: '海',
+    readings: ["かい","うみ"],
+    meanings: ["Sea","Ocean"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c4-13',
+    type: 'kanji',
+    character: '売',
+    readings: ["ばい","うる","うれる"],
+    meanings: ["Sell"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c4-14',
+    type: 'kanji',
+    character: '知',
+    readings: ["ち","しる","しらせる"],
+    meanings: ["Know","Wisdom"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c4-15',
+    type: 'kanji',
+    character: '道',
+    readings: ["どう","とう","みち","いう"],
+    meanings: ["Road-way","Street","District","Journey","Course","Moral","Teachings"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  }
 ];

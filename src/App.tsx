@@ -11,7 +11,7 @@ import { SettingsView } from './components/SettingsView';
 import { AdminView } from './components/AdminView';
 import { Item, UserItem } from './types';
 import { getAllItems } from './lib/curriculum';
-import { persistence } from './lib/persistence';
+import { PersistenceService } from './lib/services/PersistenceService';
 import { Layout, Menu, BookOpen, GraduationCap, Users, Settings, Package, Info, Activity, Zap } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { Toaster } from 'sonner';
@@ -85,18 +85,18 @@ function App() {
     return <ReviewSession items={session.items} onComplete={() => setSession(null)} onCancel={() => setSession(null)} />;
   }
 
-  const startLessons = () => {
+  const startLessons = async () => {
     const allItems = getAllItems();
-    const userItems = persistence.getUserItems();
+    const userItems = await PersistenceService.getUserItems();
     const available = allItems.filter(item => 
       !userItems.find(ui => ui.itemId === item.id) && (item.level || 1) <= (profile?.level || 1)
     ).slice(0, 5);
     if (available.length > 0) setSession({ type: 'lesson', items: available });
   };
 
-  const startReviews = () => {
+  const startReviews = async () => {
     const allItems = getAllItems();
-    const userItems = persistence.getUserItems();
+    const userItems = await PersistenceService.getUserItems();
     const ready = userItems.filter(ui => {
       if (ui.srsStage === 9) return false; // Burned
       return !ui.nextReviewAt || new Date(ui.nextReviewAt) <= new Date();
@@ -140,14 +140,14 @@ function App() {
       {/* Main Content Area */}
       <main className="animate-in fade-in duration-700">
         {currentTab === 'dashboard' && <Dashboard onStartLessons={startLessons} onStartReviews={startReviews} />}
-        {currentTab === 'items' && <div className="p-8"><ItemsView /></div>}
+        {currentTab === 'items' && <div className="p-4 md:p-8"><ItemsView /></div>}
         {currentTab === 'jlpt' && (
-          <div className="p-8 space-y-12">
-            <div className="max-w-7xl mx-auto space-y-8">
+          <div className="p-4 md:p-8 space-y-8 md:space-y-12">
+            <div className="max-w-7xl mx-auto space-y-6 md:space-y-8">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                 <div className="space-y-2">
-                  <h2 className="text-5xl font-black text-white uppercase tracking-tighter">Learning Hub</h2>
-                  <p className="text-gray-500 font-medium italic">Architecting your Japanese knowledge base.</p>
+                  <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">Learning Hub</h2>
+                  <p className="text-gray-500 font-medium italic text-sm md:text-base">Architecting your Japanese knowledge base.</p>
                 </div>
                 <div className="flex bg-white/5 p-1.5 rounded-2xl border border-white/10 backdrop-blur-xl">
                   {(['n5', 'n4', 'n3', 'n2', 'n1'] as JLPTLevel[]).map(level => (
@@ -181,7 +181,11 @@ function App() {
               </div>
             </div>
             <div className="max-w-7xl mx-auto">
-              <JLPTView level={jlptState.level} section={jlptState.section} />
+              <JLPTView 
+                level={jlptState.level} 
+                section={jlptState.section} 
+                onBack={() => setCurrentTab('dashboard')}
+              />
             </div>
           </div>
         )}

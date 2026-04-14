@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../lib/AuthContext';
-import { persistence } from '../lib/persistence';
+import { PersistenceService } from '../lib/services/PersistenceService';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Switch } from './ui/switch';
@@ -11,9 +11,9 @@ import { toast } from 'sonner';
 export const SettingsView: React.FC = () => {
   const { settings, updateSettings, profile } = useAuth();
 
-  const handleExport = () => {
+  const handleExport = async () => {
     try {
-      const data = persistence.exportData();
+      const data = await PersistenceService.exportData();
       const blob = new Blob([data], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -32,9 +32,10 @@ export const SettingsView: React.FC = () => {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = async (e) => {
       const content = e.target?.result as string;
-      if (persistence.importData(content)) {
+      const success = await PersistenceService.importData(content);
+      if (success) {
         toast.success('Progress restored! Reloading app...');
         setTimeout(() => window.location.reload(), 1500);
       } else {
@@ -44,9 +45,9 @@ export const SettingsView: React.FC = () => {
     reader.readAsText(file);
   };
 
-  const clearProgress = () => {
+  const clearProgress = async () => {
     if (confirm('Are you absolutely sure? This will wipe ALL your study progress locally.')) {
-      localStorage.clear();
+      await PersistenceService.saveUserItems([]);
       window.location.reload();
     }
   };

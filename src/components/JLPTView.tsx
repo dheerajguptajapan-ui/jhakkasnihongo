@@ -2,29 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { Item, ItemType } from '../types';
 import { JLPTLevel, JLPTSection } from '../App';
 import { KanjiExplorer } from './KanjiExplorer';
-import { Badge } from './ui/badge';
 import { VocabularyListView } from './VocabularyListView';
 import { GrammarView } from './GrammarView';
 import { DokkaiView } from './DokkaiView';
 import { LessonTabsView } from './LessonTabsView';
-import { getAllItems, getLesson } from '../lib/curriculum';
+import { CurriculumService } from '../lib/services/CurriculumService';
 import LessonDashboard from './LessonDashboard';
 import { ArrowLeft } from 'lucide-react';
 
 interface JLPTViewProps {
   level: JLPTLevel;
   section: JLPTSection;
+  onBack?: () => void;
 }
 
-export const JLPTView: React.FC<JLPTViewProps> = ({ level, section }) => {
+export const JLPTView: React.FC<JLPTViewProps> = ({ level, section, onBack }) => {
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedLesson, setSelectedLesson] = useState<number | null>(null);
 
-  const levelNum = parseInt(level.replace('n', ''));
-  const internalLevel = levelNum === 5 ? 1 : (levelNum === 4 ? 2 : 6 - levelNum);
-  const isModular = level === 'n5' || level === 'n4' || level === 'n3' || level === 'n2';
-  const label = level === 'n5' ? 'Lesson' : 'Chapter';
+  const internalLevel = CurriculumService.getLevelId(level);
+  const isModular = true; // All supported levels are now modular
+  const label = CurriculumService.getChapterLabel(internalLevel);
 
   useEffect(() => {
     const fetchItems = () => {
@@ -35,22 +34,18 @@ export const JLPTView: React.FC<JLPTViewProps> = ({ level, section }) => {
       if (section === 'grammar') itemType = 'grammar';
       if (section === 'dokkai') itemType = 'dokkai';
 
-      let filtered: Item[] = [];
-      if (isModular) {
-        // Use the new modular curriculum
-        const pool = selectedLesson !== null ? getLesson(selectedLesson, internalLevel) : getAllItems();
-        filtered = pool.filter(i => i.type === itemType && i.level === internalLevel);
-      } else {
-        // Legacy handled items
-        filtered = getAllItems().filter(i => i.level === internalLevel && i.type === itemType);
-      }
+      const pool = selectedLesson !== null 
+        ? CurriculumService.getChapterItems(internalLevel, selectedLesson) 
+        : CurriculumService.getLevelItems(internalLevel);
+      
+      const filtered = pool.filter(i => i.type === itemType);
       
       setItems(filtered);
       setLoading(false);
     };
 
     fetchItems();
-  }, [level, section, selectedLesson, isModular, internalLevel]);
+  }, [level, section, selectedLesson, internalLevel]);
 
   if (loading) {
     return (
@@ -61,27 +56,29 @@ export const JLPTView: React.FC<JLPTViewProps> = ({ level, section }) => {
     );
   }
 
-  // Show Lesson Dashboard if Modular and no lesson selected
-  if (isModular && selectedLesson === null) {
-    return <LessonDashboard level={internalLevel} onSelectLesson={setSelectedLesson} />;
+  // Show Lesson Dashboard if no lesson selected
+  if (selectedLesson === null) {
+    return (
+      <div className="space-y-6">
+        <LessonDashboard level={internalLevel} onSelectLesson={setSelectedLesson} onBack={onBack} />
+      </div>
+    );
   }
 
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
-      {/* Back to Dashboard Button for Modular levels */}
-      {isModular && (
-        <div className="flex items-center gap-4 mb-4">
-          <button 
-            onClick={() => setSelectedLesson(null)}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400 font-bold text-xs uppercase tracking-widest hover:bg-slate-50 transition-all"
-          >
-            <ArrowLeft size={16} />
-            Back to {label}s
-          </button>
-          <div className="h-4 w-px bg-slate-200 dark:bg-slate-800" />
-          <h3 className="text-sm font-black text-slate-800 dark:text-white uppercase tracking-wider">{label} {selectedLesson}</h3>
-        </div>
-      )}
+    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-6 md:space-y-8">
+      {/* Back to Lesson Dashboard Button */}
+      <div className="flex items-center gap-4 mb-2">
+        <button 
+          onClick={() => setSelectedLesson(null)}
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-gray-400 font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all"
+        >
+          <ArrowLeft size={14} />
+          Back to Chapters
+        </button>
+        <div className="h-4 w-px bg-white/10" />
+        <h3 className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Chapter {selectedLesson}</h3>
+      </div>
 
       {items.length === 0 ? (
         <div className="text-center py-20 bg-white dark:bg-slate-900 rounded-[2.5rem] border-2 border-dashed border-slate-100 dark:border-slate-800">
@@ -94,17 +91,13 @@ export const JLPTView: React.FC<JLPTViewProps> = ({ level, section }) => {
         <>
           {section === 'kanji' && <KanjiExplorer items={items} />}
           {section === 'vocabulary' && (
-            isModular ? (
-              <div className="space-y-8">
-                <LessonTabsView items={items} />
-                <div className="pt-12 border-t border-slate-100 dark:border-slate-800">
-                  <h3 className="text-xl font-black text-slate-800 dark:text-white uppercase tracking-tight mb-6">Full List</h3>
-                  <VocabularyListView items={items} />
-                </div>
+            <div className="space-y-8">
+              <LessonTabsView items={items} />
+              <div className="pt-12 border-t border-slate-100 dark:border-slate-800">
+                <h3 className="text-xl font-black text-slate-800 dark:text-white uppercase tracking-tight mb-6">Full List</h3>
+                <VocabularyListView items={items} />
               </div>
-            ) : (
-              <VocabularyListView items={items} />
-            )
+            </div>
           )}
           {section === 'grammar' && <GrammarView items={items} />}
           {section === 'dokkai' && <DokkaiView items={items} />}

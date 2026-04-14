@@ -2,74 +2,237 @@ import { Item } from '../../types';
 
 export const n2chapter9: Item[] = [
   {
-    id: 'tr2-ch9-v1',
-    lessonNumber: 9,
-    type: 'vocabulary',
+    id: 'kj-n2-c9-1',
+    type: 'kanji',
+    character: '紹',
+    readings: ["しょう"],
+    meanings: ["Introduce","Inherit","Help"],
     level: 4,
-    character: '奨学金',
-    readings: ['shougakukin'],
-    meanings: ['scholarship']
+    explanation: 'Strokes: 11'
   },
-  {
-    id: 'tr2-ch9-v2',
-    lessonNumber: 9,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c9-2',
+    type: 'kanji',
+    character: '雇',
+    readings: ["こ","やとう"],
+    meanings: ["Employ","Hire"],
     level: 4,
-    character: '講義',
-    readings: ['kougi'],
-    meanings: ['lecture']
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch9-v3',
-    lessonNumber: 9,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c9-3',
+    type: 'kanji',
+    character: '替',
+    readings: ["たい","かえる","かえ","かわる"],
+    meanings: ["Exchange","Spare","Substitute","Per-"],
     level: 4,
-    character: '専攻',
-    readings: ['senkou'],
-    meanings: ['major', 'specialization']
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch9-g1',
-    lessonNumber: 9,
-    type: 'grammar',
+{
+    id: 'kj-n2-c9-4',
+    type: 'kanji',
+    character: '預',
+    readings: ["よ","あずける","あずかる"],
+    meanings: ["Deposit","Custody","Leave With","Entrust To"],
     level: 4,
-    character: '〜おかげで (Thanks to)',
-    readings: ['~okage de'],
-    meanings: ['Thanks to / Owing to (Positive result)'],
-    explanation: 'Used to express gratitude for a favorable outcome caused by a certain factor.',
-    sentences: [
-      { japanese: '先生の おかげで、合格できました。', english: 'Thanks to the teacher, I was able to pass.', furigana: '先生[せんせい]のおかげで、合格[ごうかく]できました。' }
-    ]
+    explanation: 'Strokes: 13'
   },
-  {
-    id: 'tr2-ch9-g2',
-    lessonNumber: 9,
-    type: 'grammar',
+{
+    id: 'kj-n2-c9-5',
+    type: 'kanji',
+    character: '焼',
+    readings: ["しょう","やく","やき","やき","やき","やける"],
+    meanings: ["Bake","Burning"],
     level: 4,
-    character: '〜わりには (Despite / For... it is...)',
-    readings: ['~wari ni wa'],
-    meanings: ['For... / Considering that... (unexpected results)'],
-    explanation: 'Used when the result or state is different from what one would typically expect from the circumstances.',
-    sentences: [
-      { japanese: '彼は 初心者の わりには、テニスが 上手だ。', english: 'For a beginner, he is good at tennis.', furigana: '彼[かれ]は初心者[しょしんしゃ]のわりには、テニスが上手[じょうず]だ。' }
-    ]
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch9-d1',
-    lessonNumber: 9,
-    type: 'dokkai',
+{
+    id: 'kj-n2-c9-6',
+    type: 'kanji',
+    character: '簡',
+    readings: ["かん","けん","えらぶ","ふだ"],
+    meanings: ["Simplicity","Brevity"],
     level: 4,
-    readings: [],
-    character: '大学での学び',
-    meanings: ['Learning at University'],
-    content: '奨学金の おかげで、私は 好きな 専攻を 勉強できています。大学の 講義は 難しい わりには、学生たちは 熱心に 聞いています。教育は 未来を 作る 鍵です。',
-    translation: 'Thanks to the scholarship, I am able to study the major I like. For university lectures being difficult, the students are listening enthusiastically. Education is the key to creating the future.',
-    questions: [
-      {
-        question: 'どうして 好きな 勉強が できていますか。',
-        options: ['奨学金の おかげ', 'お金があるから', '暇だから', '分からない'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 18'
+  },
+{
+    id: 'kj-n2-c9-7',
+    type: 'kanji',
+    character: '章',
+    readings: ["しょう"],
+    meanings: ["Badge","Chapter","Composition","Poem","Design"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c9-8',
+    type: 'kanji',
+    character: '臓',
+    readings: ["ぞう","はらわた"],
+    meanings: ["Entrails","Viscera","Bowels"],
+    level: 4,
+    explanation: 'Strokes: 19'
+  },
+{
+    id: 'kj-n2-c9-9',
+    type: 'kanji',
+    character: '律',
+    readings: ["りつ","りち","れつ"],
+    meanings: ["Rhythm","Law","Regulation","Gauge","Control"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c9-10',
+    type: 'kanji',
+    character: '贈',
+    readings: ["ぞう","そう","おくる"],
+    meanings: ["Presents","Send","Give To","Award To","Confer On","Presenting Something"],
+    level: 4,
+    explanation: 'Strokes: 18'
+  },
+{
+    id: 'kj-n2-c9-11',
+    type: 'kanji',
+    character: '照',
+    readings: ["しょう","てる","てらす","てれる"],
+    meanings: ["Illuminate","Shine","Compare","Bashful"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c9-12',
+    type: 'kanji',
+    character: '薄',
+    readings: ["はく","うすい","うす","うす","うすめる","うすまる","うすらぐ","うすら","うすれる","すすき"],
+    meanings: ["Dilute","Thin","Weak (tea)","Pampas Grass"],
+    level: 4,
+    explanation: 'Strokes: 16'
+  },
+{
+    id: 'kj-n2-c9-13',
+    type: 'kanji',
+    character: '群',
+    readings: ["ぐん","むれる","むれ","むら","むらがる"],
+    meanings: ["Flock","Group","Crowd","Herd","Swarm","Cluster"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c9-14',
+    type: 'kanji',
+    character: '秒',
+    readings: ["びょう"],
+    meanings: ["Second (1/60 Minute)"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c9-15',
+    type: 'kanji',
+    character: '奥',
+    readings: ["おう","おく","おくまる","くま"],
+    meanings: ["Heart","Interior"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c9-16',
+    type: 'kanji',
+    character: '詰',
+    readings: ["きつ","きち","つめる","つめ","づめ","つまる","つむ"],
+    meanings: ["Packed","Close","Pressed","Reprove","Rebuke","Blame"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c9-17',
+    type: 'kanji',
+    character: '双',
+    readings: ["そう","ふた","たぐい","ならぶ","ふたつ"],
+    meanings: ["Pair","Set","Comparison","Counter For Pairs"],
+    level: 4,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n2-c9-18',
+    type: 'kanji',
+    character: '刺',
+    readings: ["し","さす","ささる","さし","さし","とげ"],
+    meanings: ["Thorn","Pierce","Stab","Prick","Sting","Calling Card"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c9-19',
+    type: 'kanji',
+    character: '純',
+    readings: ["じゅん"],
+    meanings: ["Genuine","Purity","Innocence","Net (profit)"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c9-20',
+    type: 'kanji',
+    character: '翌',
+    readings: ["よく"],
+    meanings: ["The Following","Next"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c9-21',
+    type: 'kanji',
+    character: '快',
+    readings: ["かい","こころよい"],
+    meanings: ["Cheerful","Pleasant","Agreeable","Comfortable"],
+    level: 4,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n2-c9-22',
+    type: 'kanji',
+    character: '片',
+    readings: ["へん","かた","かた"],
+    meanings: ["One-sided","Leaf","Sheet","Right-side Kata Radical (no. 91)"],
+    level: 4,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n2-c9-23',
+    type: 'kanji',
+    character: '敬',
+    readings: ["けい","きょう","うやまう"],
+    meanings: ["Awe","Respect","Honor","Revere"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c9-24',
+    type: 'kanji',
+    character: '悩',
+    readings: ["のう","なやむ","なやます","なやましい","なやみ"],
+    meanings: ["Trouble","Worry","In Pain","Distress","Illness"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c9-25',
+    type: 'kanji',
+    character: '泉',
+    readings: ["せん","いずみ"],
+    meanings: ["Spring","Fountain"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c9-26',
+    type: 'kanji',
+    character: '皮',
+    readings: ["ひ","かわ"],
+    meanings: ["Pelt","Skin","Hide","Leather","Skin Radical (no. 107)"],
+    level: 4,
+    explanation: 'Strokes: 5'
   }
 ];

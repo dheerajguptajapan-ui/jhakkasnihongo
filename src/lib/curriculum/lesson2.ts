@@ -92,7 +92,7 @@ export const lesson2: Item[] = [
     explanation: '雑誌.'
   },
   {
-    id: 'mn1-v10',
+    id: 'mn2-v10',
     lessonNumber: 2,
     type: 'vocabulary',
     level: 1,

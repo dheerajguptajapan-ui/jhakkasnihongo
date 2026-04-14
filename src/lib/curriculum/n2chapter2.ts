@@ -2,74 +2,237 @@ import { Item } from '../../types';
 
 export const n2chapter2: Item[] = [
   {
-    id: 'tr2-ch2-v1',
-    lessonNumber: 2,
-    type: 'vocabulary',
+    id: 'kj-n2-c2-1',
+    type: 'kanji',
+    character: '導',
+    readings: ["どう","みちびく"],
+    meanings: ["Guidance","Leading","Conduct","Usher"],
     level: 4,
-    character: '絶滅',
-    readings: ['zetsumetsu'],
-    meanings: ['extinction']
+    explanation: 'Strokes: 15'
   },
-  {
-    id: 'tr2-ch2-v2',
-    lessonNumber: 2,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c2-2',
+    type: 'kanji',
+    character: '副',
+    readings: ["ふく"],
+    meanings: ["Vice-","Assistant","Aide","Duplicate","Copy"],
     level: 4,
-    character: '生態系',
-    readings: ['seitaikei'],
-    meanings: ['ecosystem']
+    explanation: 'Strokes: 11'
   },
-  {
-    id: 'tr2-ch2-v3',
-    lessonNumber: 2,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c2-3',
+    type: 'kanji',
+    character: '算',
+    readings: ["さん","そろ"],
+    meanings: ["Calculate","Divining","Number","Abacus","Probability"],
     level: 4,
-    character: '調整',
-    readings: ['chousei'],
-    meanings: ['adjustment', 'regulation']
+    explanation: 'Strokes: 14'
   },
-  {
-    id: 'tr2-ch2-g1',
-    lessonNumber: 2,
-    type: 'grammar',
+{
+    id: 'kj-n2-c2-4',
+    type: 'kanji',
+    character: '輸',
+    readings: ["ゆ","しゅ"],
+    meanings: ["Transport","Send","Be Inferior"],
     level: 4,
-    character: '〜に限って (Particularly/Unexpectedly)',
-    readings: ['~ni kagitte'],
-    meanings: ['Only when / Particularly when (often implies an unfortunate coincidence)'],
-    explanation: 'Used to express that an unusual or unfortunate event happens precisely because of a specific timing or condition.',
-    sentences: [
-      { japanese: '傘を 持ってこなかった 日に 限って、雨が 降る。', english: 'Particularly on days I don\'t bring an umbrella, it rains.', furigana: '傘[かさ]をもってこなかった日[ひ]に限[かぎ]って、雨[あめ]が降[ふ]る。' }
-    ]
+    explanation: 'Strokes: 16'
   },
-  {
-    id: 'tr2-ch2-g2',
-    lessonNumber: 2,
-    type: 'grammar',
+{
+    id: 'kj-n2-c2-5',
+    type: 'kanji',
+    character: '述',
+    readings: ["じゅつ","のべる"],
+    meanings: ["Mention","State","Speak","Relate"],
     level: 4,
-    character: '〜に応じて (Depending on)',
-    readings: ['~ni oujite'],
-    meanings: ['In response to / Depending on'],
-    explanation: 'Expresses that something changes or is done in accordance with a situation, variety, or request.',
-    sentences: [
-      { japanese: '予算に 応じて、コースを 選んで ください。', english: 'Please choose the course depending on your budget.', furigana: '予算[よさん]に応[おう]じて、コースを選[えら]んでください。' }
-    ]
+    explanation: 'Strokes: 8'
   },
-  {
-    id: 'tr2-ch2-d1',
-    lessonNumber: 2,
-    type: 'dokkai',
+{
+    id: 'kj-n2-c2-6',
+    type: 'kanji',
+    character: '線',
+    readings: ["せん","すじ"],
+    meanings: ["Line","Track"],
     level: 4,
-    readings: [],
-    character: 'オオカミと生態系',
-    meanings: ['Wolves and the Ecosystem'],
-    content: 'ある 地域で オオカミが 絶滅した ことで、生態系の バランスが 崩れました。自然は 状況に 応じて 変化して いますが、急な 絶滅に 限って 深刻な 問題を 引き起こします。',
-    translation: 'The extinction of wolves in a certain area caused the balance of the ecosystem to collapse. Nature changes depending on the situation, but particularly sudden extinctions cause serious problems.',
-    questions: [
-      {
-        question: '何が 原因で バランスが 崩れましたか。',
-        options: ['オオカミの 絶滅', '雨が 降ったこと', '暑かったこと', '人が 増えたこと'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 15'
+  },
+{
+    id: 'kj-n2-c2-7',
+    type: 'kanji',
+    character: '農',
+    readings: ["のう"],
+    meanings: ["Agriculture","Farmers"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c2-8',
+    type: 'kanji',
+    character: '州',
+    readings: ["しゅう","す","す"],
+    meanings: ["State","Province"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c2-9',
+    type: 'kanji',
+    character: '武',
+    readings: ["ぶ","む","たけ","たけし"],
+    meanings: ["Warrior","Military","Chivalry","Arms"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c2-10',
+    type: 'kanji',
+    character: '象',
+    readings: ["しょう","ぞう","かたどる"],
+    meanings: ["Elephant","Pattern After","Imitate","Image","Shape","Sign (of The Times)"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c2-11',
+    type: 'kanji',
+    character: '域',
+    readings: ["いき"],
+    meanings: ["Range","Region","Limits","Stage","Level"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c2-12',
+    type: 'kanji',
+    character: '額',
+    readings: ["がく","ひたい"],
+    meanings: ["Forehead","Tablet","Plaque","Framed Picture","Sum","Amount","Volume"],
+    level: 4,
+    explanation: 'Strokes: 18'
+  },
+{
+    id: 'kj-n2-c2-13',
+    type: 'kanji',
+    character: '欧',
+    readings: ["おう","うたう","はく"],
+    meanings: ["Europe"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c2-14',
+    type: 'kanji',
+    character: '担',
+    readings: ["たん","かつぐ","になう"],
+    meanings: ["Shouldering","Carry","Raise","Bear"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c2-15',
+    type: 'kanji',
+    character: '準',
+    readings: ["じゅん","じゅんじる","じゅんずる","なぞらえる","のり","ひとしい","みずもり"],
+    meanings: ["Semi-","Correspond To","Proportionate To","Conform","Imitate"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c2-16',
+    type: 'kanji',
+    character: '賞',
+    readings: ["しょう","ほめる"],
+    meanings: ["Prize","Reward","Praise"],
+    level: 4,
+    explanation: 'Strokes: 15'
+  },
+{
+    id: 'kj-n2-c2-17',
+    type: 'kanji',
+    character: '辺',
+    readings: ["へん","あたり","ほとり","べ"],
+    meanings: ["Environs","Boundary","Border","Vicinity"],
+    level: 4,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n2-c2-18',
+    type: 'kanji',
+    character: '造',
+    readings: ["ぞう","つくる","つくり","づくり"],
+    meanings: ["Create","Make","Structure","Physique"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c2-19',
+    type: 'kanji',
+    character: '被',
+    readings: ["ひ","こうむる","おおう","かぶる","かぶせる"],
+    meanings: ["Incur","Cover","Veil","Brood Over","Shelter","Wear","Put On","Be Exposed (film)","Receiving"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c2-20',
+    type: 'kanji',
+    character: '技',
+    readings: ["ぎ","わざ"],
+    meanings: ["Skill","Art","Craft","Ability","Feat","Performance","Vocation","Arts"],
+    level: 4,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n2-c2-21',
+    type: 'kanji',
+    character: '低',
+    readings: ["てい","ひくい","ひくめる","ひくまる"],
+    meanings: ["Lower","Short","Humble"],
+    level: 4,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n2-c2-22',
+    type: 'kanji',
+    character: '復',
+    readings: ["ふく","また"],
+    meanings: ["Restore","Return To","Revert","Resume"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c2-23',
+    type: 'kanji',
+    character: '移',
+    readings: ["い","うつる","うつす"],
+    meanings: ["Shift","Move","Change","Drift","Catch (cold, Fire)","Pass Into"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c2-24',
+    type: 'kanji',
+    character: '個',
+    readings: ["こ","か"],
+    meanings: ["Individual","Counter For Articles"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c2-25',
+    type: 'kanji',
+    character: '門',
+    readings: ["もん","かど","と"],
+    meanings: ["Gate","Counter For Cannons"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c2-26',
+    type: 'kanji',
+    character: '課',
+    readings: ["か"],
+    meanings: ["Chapter","Lesson","Section","Department","Division","Counter For Chapters (of A Book)"],
+    level: 4,
+    explanation: 'Strokes: 15'
   }
 ];

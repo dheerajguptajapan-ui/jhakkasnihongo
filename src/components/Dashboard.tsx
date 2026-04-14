@@ -9,7 +9,7 @@ import { BookOpen, GraduationCap, Trophy, BarChart3, Zap, Flame, Target } from '
 import { motion } from 'framer-motion';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import { KanjiExplorer } from './KanjiExplorer';
-import { persistence } from '../lib/persistence';
+import { PersistenceService } from '../lib/services/PersistenceService';
 
 interface DashboardProps {
   onStartLessons: () => void;
@@ -23,15 +23,20 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user) return;
+    const loadData = async () => {
+      if (!user) return;
+      setLoading(true);
 
-    // Modular Curriculum Loading
-    const allItems = getAllItems();
-    const storedUserItems = persistence.getUserItems();
-    
-    setItems(allItems);
-    setUserItems(storedUserItems);
-    setLoading(false);
+      // Modular Curriculum Loading
+      const allItems = getAllItems();
+      const storedUserItems = await PersistenceService.getUserItems();
+      
+      setItems(allItems);
+      setUserItems(storedUserItems);
+      setLoading(false);
+    };
+
+    loadData();
   }, [user]);
 
   const reviewsAvailable = userItems.filter(ui => {

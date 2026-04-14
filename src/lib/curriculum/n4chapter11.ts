@@ -564,4 +564,150 @@ export const n4chapter11: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c11-1',
+    type: 'kanji',
+    character: '貸',
+    readings: ["たい","かす","かし","かし"],
+    meanings: ["Lend"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c11-2',
+    type: 'kanji',
+    character: '堂',
+    readings: ["どう"],
+    meanings: ["Public Chamber","Hall"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c11-3',
+    type: 'kanji',
+    character: '鳥',
+    readings: ["ちょう","とり"],
+    meanings: ["Bird","Chicken"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c11-4',
+    type: 'kanji',
+    character: '飯',
+    readings: ["はん","めし"],
+    meanings: ["Meal","Boiled Rice"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c11-5',
+    type: 'kanji',
+    character: '勉',
+    readings: ["べん","つとめる"],
+    meanings: ["Exertion","Endeavour","Encourage","Strive","Make Effort","Diligent"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c11-6',
+    type: 'kanji',
+    character: '冬',
+    readings: ["とう","ふゆ"],
+    meanings: ["Winter"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c11-7',
+    type: 'kanji',
+    character: '昼',
+    readings: ["ちゅう","ひる"],
+    meanings: ["Daytime","Noon"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c11-8',
+    type: 'kanji',
+    character: '茶',
+    readings: ["ちゃ","さ"],
+    meanings: ["Tea"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c11-9',
+    type: 'kanji',
+    character: '弟',
+    readings: ["てい","だい","で","おとうと"],
+    meanings: ["Younger Brother","Faithful Service To Elders"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c11-10',
+    type: 'kanji',
+    character: '牛',
+    readings: ["ぎゅう","うし"],
+    meanings: ["Cow"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c11-11',
+    type: 'kanji',
+    character: '魚',
+    readings: ["ぎょ","うお","さかな","ざかな"],
+    meanings: ["Fish"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c11-12',
+    type: 'kanji',
+    character: '兄',
+    readings: ["けい","きょう","あに"],
+    meanings: ["Elder Brother","Big Brother"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c11-13',
+    type: 'kanji',
+    character: '犬',
+    readings: ["けん","いぬ","いぬ"],
+    meanings: ["Dog"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c11-14',
+    type: 'kanji',
+    character: '妹',
+    readings: ["まい","いもうと"],
+    meanings: ["Younger Sister"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c11-15',
+    type: 'kanji',
+    character: '姉',
+    readings: ["し","あね","はは"],
+    meanings: ["Elder Sister"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c11-16',
+    type: 'kanji',
+    character: '漢',
+    readings: ["かん"],
+    meanings: ["Sino-","China"],
+    level: 2,
+    explanation: 'Strokes: 13'
+  }
 ];

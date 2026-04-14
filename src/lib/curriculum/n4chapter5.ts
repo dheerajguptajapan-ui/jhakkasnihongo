@@ -576,4 +576,141 @@ export const n4chapter5: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c5-1',
+    type: 'kanji',
+    character: '集',
+    readings: ["しゅう","あつまる","あつめる","つどう"],
+    meanings: ["Gather","Meet","Congregate","Swarm","Flock"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c5-2',
+    type: 'kanji',
+    character: '別',
+    readings: ["べつ","わかれる","わける"],
+    meanings: ["Separate","Branch Off","Diverge","Fork","Another","Extra","Specially"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c5-3',
+    type: 'kanji',
+    character: '物',
+    readings: ["ぶつ","もつ","もの","もの"],
+    meanings: ["Thing","Object","Matter"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c5-4',
+    type: 'kanji',
+    character: '使',
+    readings: ["し","つかう","つかい","つかい","づかい"],
+    meanings: ["Use","Send On A Mission","Order","Messenger","Envoy","Ambassador","Cause"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c5-5',
+    type: 'kanji',
+    character: '品',
+    readings: ["ひん","ほん","しな"],
+    meanings: ["Goods","Refinement","Dignity","Article","Counter For Meal Courses"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c5-6',
+    type: 'kanji',
+    character: '計',
+    readings: ["けい","はかる","はからう"],
+    meanings: ["Plot","Plan","Scheme","Measure"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c5-7',
+    type: 'kanji',
+    character: '死',
+    readings: ["し","しぬ","しに"],
+    meanings: ["Death","Die"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c5-8',
+    type: 'kanji',
+    character: '特',
+    readings: ["とく"],
+    meanings: ["Special"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c5-9',
+    type: 'kanji',
+    character: '私',
+    readings: ["し","わたくし","わたし"],
+    meanings: ["Private","I","Me"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c5-10',
+    type: 'kanji',
+    character: '始',
+    readings: ["し","はじめる","はじめる","はじまる"],
+    meanings: ["Commence","Begin"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c5-11',
+    type: 'kanji',
+    character: '朝',
+    readings: ["ちょう","あさ"],
+    meanings: ["Morning","Dynasty","Regime","Epoch","Period","(north) Korea"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c5-12',
+    type: 'kanji',
+    character: '運',
+    readings: ["うん","はこぶ"],
+    meanings: ["Carry","Luck","Destiny","Fate","Lot","Transport","Progress","Advance"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c5-13',
+    type: 'kanji',
+    character: '終',
+    readings: ["しゅう","おわる","おわる","おわる","おえる","つい","ついに"],
+    meanings: ["End","Finish"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c5-14',
+    type: 'kanji',
+    character: '台',
+    readings: ["だい","たい","うてな","われ","つかさ"],
+    meanings: ["Pedestal","A Stand","Counter For Machines And Vehicles"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c5-15',
+    type: 'kanji',
+    character: '広',
+    readings: ["こう","ひろい","ひろまる","ひろめる","ひろがる","ひろげる"],
+    meanings: ["Wide","Broad","Spacious"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  }
 ];

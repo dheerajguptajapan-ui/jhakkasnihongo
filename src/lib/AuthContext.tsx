@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { UserProfile } from '../types';
 import { toast } from 'sonner';
-import { persistence, AppSettings } from './persistence';
+import { PersistenceService, AppSettings } from './services/PersistenceService';
 
 interface AuthContextType {
   user: { uid: string; displayName: string; email: string } | null;
@@ -13,7 +13,7 @@ interface AuthContextType {
   logout: () => Promise<void>;
   showFurigana: boolean;
   settings: AppSettings;
-  updateSettings: (settings: Partial<AppSettings>) => void;
+  updateSettings: (settings: Partial<AppSettings>) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -23,23 +23,50 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [isMock] = useState(true);
-  const [settings, setSettings] = useState<AppSettings>(persistence.getSettings());
+  const [settings, setSettings] = useState<AppSettings>({ showFurigana: true, theme: 'system' });
 
   useEffect(() => {
-    const loadSession = () => {
-      const storedProfile = persistence.getUserProfile();
-      if (storedProfile) {
-        setUser({
-          uid: storedProfile.uid,
-          displayName: storedProfile.displayName,
-          email: 'offline-user@example.com'
-        });
-        setProfile(storedProfile);
+    let isMounted = true;
+    
+    const loadSession = async () => {
+      console.log('[AuthMonitor] Initializing Neural Link session...');
+      
+      // Safety timeout: Ensure the app always renders after 3s even if storage hangs
+      const safetyTimeout = setTimeout(() => {
+        if (isMounted && loading) {
+          console.warn('[AuthMonitor] Initialization timeout reached. Forcing render.');
+          setLoading(false);
+        }
+      }, 3000);
+
+      try {
+        const [storedProfile, storedSettings] = await Promise.all([
+          PersistenceService.getUserProfile(),
+          PersistenceService.getSettings()
+        ]);
+
+        if (!isMounted) return;
+
+        if (storedProfile) {
+          console.log('[AuthMonitor] Profile restored:', storedProfile.displayName);
+          setUser({
+            uid: storedProfile.uid,
+            displayName: storedProfile.displayName,
+            email: 'offline-user@example.com'
+          });
+          setProfile(storedProfile);
+        }
+        setSettings(storedSettings);
+      } catch (error) {
+        console.error('[AuthMonitor] Critical Init Error:', error);
+      } finally {
+        clearTimeout(safetyTimeout);
+        if (isMounted) setLoading(false);
       }
-      setLoading(false);
     };
 
     loadSession();
+    return () => { isMounted = false; };
   }, []);
 
   // Handle CSS Theme application
@@ -69,7 +96,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         email: isAdmin ? 'admin@neural.link' : `${username}@offline.local`
       };
       
-      const existingProfile = persistence.getUserProfile();
+      const existingProfile = await PersistenceService.getUserProfile();
       const mockProfile: UserProfile = existingProfile || {
         uid: mockUser.uid,
         displayName: mockUser.displayName,
@@ -84,7 +111,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       // Force admin role if credentials match even if profile exists
       if (isAdmin) mockProfile.role = 'admin';
       
-      persistence.saveUserProfile(mockProfile);
+      await PersistenceService.saveUserProfile(mockProfile);
       setUser(mockUser);
       setProfile(mockProfile);
       toast.success(isAdmin ? "Neural Admin Link Established" : `Welcome, ${mockProfile.displayName}!`);
@@ -100,10 +127,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     toast.info("Logged out of local session.");
   };
 
-  const updateSettings = (newSettings: Partial<AppSettings>) => {
+  const updateSettings = async (newSettings: Partial<AppSettings>) => {
     const updated = { ...settings, ...newSettings };
     setSettings(updated);
-    persistence.saveSettings(newSettings);
+    await PersistenceService.saveSettings(newSettings);
   };
 
   return (
@@ -131,3 +158,4 @@ export const useAuth = () => {
   }
   return context;
 };
+

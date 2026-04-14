@@ -582,7 +582,7 @@ export const lesson12: Item[] = [
     level: 1,
     radical: '自',
     mnemonic: 'Pictograph of a nose (representing oneself).',
-    combinations: [{ word: '自分', reading: 'jibun', meanings: ['Oneself'] }]
+    combinations: [{ word: '自分', reading: 'jibun', meaning: 'Oneself' }]
   },
   {
     id: 'mn12-k8',
@@ -594,7 +594,7 @@ export const lesson12: Item[] = [
     level: 1,
     radical: '⻌',
     mnemonic: 'A head (首) on the road (⻌).',
-    combinations: [{ word: '水道', reading: 'suidou', meanings: ['Water supply'] }]
+    combinations: [{ word: '水道', reading: 'suidou', meaning: 'Water supply' }]
   },
   {
     id: 'mn12-k9',

@@ -2,74 +2,237 @@ import { Item } from '../../types';
 
 export const n2chapter3: Item[] = [
   {
-    id: 'tr2-ch3-v1',
-    lessonNumber: 3,
-    type: 'vocabulary',
+    id: 'kj-n2-c3-1',
+    type: 'kanji',
+    character: '脳',
+    readings: ["のう","どう","のうずる"],
+    meanings: ["Brain","Memory"],
     level: 4,
-    character: '人工知能',
-    readings: ['jinkou chinou'],
-    meanings: ['artificial intelligence', 'AI']
+    explanation: 'Strokes: 11'
   },
-  {
-    id: 'tr2-ch3-v2',
-    lessonNumber: 3,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c3-2',
+    type: 'kanji',
+    character: '極',
+    readings: ["きょく","ごく","きわめる","きわまる","きわまり","きわみ","きめる","ぎめ","きまる"],
+    meanings: ["Poles","Settlement","Conclusion","End","Highest Rank","Electric Poles","Very","Extremely","Most","Highly","10**48"],
     level: 4,
-    character: '利便性',
-    readings: ['ribensei'],
-    meanings: ['convenience']
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch3-v3',
-    lessonNumber: 3,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c3-3',
+    type: 'kanji',
+    character: '含',
+    readings: ["がん","ふくむ","ふくめる"],
+    meanings: ["Contain","Include","Hold In The Mouth","Bear In Mind","Understand","Cherish"],
     level: 4,
-    character: '効率',
-    readings: ['kouritsu'],
-    meanings: ['efficiency']
+    explanation: 'Strokes: 7'
   },
-  {
-    id: 'tr2-ch3-g1',
-    lessonNumber: 3,
-    type: 'grammar',
+{
+    id: 'kj-n2-c3-4',
+    type: 'kanji',
+    character: '蔵',
+    readings: ["ぞう","そう","くら","おさめる","かくれる"],
+    meanings: ["Storehouse","Hide","Own","Have","Possess"],
     level: 4,
-    character: '〜にかかわらず (Regardless of)',
-    readings: ['~ni kakawarazu'],
-    meanings: ['Regardless of / No matter whether'],
-    explanation: 'Used when a situation or action is independent of a certain factor or variety.',
-    sentences: [
-      { japanese: '天候に かかわらず、試合は 行われます。', english: 'Regardless of the weather, the match will be held.', furigana: '天候[てんこう]にかかわらず、試合[しあい]は行[おこな]われます。' }
-    ]
+    explanation: 'Strokes: 15'
   },
-  {
-    id: 'tr2-ch3-g2',
-    lessonNumber: 3,
-    type: 'grammar',
+{
+    id: 'kj-n2-c3-5',
+    type: 'kanji',
+    character: '量',
+    readings: ["りょう","はかる"],
+    meanings: ["Quantity","Measure","Weight","Amount","Consider","Estimate","Surmise"],
     level: 4,
-    character: '〜において (At / In)',
-    readings: ['~ni oite'],
-    meanings: ['At / In / In terms of (Formal)'],
-    explanation: 'A formal way to specify a place, time, or field where something happens or exists.',
-    sentences: [
-      { japanese: '現代社会に おいて、ITは 欠かせません。', english: 'In modern society, IT is indispensable.', furigana: '現代[げんだい]社会[しゃかい]において、ITは欠[か]かせません。' }
-    ]
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch3-d1',
-    lessonNumber: 3,
-    type: 'dokkai',
+{
+    id: 'kj-n2-c3-6',
+    type: 'kanji',
+    character: '型',
+    readings: ["けい","かた","がた"],
+    meanings: ["Mould","Type","Model"],
     level: 4,
-    readings: [],
-    character: 'AIと現代の生活',
-    meanings: ['AI and Modern Life'],
-    content: '現在、あらゆる 分野に おいて ＡＩの 導入が 進んでいます。個人の 好みに かかわらず、利便性が 向上して いますが、同時に 人の 仕事が 分奪われる との 懸念も あります。',
-    translation: 'Currently, the introduction of AI is progressing in every field. Regardless of individual preferences, convenience is improving, but at the same time, there are concerns that human jobs will be taken away.',
-    questions: [
-      {
-        question: 'ＡＩの 導入に ついて 何が 言われていますか。',
-        options: ['利便性が 向上している', '仕事が 増えている', '不便に なっている', '何も 変わっていない'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c3-7',
+    type: 'kanji',
+    character: '況',
+    readings: ["きょう","まして","いわんや","おもむき"],
+    meanings: ["Condition","Situation"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c3-8',
+    type: 'kanji',
+    character: '針',
+    readings: ["しん","はり"],
+    meanings: ["Needle","Pin","Staple","Stinger"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c3-9',
+    type: 'kanji',
+    character: '専',
+    readings: ["せん","もっぱら"],
+    meanings: ["Specialty","Exclusive","Mainly","Solely"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c3-10',
+    type: 'kanji',
+    character: '谷',
+    readings: ["こく","たに","きわまる"],
+    meanings: ["Valley"],
+    level: 4,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n2-c3-11',
+    type: 'kanji',
+    character: '史',
+    readings: ["し"],
+    meanings: ["History","Chronicle"],
+    level: 4,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n2-c3-12',
+    type: 'kanji',
+    character: '階',
+    readings: ["かい","きざはし"],
+    meanings: ["Storey","Stair","Counter For Storeys Of A Building"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c3-13',
+    type: 'kanji',
+    character: '管',
+    readings: ["かん","くだ"],
+    meanings: ["Pipe","Tube","Wind Instrument","Drunken Talk","Control","Jurisdiction"],
+    level: 4,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n2-c3-14',
+    type: 'kanji',
+    character: '兵',
+    readings: ["へい","ひょう","つわもの"],
+    meanings: ["Soldier","Private","Troops","Army","Warfare","Strategy","Tactics"],
+    level: 4,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n2-c3-15',
+    type: 'kanji',
+    character: '接',
+    readings: ["せつ","しょう","つぐ"],
+    meanings: ["Touch","Contact","Adjoin","Piece Together"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c3-16',
+    type: 'kanji',
+    character: '細',
+    readings: ["さい","ほそい","ほそる","こまか","こまかい"],
+    meanings: ["Dainty","Get Thin","Taper","Slender","Narrow","Detailed","Precise"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c3-17',
+    type: 'kanji',
+    character: '効',
+    readings: ["こう","きく","ききめ","ならう"],
+    meanings: ["Merit","Efficacy","Efficiency","Benefit"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c3-18',
+    type: 'kanji',
+    character: '丸',
+    readings: ["がん","まる","まるめる","まるい"],
+    meanings: ["Round","Full (month)","Perfection","-ship","Pills","Make Round","Roll Up","Curl Up","Seduce","Explain Away"],
+    level: 4,
+    explanation: 'Strokes: 3'
+  },
+{
+    id: 'kj-n2-c3-19',
+    type: 'kanji',
+    character: '湾',
+    readings: ["わん","いりえ"],
+    meanings: ["Gulf","Bay","Inlet"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c3-20',
+    type: 'kanji',
+    character: '録',
+    readings: ["ろく","しるす","とる"],
+    meanings: ["Record"],
+    level: 4,
+    explanation: 'Strokes: 16'
+  },
+{
+    id: 'kj-n2-c3-21',
+    type: 'kanji',
+    character: '省',
+    readings: ["せい","しょう","かえりみる","はぶく"],
+    meanings: ["Focus","Government Ministry","Conserve"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c3-22',
+    type: 'kanji',
+    character: '旧',
+    readings: ["きゅう","ふるい","もと"],
+    meanings: ["Old Times","Old Things","Old Friend","Former","Ex-"],
+    level: 4,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n2-c3-23',
+    type: 'kanji',
+    character: '橋',
+    readings: ["きょう","はし"],
+    meanings: ["Bridge"],
+    level: 4,
+    explanation: 'Strokes: 16'
+  },
+{
+    id: 'kj-n2-c3-24',
+    type: 'kanji',
+    character: '岸',
+    readings: ["がん","きし"],
+    meanings: ["Beach"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c3-25',
+    type: 'kanji',
+    character: '周',
+    readings: ["しゅう","まわり"],
+    meanings: ["Circumference","Circuit","Lap"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c3-26',
+    type: 'kanji',
+    character: '材',
+    readings: ["ざい"],
+    meanings: ["Lumber","Log","Timber","Wood","Materials","Ingredients","Talent"],
+    level: 4,
+    explanation: 'Strokes: 7'
   }
 ];

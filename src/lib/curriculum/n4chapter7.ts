@@ -563,4 +563,141 @@ export const n4chapter7: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c7-1',
+    type: 'kanji',
+    character: '研',
+    readings: ["けん","とぐ"],
+    meanings: ["Polish","Study Of","Sharpen"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c7-2',
+    type: 'kanji',
+    character: '足',
+    readings: ["そく","あし","たりる","たる","たす"],
+    meanings: ["Leg","Foot","Be Sufficient","Counter For Pairs Of Footwear"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c7-3',
+    type: 'kanji',
+    character: '究',
+    readings: ["きゅう","く","きわめる"],
+    meanings: ["Research","Study"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c7-4',
+    type: 'kanji',
+    character: '楽',
+    readings: ["がく","らく","ごう","たのしい","たのしむ","このむ"],
+    meanings: ["Music","Comfort","Ease"],
+    level: 2,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n4-c7-5',
+    type: 'kanji',
+    character: '起',
+    readings: ["き","おきる","おこる","おこす","おこす","たつ"],
+    meanings: ["Rouse","Wake Up","Get Up"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c7-6',
+    type: 'kanji',
+    character: '着',
+    readings: ["ちゃく","じゃく","きる","ぎ","きせる","きせ","つく","つける"],
+    meanings: ["Don","Arrive","Wear","Counter For Suits Of Clothing"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c7-7',
+    type: 'kanji',
+    character: '店',
+    readings: ["てん","みせ","たな"],
+    meanings: ["Store","Shop"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c7-8',
+    type: 'kanji',
+    character: '病',
+    readings: ["びょう","へい","やむ","やみ","やまい"],
+    meanings: ["Ill","Sick"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c7-9',
+    type: 'kanji',
+    character: '質',
+    readings: ["しつ","しち","ち","たち","ただす","もと","わりふ"],
+    meanings: ["Substance","Quality","Matter","Temperament"],
+    level: 2,
+    explanation: 'Strokes: 15'
+  },
+{
+    id: 'kj-n4-c7-10',
+    type: 'kanji',
+    character: '待',
+    readings: ["たい","まつ","まち"],
+    meanings: ["Wait","Depend On"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c7-11',
+    type: 'kanji',
+    character: '試',
+    readings: ["し","こころみる","ためす"],
+    meanings: ["Test","Try","Attempt","Experiment","Ordeal"],
+    level: 2,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n4-c7-12',
+    type: 'kanji',
+    character: '族',
+    readings: ["ぞく"],
+    meanings: ["Tribe","Family"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c7-13',
+    type: 'kanji',
+    character: '銀',
+    readings: ["ぎん","しろがね"],
+    meanings: ["Silver"],
+    level: 2,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n4-c7-14',
+    type: 'kanji',
+    character: '早',
+    readings: ["そう","さっ","はやい","はや","はや","はやまる","はやめる","さ"],
+    meanings: ["Early","Fast"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c7-15',
+    type: 'kanji',
+    character: '映',
+    readings: ["えい","うつる","うつす","はえる","ばえ"],
+    meanings: ["Reflect","Reflection","Projection"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  }
 ];

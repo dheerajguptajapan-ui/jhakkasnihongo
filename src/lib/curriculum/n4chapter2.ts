@@ -581,4 +581,141 @@ export const n4chapter2: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c2-1',
+    type: 'kanji',
+    character: '手',
+    readings: ["しゅ","ず","て","て","て","た"],
+    meanings: ["Hand"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c2-2',
+    type: 'kanji',
+    character: '力',
+    readings: ["りょく","りき","りい","ちから"],
+    meanings: ["Power","Strength","Strong","Strain","Bear Up","Exert"],
+    level: 2,
+    explanation: 'Strokes: 2'
+  },
+{
+    id: 'kj-n4-c2-3',
+    type: 'kanji',
+    character: '問',
+    readings: ["もん","とう","とい","とん"],
+    meanings: ["Question","Ask","Problem"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c2-4',
+    type: 'kanji',
+    character: '代',
+    readings: ["だい","たい","かわる","かわる","かわり","かわり","がわり","がわり","かえる","よ","しろ"],
+    meanings: ["Substitute","Change","Convert","Replace","Period","Age","Counter For Decades Of Ages, Eras, Etc.","Generation","Charge","Rate","Fee"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c2-5',
+    type: 'kanji',
+    character: '明',
+    readings: ["めい","みょう","みん","あかり","あかるい","あかるむ","あからむ","あきらか","あける","あけ","あく","あくる","あかす"],
+    meanings: ["Bright","Light"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c2-6',
+    type: 'kanji',
+    character: '動',
+    readings: ["どう","うごく","うごかす"],
+    meanings: ["Move","Motion","Change","Confusion","Shift","Shake"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c2-7',
+    type: 'kanji',
+    character: '京',
+    readings: ["きょう","けい","きん","みやこ"],
+    meanings: ["Capital","10**16"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c2-8',
+    type: 'kanji',
+    character: '目',
+    readings: ["もく","ぼく","め","め","ま"],
+    meanings: ["Eye","Class","Look","Insight","Experience","Care","Favor"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c2-9',
+    type: 'kanji',
+    character: '通',
+    readings: ["つう","つ","とおる","とおり","とおり","どおり","とおす","とおし","どおし","かよう"],
+    meanings: ["Traffic","Pass Through","Avenue","Commute","Counter For Letters, Notes, Documents, Etc."],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c2-10',
+    type: 'kanji',
+    character: '言',
+    readings: ["げん","ごん","いう","こと"],
+    meanings: ["Say","Word"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c2-11',
+    type: 'kanji',
+    character: '理',
+    readings: ["り","ことわり"],
+    meanings: ["Logic","Arrangement","Reason","Justice","Truth"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c2-12',
+    type: 'kanji',
+    character: '体',
+    readings: ["たい","てい","からだ","かたち"],
+    meanings: ["Body","Substance","Object","Reality","Counter For Images"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c2-13',
+    type: 'kanji',
+    character: '田',
+    readings: ["でん","た"],
+    meanings: ["Rice Field","Rice Paddy"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c2-14',
+    type: 'kanji',
+    character: '主',
+    readings: ["しゅ","す","しゅう","ぬし","おも","あるじ"],
+    meanings: ["Lord","Chief","Master","Main Thing","Principal"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c2-15',
+    type: 'kanji',
+    character: '題',
+    readings: ["だい"],
+    meanings: ["Topic","Subject"],
+    level: 2,
+    explanation: 'Strokes: 18'
+  }
 ];

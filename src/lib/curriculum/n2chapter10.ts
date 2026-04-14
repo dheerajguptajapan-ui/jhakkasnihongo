@@ -2,74 +2,237 @@ import { Item } from '../../types';
 
 export const n2chapter10: Item[] = [
   {
-    id: 'tr2-ch10-v1',
-    lessonNumber: 10,
-    type: 'vocabulary',
+    id: 'kj-n2-c10-1',
+    type: 'kanji',
+    character: '漁',
+    readings: ["ぎょ","りょう","あさる"],
+    meanings: ["Fishing","Fishery"],
     level: 4,
-    character: '気候変動',
-    readings: ['kikou hendou'],
-    meanings: ['climate change']
+    explanation: 'Strokes: 14'
   },
-  {
-    id: 'tr2-ch10-v2',
-    lessonNumber: 10,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c10-2',
+    type: 'kanji',
+    character: '荒',
+    readings: ["こう","あらい","あら","あれる","あらす","あらし","すさむ"],
+    meanings: ["Laid Waste","Rough","Rude","Wild"],
     level: 4,
-    character: '資源',
-    readings: ['shigen'],
-    meanings: ['resources']
+    explanation: 'Strokes: 9'
   },
-  {
-    id: 'tr2-ch10-v3',
-    lessonNumber: 10,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c10-3',
+    type: 'kanji',
+    character: '貯',
+    readings: ["ちょ","ためる","たくわえる"],
+    meanings: ["Savings","Store","Lay In","Keep","Wear Mustache"],
     level: 4,
-    character: '保護',
-    readings: ['hogo'],
-    meanings: ['protection', 'conservation']
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch10-g1',
-    lessonNumber: 10,
-    type: 'grammar',
+{
+    id: 'kj-n2-c10-4',
+    type: 'kanji',
+    character: '硬',
+    readings: ["こう","かたい"],
+    meanings: ["Stiff","Hard"],
     level: 4,
-    character: '〜からといって (Just because)',
-    readings: ['~kara to itte'],
-    meanings: ['Just because... doesn\'t mean...'],
-    explanation: 'Used to say that a particular reason is not sufficient to lead to a certain conclusion.',
-    sentences: [
-      { japanese: '日本人だからといって、誰もが 漢字が 得意な わけではない。', english: 'Just because someone is Japanese, it doesn\'t mean everyone is good at Kanji.', furigana: '日本人[にほんじん]だからといって、誰[だれ]もが漢字[かんじ]が得意[とくい]なわけではない。' }
-    ]
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch10-g2',
-    lessonNumber: 10,
-    type: 'grammar',
+{
+    id: 'kj-n2-c10-5',
+    type: 'kanji',
+    character: '埋',
+    readings: ["まい","うめる","うまる","うもれる","うずめる","うずまる","いける"],
+    meanings: ["Bury","Be Filled Up","Embedded"],
     level: 4,
-    character: '〜ばかりか (Not only)',
-    readings: ['~bakari ka'],
-    meanings: ['Not only... but also... / As well as...'],
-    explanation: 'Used when something happens in addition to what has already been mentioned, often something unexpected or more intense.',
-    sentences: [
-      { japanese: 'その 店は 味がいい ばかりか、サービスも 素晴らしい。', english: 'That store not only tastes good but the service is also wonderful.', furigana: 'その店[みせ]は味[あじ]がいいばかりか、サービスも素晴[すば]らしい。' }
-    ]
+    explanation: 'Strokes: 10'
   },
-  {
-    id: 'tr2-ch10-d1',
-    lessonNumber: 10,
-    type: 'dokkai',
+{
+    id: 'kj-n2-c10-6',
+    type: 'kanji',
+    character: '柱',
+    readings: ["ちゅう","はしら"],
+    meanings: ["Pillar","Post","Cylinder","Support"],
     level: 4,
-    readings: [],
-    character: '地球環境の未来',
-    meanings: ['Future of the Global Environment'],
-    content: '地球温暖化は 進む ばかりか、気象災害も 増えています。便利だからといって 資源を 無駄に 使うのは やめるべきです。一人一人の 意識が 改善に 向けた 第一歩に なります。',
-    translation: 'Not only is global warming progressing, but weather disasters are also increasing. Even if it is convenient, we should stop wasting resources. Each person\'s awareness will be the first step toward improvement.',
-    questions: [
-      {
-        question: '環境問題に ついて 何が 言われていますか。',
-        options: ['温暖化が 進む ばかりか 災害も 増えている', '何も 起きていない', '良くなっている', '分からない'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c10-7',
+    type: 'kanji',
+    character: '祭',
+    readings: ["さい","まつる","まつり","まつり"],
+    meanings: ["Ritual","Offer Prayers","Celebrate","Deify","Enshrine","Worship"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c10-8',
+    type: 'kanji',
+    character: '袋',
+    readings: ["たい","だい","ふくろ"],
+    meanings: ["Sack","Bag","Pouch"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c10-9',
+    type: 'kanji',
+    character: '筆',
+    readings: ["ひつ","ふで"],
+    meanings: ["Writing Brush","Writing","Painting Brush","Handwriting"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c10-10',
+    type: 'kanji',
+    character: '訓',
+    readings: ["くん","きん","おしえる","よむ","くんずる"],
+    meanings: ["Instruction","Japanese Character Reading","Explanation","Read"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c10-11',
+    type: 'kanji',
+    character: '浴',
+    readings: ["よく","あびる","あびせる"],
+    meanings: ["Bathe","Be Favored With","Bask In"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c10-12',
+    type: 'kanji',
+    character: '童',
+    readings: ["どう","わらべ"],
+    meanings: ["Juvenile","Child"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c10-13',
+    type: 'kanji',
+    character: '宝',
+    readings: ["ほう","たから"],
+    meanings: ["Treasure","Wealth","Valuables"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c10-14',
+    type: 'kanji',
+    character: '封',
+    readings: ["ふう","ほう"],
+    meanings: ["Seal","Closing"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c10-15',
+    type: 'kanji',
+    character: '胸',
+    readings: ["きょう","むね","むな"],
+    meanings: ["Bosom","Breast","Chest","Heart","Feelings"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c10-16',
+    type: 'kanji',
+    character: '砂',
+    readings: ["さ","しゃ","すな"],
+    meanings: ["Sand"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c10-17',
+    type: 'kanji',
+    character: '塩',
+    readings: ["えん","しお"],
+    meanings: ["Salt"],
+    level: 4,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c10-18',
+    type: 'kanji',
+    character: '賢',
+    readings: ["けん","かしこい"],
+    meanings: ["Intelligent","Wise","Wisdom","Cleverness"],
+    level: 4,
+    explanation: 'Strokes: 16'
+  },
+{
+    id: 'kj-n2-c10-19',
+    type: 'kanji',
+    character: '腕',
+    readings: ["わん","うで"],
+    meanings: ["Arm","Ability","Talent"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c10-20',
+    type: 'kanji',
+    character: '兆',
+    readings: ["ちょう","きざす","きざし"],
+    meanings: ["Portent","10**12","Trillion","Sign","Omen","Symptoms"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c10-21',
+    type: 'kanji',
+    character: '床',
+    readings: ["しょう","とこ","ゆか"],
+    meanings: ["Bed","Counter For Beds","Floor","Padding","Tatami"],
+    level: 4,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n2-c10-22',
+    type: 'kanji',
+    character: '毛',
+    readings: ["もう","け"],
+    meanings: ["Fur","Hair","Feather","Down"],
+    level: 4,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n2-c10-23',
+    type: 'kanji',
+    character: '緑',
+    readings: ["りょく","ろく","みどり"],
+    meanings: ["Green"],
+    level: 4,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n2-c10-24',
+    type: 'kanji',
+    character: '尊',
+    readings: ["そん","たっとい","とうとい","たっとぶ","とうとぶ"],
+    meanings: ["Revered","Valuable","Precious","Noble","Exalted"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c10-25',
+    type: 'kanji',
+    character: '祝',
+    readings: ["しゅく","しゅう","いわう"],
+    meanings: ["Celebrate","Congratulate"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c10-26',
+    type: 'kanji',
+    character: '柔',
+    readings: ["じゅう","にゅう","やわらか","やわらかい","やわ","やわら"],
+    meanings: ["Tender","Weakness","Gentleness","Softness"],
+    level: 4,
+    explanation: 'Strokes: 9'
   }
 ];

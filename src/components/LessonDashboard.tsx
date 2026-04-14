@@ -1,36 +1,53 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { CurriculumService } from '../lib/services/CurriculumService';
+import { ArrowLeft } from 'lucide-react';
 
 interface LessonDashboardProps {
   level: number;
   onSelectLesson: (lessonNumber: number) => void;
+  onBack?: () => void;
 }
 
-const LessonDashboard: React.FC<LessonDashboardProps> = ({ level, onSelectLesson }) => {
-  const isN4 = level === 2;
-  const isN3 = level === 3;
-  const isN2 = level === 4;
-  
-  const count = isN2 ? 14 : (isN3 || isN4 ? 11 : 25);
-  const label = level === 1 ? 'Lesson' : 'Chapter';
-  const subLabel = isN2 ? 'TRY N2 Mastery' : (isN3 ? 'TRY N3 Grammar Hub' : (isN4 ? 'TRY N4 Grammar Master' : 'Minna no Nihongo Lessons 1–25'));
+const LessonDashboard: React.FC<LessonDashboardProps> = ({ level, onSelectLesson, onBack }) => {
+  const count = CurriculumService.getChapterCount(level);
+  const label = CurriculumService.getChapterLabel(level);
+  const subLabel = CurriculumService.getLevelSubtitle(level);
 
   const lessons = Array.from({ length: count }, (_, i) => i + 1);
 
+  const getTitle = (lvl: number) => {
+    switch (lvl) {
+      case 1: return 'N5 Curriculum';
+      case 2: return 'N4 Curriculum';
+      case 3: return 'N3 Curriculum';
+      case 4: return 'N2 Curriculum';
+      default: return 'JLPT Curriculum';
+    }
+  };
+
   return (
-    <div className="p-6 max-w-7xl mx-auto pb-24">
+    <div className="p-2 md:p-6 max-w-7xl mx-auto pb-24">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
+        className="mb-8 space-y-4"
       >
-        <h2 className="text-3xl font-bold text-white mb-2">
-          {level === 1 ? 'N5 Curriculum' : 
-           level === 2 ? 'N4 Curriculum' : 
-           level === 3 ? 'N3 Curriculum' : 
-           level === 4 ? 'N2 Curriculum' : 'JLPT Curriculum'}
-        </h2>
-        <p className="text-gray-400">{subLabel}</p>
+        {onBack && (
+          <button 
+            onClick={onBack}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-gray-400 font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all mb-4"
+          >
+            <ArrowLeft size={14} />
+            Back to HQ
+          </button>
+        )}
+        <div>
+          <h2 className="text-3xl font-bold text-white mb-2">
+            {getTitle(level)}
+          </h2>
+          <p className="text-gray-400">{subLabel}</p>
+        </div>
       </motion.div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">

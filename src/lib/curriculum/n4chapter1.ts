@@ -608,4 +608,141 @@ export const n4chapter1: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c1-1',
+    type: 'kanji',
+    character: '会',
+    readings: ["かい","え","あう","あわせる","あつまる"],
+    meanings: ["Meeting","Meet","Party","Association","Interview","Join"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c1-2',
+    type: 'kanji',
+    character: '同',
+    readings: ["どう","おなじ"],
+    meanings: ["Same","Agree","Equal"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c1-3',
+    type: 'kanji',
+    character: '事',
+    readings: ["じ","ず","こと","つかう","つかえる"],
+    meanings: ["Matter","Thing","Fact","Business","Reason","Possibly"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c1-4',
+    type: 'kanji',
+    character: '自',
+    readings: ["じ","し","みずから","おのずから","おのずと"],
+    meanings: ["Oneself"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c1-5',
+    type: 'kanji',
+    character: '社',
+    readings: ["しゃ","やしろ"],
+    meanings: ["Company","Firm","Office","Association","Shrine"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c1-6',
+    type: 'kanji',
+    character: '発',
+    readings: ["はつ","ほつ","たつ","あばく","おこる","つかわす","はなつ"],
+    meanings: ["Departure","Discharge","Publish","Emit","Start From","Disclose","Counter For Gunshots"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c1-7',
+    type: 'kanji',
+    character: '者',
+    readings: ["しゃ","もの"],
+    meanings: ["Someone","Person"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c1-8',
+    type: 'kanji',
+    character: '地',
+    readings: ["ち","じ"],
+    meanings: ["Ground","Earth"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c1-9',
+    type: 'kanji',
+    character: '業',
+    readings: ["ぎょう","ごう","わざ"],
+    meanings: ["Business","Vocation","Arts","Performance"],
+    level: 2,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n4-c1-10',
+    type: 'kanji',
+    character: '方',
+    readings: ["ほう","かた","かた","がた"],
+    meanings: ["Direction","Person","Alternative"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c1-11',
+    type: 'kanji',
+    character: '新',
+    readings: ["しん","あたらしい","あらた","あら","にい"],
+    meanings: ["New"],
+    level: 2,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n4-c1-12',
+    type: 'kanji',
+    character: '場',
+    readings: ["じょう","ちょう","ば"],
+    meanings: ["Location","Place"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c1-13',
+    type: 'kanji',
+    character: '員',
+    readings: ["いん"],
+    meanings: ["Employee","Member","Number","The One In Charge"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c1-14',
+    type: 'kanji',
+    character: '立',
+    readings: ["りつ","りゅう","りっとる","たつ","たつ","たち","たてる","たてる","たて","たて","たて","だて","だてる"],
+    meanings: ["Stand Up","Rise","Set Up","Erect"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c1-15',
+    type: 'kanji',
+    character: '開',
+    readings: ["かい","ひらく","ひらき","びらき","ひらける","あく","あける"],
+    meanings: ["Open","Unfold","Unseal"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  }
 ];

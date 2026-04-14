@@ -2,74 +2,237 @@ import { Item } from '../../types';
 
 export const n2chapter7: Item[] = [
   {
-    id: 'tr2-ch7-v1',
-    lessonNumber: 7,
-    type: 'vocabulary',
+    id: 'kj-n2-c7-1',
+    type: 'kanji',
+    character: '令',
+    readings: ["れい"],
+    meanings: ["Orders","Ancient Laws","Command","Decree"],
     level: 4,
-    character: '規則正しい',
-    readings: ['kisoku tadashii'],
-    meanings: ['regular', 'disciplined']
+    explanation: 'Strokes: 5'
   },
-  {
-    id: 'tr2-ch7-v2',
-    lessonNumber: 7,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c7-2',
+    type: 'kanji',
+    character: '角',
+    readings: ["かく","かど","つの"],
+    meanings: ["Angle","Corner","Square","Horn","Antlers"],
     level: 4,
-    character: '生活習慣',
-    readings: ['seikatsu shuukan'],
-    meanings: ['lifestyle habits']
+    explanation: 'Strokes: 7'
   },
-  {
-    id: 'tr2-ch7-v3',
-    lessonNumber: 7,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c7-3',
+    type: 'kanji',
+    character: '絡',
+    readings: ["らく","からむ","からまる"],
+    meanings: ["Entwine","Coil Around","Get Caught In"],
     level: 4,
-    character: '向上',
-    readings: ['koujou'],
-    meanings: ['improvement', 'elevation']
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch7-g1',
-    lessonNumber: 7,
-    type: 'grammar',
+{
+    id: 'kj-n2-c7-4',
+    type: 'kanji',
+    character: '損',
+    readings: ["そん","そこなう","そこなう","そこなう","そこねる","そこねる"],
+    meanings: ["Damage","Loss","Disadvantage","Hurt","Injure"],
     level: 4,
-    character: '〜に沿って (Along with / According to)',
-    readings: ['~ni sotte'],
-    meanings: ['Along with / According to (followed by a plan, rule, or path)'],
-    explanation: 'Used when something is done while adhering to a specific line, policy, or guideline.',
-    sentences: [
-      { japanese: 'マニュアルに 沿って、組み立ててください。', english: 'Please assemble it according to the manual.', furigana: 'マニュアルに沿[そ]って、組[く]み立[た]ててください。' }
-    ]
+    explanation: 'Strokes: 13'
   },
-  {
-    id: 'tr2-ch7-g2',
-    lessonNumber: 7,
-    type: 'grammar',
+{
+    id: 'kj-n2-c7-5',
+    type: 'kanji',
+    character: '募',
+    readings: ["ぼ","つのる"],
+    meanings: ["Recruit","Campaign","Gather (contributions)","Enlist","Grow Violent"],
     level: 4,
-    character: '〜にかけては (When it comes to)',
-    readings: ['~ni kakete wa'],
-    meanings: ['When it comes to / In the field of'],
-    explanation: 'Used to indicate that someone is excellent or has superior skill in a certain specific area.',
-    sentences: [
-      { japanese: '料理の 手際に かけては、彼女が 一番だ。', english: 'When it comes to cooking efficiency, she is the best.', furigana: '料理[りょうり]の手際[てぎわ]にかけては、彼女[かのじょ]が一番[いちばん]だ。' }
-    ]
+    explanation: 'Strokes: 12'
   },
-  {
-    id: 'tr2-ch7-d1',
-    lessonNumber: 7,
-    type: 'dokkai',
+{
+    id: 'kj-n2-c7-6',
+    type: 'kanji',
+    character: '裏',
+    readings: ["り","うら"],
+    meanings: ["Back","Amidst","In","Reverse","Inside","Palm","Sole","Rear","Lining","Wrong Side"],
     level: 4,
-    readings: [],
-    character: '理想の生活リズム',
-    meanings: ['Ideal Life Rhythm'],
-    content: '健康を 維持するためには、自分なりの 計画に 沿って 規則正しい 生活を 送ることが 大切です。時間の 管理に かけては 自信が あるという 人でも、体調管理には 注意が 必要です。',
-    translation: 'To maintain health, it is important to lead a disciplined life according to your own plan. Even for those who have confidence when it comes to time management, caution is necessary for physical condition management.',
-    questions: [
-      {
-        question: '健康を 維持するために 何が 大切ですか。',
-        options: ['規則正しい 生活', 'たくさん 食べること', 'ずっと 寝ること', '分からない'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n2-c7-7',
+    type: 'kanji',
+    character: '仏',
+    readings: ["ぶつ","ふつ","ほとけ"],
+    meanings: ["Buddha","The Dead","France"],
+    level: 4,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n2-c7-8',
+    type: 'kanji',
+    character: '績',
+    readings: ["せき"],
+    meanings: ["Exploits","Achievements","Unreeling Cocoons"],
+    level: 4,
+    explanation: 'Strokes: 17'
+  },
+{
+    id: 'kj-n2-c7-9',
+    type: 'kanji',
+    character: '築',
+    readings: ["ちく","きずく"],
+    meanings: ["Fabricate","Build","Construct"],
+    level: 4,
+    explanation: 'Strokes: 16'
+  },
+{
+    id: 'kj-n2-c7-10',
+    type: 'kanji',
+    character: '貨',
+    readings: ["か","たから"],
+    meanings: ["Freight","Goods","Property"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c7-11',
+    type: 'kanji',
+    character: '混',
+    readings: ["こん","まじる","まじり","まざる","まぜる","こむ"],
+    meanings: ["Mix","Blend","Confuse"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c7-12',
+    type: 'kanji',
+    character: '昇',
+    readings: ["しょう","のぼる"],
+    meanings: ["Rise Up"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c7-13',
+    type: 'kanji',
+    character: '池',
+    readings: ["ち","いけ"],
+    meanings: ["Pond","Cistern","Pool","Reservoir"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c7-14',
+    type: 'kanji',
+    character: '血',
+    readings: ["けつ","ち"],
+    meanings: ["Blood"],
+    level: 4,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c7-15',
+    type: 'kanji',
+    character: '温',
+    readings: ["おん","あたたか","あたたかい","あたたまる","あたためる","ぬく"],
+    meanings: ["Warm"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c7-16',
+    type: 'kanji',
+    character: '季',
+    readings: ["き"],
+    meanings: ["Seasons"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c7-17',
+    type: 'kanji',
+    character: '星',
+    readings: ["せい","しょう","ほし","ぼし"],
+    meanings: ["Star","Spot","Dot","Mark"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c7-18',
+    type: 'kanji',
+    character: '永',
+    readings: ["えい","ながい"],
+    meanings: ["Eternity","Long","Lengthy"],
+    level: 4,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n2-c7-19',
+    type: 'kanji',
+    character: '著',
+    readings: ["ちょ","ちゃく","あらわす","いちじるしい"],
+    meanings: ["Renowned","Publish","Write","Remarkable","Phenomenal","Put On","Don","Wear","Arrival","Finish (race)","Counter For Suits Of Clothing","Literary Work"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c7-20',
+    type: 'kanji',
+    character: '誌',
+    readings: ["し"],
+    meanings: ["Document","Records"],
+    level: 4,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n2-c7-21',
+    type: 'kanji',
+    character: '庫',
+    readings: ["こ","く","くら"],
+    meanings: ["Warehouse","Storehouse"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c7-22',
+    type: 'kanji',
+    character: '刊',
+    readings: ["かん"],
+    meanings: ["Publish","Carve","Engrave"],
+    level: 4,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n2-c7-23',
+    type: 'kanji',
+    character: '像',
+    readings: ["ぞう"],
+    meanings: ["Statue","Picture","Image","Figure","Portrait"],
+    level: 4,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n2-c7-24',
+    type: 'kanji',
+    character: '香',
+    readings: ["こう","きょう","か","かおり","かおる"],
+    meanings: ["Incense","Smell","Perfume"],
+    level: 4,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n2-c7-25',
+    type: 'kanji',
+    character: '坂',
+    readings: ["はん","さか"],
+    meanings: ["Slope","Incline","Hill"],
+    level: 4,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n2-c7-26',
+    type: 'kanji',
+    character: '底',
+    readings: ["てい","そこ"],
+    meanings: ["Bottom","Sole","Depth","Bottom Price","Base","Kind","Sort"],
+    level: 4,
+    explanation: 'Strokes: 8'
   }
 ];

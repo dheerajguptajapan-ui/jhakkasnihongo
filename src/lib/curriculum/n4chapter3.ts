@@ -573,4 +573,141 @@ export const n4chapter3: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c3-1',
+    type: 'kanji',
+    character: '意',
+    readings: ["い"],
+    meanings: ["Idea","Mind","Heart","Taste","Thought","Desire","Care","Liking"],
+    level: 2,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n4-c3-2',
+    type: 'kanji',
+    character: '不',
+    readings: ["ふ","ぶ"],
+    meanings: ["Negative","Non-","Bad","Ugly","Clumsy"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c3-3',
+    type: 'kanji',
+    character: '作',
+    readings: ["さく","さ","つくる","つくり","づくり"],
+    meanings: ["Make","Production","Prepare","Build"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c3-4',
+    type: 'kanji',
+    character: '用',
+    readings: ["よう","もちいる"],
+    meanings: ["Utilize","Business","Service","Use","Employ"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c3-5',
+    type: 'kanji',
+    character: '度',
+    readings: ["ど","と","たく","たび","たい"],
+    meanings: ["Degrees","Occurrence","Time","Counter For Occurrences","Consider","Attitude"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c3-6',
+    type: 'kanji',
+    character: '強',
+    readings: ["きょう","ごう","つよい","つよまる","つよめる","しいる","こわい"],
+    meanings: ["Strong"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c3-7',
+    type: 'kanji',
+    character: '公',
+    readings: ["こう","く","おおやけ"],
+    meanings: ["Public","Prince","Official","Governmental"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c3-8',
+    type: 'kanji',
+    character: '持',
+    readings: ["じ","もつ","もち","もてる"],
+    meanings: ["Hold","Have"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c3-9',
+    type: 'kanji',
+    character: '野',
+    readings: ["や","しょ","の","の"],
+    meanings: ["Plains","Field","Rustic","Civilian Life"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c3-10',
+    type: 'kanji',
+    character: '以',
+    readings: ["い","もって"],
+    meanings: ["By Means Of","Because","In View Of","Compared With"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c3-11',
+    type: 'kanji',
+    character: '思',
+    readings: ["し","おもう","おもえらく","おぼす"],
+    meanings: ["Think"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c3-12',
+    type: 'kanji',
+    character: '家',
+    readings: ["か","け","いえ","や","うち"],
+    meanings: ["House","Home","Family","Professional","Expert","Performer"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c3-13',
+    type: 'kanji',
+    character: '世',
+    readings: ["せい","せ","そう","よ"],
+    meanings: ["Generation","World","Society","Public"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c3-14',
+    type: 'kanji',
+    character: '多',
+    readings: ["た","おおい","まさに","まさる"],
+    meanings: ["Many","Frequent","Much"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c3-15',
+    type: 'kanji',
+    character: '正',
+    readings: ["せい","しょう","ただしい","ただす","まさ","まさに"],
+    meanings: ["Correct","Justice","Righteous","10**40"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  }
 ];

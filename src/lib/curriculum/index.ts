@@ -67,12 +67,15 @@ import { n2chapter12 } from './n2chapter12';
 import { n2chapter13 } from './n2chapter13';
 import { n2chapter14 } from './n2chapter14';
 
+import { n5kanji_expansion } from './n5kanji_expansion';
+
 const n5Lessons: Record<number, Item[]> = {
   1: lesson1, 2: lesson2, 3: lesson3, 4: lesson4, 5: lesson5,
   6: lesson6, 7: lesson7, 8: lesson8, 9: lesson9, 10: lesson10,
   11: lesson11, 12: lesson12, 13: lesson13, 14: lesson14, 15: lesson15,
   16: lesson16, 17: lesson17, 18: lesson18, 19: lesson19, 20: lesson20,
-  21: lesson21, 22: lesson22, 23: lesson23, 24: lesson24, 25: lesson25
+  21: lesson21, 22: lesson22, 23: lesson23, 24: lesson24, 25: lesson25,
+  26: n5kanji_expansion
 };
 
 const n4Lessons: Record<number, Item[]> = {
@@ -120,7 +123,7 @@ const n2Lessons: Record<number, Item[]> = {
   14: n2chapter14,
 };
 
-const allCurriculum: Record<number, Record<number, Item[]>> = {
+export const allCurriculum: Record<number, Record<number, Item[]>> = {
   1: n5Lessons,
   2: n4Lessons,
   3: n3Lessons,
@@ -140,5 +143,7 @@ export const getLesson = (n: number, level: number = 1): Item[] => {
   return allCurriculum[level]?.[n] || [];
 };
 
-export const totalLessons = 25; // Default for N5
+export const totalLessons = 26; // N5 Lessons + Kanji Expansion
 export const totalN4Chapters = 11;
+export const totalN3Chapters = 11;
+export const totalN2Chapters = 14;

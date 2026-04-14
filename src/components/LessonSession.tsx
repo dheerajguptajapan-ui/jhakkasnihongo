@@ -7,7 +7,7 @@ import { Badge } from './ui/badge';
 import { ChevronLeft, ChevronRight, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useAuth } from '../lib/AuthContext';
-import { persistence } from '../lib/persistence';
+import { PersistenceService } from '../lib/services/PersistenceService';
 
 interface LessonSessionProps {
   items: Item[];
@@ -70,16 +70,17 @@ export const LessonSession: React.FC<LessonSessionProps> = ({ items, onComplete,
   const finalizeLessons = async () => {
     if (!user) return;
     
-    // Save all items to local persistent storage
-    items.forEach(item => {
-      persistence.updateUserItem(user.uid, item.id, {
+    // Save all items to local persistent storage using the new service
+    const savePromises = items.map(item => 
+      PersistenceService.updateUserItem(user.uid, item.id, {
         srsStage: 1, // Apprentice 1
         nextReviewAt: new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString(),
         lastReviewedAt: new Date().toISOString(),
         streak: 0
-      });
-    });
+      })
+    );
 
+    await Promise.all(savePromises);
     onComplete();
   };
 

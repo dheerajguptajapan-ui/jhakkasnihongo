@@ -2,83 +2,300 @@ import { Item } from '../../types';
 
 export const n3chapter4: Item[] = [
   {
-    id: 'tr3-ch4-v1',
-    lessonNumber: 4,
-    type: 'vocabulary',
+    id: 'kj-n3-c4-1',
+    type: 'kanji',
+    character: '容',
+    readings: ["よう","いれる"],
+    meanings: ["Contain","Form","Looks"],
     level: 3,
-    character: '水泳',
-    readings: ['suiyei'],
-    meanings: ['swimming']
+    explanation: 'Strokes: 10'
   },
-  {
-    id: 'tr3-ch4-v2',
-    lessonNumber: 4,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c4-2',
+    type: 'kanji',
+    character: '必',
+    readings: ["ひつ","かならず"],
+    meanings: ["Invariably","Certain","Inevitable"],
     level: 3,
-    character: '大会',
-    readings: ['taikai'],
-    meanings: ['convention', 'tournament']
+    explanation: 'Strokes: 5'
   },
-  {
-    id: 'tr3-ch4-v3',
-    lessonNumber: 4,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c4-3',
+    type: 'kanji',
+    character: '演',
+    readings: ["えん"],
+    meanings: ["Performance","Act","Play","Render","Stage"],
     level: 3,
-    character: '選手',
-    readings: ['senshu'],
-    meanings: ['athlete', 'player']
+    explanation: 'Strokes: 14'
   },
-  {
-    id: 'tr3-ch4-v4',
-    lessonNumber: 4,
-    type: 'vocabulary',
+{
+    id: 'kj-n3-c4-4',
+    type: 'kanji',
+    character: '歳',
+    readings: ["さい","せい","とし","とせ","よわい"],
+    meanings: ["Year-end","Age","Occasion","Opportunity"],
     level: 3,
-    character: '応援',
-    readings: ['ouen'],
-    meanings: ['support', 'cheering']
+    explanation: 'Strokes: 13'
   },
-  {
-    id: 'tr3-ch4-g1',
-    lessonNumber: 4,
-    type: 'grammar',
+{
+    id: 'kj-n3-c4-5',
+    type: 'kanji',
+    character: '争',
+    readings: ["そう","あらそう","いかでか"],
+    meanings: ["Contend","Dispute","Argue"],
     level: 3,
-    character: '〜ついでに (While you are at it)',
-    readings: ['~tsuide ni'],
-    meanings: ['While doing A, also do B / Taking the opportunity'],
-    explanation: 'Used when you do something extra while performing a primary action.',
-    sentences: [
-      { japanese: '買い物に 行く ついでに、手紙を 出してきて。', english: 'While you go shopping, please go and send this letter.', furigana: '買[か]い物[もの]に行[い]くついでに、手紙[てがみ]を出[だ]してきて。' }
-    ]
+    explanation: 'Strokes: 6'
   },
-  {
-    id: 'tr3-ch4-g2',
-    lessonNumber: 4,
-    type: 'grammar',
+{
+    id: 'kj-n3-c4-6',
+    type: 'kanji',
+    character: '談',
+    readings: ["だん"],
+    meanings: ["Discuss","Talk"],
     level: 3,
-    character: '〜ほど〜ない',
-    readings: ['~hodo ~nai'],
-    meanings: ['Not as... as...'],
-    explanation: 'Used for comparison, indicating that something is not as intense as the benchmark.',
-    sentences: [
-      { japanese: '今日は 昨日ほど 暑くないです。', english: 'Today is not as hot as yesterday.', furigana: '今日[きょう]は昨日[きのう]ほど暑[あつ]くないです。' }
-    ]
+    explanation: 'Strokes: 15'
   },
-  {
-    id: 'tr3-ch4-d1',
-    lessonNumber: 4,
-    type: 'dokkai',
+{
+    id: 'kj-n3-c4-7',
+    type: 'kanji',
+    character: '能',
+    readings: ["のう","よく"],
+    meanings: ["Ability","Talent","Skill","Capacity"],
     level: 3,
-    readings: [],
-    character: '水泳大会',
-    meanings: ['Swimming Tournament'],
-    content: '今日は 弟の 水泳大会に 行きました。弟は 選手として 頑張っていました。応援に 行く ついでに、プールの 近くの カフェで 休憩しました。',
-    translation: "Today I went to my younger brother's swimming tournament. My brother was doing his best as an athlete. While going to cheer him on, I took a break at a cafe near the pool.",
-    questions: [
-      {
-        question: '応援に 行く ついでに 何を しましたか。',
-        options: ['カフェで 休憩した', '泳いだ', '買い物をした', '宿題をした'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n3-c4-8',
+    type: 'kanji',
+    character: '位',
+    readings: ["い","くらい","ぐらい"],
+    meanings: ["Rank","Grade","Throne","Crown","About","Some"],
+    level: 3,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n3-c4-9',
+    type: 'kanji',
+    character: '置',
+    readings: ["ち","おく","おき"],
+    meanings: ["Placement","Put","Set","Deposit","Leave Behind","Keep","Employ","Pawn"],
+    level: 3,
+    explanation: 'Strokes: 13'
+  },
+{
+    id: 'kj-n3-c4-10',
+    type: 'kanji',
+    character: '流',
+    readings: ["りゅう","る","ながれる","ながれ","ながす","ながす"],
+    meanings: ["Current","A Sink","Flow","Forfeit"],
+    level: 3,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n3-c4-11',
+    type: 'kanji',
+    character: '格',
+    readings: ["かく","こう","きゃく","ごう"],
+    meanings: ["Status","Rank","Capacity","Character","Case (law, Grammar)"],
+    level: 3,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n3-c4-12',
+    type: 'kanji',
+    character: '疑',
+    readings: ["ぎ","うたがう"],
+    meanings: ["Doubt","Distrust","Be Suspicious","Question"],
+    level: 3,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n3-c4-13',
+    type: 'kanji',
+    character: '過',
+    readings: ["か","すぎる","すぎる","すぎ","すごす","あやまつ","あやまち","よぎる"],
+    meanings: ["Overdo","Exceed","Go Beyond","Error"],
+    level: 3,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n3-c4-14',
+    type: 'kanji',
+    character: '局',
+    readings: ["きょく","つぼね"],
+    meanings: ["Bureau","Board","Office","Affair","Conclusion","Court Lady","Lady-in-waiting","Her Apartment"],
+    level: 3,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n3-c4-15',
+    type: 'kanji',
+    character: '放',
+    readings: ["ほう","はなす","っぱなし","はなつ","はなれる","こく","ほうる"],
+    meanings: ["Set Free","Release","Fire","Shoot","Emit","Banish","Liberate"],
+    level: 3,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n3-c4-16',
+    type: 'kanji',
+    character: '常',
+    readings: ["じょう","つね","とこ"],
+    meanings: ["Usual","Ordinary","Normal","Common","Regular","Continually","Always","Long-lasting"],
+    level: 3,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n3-c4-17',
+    type: 'kanji',
+    character: '状',
+    readings: ["じょう"],
+    meanings: ["Status Quo","Conditions","Circumstances","Form","Appearance"],
+    level: 3,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n3-c4-18',
+    type: 'kanji',
+    character: '球',
+    readings: ["きゅう","たま"],
+    meanings: ["Ball","Sphere"],
+    level: 3,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n3-c4-19',
+    type: 'kanji',
+    character: '職',
+    readings: ["しょく","そく"],
+    meanings: ["Post","Employment","Work"],
+    level: 3,
+    explanation: 'Strokes: 18'
+  },
+{
+    id: 'kj-n3-c4-20',
+    type: 'kanji',
+    character: '与',
+    readings: ["よ","あたえる","あずかる","くみする","ともに"],
+    meanings: ["Bestow","Participate In","Give","Award","Impart","Provide","Cause","Gift","Godsend"],
+    level: 3,
+    explanation: 'Strokes: 3'
+  },
+{
+    id: 'kj-n3-c4-21',
+    type: 'kanji',
+    character: '供',
+    readings: ["きょう","く","くう","ぐ","そなえる","とも","ども"],
+    meanings: ["Submit","Offer","Present","Serve (meal)","Accompany"],
+    level: 3,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n3-c4-22',
+    type: 'kanji',
+    character: '役',
+    readings: ["やく","えき"],
+    meanings: ["Duty","War","Campaign","Drafted Labor","Office","Service","Role"],
+    level: 3,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n3-c4-23',
+    type: 'kanji',
+    character: '構',
+    readings: ["こう","かまえる","かまう"],
+    meanings: ["Posture","Build","Pretend"],
+    level: 3,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n3-c4-24',
+    type: 'kanji',
+    character: '割',
+    readings: ["かつ","わる","わり","わり","われる","さく"],
+    meanings: ["Proportion","Comparatively","Divide","Cut","Separate","Split"],
+    level: 3,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n3-c4-25',
+    type: 'kanji',
+    character: '費',
+    readings: ["ひ","ついやす","ついえる"],
+    meanings: ["Expense","Cost","Spend","Consume","Waste"],
+    level: 3,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n3-c4-26',
+    type: 'kanji',
+    character: '付',
+    readings: ["ふ","つける","つける","づける","つけ","つけ","つけ","づけ","づけ","つく","づく","つき","つき","つき","づき","づき"],
+    meanings: ["Adhere","Attach","Refer To","Append"],
+    level: 3,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n3-c4-27',
+    type: 'kanji',
+    character: '由',
+    readings: ["ゆ","ゆう","ゆい","よし","よる"],
+    meanings: ["Wherefore","A Reason"],
+    level: 3,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n3-c4-28',
+    type: 'kanji',
+    character: '説',
+    readings: ["せつ","ぜい","とく"],
+    meanings: ["Opinion","Theory","Explanation","Rumor"],
+    level: 3,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n3-c4-29',
+    type: 'kanji',
+    character: '難',
+    readings: ["なん","かたい","がたい","むずかしい","むづかしい","むつかしい","にくい"],
+    meanings: ["Difficult","Impossible","Trouble","Accident","Defect"],
+    level: 3,
+    explanation: 'Strokes: 18'
+  },
+{
+    id: 'kj-n3-c4-30',
+    type: 'kanji',
+    character: '優',
+    readings: ["ゆう","う","やさしい","すぐれる","まさる"],
+    meanings: ["Tenderness","Excel","Surpass","Actor","Superiority","Gentleness"],
+    level: 3,
+    explanation: 'Strokes: 17'
+  },
+{
+    id: 'kj-n3-c4-31',
+    type: 'kanji',
+    character: '夫',
+    readings: ["ふ","ふう","ぶ","おっと","それ"],
+    meanings: ["Husband","Man"],
+    level: 3,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n3-c4-32',
+    type: 'kanji',
+    character: '収',
+    readings: ["しゅう","おさめる","おさまる"],
+    meanings: ["Income","Obtain","Reap","Pay","Supply","Store"],
+    level: 3,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n3-c4-33',
+    type: 'kanji',
+    character: '断',
+    readings: ["だん","たつ","ことわる","さだめる"],
+    meanings: ["Severance","Decline","Refuse","Apologize","Warn","Dismiss","Prohibit","Decision","Judgement","Cutting"],
+    level: 3,
+    explanation: 'Strokes: 11'
   }
 ];

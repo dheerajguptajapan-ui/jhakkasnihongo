@@ -563,4 +563,141 @@ export const n4chapter8: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c8-1',
+    type: 'kanji',
+    character: '親',
+    readings: ["しん","おや","おや","したしい","したしむ"],
+    meanings: ["Parent","Intimacy","Relative","Familiarity","Dealer (cards)"],
+    level: 2,
+    explanation: 'Strokes: 16'
+  },
+{
+    id: 'kj-n4-c8-2',
+    type: 'kanji',
+    character: '験',
+    readings: ["けん","げん","あかし","しるし","ためす","ためし"],
+    meanings: ["Verification","Effect","Testing"],
+    level: 2,
+    explanation: 'Strokes: 18'
+  },
+{
+    id: 'kj-n4-c8-3',
+    type: 'kanji',
+    character: '英',
+    readings: ["えい","はなぶさ"],
+    meanings: ["England","English","Hero","Outstanding","Calyx"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c8-4',
+    type: 'kanji',
+    character: '医',
+    readings: ["い","いやす","いする","くすし"],
+    meanings: ["Doctor","Medicine"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c8-5',
+    type: 'kanji',
+    character: '仕',
+    readings: ["し","じ","つかえる"],
+    meanings: ["Attend","Doing","Official","Serve"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c8-6',
+    type: 'kanji',
+    character: '去',
+    readings: ["きょ","こ","さる","さる"],
+    meanings: ["Gone","Past","Quit","Leave","Elapse","Eliminate","Divorce"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c8-7',
+    type: 'kanji',
+    character: '味',
+    readings: ["み","あじ","あじわう"],
+    meanings: ["Flavor","Taste"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c8-8',
+    type: 'kanji',
+    character: '写',
+    readings: ["しゃ","じゃ","うつす","うつる","うつ","うつし"],
+    meanings: ["Copy","Be Photographed","Describe"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  },
+{
+    id: 'kj-n4-c8-9',
+    type: 'kanji',
+    character: '字',
+    readings: ["じ","あざ","あざな","な"],
+    meanings: ["Character","Letter","Word","Section Of Village"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c8-10',
+    type: 'kanji',
+    character: '答',
+    readings: ["とう","こたえる","こたえ"],
+    meanings: ["Solution","Answer"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c8-11',
+    type: 'kanji',
+    character: '夜',
+    readings: ["や","よ","よる"],
+    meanings: ["Night","Evening"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c8-12',
+    type: 'kanji',
+    character: '音',
+    readings: ["おん","いん","のん","おと","ね"],
+    meanings: ["Sound","Noise"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c8-13',
+    type: 'kanji',
+    character: '注',
+    readings: ["ちゅう","そそぐ","さす","つぐ"],
+    meanings: ["Pour","Irrigate","Shed (tears)","Flow Into","Concentrate On","Notes","Comment","Annotate"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c8-14',
+    type: 'kanji',
+    character: '帰',
+    readings: ["き","かえる","かえす","おくる","とつぐ"],
+    meanings: ["Homecoming","Arrive At","Lead To","Result In"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c8-15',
+    type: 'kanji',
+    character: '古',
+    readings: ["こ","ふるい","ふる","ふるす"],
+    meanings: ["Old"],
+    level: 2,
+    explanation: 'Strokes: 5'
+  }
 ];

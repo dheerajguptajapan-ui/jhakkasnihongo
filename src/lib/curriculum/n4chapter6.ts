@@ -564,4 +564,141 @@ export const n4chapter6: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c6-1',
+    type: 'kanji',
+    character: '住',
+    readings: ["じゅう","ぢゅう","ちゅう","すむ","すまう","ずまい"],
+    meanings: ["Dwell","Reside","Live","Inhabit"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c6-2',
+    type: 'kanji',
+    character: '真',
+    readings: ["しん","ま","ま","まこと"],
+    meanings: ["True","Reality","Buddhist Sect"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c6-3',
+    type: 'kanji',
+    character: '有',
+    readings: ["ゆう","う","ある"],
+    meanings: ["Possess","Have","Exist","Happen","Occur","Approx"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c6-4',
+    type: 'kanji',
+    character: '口',
+    readings: ["こう","く","くち"],
+    meanings: ["Mouth"],
+    level: 2,
+    explanation: 'Strokes: 3'
+  },
+{
+    id: 'kj-n4-c6-5',
+    type: 'kanji',
+    character: '少',
+    readings: ["しょう","すくない","すこし"],
+    meanings: ["Few","Little"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c6-6',
+    type: 'kanji',
+    character: '町',
+    readings: ["ちょう","まち"],
+    meanings: ["Town","Village","Block","Street"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c6-7',
+    type: 'kanji',
+    character: '料',
+    readings: ["りょう"],
+    meanings: ["Fee","Materials"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c6-8',
+    type: 'kanji',
+    character: '工',
+    readings: ["こう","く","ぐ"],
+    meanings: ["Craft","Construction","Katakana E Radical (no. 48)"],
+    level: 2,
+    explanation: 'Strokes: 3'
+  },
+{
+    id: 'kj-n4-c6-9',
+    type: 'kanji',
+    character: '建',
+    readings: ["けん","こん","たてる","たて","だて","たつ"],
+    meanings: ["Build"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c6-10',
+    type: 'kanji',
+    character: '空',
+    readings: ["くう","そら","あく","あき","あける","から","すく","すかす","むなしい"],
+    meanings: ["Empty","Sky","Void","Vacant","Vacuum"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c6-11',
+    type: 'kanji',
+    character: '急',
+    readings: ["きゅう","いそぐ","いそぎ","せく"],
+    meanings: ["Hurry","Emergency","Sudden","Steep"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c6-12',
+    type: 'kanji',
+    character: '止',
+    readings: ["し","とまる","どまり","とめる","とめる","どめ","とどめる","とどめ","とどまる","やめる","やむ","やむ","よす","さす","さし"],
+    meanings: ["Stop","Halt"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c6-13',
+    type: 'kanji',
+    character: '送',
+    readings: ["そう","おくる"],
+    meanings: ["Escort","Send"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c6-14',
+    type: 'kanji',
+    character: '切',
+    readings: ["せつ","さい","きる","きる","きり","きり","ぎり","きれる","きれる","きれ","きれ","ぎれ"],
+    meanings: ["Cut","Cutoff","Be Sharp"],
+    level: 2,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n4-c6-15',
+    type: 'kanji',
+    character: '転',
+    readings: ["てん","ころがる","ころげる","ころがす","ころぶ","まろぶ","うたた","うつる","くるめく"],
+    meanings: ["Revolve","Turn Around","Change"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  }
 ];

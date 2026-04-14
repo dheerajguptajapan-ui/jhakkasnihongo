@@ -1,27 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
-import { Badge } from './ui/badge';
-import { persistence } from '../lib/persistence';
-import { getAllItems } from '../lib/curriculum';
+import { PersistenceService } from '../lib/services/PersistenceService';
+import { CurriculumService } from '../lib/services/CurriculumService';
+import { UserItem, Item } from '../types';
 import { Database, ShieldAlert, FileCode, Trash2, RefreshCcw, Download, Upload } from 'lucide-react';
 import { toast } from 'sonner';
 
 export const AdminView: React.FC = () => {
   const [showJson, setShowJson] = useState(false);
-  const items = getAllItems();
-  const userItems = persistence.getUserItems();
+  const [items, setItems] = useState<Item[]>([]);
+  const [userItems, setUserItems] = useState<UserItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const handlePurgeData = () => {
+  useEffect(() => {
+    const loadData = async () => {
+      const allItems = CurriculumService.getTotalSystemItems();
+      const storedUserItems = await PersistenceService.getUserItems();
+      setItems(allItems);
+      setUserItems(storedUserItems);
+      setLoading(false);
+    };
+    loadData();
+  }, []);
+
+  const handlePurgeData = async () => {
     if (window.confirm("CRITICAL WARNING: This will permanently delete ALL localized study progress and synaptic links. Proceed?")) {
-      persistence.saveUserItems([]);
+      await PersistenceService.saveUserItems([]);
       toast.error("Localized progress purged. System reset.");
       window.location.reload();
     }
   };
 
-  const handleExport = () => {
-    const data = persistence.exportData();
+  const handleExport = async () => {
+    const data = await PersistenceService.exportData();
     const blob = new Blob([data], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -30,6 +42,15 @@ export const AdminView: React.FC = () => {
     a.click();
     toast.success("Neural Link backup generated.");
   };
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center p-20 space-y-4">
+        <div className="w-12 h-12 border-4 border-rose-500/20 border-t-rose-600 rounded-full animate-spin" />
+        <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px]">Accessing Secure Core...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto p-8 space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-700">

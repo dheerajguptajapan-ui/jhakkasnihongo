@@ -7,7 +7,7 @@ import { Badge } from './ui/badge';
 import { X, CheckCircle2, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useAuth } from '../lib/AuthContext';
-import { persistence } from '../lib/persistence';
+import { PersistenceService } from '../lib/services/PersistenceService';
 import { processReviewResult } from '../lib/srs';
 
 interface ReviewSessionProps {
@@ -49,7 +49,7 @@ export const ReviewSession: React.FC<ReviewSessionProps> = ({ items, onComplete,
 
     if (isCorrect) {
       setFeedback('correct');
-      setTimeout(() => {
+      setTimeout(async () => {
         setFeedback(null);
         setInput('');
         
@@ -69,7 +69,7 @@ export const ReviewSession: React.FC<ReviewSessionProps> = ({ items, onComplete,
 
         if (newState.meaningDone && newState.readingDone) {
           // Item fully reviewed
-          handleItemFinished(newState.incorrectCount);
+          await handleItemFinished(newState.incorrectCount);
         } else {
           setSubStep('reading');
         }
@@ -96,7 +96,7 @@ export const ReviewSession: React.FC<ReviewSessionProps> = ({ items, onComplete,
     // Use SM-2 Algorithm for calculation
     const sm2 = processReviewResult(isPerfect, userItem);
 
-    persistence.updateUserItem(user.uid, currentItem.id, {
+    await PersistenceService.updateUserItem(user.uid, currentItem.id, {
       nextReviewAt: sm2.nextReviewAt.toISOString(),
       lastReviewedAt: new Date().toISOString(),
       easinessFactor: sm2.easinessFactor,

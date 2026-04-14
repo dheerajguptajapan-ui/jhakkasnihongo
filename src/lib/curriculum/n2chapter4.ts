@@ -2,74 +2,237 @@ import { Item } from '../../types';
 
 export const n2chapter4: Item[] = [
   {
-    id: 'tr2-ch4-v1',
-    lessonNumber: 4,
-    type: 'vocabulary',
+    id: 'kj-n2-c4-1',
+    type: 'kanji',
+    character: '戸',
+    readings: ["こ","と"],
+    meanings: ["Door","Counter For Houses","Door Radical (no. 63)"],
     level: 4,
-    character: '少子高齢化',
-    readings: ['shoushi koureika'],
-    meanings: ['declining birthrate and aging population']
+    explanation: 'Strokes: 4'
   },
-  {
-    id: 'tr2-ch4-v2',
-    lessonNumber: 4,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c4-2',
+    type: 'kanji',
+    character: '央',
+    readings: ["おう"],
+    meanings: ["Center","Middle"],
     level: 4,
-    character: '福祉',
-    readings: ['fukushi'],
-    meanings: ['welfare', 'well-being']
+    explanation: 'Strokes: 5'
   },
-  {
-    id: 'tr2-ch4-v3',
-    lessonNumber: 4,
-    type: 'vocabulary',
+{
+    id: 'kj-n2-c4-3',
+    type: 'kanji',
+    character: '券',
+    readings: ["けん"],
+    meanings: ["Ticket"],
     level: 4,
-    character: '負担',
-    readings: ['futan'],
-    meanings: ['burden', 'load']
+    explanation: 'Strokes: 8'
   },
-  {
-    id: 'tr2-ch4-g1',
-    lessonNumber: 4,
-    type: 'grammar',
+{
+    id: 'kj-n2-c4-4',
+    type: 'kanji',
+    character: '編',
+    readings: ["へん","あむ","あみ"],
+    meanings: ["Compilation","Knit","Plait","Braid","Twist","Editing","Completed Poem","Part Of A Book"],
     level: 4,
-    character: '〜に際して (On the occasion of)',
-    readings: ['~ni saishite'],
-    meanings: ['On the occasion of / At the time of doing'],
-    explanation: 'Used for important or formal events to indicate the time or occurrence of something.',
-    sentences: [
-      { japanese: '帰国に 際して、お世話になった 人に 挨拶をした。', english: 'On the occasion of returning to my country, I greeted those who helped me.', furigana: '帰国[きこく]に際[さい]して、お世話[せわ]になった人[ひと]に挨拶[あいさつ]をした。' }
-    ]
+    explanation: 'Strokes: 15'
   },
-  {
-    id: 'tr2-ch4-g2',
-    lessonNumber: 4,
-    type: 'grammar',
+{
+    id: 'kj-n2-c4-5',
+    type: 'kanji',
+    character: '捜',
+    readings: ["そう","しゅ","しゅう","さがす"],
+    meanings: ["Search","Look For","Locate"],
     level: 4,
-    character: '〜にわたって (Over / Throughout)',
-    readings: ['~ni watatte'],
-    meanings: ['Over a period of / Throughout a range of'],
-    explanation: 'Expresses that something occurs across a specific span of time, space, or scope.',
-    sentences: [
-      { japanese: '会議は ３日間に わたって 行われた。', english: 'The meeting was held over three days.', furigana: '会議[かいぎ]は３日間[みっかかん]にわたって行[おこな]われた。' }
-    ]
+    explanation: 'Strokes: 10'
   },
-  {
-    id: 'tr2-ch4-d1',
-    lessonNumber: 4,
-    type: 'dokkai',
+{
+    id: 'kj-n2-c4-6',
+    type: 'kanji',
+    character: '竹',
+    readings: ["ちく","たけ"],
+    meanings: ["Bamboo"],
     level: 4,
-    readings: [],
-    character: '少子高齢化社会の課題',
-    meanings: ['Challenges of an Aging Society'],
-    content: '現在、日本に おいて 少子高齢化は 深刻な 問題です。この 問題の 解決に 際して、若者の 負担を 減らす 工夫が 必要です。議論は 数十年に わたって 続いて いますが、決定的な 解決策は まだありません。',
-    translation: 'Currently, the declining birthrate and aging population is a serious problem in Japan. On the occasion of solving this problem, ingenuity to reduce the burden on young people is necessary. Discussions have continued over decades, but there is still no definitive solution.',
-    questions: [
-      {
-        question: '問題の 解決のために 何が 必要だと言っていますか。',
-        options: ['若者の 負担を 減らす 工夫', 'もっと 働くこと', '何もしないこと', '分からない'],
-        answerIndex: 0
-      }
-    ]
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n2-c4-7',
+    type: 'kanji',
+    character: '超',
+    readings: ["ちょう","こえる","こす"],
+    meanings: ["Transcend","Super-","Ultra-"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c4-8',
+    type: 'kanji',
+    character: '並',
+    readings: ["へい","ほう","なみ","なみ","ならべる","ならぶ","ならびに"],
+    meanings: ["Row","And","Besides","As Well As","Line Up","Rank With","Rival","Equal"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c4-9',
+    type: 'kanji',
+    character: '療',
+    readings: ["りょう"],
+    meanings: ["Heal","Cure"],
+    level: 4,
+    explanation: 'Strokes: 17'
+  },
+{
+    id: 'kj-n2-c4-10',
+    type: 'kanji',
+    character: '採',
+    readings: ["さい","とる"],
+    meanings: ["Pick","Take","Fetch","Take Up"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c4-11',
+    type: 'kanji',
+    character: '森',
+    readings: ["しん","もり"],
+    meanings: ["Forest","Woods"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c4-12',
+    type: 'kanji',
+    character: '競',
+    readings: ["きょう","けい","きそう","せる","くらべる"],
+    meanings: ["Emulate","Compete With","Bid","Sell At Auction","Bout","Contest","Race"],
+    level: 4,
+    explanation: 'Strokes: 20'
+  },
+{
+    id: 'kj-n2-c4-13',
+    type: 'kanji',
+    character: '介',
+    readings: ["かい"],
+    meanings: ["Jammed In","Shellfish","Mediate","Concern Oneself With"],
+    level: 4,
+    explanation: 'Strokes: 4'
+  },
+{
+    id: 'kj-n2-c4-14',
+    type: 'kanji',
+    character: '根',
+    readings: ["こん","ね","ね"],
+    meanings: ["Root","Radical","Head (pimple)"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c4-15',
+    type: 'kanji',
+    character: '販',
+    readings: ["はん"],
+    meanings: ["Marketing","Sell","Trade"],
+    level: 4,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n2-c4-16',
+    type: 'kanji',
+    character: '歴',
+    readings: ["れき","れっき"],
+    meanings: ["Curriculum","Continuation","Passage Of Time"],
+    level: 4,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n2-c4-17',
+    type: 'kanji',
+    character: '将',
+    readings: ["しょう","そう","まさに","はた","まさ","ひきいる","もって"],
+    meanings: ["Leader","Commander","General","Admiral","Or","And Again","Soon","From Now On","Just About"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c4-18',
+    type: 'kanji',
+    character: '幅',
+    readings: ["ふく","はば"],
+    meanings: ["Hanging Scroll","Width"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c4-19',
+    type: 'kanji',
+    character: '般',
+    readings: ["はん"],
+    meanings: ["Carrier","Carry","All","General","Sort","Kind"],
+    level: 4,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n2-c4-20',
+    type: 'kanji',
+    character: '貿',
+    readings: ["ぼう"],
+    meanings: ["Trade","Exchange"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c4-21',
+    type: 'kanji',
+    character: '講',
+    readings: ["こう"],
+    meanings: ["Lecture","Club","Association"],
+    level: 4,
+    explanation: 'Strokes: 17'
+  },
+{
+    id: 'kj-n2-c4-22',
+    type: 'kanji',
+    character: '林',
+    readings: ["りん","はやし"],
+    meanings: ["Grove","Forest"],
+    level: 4,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n2-c4-23',
+    type: 'kanji',
+    character: '装',
+    readings: ["そう","しょう","よそおう","よそおい"],
+    meanings: ["Attire","Dress","Pretend","Disguise","Profess"],
+    level: 4,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n2-c4-24',
+    type: 'kanji',
+    character: '諸',
+    readings: ["しょ","もろ"],
+    meanings: ["Various","Many","Several","Together"],
+    level: 4,
+    explanation: 'Strokes: 15'
+  },
+{
+    id: 'kj-n2-c4-25',
+    type: 'kanji',
+    character: '劇',
+    readings: ["げき"],
+    meanings: ["Drama","Play"],
+    level: 4,
+    explanation: 'Strokes: 15'
+  },
+{
+    id: 'kj-n2-c4-26',
+    type: 'kanji',
+    character: '河',
+    readings: ["か","かわ"],
+    meanings: ["River"],
+    level: 4,
+    explanation: 'Strokes: 8'
   }
 ];

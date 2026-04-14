@@ -565,4 +565,141 @@ export const n4chapter10: Item[] = [
       }
     ]
   }
+,
+  // --- KANJI ---
+  {
+    id: 'kj-n4-c10-1',
+    type: 'kanji',
+    character: '屋',
+    readings: ["おく","や"],
+    meanings: ["Roof","House","Shop","Dealer","Seller"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c10-2',
+    type: 'kanji',
+    character: '色',
+    readings: ["しょく","しき","いろ"],
+    meanings: ["Color"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  },
+{
+    id: 'kj-n4-c10-3',
+    type: 'kanji',
+    character: '走',
+    readings: ["そう","はしる"],
+    meanings: ["Run"],
+    level: 2,
+    explanation: 'Strokes: 7'
+  },
+{
+    id: 'kj-n4-c10-4',
+    type: 'kanji',
+    character: '秋',
+    readings: ["しゅう","あき","とき"],
+    meanings: ["Autumn"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c10-5',
+    type: 'kanji',
+    character: '夏',
+    readings: ["か","が","げ","なつ"],
+    meanings: ["Summer"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c10-6',
+    type: 'kanji',
+    character: '習',
+    readings: ["しゅう","じゅ","ならう","ならい"],
+    meanings: ["Learn"],
+    level: 2,
+    explanation: 'Strokes: 11'
+  },
+{
+    id: 'kj-n4-c10-7',
+    type: 'kanji',
+    character: '駅',
+    readings: ["えき"],
+    meanings: ["Station"],
+    level: 2,
+    explanation: 'Strokes: 14'
+  },
+{
+    id: 'kj-n4-c10-8',
+    type: 'kanji',
+    character: '洋',
+    readings: ["よう"],
+    meanings: ["Ocean","Sea","Foreign","Western Style"],
+    level: 2,
+    explanation: 'Strokes: 9'
+  },
+{
+    id: 'kj-n4-c10-9',
+    type: 'kanji',
+    character: '旅',
+    readings: ["りょ","たび"],
+    meanings: ["Trip","Travel"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c10-10',
+    type: 'kanji',
+    character: '服',
+    readings: ["ふく"],
+    meanings: ["Clothing","Admit","Obey","Discharge"],
+    level: 2,
+    explanation: 'Strokes: 8'
+  },
+{
+    id: 'kj-n4-c10-11',
+    type: 'kanji',
+    character: '夕',
+    readings: ["せき","ゆう"],
+    meanings: ["Evening"],
+    level: 2,
+    explanation: 'Strokes: 3'
+  },
+{
+    id: 'kj-n4-c10-12',
+    type: 'kanji',
+    character: '借',
+    readings: ["しゃく","かりる"],
+    meanings: ["Borrow","Rent"],
+    level: 2,
+    explanation: 'Strokes: 10'
+  },
+{
+    id: 'kj-n4-c10-13',
+    type: 'kanji',
+    character: '曜',
+    readings: ["よう"],
+    meanings: ["Weekday"],
+    level: 2,
+    explanation: 'Strokes: 18'
+  },
+{
+    id: 'kj-n4-c10-14',
+    type: 'kanji',
+    character: '飲',
+    readings: ["いん","おん","のむ","のみ"],
+    meanings: ["Drink","Smoke","Take"],
+    level: 2,
+    explanation: 'Strokes: 12'
+  },
+{
+    id: 'kj-n4-c10-15',
+    type: 'kanji',
+    character: '肉',
+    readings: ["にく","しし"],
+    meanings: ["Meat"],
+    level: 2,
+    explanation: 'Strokes: 6'
+  }
 ];
