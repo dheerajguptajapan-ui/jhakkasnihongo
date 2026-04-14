@@ -25,7 +25,7 @@ export const n2chapter6: Item[] = [
     type: 'vocabulary',
     level: 4,
     character: '反映',
-    readings: ['han'ei'],
+    readings: ["han'ei"],
     meanings: ['reflection']
   },
   {
