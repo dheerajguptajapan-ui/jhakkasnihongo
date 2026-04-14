@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useAuth } from './lib/AuthContext';
 import { Dashboard } from './components/Dashboard';
 import { LessonSession } from './components/LessonSession';
@@ -9,22 +9,28 @@ import { JLPTView } from './components/JLPTView';
 import { CommunityView } from './components/CommunityView';
 import { SettingsView } from './components/SettingsView';
 import { AdminView } from './components/AdminView';
+import { KanaView } from './components/KanaView';
 import { Item, UserItem } from './types';
 import { getAllItems } from './lib/curriculum';
 import { PersistenceService } from './lib/services/PersistenceService';
-import { Layout, Menu, BookOpen, GraduationCap, Users, Settings, Package, Info, Activity, Zap } from 'lucide-react';
+import { CurriculumService } from './lib/services/CurriculumService';
+import { Layout, Menu, BookOpen, GraduationCap, Users, Settings, Package, Info, Activity, Zap, ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import { Button } from './components/ui/button';
-import { Toaster } from 'sonner';
+import { Toaster, toast } from 'sonner';
 
 export type JLPTLevel = 'n5' | 'n4' | 'n3' | 'n2' | 'n1';
 export type JLPTSection = 'kanji' | 'vocabulary' | 'grammar' | 'dokkai';
 
 function App() {
-  const { user, profile, loading, mockSignIn } = useAuth();
-  const [currentTab, setCurrentTab] = useState<'dashboard' | 'items' | 'jlpt' | 'community' | 'settings' | 'admin'>('dashboard');
+  const { user, profile, loading, mockSignIn, settings, updateSettings } = useAuth();
+  const [currentTab, setCurrentTab] = useState<'dashboard' | 'items' | 'jlpt' | 'kana' | 'community' | 'settings' | 'admin'>('dashboard');
   const [session, setSession] = useState<{ type: 'lesson' | 'review', items: any[] } | null>(null);
   const [jlptState, setJlptState] = useState<{ level: JLPTLevel, section: JLPTSection }>({ level: 'n5', section: 'vocabulary' });
   const [focusMode, setFocusMode] = useState(false);
+
+  React.useEffect(() => {
+    CurriculumService.initialize();
+  }, []);
 
   if (loading) return null;
 
@@ -109,9 +115,39 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen bg-[#0A0A0F] text-white pb-24 md:pb-0 md:pl-24 font-sans selection:bg-indigo-500 selection:text-white neural-grid ${focusMode ? 'focus-active' : ''}`}>
+    <div 
+      className={`min-h-screen bg-[#0A0A0F] text-white pb-24 md:pb-0 md:pl-24 font-sans selection:bg-indigo-500 selection:text-white neural-grid ${focusMode ? 'focus-active' : ''}`}
+      style={{ '--font-scale': settings.fontScale } as any}
+    >
       <div className="scanline" />
       <Toaster position="top-center" theme="dark" richColors />
+
+      {/* Focus Mode Exit UI */}
+      <AnimatePresence>
+        {focusMode && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-4"
+          >
+            <div className="bg-[#0A0A14]/90 backdrop-blur-2xl px-6 py-4 rounded-[2rem] border border-white/10 shadow-2xl flex items-center gap-6">
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Neural Link</span>
+                <span className="text-sm font-black text-white uppercase italic">Focus Mode Active</span>
+              </div>
+              <div className="h-8 w-px bg-white/10" />
+              <Button 
+                onClick={() => setFocusMode(false)}
+                className="bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest text-[10px] h-10 px-6 rounded-xl shadow-xl shadow-indigo-900/40 border border-white/20 flex items-center gap-2"
+              >
+                <ArrowLeft size={14} strokeWidth={3} />
+                Return to Dashboard
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {/* Tokyo Midnight Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 h-24 md:h-screen md:w-24 bg-[#0A0A14]/80 backdrop-blur-3xl border-t md:border-t-0 md:border-r border-white/5 flex md:flex-col items-center justify-around md:justify-center gap-2 md:gap-10 z-50">
@@ -120,8 +156,22 @@ function App() {
         </div>
         
         <NavButton active={currentTab === 'dashboard'} onClick={() => setCurrentTab('dashboard')} icon={<Activity />} label="HQ" />
+        <NavButton active={currentTab === 'kana'} onClick={() => setCurrentTab('kana')} icon={<BookOpen />} label="KANA" />
         <NavButton active={currentTab === 'jlpt'} onClick={() => setCurrentTab('jlpt')} icon={<GraduationCap />} label="LEARN" />
         <NavButton active={currentTab === 'items'} onClick={() => setCurrentTab('items')} icon={<Package />} label="DATA" />
+        
+        {/* Furigana Hot Toggle */}
+        <NavButton 
+          active={false} 
+          onClick={() => {
+            const newVal = !settings.showFurigana;
+            updateSettings({ showFurigana: newVal });
+            toast.success(newVal ? "Furigana Synced" : "Furigana Offline");
+          }} 
+          icon={settings.showFurigana ? <Eye className="text-emerald-400" /> : <EyeOff className="text-rose-400" />} 
+          label={settings.showFurigana ? "FURIGANA ON" : "FURIGANA OFF"} 
+        />
+
         <NavButton active={false} onClick={() => setFocusMode(!focusMode)} icon={<Zap className={focusMode ? 'text-indigo-400' : ''} />} label="FOCUS" />
         <NavButton active={currentTab === 'community'} onClick={() => setCurrentTab('community')} icon={<Users />} label="NEXUS" />
         <NavButton active={currentTab === 'settings'} onClick={() => setCurrentTab('settings')} icon={<Settings />} label="CONFIG" />
@@ -189,6 +239,7 @@ function App() {
             </div>
           </div>
         )}
+        {currentTab === 'kana' && <div className="p-4 md:p-8"><KanaView /></div>}
         {currentTab === 'community' && < CommunityView />}
         {currentTab === 'settings' && <SettingsView />}
         {currentTab === 'admin' && <AdminView />}

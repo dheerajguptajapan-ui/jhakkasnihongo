@@ -22,6 +22,7 @@ const LessonDashboard: React.FC<LessonDashboardProps> = ({ level, onSelectLesson
       case 2: return 'N4 Curriculum';
       case 3: return 'N3 Curriculum';
       case 4: return 'N2 Curriculum';
+      case 5: return 'N1 Curriculum';
       default: return 'JLPT Curriculum';
     }
   };

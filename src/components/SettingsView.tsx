@@ -5,8 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Switch } from './ui/switch';
 import { Label } from './ui/label';
-import { Download, Upload, Moon, Sun, Monitor, ShieldCheck, Database, Trash2 } from 'lucide-react';
+import { Download, Upload, Moon, Sun, Monitor, ShieldCheck, Database, Trash2, Type, RefreshCcw } from 'lucide-react';
 import { toast } from 'sonner';
+import { Slider } from './ui/slider';
+import { CurriculumSyncService } from '../lib/services/CurriculumSyncService';
 
 export const SettingsView: React.FC = () => {
   const { settings, updateSettings, profile } = useAuth();
@@ -102,6 +104,27 @@ export const SettingsView: React.FC = () => {
                 onCheckedChange={(val) => updateSettings({ showFurigana: val })}
               />
             </div>
+
+            <div className="space-y-4 pt-4 border-t border-slate-50 dark:border-slate-800">
+              <div className="flex justify-between items-center">
+                <Label className="text-sm font-bold flex items-center gap-2">
+                  <Type className="w-4 h-4 text-sky-500" />
+                  UI Scaling
+                </Label>
+                <span className="text-[10px] font-black font-mono bg-sky-50 dark:bg-sky-900/30 px-2 py-0.5 rounded text-sky-600">
+                  {Math.round(settings.fontScale * 100)}%
+                </span>
+              </div>
+              <Slider
+                value={[settings.fontScale]}
+                min={0.6}
+                max={1.4}
+                step={0.05}
+                onValueChange={([val]) => updateSettings({ fontScale: val })}
+                className="py-4"
+              />
+              <p className="text-[10px] text-slate-500 italic">Adjust text size for optimal mobile density.</p>
+            </div>
           </CardContent>
         </Card>
 
@@ -140,6 +163,27 @@ export const SettingsView: React.FC = () => {
                 </Button>
               </div>
             </div>
+
+            <div className="space-y-3 pt-6 border-t border-slate-50 dark:border-slate-800">
+              <Label className="text-xs font-black text-slate-400 uppercase tracking-widest">Global Curriculum</Label>
+              <Button 
+                onClick={async () => {
+                  const syncPromise = CurriculumSyncService.syncWithGitHub();
+                  toast.promise(syncPromise, {
+                    loading: 'Syncing Lexical Matrix from GitHub...',
+                    success: (res) => res ? 'Curriculum Synchronized!' : 'No new updates found.',
+                    error: 'Connection Lost or Repo Private.'
+                  });
+                  if (await syncPromise) {
+                    setTimeout(() => window.location.reload(), 1500);
+                  }
+                }}
+                className="w-full bg-indigo-600 hover:bg-indigo-700 h-12 rounded-2xl font-bold gap-2 text-white shadow-lg shadow-indigo-500/20"
+              >
+                <RefreshCcw className="w-4 h-4" />
+                Update Content
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -173,7 +217,7 @@ export const SettingsView: React.FC = () => {
       </Card>
 
       <div className="text-center">
-        <p className="text-[10px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-[0.4em]">Jhakkas Nihongo v2.0.0 (Gold Release)</p>
+        <p className="text-[10px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-[0.4em]">jhakkasnihongo v2.2.0 (Neural Link Mastery)</p>
       </div>
     </div>
   );

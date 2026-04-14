@@ -8,7 +8,9 @@ import { DokkaiView } from './DokkaiView';
 import { LessonTabsView } from './LessonTabsView';
 import { CurriculumService } from '../lib/services/CurriculumService';
 import LessonDashboard from './LessonDashboard';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, BookOpenCheck } from 'lucide-react';
+import { useAuth } from '../lib/AuthContext';
+import { Switch } from './ui/switch';
 
 interface JLPTViewProps {
   level: JLPTLevel;
@@ -17,6 +19,7 @@ interface JLPTViewProps {
 }
 
 export const JLPTView: React.FC<JLPTViewProps> = ({ level, section, onBack }) => {
+  const { settings, updateSettings } = useAuth();
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedLesson, setSelectedLesson] = useState<number | null>(null);
@@ -67,17 +70,31 @@ export const JLPTView: React.FC<JLPTViewProps> = ({ level, section, onBack }) =>
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-6 md:space-y-8">
-      {/* Back to Lesson Dashboard Button */}
-      <div className="flex items-center gap-4 mb-2">
-        <button 
-          onClick={() => setSelectedLesson(null)}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-gray-400 font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all"
-        >
-          <ArrowLeft size={14} />
-          Back to Chapters
-        </button>
-        <div className="h-4 w-px bg-white/10" />
-        <h3 className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Chapter {selectedLesson}</h3>
+      {/* Header with Back Button and Quick Toggle */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={() => setSelectedLesson(null)}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-gray-400 font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all"
+          >
+            <ArrowLeft size={14} />
+            Back to Chapters
+          </button>
+          <div className="h-4 w-px bg-white/10" />
+          <h3 className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Chapter {selectedLesson}</h3>
+        </div>
+
+        {/* Quick Furigana Toggle */}
+        <div className="flex items-center gap-4 px-4 py-2 bg-indigo-600/5 rounded-2xl border border-indigo-500/10">
+          <div className="flex items-center gap-2">
+            <BookOpenCheck size={14} className="text-indigo-400" />
+            <span className="text-[10px] font-black text-indigo-300 uppercase tracking-widest">Furigana</span>
+          </div>
+          <Switch 
+            checked={settings.showFurigana}
+            onCheckedChange={(val) => updateSettings({ showFurigana: val })}
+          />
+        </div>
       </div>
 
       {items.length === 0 ? (

@@ -14,7 +14,7 @@ export const VocabularyListView: React.FC<VocabularyListViewProps> = ({ items })
 
   if (items.length === 0) {
     return (
-      <div className="text-center py-12 bg-white rounded-2xl border-2 border-dashed border-slate-200">
+      <div className="text-center py-12 bg-white dark:bg-slate-900 rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-800">
         <p className="text-slate-400 font-medium text-lg">No vocabulary found for this level.</p>
       </div>
     );
@@ -39,7 +39,7 @@ export const VocabularyListView: React.FC<VocabularyListViewProps> = ({ items })
                 <Volume2 className="w-5 h-5" />
               </button>
               <div>
-                <div className="text-2xl font-black text-slate-900">
+                <div className="text-2xl font-black text-slate-900 dark:text-white transition-colors">
                   <Furigana text={item.character} show={showFurigana} />
                 </div>
                 <p className="text-sm text-slate-500 font-medium mt-1 uppercase tracking-tighter">{item.meanings.join(', ')}</p>

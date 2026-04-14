@@ -48,7 +48,7 @@ jobs:
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: jhakkas-nihongo-v1.0.0-apk
+          name: jhakkas-nihongo-v3.0.0-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
 
       - name: Create Release
@@ -59,12 +59,13 @@ jobs:
           files: android/app/build/outputs/apk/debug/app-debug.apk
           name: jhakkas nihongo ${{ github.ref_name }}
           body: |
-            ## 🧠 Jhakkas Nihongo Neural Link v1.0.0
+            ## 🧠 Jhakkas Nihongo Neural Link v3.0.0
             
-            Welcome to the elite overhaul of Jhakkas Nihongo. This release includes:
-            - **Modular Curriculum**: Faster loading and granular control.
-            - **SM-2 SRS Engine**: Scientifically optimized memory scheduling.
-            - **Neural Link UI**: Premium "Tokyo Midnight" cyberpunk aesthetics.
+            Welcome to the **Neural Mastery** expansion. This massive update delivers:
+            - **JLPT N1-N3 Curriculum**: Complete integration of all chapters (4,000+ nodes).
+            - **Hot-Furigana Toggle**: Global toggle directly on the navigation bar.
+            - **Focus Mode 2.0**: Enhanced centered UI with a dedicated "Return to Dashboard" rescue button.
+            - **Tokyo Midnight Performance**: Optimized for mobile devices with high-density data.
             - **TTS Feedback**: Instant auditory reinforcement for learning.
             
             ### 🚀 Installation

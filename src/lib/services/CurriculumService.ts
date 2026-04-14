@@ -1,5 +1,8 @@
-import { allCurriculum, getAllItems, totalLessons, totalN4Chapters, totalN3Chapters, totalN2Chapters } from '../curriculum';
+import { allCurriculum, getAllItems, totalLessons, totalN4Chapters, totalN3Chapters, totalN2Chapters, totalN1Chapters } from '../curriculum';
 import { Item } from '../../types';
+import { PersistenceService } from './PersistenceService';
+
+const patchStorage: Record<number, Record<number, Item[]>> = {};
 
 /**
  * Top 1% Sustainable Data Strategy:
@@ -9,6 +12,20 @@ import { Item } from '../../types';
 
 export const CurriculumService = {
   /**
+   * Loads any remote patches from local storage into memory.
+   */
+  async initialize(): Promise<void> {
+    const patchItems = await PersistenceService.getRemotePatch();
+    patchItems.forEach(item => {
+      const levelId = item.level;
+      const chapterId = item.lessonNumber;
+      if (!patchStorage[levelId]) patchStorage[levelId] = {};
+      if (!patchStorage[levelId][chapterId]) patchStorage[levelId][chapterId] = [];
+      patchStorage[levelId][chapterId].push(item);
+    });
+  },
+
+  /**
    * Internal level mapping:
    * N5 = 1, N4 = 2, N3 = 3, N2 = 4
    */
@@ -17,7 +34,8 @@ export const CurriculumService = {
       'n5': 1,
       'n4': 2,
       'n3': 3,
-      'n2': 4
+      'n2': 4,
+      'n1': 5
     };
     return mapping[levelLabel.toLowerCase()] || 1;
   },
@@ -27,11 +45,20 @@ export const CurriculumService = {
     if (levelId === 2) return totalN4Chapters;
     if (levelId === 3) return totalN3Chapters;
     if (levelId === 4) return totalN2Chapters;
+    if (levelId === 5) return totalN1Chapters;
     return 0;
   },
 
   getChapterItems(levelId: number, chapterId: number): Item[] {
-    return allCurriculum[levelId]?.[chapterId] || [];
+    const staticItems = allCurriculum[levelId]?.[chapterId] || [];
+    const dynamicItems = patchStorage[levelId]?.[chapterId] || [];
+    
+    // Merge: In case of ID collisions, dynamic (patch) takes priority
+    const itemMap = new Map();
+    staticItems.forEach(item => itemMap.set(item.id, item));
+    dynamicItems.forEach(item => itemMap.set(item.id, item));
+    
+    return Array.from(itemMap.values());
   },
 
   /**
@@ -58,7 +85,8 @@ export const CurriculumService = {
       1: 'Minna no Nihongo Lessons 1–25',
       2: 'TRY N4 Grammar Master',
       3: 'TRY N3 Grammar Hub',
-      4: 'TRY N2 Mastery'
+      4: 'TRY N2 Mastery',
+      5: 'N1 Advanced Synthesis'
     };
     return subtitles[levelId] || 'JLPT Preparation';
   }

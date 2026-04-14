@@ -22,9 +22,9 @@ export const ItemsView: React.FC = () => {
   }, []);
 
   const filtered = items.filter(item => 
-    item.character.includes(search) || 
-    item.meanings.some(m => m.toLowerCase().includes(search.toLowerCase())) ||
-    item.readings.some(r => r.toLowerCase().includes(search.toLowerCase()))
+    item?.character?.includes(search) || 
+    (item?.meanings || []).some(m => m?.toLowerCase().includes(search.toLowerCase())) ||
+    (item?.readings || []).some(r => r?.toLowerCase().includes(search.toLowerCase()))
   ).slice(0, 100); // Limit results for performance
 
   const playAudio = (text: string) => {
@@ -58,7 +58,7 @@ export const ItemsView: React.FC = () => {
         />
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 relative z-0">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-6 relative z-0">
         <AnimatePresence>
           {filtered.map((item, idx) => (
             <motion.div
@@ -71,19 +71,19 @@ export const ItemsView: React.FC = () => {
             >
               <Card 
                 onClick={() => setSelectedItem(item)}
-                className="group h-full bg-white/5 border-white/5 hover:border-indigo-500/30 transition-all duration-500 cursor-pointer backdrop-blur-xl hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] rounded-[2rem] overflow-hidden relative"
+                className="group h-full bg-white/5 border-white/5 hover:border-indigo-500/30 transition-all duration-500 cursor-pointer backdrop-blur-xl hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] rounded-2xl md:rounded-[2rem] overflow-hidden relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <CardContent className="p-6 flex flex-col items-center text-center space-y-4 relative z-10">
-                  <div className={`text-4xl font-black group-hover:scale-110 transition-transform duration-500 ${
+                  <div className={`text-2xl md:text-4xl font-black group-hover:scale-110 transition-transform duration-500 ${
                     item.type === 'kanji' ? 'text-rose-400 drop-shadow-[0_0_15px_rgba(251,113,133,0.3)]' : 
                     item.type === 'radical' ? 'text-sky-400' : 'text-indigo-400'
                   }`}>
                     {item.character}
                   </div>
                   <div className="space-y-1">
-                    <p className="text-white font-bold text-sm line-clamp-1">{item.meanings[0]}</p>
-                    <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest">{item.readings[0] || '---'}</p>
+                    <p className="text-white font-bold text-sm line-clamp-1">{item.meanings?.[0] || '---'}</p>
+                    <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest">{item.readings?.[0] || '---'}</p>
                   </div>
                   <Badge variant="outline" className="text-[9px] bg-white/5 border-white/10 text-gray-400 group-hover:text-indigo-300 transition-colors uppercase font-black px-2">
                     {item.type}
@@ -135,7 +135,7 @@ export const ItemsView: React.FC = () => {
                       <h3 className="text-[10px] font-black uppercase tracking-[0.2em]">Readings</h3>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {selectedItem.readings.map((r, i) => (
+                      {(selectedItem.readings || []).map((r, i) => (
                         <span key={i} className="px-4 py-2 bg-white/5 rounded-xl border border-white/5 text-lg font-bold text-gray-200">
                           {r}
                         </span>
@@ -149,7 +149,7 @@ export const ItemsView: React.FC = () => {
                       <h3 className="text-[10px] font-black uppercase tracking-[0.2em]">Meanings</h3>
                     </div>
                     <div className="space-y-2">
-                       {selectedItem.meanings.map((m, i) => (
+                       {(selectedItem.meanings || []).map((m, i) => (
                         <p key={i} className="text-2xl font-black text-white tracking-tight">{m}</p>
                        ))}
                     </div>

@@ -76,6 +76,7 @@
     --ring: oklch(0.6 0.2 230 / 0.5);
     
     --radius: 1rem;
+    --font-scale: 1.0; /* Controlled via JS */
 }
 
 .dark {
@@ -116,7 +117,22 @@
     }
   html {
     @apply font-sans;
+    font-size: calc(16px * var(--font-scale, 1.0));
+  }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: calc(13px * var(--font-scale, 1.0));
     }
+    
+    .md\:pl-24 {
+      padding-left: 0 !important;
+    }
+    
+    /* Optimize padding for high-density curriculum items */
+    .p-4 { padding: 0.75rem !important; }
+    .md\:p-8 { padding: 1rem !important; }
+  }
 }
 
 /* Custom Utilities for Premium Look */
@@ -169,10 +185,13 @@
   @apply bg-white/10 rounded-full hover:bg-white/20 transition-all;
 }
 
-/* Focus Mode */
+/* Focus Mode Transitions */
 .focus-active nav {
-  @apply opacity-0 pointer-events-none;
+  @apply translate-y-full opacity-0 pointer-events-none transition-all duration-1000 ease-in-out;
 }
 .focus-active main {
-  @apply md:pl-0 pt-10;
+  @apply md:pl-0 pt-0 transition-all duration-1000 ease-in-out;
+}
+.focus-active .scanline {
+  @apply opacity-10;
 }

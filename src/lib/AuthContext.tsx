@@ -23,7 +23,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [isMock] = useState(true);
-  const [settings, setSettings] = useState<AppSettings>({ showFurigana: true, theme: 'system' });
+  const [settings, setSettings] = useState<AppSettings>({ 
+    showFurigana: true, 
+    theme: 'system', 
+    fontScale: 0.8,
+    remoteUpdateUrl: ''
+  });
 
   useEffect(() => {
     let isMounted = true;
@@ -81,6 +86,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       root.classList.add(settings.theme);
     }
   }, [settings.theme]);
+
+  // Handle Font Scaling
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.style.setProperty('--font-scale', settings.fontScale.toString());
+  }, [settings.fontScale]);
 
   const signIn = async () => {
     toast.info("This is an offline app. Please sign in with an ID.");

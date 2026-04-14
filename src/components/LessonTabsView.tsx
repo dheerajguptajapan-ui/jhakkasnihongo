@@ -76,7 +76,7 @@ export const LessonTabsView: React.FC<LessonTabsViewProps> = ({ items, lessonNum
                         Lesson {lessonNumber || 1}
                       </div>
                       <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-500 font-black text-[10px] uppercase tracking-widest">
-                        N5 Basic
+                        {activeItem.level ? `N${6 - activeItem.level}` : 'JLPT'}
                       </div>
                     </div>
                     <div className="flex items-center gap-8">

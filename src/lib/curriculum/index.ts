@@ -67,6 +67,19 @@ import { n2chapter12 } from './n2chapter12';
 import { n2chapter13 } from './n2chapter13';
 import { n2chapter14 } from './n2chapter14';
 
+// N1 Chapters
+import { n1chapter1 } from './n1chapter1';
+import { n1chapter2 } from './n1chapter2';
+import { n1chapter3 } from './n1chapter3';
+import { n1chapter4 } from './n1chapter4';
+import { n1chapter5 } from './n1chapter5';
+import { n1chapter6 } from './n1chapter6';
+import { n1chapter7 } from './n1chapter7';
+import { n1chapter8 } from './n1chapter8';
+import { n1chapter9 } from './n1chapter9';
+import { n1chapter10 } from './n1chapter10';
+import { n1chapter11 } from './n1chapter11';
+
 import { n5kanji_expansion } from './n5kanji_expansion';
 
 const n5Lessons: Record<number, Item[]> = {
@@ -123,11 +136,26 @@ const n2Lessons: Record<number, Item[]> = {
   14: n2chapter14,
 };
 
+const n1Lessons: Record<number, Item[]> = {
+  1: n1chapter1,
+  2: n1chapter2,
+  3: n1chapter3,
+  4: n1chapter4,
+  5: n1chapter5,
+  6: n1chapter6,
+  7: n1chapter7,
+  8: n1chapter8,
+  9: n1chapter9,
+  10: n1chapter10,
+  11: n1chapter11,
+};
+
 export const allCurriculum: Record<number, Record<number, Item[]>> = {
   1: n5Lessons,
   2: n4Lessons,
   3: n3Lessons,
-  4: n2Lessons
+  4: n2Lessons,
+  5: n1Lessons
 };
 
 export const getAllItems = (): Item[] => {
@@ -135,7 +163,8 @@ export const getAllItems = (): Item[] => {
     ...Object.values(n5Lessons).flat(),
     ...Object.values(n4Lessons).flat(),
     ...Object.values(n3Lessons).flat(),
-    ...Object.values(n2Lessons).flat()
+    ...Object.values(n2Lessons).flat(),
+    ...Object.values(n1Lessons).flat()
   ];
 };
 
@@ -147,3 +176,4 @@ export const totalLessons = 26; // N5 Lessons + Kanji Expansion
 export const totalN4Chapters = 11;
 export const totalN3Chapters = 11;
 export const totalN2Chapters = 14;
+export const totalN1Chapters = 11;

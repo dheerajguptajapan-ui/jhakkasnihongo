@@ -10,12 +10,15 @@ import { NativeStorage } from './NativeStorage';
 const STORAGE_KEYS = {
   USER_ITEMS: 'jhakkas_user_items',
   USER_PROFILE: 'jhakkas_user_profile',
-  SETTINGS: 'jhakkas_settings'
+  SETTINGS: 'jhakkas_settings',
+  CURRICULUM_PATCH: 'jhakkas_curriculum_patch'
 };
 
 export interface AppSettings {
   showFurigana: boolean;
   theme: 'light' | 'dark' | 'system';
+  fontScale: number; // 0.6 to 1.4
+  remoteUpdateUrl: string;
 }
 
 export const PersistenceService = {
@@ -65,7 +68,12 @@ export const PersistenceService = {
   // --- Settings ---
   async getSettings(): Promise<AppSettings> {
     const data = await NativeStorage.get<AppSettings>(STORAGE_KEYS.SETTINGS);
-    const defaultSettings: AppSettings = { showFurigana: true, theme: 'system' };
+    const defaultSettings: AppSettings = { 
+      showFurigana: true, 
+      theme: 'system', 
+      fontScale: 0.8, // 20% reduction by default
+      remoteUpdateUrl: 'https://raw.githubusercontent.com/dwv2/jhakkasnihongo/main/curriculum_updates.json'
+    };
     return data ? { ...defaultSettings, ...data } : defaultSettings;
   },
 
@@ -100,5 +108,15 @@ export const PersistenceService = {
       console.error('Failed to import data:', e);
       return false;
     }
+  },
+
+  // --- Curriculum Patching ---
+  async getRemotePatch(): Promise<any[]> {
+    const data = await NativeStorage.get<any[]>(STORAGE_KEYS.CURRICULUM_PATCH);
+    return data || [];
+  },
+
+  async setRemotePatch(items: any[]): Promise<void> {
+    await NativeStorage.set(STORAGE_KEYS.CURRICULUM_PATCH, items);
   }
 };
