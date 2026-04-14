@@ -39,7 +39,7 @@ export interface Item {
   type: ItemType;
   character: string;
   meanings: string[];
-  readings: string[];
+  readings?: string[];
   level: number;
   mnemonic?: string;
   radical?: string;
