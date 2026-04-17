@@ -6,7 +6,7 @@ export const n1chapter6: Item[] = [
     id: 'tr1-ch6-d1',
     lessonNumber: 6,
     type: 'dokkai',
-    level: 5,
+    level: 1,
     character: '現代のコミュニケーションと共感の距離',
     meanings: ['Communication in the Modern Age and the Distance of Empathy'],
     explanation: 'A 950-character psychological essay on the shifting dynamics of interpersonal relationships in a hyper-connected yet emotionally distant society. It analyzes the concept of "Context-less Communication".',
@@ -47,18 +47,18 @@ export const n1chapter6: Item[] = [
   },
 
   // --- VOCABULARY (TRY! N1 Chapter 6) ---
-  { id: 'tr1-ch6-v1', lessonNumber: 6, type: 'vocabulary', level: 5, character: '源泉', readings: ['gensen'], meanings: ['source', 'wellspring'] },
-  { id: 'tr1-ch6-v2', lessonNumber: 6, type: 'vocabulary', level: 5, character: '葛藤', readings: ['kattou'], meanings: ['conflict', 'complication', 'trouble'] },
-  { id: 'tr1-ch6-v3', lessonNumber: 6, type: 'vocabulary', level: 5, character: '咀嚼', readings: ['soshaku'], meanings: ['mastication', 'digestion (of ideas)', 'understanding'] },
-  { id: 'tr1-ch6-v4', lessonNumber: 6, type: 'vocabulary', level: 5, character: '余韻', readings: ['yoin'], meanings: ['reverberation', 'lingering memory', 'aftertaste'] },
-  { id: 'tr1-ch6-v5', lessonNumber: 6, type: 'vocabulary', level: 5, character: '機微', readings: ['kibi'], meanings: ['subtleties', 'inner workings'] },
+  { id: 'tr1-ch6-v1', lessonNumber: 6, type: 'vocabulary', level: 1, character: '源泉', readings: ['gensen'], meanings: ['source', 'wellspring'] },
+  { id: 'tr1-ch6-v2', lessonNumber: 6, type: 'vocabulary', level: 1, character: '葛藤', readings: ['kattou'], meanings: ['conflict', 'complication', 'trouble'] },
+  { id: 'tr1-ch6-v3', lessonNumber: 6, type: 'vocabulary', level: 1, character: '咀嚼', readings: ['soshaku'], meanings: ['mastication', 'digestion (of ideas)', 'understanding'] },
+  { id: 'tr1-ch6-v4', lessonNumber: 6, type: 'vocabulary', level: 1, character: '余韻', readings: ['yoin'], meanings: ['reverberation', 'lingering memory', 'aftertaste'] },
+  { id: 'tr1-ch6-v5', lessonNumber: 6, type: 'vocabulary', level: 1, character: '機微', readings: ['kibi'], meanings: ['subtleties', 'inner workings'] },
 
   // --- GRAMMAR (TRY! N1 Chapter 6) ---
   {
     id: 'tr1-ch6-g1',
     lessonNumber: 6,
     type: 'grammar',
-    level: 5,
+    level: 1,
     character: '〜んばかりに',
     readings: ['~ n bakari ni'],
     meanings: ['As if about to...', 'On the verge of...'],
@@ -71,7 +71,7 @@ export const n1chapter6: Item[] = [
     id: 'tr1-ch6-g2',
     lessonNumber: 6,
     type: 'grammar',
-    level: 5,
+    level: 1,
     character: '〜がてら',
     readings: ['~ gatera'],
     meanings: ['While doing...', 'At the same time as...'],
@@ -84,7 +84,7 @@ export const n1chapter6: Item[] = [
     id: 'tr1-ch6-g3',
     lessonNumber: 6,
     type: 'grammar',
-    level: 5,
+    level: 1,
     character: '〜そばから',
     readings: ['~ soba kara'],
     meanings: ['As soon as...', 'Right after...'],
@@ -97,7 +97,7 @@ export const n1chapter6: Item[] = [
     id: 'tr1-ch6-g4',
     lessonNumber: 6,
     type: 'grammar',
-    level: 5,
+    level: 1,
     character: '〜なりに',
     readings: ['~ nari ni'],
     meanings: ['In one\'s own way', 'Appropriate to...'],
@@ -108,9 +108,9 @@ export const n1chapter6: Item[] = [
   },
 
   // --- KANJI (N1 Expansion) ---
-  { id: 'kj-n1-c6-1', type: 'kanji', character: '占', readings: ["せん"], meanings: ["Occupy", "Fortune-Telling"], level: 5, explanation: 'Strokes: 5' },
-  { id: 'kj-n1-c6-2', type: 'kanji', character: '卦', readings: ["け"], meanings: ["Divination Sign"], level: 5, explanation: 'Strokes: 8' },
-  { id: 'kj-n1-c6-3', type: 'kanji', character: '印', readings: ["いん"], meanings: ["Stamp", "Mark"], level: 5, explanation: 'Strokes: 6' },
-  { id: 'kj-n1-c6-4', type: 'kanji', character: '卸', readings: ["おろし"], meanings: ["Wholesale"], level: 5, explanation: 'Strokes: 9' },
-  { id: 'kj-n1-c6-5', type: 'kanji', character: '即', readings: ["そく"], meanings: ["Immediate", "Namely"], level: 5, explanation: 'Strokes: 7' }
+  { id: 'kj-n1-c6-1', type: 'kanji', character: '占', readings: ["せん"], meanings: ["Occupy", "Fortune-Telling"], level: 1, explanation: 'Strokes: 5' },
+  { id: 'kj-n1-c6-2', type: 'kanji', character: '卦', readings: ["け"], meanings: ["Divination Sign"], level: 1, explanation: 'Strokes: 8' },
+  { id: 'kj-n1-c6-3', type: 'kanji', character: '印', readings: ["いん"], meanings: ["Stamp", "Mark"], level: 1, explanation: 'Strokes: 6' },
+  { id: 'kj-n1-c6-4', type: 'kanji', character: '卸', readings: ["おろし"], meanings: ["Wholesale"], level: 1, explanation: 'Strokes: 9' },
+  { id: 'kj-n1-c6-5', type: 'kanji', character: '即', readings: ["そく"], meanings: ["Immediate", "Namely"], level: 1, explanation: 'Strokes: 7' }
 ];

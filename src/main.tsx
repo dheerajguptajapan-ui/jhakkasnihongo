@@ -4,14 +4,17 @@ import App from './App.tsx';
 import './index.css';
 import { Toaster } from './components/ui/sonner';
 import { AuthProvider } from './lib/AuthContext';
-import {ErrorBoundary} from './components/ErrorBoundary';
+import { I18nProvider } from './lib/i18n';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ErrorBoundary>
       <AuthProvider>
-        <App />
-        <Toaster />
+        <I18nProvider>
+          <App />
+          <Toaster />
+        </I18nProvider>
       </AuthProvider>
     </ErrorBoundary>
   </StrictMode>,

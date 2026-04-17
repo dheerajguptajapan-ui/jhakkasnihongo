@@ -27,25 +27,25 @@ export const CurriculumService = {
 
   /**
    * Internal level mapping:
-   * N5 = 1, N4 = 2, N3 = 3, N2 = 4
+   * N1 = 1, N2 = 2, N3 = 3, N4 = 4, N5 = 5
    */
   getLevelId(levelLabel: string): number {
     const mapping: Record<string, number> = {
-      'n5': 1,
-      'n4': 2,
+      'n5': 5,
+      'n4': 4,
       'n3': 3,
-      'n2': 4,
-      'n1': 5
+      'n2': 2,
+      'n1': 1
     };
-    return mapping[levelLabel.toLowerCase()] || 1;
+    return mapping[levelLabel.toLowerCase()] || 5;
   },
 
   getChapterCount(levelId: number): number {
-    if (levelId === 1) return totalLessons; // N5 (now includes expansion)
-    if (levelId === 2) return totalN4Chapters;
+    if (levelId === 5) return totalLessons; // N5
+    if (levelId === 4) return totalN4Chapters;
     if (levelId === 3) return totalN3Chapters;
-    if (levelId === 4) return totalN2Chapters;
-    if (levelId === 5) return totalN1Chapters;
+    if (levelId === 2) return totalN2Chapters;
+    if (levelId === 1) return totalN1Chapters;
     return 0;
   },
 
@@ -55,8 +55,14 @@ export const CurriculumService = {
     
     // Merge: In case of ID collisions, dynamic (patch) takes priority
     const itemMap = new Map();
-    staticItems.forEach(item => itemMap.set(item.id, item));
-    dynamicItems.forEach(item => itemMap.set(item.id, item));
+    staticItems.forEach(item => {
+      const normalized = this.normalizeItem(item);
+      itemMap.set(normalized.id, normalized);
+    });
+    dynamicItems.forEach(item => {
+      const normalized = this.normalizeItem(item);
+      itemMap.set(normalized.id, normalized);
+    });
     
     return Array.from(itemMap.values());
   },
@@ -66,14 +72,14 @@ export const CurriculumService = {
    */
   getLevelItems(levelId: number): Item[] {
     const chapters = allCurriculum[levelId] || {};
-    return Object.values(chapters).flat() as Item[];
+    return (Object.values(chapters).flat() as Item[]).map(item => this.normalizeItem(item));
   },
 
   /**
    * Returns a flat list of ALL curriculum items across all levels.
    */
   getTotalSystemItems(): Item[] {
-    return getAllItems();
+    return getAllItems().map(item => this.normalizeItem(item));
   },
 
   getChapterLabel(levelId: number): string {
@@ -82,12 +88,39 @@ export const CurriculumService = {
 
   getLevelSubtitle(levelId: number): string {
     const subtitles: Record<number, string> = {
-      1: 'Minna no Nihongo Lessons 1–25',
-      2: 'TRY N4 Grammar Master',
-      3: 'TRY N3 Grammar Hub',
-      4: 'TRY N2 Mastery',
-      5: 'N1 Advanced Synthesis'
+      1: 'N5 Lexical Foundation',
+      2: 'N4 Syntactic Core',
+      3: 'N3 Relational Logic',
+      4: 'N2 Advanced Nuance',
+      5: 'N1 Master Synthesis'
     };
     return subtitles[levelId] || 'JLPT Preparation';
+  },
+
+  /**
+   * Top 1% Normalization:
+   * Ensures every item has the 'segments' property for native Furigana rendering,
+   * even if loaded from legacy JSON files.
+   */
+  normalizeItem(item: Item): Item {
+    if (item.segments) return item;
+    
+    // Check if vocabulary type uses old structure
+    if (item.type === 'vocabulary' && item.character && !item.segments) {
+      return {
+        ...item,
+        segments: [{ text: item.character, reading: item.readings?.[0] || null }]
+      };
+    }
+    
+    // Check grammar sentences
+    if (item.sentences) {
+      item.sentences = item.sentences.map(s => ({
+        ...s,
+        segments: Array.isArray(s.japanese) ? s.japanese : [{ text: s.japanese, reading: s.furigana || null }]
+      }));
+    }
+
+    return item;
   }
 };

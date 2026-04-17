@@ -81,6 +81,15 @@ import { n1chapter10 } from './n1chapter10';
 import { n1chapter11 } from './n1chapter11';
 
 import { n5kanji_expansion } from './n5kanji_expansion';
+import { n5dokkai_expansion } from './n5dokkai_expansion';
+import { n4kanji_expansion } from './n4kanji_expansion';
+import { n3kanji_expansion } from './n3kanji_expansion';
+import { n2kanji_expansion } from './n2kanji_expansion';
+import { n1kanji_expansion } from './n1kanji_expansion';
+import { n1tech_expansion } from './n1tech_expansion';
+import { n3grammar_expansion } from './n3grammar_expansion';
+import { n2grammar_expansion } from './n2grammar_expansion';
+import { n1grammar_expansion } from './n1grammar_expansion';
 
 const n5Lessons: Record<number, Item[]> = {
   1: lesson1, 2: lesson2, 3: lesson3, 4: lesson4, 5: lesson5,
@@ -88,7 +97,8 @@ const n5Lessons: Record<number, Item[]> = {
   11: lesson11, 12: lesson12, 13: lesson13, 14: lesson14, 15: lesson15,
   16: lesson16, 17: lesson17, 18: lesson18, 19: lesson19, 20: lesson20,
   21: lesson21, 22: lesson22, 23: lesson23, 24: lesson24, 25: lesson25,
-  26: n5kanji_expansion
+  26: n5kanji_expansion,
+  27: n5dokkai_expansion
 };
 
 const n4Lessons: Record<number, Item[]> = {
@@ -103,6 +113,7 @@ const n4Lessons: Record<number, Item[]> = {
   9: n4chapter9,
   10: n4chapter10,
   11: n4chapter11,
+  12: n4kanji_expansion,
 };
 
 const n3Lessons: Record<number, Item[]> = {
@@ -117,6 +128,8 @@ const n3Lessons: Record<number, Item[]> = {
   9: n3chapter9,
   10: n3chapter10,
   11: n3chapter11,
+  12: n3kanji_expansion,
+  13: n3grammar_expansion,
 };
 
 const n2Lessons: Record<number, Item[]> = {
@@ -134,6 +147,8 @@ const n2Lessons: Record<number, Item[]> = {
   12: n2chapter12,
   13: n2chapter13,
   14: n2chapter14,
+  15: n2kanji_expansion,
+  16: n2grammar_expansion,
 };
 
 const n1Lessons: Record<number, Item[]> = {
@@ -148,14 +163,17 @@ const n1Lessons: Record<number, Item[]> = {
   9: n1chapter9,
   10: n1chapter10,
   11: n1chapter11,
+  12: n1kanji_expansion,
+  13: n1tech_expansion,
+  14: n1grammar_expansion,
 };
 
 export const allCurriculum: Record<number, Record<number, Item[]>> = {
-  1: n5Lessons,
-  2: n4Lessons,
+  5: n5Lessons,
+  4: n4Lessons,
   3: n3Lessons,
-  4: n2Lessons,
-  5: n1Lessons
+  2: n2Lessons,
+  1: n1Lessons
 };
 
 export const getAllItems = (): Item[] => {
@@ -172,8 +190,8 @@ export const getLesson = (n: number, level: number = 1): Item[] => {
   return allCurriculum[level]?.[n] || [];
 };
 
-export const totalLessons = 26; // N5 Lessons + Kanji Expansion
-export const totalN4Chapters = 11;
-export const totalN3Chapters = 11;
-export const totalN2Chapters = 14;
-export const totalN1Chapters = 11;
+export const totalLessons = 27; // N5 Lessons + Kanji + Dokkai Expansion
+export const totalN4Chapters = 12;
+export const totalN3Chapters = 13;
+export const totalN2Chapters = 16;
+export const totalN1Chapters = 14;

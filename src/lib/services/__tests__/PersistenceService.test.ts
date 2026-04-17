@@ -17,6 +17,9 @@ describe('PersistenceService', () => {
       synapticStability: 1.0,
       linkQuality: 100.0,
       joinedAt: '2026-01-01',
+      dailyGoal: 10,
+      enrolledLevels: [],
+      dailySyncHistory: {},
       role: 'user'
     };
 

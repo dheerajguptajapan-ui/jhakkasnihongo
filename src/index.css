@@ -3,195 +3,181 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
-    --color-ring: var(--ring);
-    --color-input: var(--input);
-    --color-border: var(--border);
-    --color-destructive: var(--destructive);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-accent: var(--accent);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-muted: var(--muted);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-secondary: var(--secondary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-primary: var(--primary);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-popover: var(--popover);
-    --color-card-foreground: var(--card-foreground);
-    --color-card: var(--card);
-    --color-foreground: var(--foreground);
-    --color-background: var(--background);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --radius-sm: var(--radius);
 }
 
+/* Standard Tailwind v4 Theme Variables (Replaces IDE Warning @theme) */
 :root {
-    --background: oklch(0.99 0.01 220);
-    --foreground: oklch(0.15 0.05 240);
-    
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.15 0.05 240);
-    
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.15 0.05 240);
-    
-    --primary: oklch(0.6 0.2 230);
-    --primary-foreground: oklch(0.99 0 0);
-    
-    --secondary: oklch(0.95 0.02 240);
-    --secondary-foreground: oklch(0.2 0.1 230);
-    
-    --muted: oklch(0.94 0.02 240);
-    --muted-foreground: oklch(0.45 0.05 240);
-    
-    --accent: oklch(0.92 0.05 230);
-    --accent-foreground: oklch(0.2 0.1 230);
-    
-    --destructive: oklch(0.6 0.2 25);
-    --border: oklch(0.9 0.02 240);
-    --input: oklch(0.9 0.02 240);
-    --ring: oklch(0.6 0.2 230 / 0.5);
-    
-    --radius: 1rem;
-    --font-scale: 1.0; /* Controlled via JS */
+  /* Clean Editorial - High Contrast Light Mode */
+  --background: oklch(0.99 0.005 240);
+  --foreground: oklch(0.12 0.01 240);
+  
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0.01 240);
+  
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0.01 240);
+  
+  /* Ferrari Red - Rosso Corsa (Pure & Professional) */
+  --primary: oklch(0.58 0.22 28);
+  --primary-foreground: oklch(1 0 0);
+  
+  /* Racing Grey as Secondary */
+  --secondary: oklch(0.95 0.01 240);
+  --secondary-foreground: oklch(0.35 0.01 240);
+  
+  --muted: oklch(0.94 0.01 240);
+  --muted-foreground: oklch(0.45 0.01 240);
+  
+  /* Modena Yellow as Accent */
+  --accent: oklch(0.92 0.18 85);
+  --accent-foreground: oklch(0.3 0.1 85);
+  
+  --destructive: oklch(0.55 0.22 30);
+  --border: oklch(0.88 0.01 240);
+  --input: oklch(0.88 0.01 240);
+  --ring: oklch(0.58 0.22 28 / 0.4);
+  
+  --radius: 2px;
+  --font-sans: 'Geist Variable', 'Outfit', sans-serif;
 }
 
 .dark {
-    /* Tokyo Midnight Theme */
-    --background: oklch(0.12 0.04 260); /* Deep Night Blue */
-    --foreground: oklch(0.95 0.02 260);
-    
-    --card: oklch(0.18 0.04 260); /* Slightly lighter night blue */
-    --card-foreground: oklch(0.92 0.03 260);
-    
-    --popover: oklch(0.16 0.04 260);
-    --popover-foreground: oklch(0.95 0.02 260);
-    
-    --primary: oklch(0.7 0.18 190); /* Neon Cyan */
-    --primary-foreground: oklch(0.1 0.05 260);
-    
-    --secondary: oklch(0.22 0.06 270); /* Darker Slate */
-    --secondary-foreground: oklch(0.85 0.04 230);
-    
-    --muted: oklch(0.24 0.05 260 / 0.5);
-    --muted-foreground: oklch(0.65 0.04 260);
-    
-    --accent: oklch(0.28 0.08 300); /* Neon Purple Hint */
-    --accent-foreground: oklch(0.95 0.02 260);
-    
-    --destructive: oklch(0.55 0.18 20); /* Neon Rose */
-    --border: oklch(0.24 0.05 260);
-    --input: oklch(0.24 0.05 260);
-    --ring: oklch(0.7 0.18 190 / 0.5);
+  /* Deep Cinematic Dark Mode */
+  --background: oklch(0.1 0.01 260);
+  --foreground: oklch(0.98 0.005 260);
+  
+  --card: oklch(0.14 0.01 260);
+  --card-foreground: oklch(0.98 0.005 260);
+  
+  --popover: oklch(0.1 0.01 260);
+  --popover-foreground: oklch(0.98 0.005 260);
+  
+  --primary: oklch(0.58 0.22 28);
+  --primary-foreground: oklch(1 0 0);
+  
+  --secondary: oklch(0.18 0.01 260);
+  --secondary-foreground: oklch(0.9 0.01 260);
+  
+  --muted: oklch(0.18 0.01 260);
+  --muted-foreground: oklch(0.65 0.01 260);
+  
+  --accent: oklch(0.25 0.05 85);
+  --accent-foreground: oklch(0.95 0.05 85);
+  
+  --destructive: oklch(0.58 0.22 28);
+  --border: oklch(0.22 0.01 260);
+  --input: oklch(0.22 0.01 260);
+  --ring: oklch(0.58 0.22 28 / 0.5);
+}
+
+@layer utilities {
+  .glass {
+    background: color-mix(in oklch, var(--card) 40%, transparent);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid color-mix(in oklch, oklch(1 0 0) 20%, transparent);
+    box-shadow: 
+      0 4px 12px 0 oklch(0 0 0 / 0.05); /* Sparse Shadow */
+  }
+
+  .dark .glass {
+    background: color-mix(in oklch, var(--card) 20%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 20%, transparent);
+    box-shadow: 
+      0 8px 32px 0 oklch(0 0 0 / 0.6);
+  }
+
+  .shadow-premium {
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05); /* Precision Shadow */
+  }
+
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, var(--primary), oklch(0.4 0.2 28));
+  }
+  
+  .bg-cyber-grid {
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  
+  /* Ferrari Chiaroscuro Utilities */
+  .section-dark {
+    background-color: #000000;
+    color: #FFFFFF;
+  }
+  
+  .section-light {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-    }
-  body {
-    @apply bg-background text-foreground transition-colors duration-500 ease-in-out antialiased;
-    }
   html {
-    @apply font-sans;
-    font-size: calc(16px * var(--font-scale, 1.0));
+    font-size: 16px;
   }
-
-  @media (max-width: 640px) {
-    html {
-      font-size: calc(13px * var(--font-scale, 1.0));
-    }
-    
-    .md\:pl-24 {
-      padding-left: 0 !important;
-    }
-    
-    /* Optimize padding for high-density curriculum items */
-    .p-4 { padding: 0.75rem !important; }
-    .md\:p-8 { padding: 1rem !important; }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
   }
 }
 
-/* Custom Utilities for Premium Look */
-.glass {
-  @apply bg-white/70 dark:bg-[#0A0A14]/70 backdrop-blur-3xl border border-white/20 dark:border-white/5;
+/* Core System Pulse Effect */
+@keyframes core-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.neo-shadow {
-  @apply shadow-2xl shadow-indigo-500/10 dark:shadow-indigo-900/40;
+.animate-core-pulse {
+  animation: core-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.text-glow {
-  filter: drop-shadow(0 0 8px oklch(0.7 0.18 190 / 0.4));
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-.neural-grid {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.scanline {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.1), transparent);
-  pointer-events: none;
-  z-index: 100;
-  animation: scan 8s linear infinite;
-}
-
-@keyframes scan {
-  from { top: -100px; }
-  to { top: 100%; }
-}
-
-/* Scrollbar Polish */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-white/10 rounded-full hover:bg-white/20 transition-all;
-}
-
-/* Focus Mode Transitions */
-.focus-active nav {
-  @apply translate-y-full opacity-0 pointer-events-none transition-all duration-1000 ease-in-out;
-}
-.focus-active main {
-  @apply md:pl-0 pt-0 transition-all duration-1000 ease-in-out;
-}
-.focus-active .scanline {
-  @apply opacity-10;
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, var(--muted), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
 }

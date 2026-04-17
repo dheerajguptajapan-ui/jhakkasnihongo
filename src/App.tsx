@@ -2,19 +2,38 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useAuth } from './lib/AuthContext';
 import { Dashboard } from './components/Dashboard';
-import { LessonSession } from './components/LessonSession';
 import { ReviewSession } from './components/ReviewSession';
 import { ItemsView } from './components/ItemsView';
-import { JLPTView } from './components/JLPTView';
 import { CommunityView } from './components/CommunityView';
 import { SettingsView } from './components/SettingsView';
 import { AdminView } from './components/AdminView';
 import { KanaView } from './components/KanaView';
-import { Item, UserItem } from './types';
+import { LessonSession } from './components/LessonSession';
+import { MasteryHubView } from './components/MasteryHubView';
+import { WelcomeView } from './components/WelcomeView';
+import { 
+  Search as SearchIcon, 
+  Settings as SettingsIcon, 
+  GraduationCap as LearnIcon, 
+  Activity, 
+  BookOpen, 
+  Package, 
+  Zap, 
+  Binary,
+  Paintbrush,
+  Eye,
+  EyeOff,
+  User,
+  Map
+} from 'lucide-react';
+import { JLPTQuizEngine } from './components/JLPTQuizEngine';
+import { AppLogo } from './components/AppLogo';
+import { JhakkasBot } from './components/JhakkasBot';
+import { useI18n } from './lib/i18n';
+import { Item } from './types';
 import { getAllItems } from './lib/curriculum';
 import { PersistenceService } from './lib/services/PersistenceService';
 import { CurriculumService } from './lib/services/CurriculumService';
-import { Layout, Menu, BookOpen, GraduationCap, Users, Settings, Package, Info, Activity, Zap, ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { Toaster, toast } from 'sonner';
 
@@ -22,11 +41,20 @@ export type JLPTLevel = 'n5' | 'n4' | 'n3' | 'n2' | 'n1';
 export type JLPTSection = 'kanji' | 'vocabulary' | 'grammar' | 'dokkai';
 
 function App() {
-  const { user, profile, loading, mockSignIn, settings, updateSettings } = useAuth();
+  const { user, profile, loading, settings, updateSettings, getTodayProgress } = useAuth();
+  const { t } = useI18n();
   const [currentTab, setCurrentTab] = useState<'dashboard' | 'items' | 'jlpt' | 'kana' | 'community' | 'settings' | 'admin'>('dashboard');
-  const [session, setSession] = useState<{ type: 'lesson' | 'review', items: any[] } | null>(null);
-  const [jlptState, setJlptState] = useState<{ level: JLPTLevel, section: JLPTSection }>({ level: 'n5', section: 'vocabulary' });
-  const [focusMode, setFocusMode] = useState(false);
+  const [session, setSession] = useState<{ type: 'review', items: any[] } | null>(null);
+  const [mascotState, setMascotState] = useState<'idle' | 'success' | 'error'>('idle');
+  const [activeQuiz, setActiveQuiz] = useState<{
+    level: number;
+    lesson: number;
+    category?: string;
+    isCumulative: boolean;
+    limit: number;
+  } | null>(null);
+  const [activeLessonSession, setActiveLessonSession] = useState<Item[] | null>(null);
+  const [preselectedLevel, setPreselectedLevel] = useState<number>(5);
 
   React.useEffect(() => {
     CurriculumService.initialize();
@@ -36,73 +64,33 @@ function App() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-[#0A0A0F] flex items-center justify-center p-6 font-sans">
-        <div className="max-w-md w-full space-y-12 animate-in fade-in zoom-in duration-700">
-          <div className="text-center space-y-6">
-            <div className="relative inline-flex">
-              <div className="absolute inset-0 bg-indigo-500 blur-2xl opacity-30 animate-pulse" />
-              <div className="relative inline-flex items-center justify-center w-24 h-24 rounded-[2rem] bg-indigo-600 shadow-2xl text-white font-black text-4xl">
-                J
-              </div>
-            </div>
-            <div className="space-y-2">
-              <h1 className="text-5xl font-black text-white tracking-tighter uppercase">Jhakkas Nihongo</h1>
-              <p className="text-indigo-400 font-bold tracking-[0.3em] text-[10px] uppercase">Neural Language Interface v2.5</p>
-            </div>
-          </div>
-          <div className="bg-white/5 backdrop-blur-2xl p-10 rounded-[3rem] border border-white/10 shadow-2xl shadow-indigo-500/10">
-            <h2 className="text-sm font-black mb-8 text-center text-gray-500 uppercase tracking-[0.2em]">Authentication Required</h2>
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              const formData = new FormData(e.currentTarget);
-              mockSignIn(formData.get('username') as string, formData.get('password') as string);
-            }} className="space-y-6">
-              <div className="space-y-2">
-                <input
-                  name="username"
-                  className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 outline-none focus:ring-2 ring-indigo-500 transition-all font-bold"
-                  placeholder="STUDENT_ID"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <input
-                  name="password"
-                  type="password"
-                  className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 outline-none focus:ring-2 ring-indigo-500 transition-all font-bold"
-                  placeholder="PASS_CODE"
-                  required
-                />
-              </div>
-              <Button type="submit" className="w-full h-16 bg-indigo-600 hover:bg-indigo-500 text-lg font-black rounded-2xl shadow-xl shadow-indigo-500/20 transition-all">
-                INITIATE SYNC
-              </Button>
-            </form>
-          </div>
-        </div>
-      </div>
+      <>
+        <Toaster position="top-center" theme={settings.theme === 'dark' ? 'dark' : 'light'} richColors />
+        <WelcomeView />
+      </>
+    );
+  }
+
+  if (activeLessonSession) {
+    return (
+      <LessonSession 
+        items={activeLessonSession} 
+        onComplete={() => setActiveLessonSession(null)} 
+        onCancel={() => setActiveLessonSession(null)} 
+      />
     );
   }
 
   if (session) {
-    if (session.type === 'lesson') {
-      return <LessonSession items={session.items} onComplete={() => setSession(null)} onCancel={() => setSession(null)} />;
-    }
     return <ReviewSession items={session.items} onComplete={() => setSession(null)} onCancel={() => setSession(null)} />;
   }
 
-  const startLessons = async () => {
-    const allItems = getAllItems();
-    const userItems = await PersistenceService.getUserItems();
-    const available = allItems.filter(item => 
-      !userItems.find(ui => ui.itemId === item.id) && (item.level || 1) <= (profile?.level || 1)
-    ).slice(0, 5);
-    if (available.length > 0) setSession({ type: 'lesson', items: available });
-  };
-
   const startReviews = async () => {
     const allItems = getAllItems();
-    const userItems = await PersistenceService.getUserItems();
+    const allUserItems = await PersistenceService.getUserItems();
+    // Isolation check: only current user items
+    const userItems = allUserItems.filter(i => i.uid === user.uid);
+
     const ready = userItems.filter(ui => {
       if (ui.srsStage === 9) return false; // Burned
       return !ui.nextReviewAt || new Date(ui.nextReviewAt) <= new Date();
@@ -112,138 +100,176 @@ function App() {
     }).filter(Boolean);
     
     if (ready.length > 0) setSession({ type: 'review', items: ready });
+    else toast.info("No reviews pending.");
+  };
+
+  const startLessons = async (level: number = 1, lessonNum: number = 1) => {
+    const allItems = CurriculumService.getChapterItems(level, lessonNum);
+    const allUserItems = await PersistenceService.getUserItems();
+    const userItems = allUserItems.filter(i => i.uid === user.uid);
+    
+    const newItems = allItems.filter(ai => !userItems.some(ui => ui.itemId === ai.id));
+    
+    const limit = settings.dailyNewCards || 20;
+    const sessionItems = newItems.slice(0, limit);
+
+    if (sessionItems.length > 0) {
+      setActiveLessonSession(sessionItems);
+    } else {
+      toast.info('All items mastered for this section.');
+    }
   };
 
   return (
-    <div 
-      className={`min-h-screen bg-[#0A0A0F] text-white pb-24 md:pb-0 md:pl-24 font-sans selection:bg-indigo-500 selection:text-white neural-grid ${focusMode ? 'focus-active' : ''}`}
-      style={{ '--font-scale': settings.fontScale } as any}
-    >
-      <div className="scanline" />
-      <Toaster position="top-center" theme="dark" richColors />
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20 antialiased">
+      <Toaster position="top-center" theme={settings.theme === 'dark' ? 'dark' : 'light'} richColors />
 
-      {/* Focus Mode Exit UI */}
-      <AnimatePresence>
-        {focusMode && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-4"
-          >
-            <div className="bg-[#0A0A14]/90 backdrop-blur-2xl px-6 py-4 rounded-[2rem] border border-white/10 shadow-2xl flex items-center gap-6">
-              <div className="flex flex-col">
-                <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Neural Link</span>
-                <span className="text-sm font-black text-white uppercase italic">Focus Mode Active</span>
-              </div>
-              <div className="h-8 w-px bg-white/10" />
-              <Button 
-                onClick={() => setFocusMode(false)}
-                className="bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest text-[10px] h-10 px-6 rounded-xl shadow-xl shadow-indigo-900/40 border border-white/20 flex items-center gap-2"
-              >
-                <ArrowLeft size={14} strokeWidth={3} />
-                Return to Dashboard
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      
-      {/* Tokyo Midnight Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 h-24 md:h-screen md:w-24 bg-[#0A0A14]/80 backdrop-blur-3xl border-t md:border-t-0 md:border-r border-white/5 flex md:flex-col items-center justify-around md:justify-center gap-2 md:gap-10 z-50">
-        <div className="hidden md:flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-600 text-white font-black text-2xl mb-auto mt-10 shadow-lg shadow-indigo-500/20">
-          J
+      <header className="fixed top-0 left-0 right-0 h-16 bg-background/80 backdrop-blur-md z-50 px-6 flex items-center justify-between border-b border-border/50">
+        <div className="flex items-center gap-3">
+          <AppLogo size={32} />
+          <span className="font-black tracking-tighter text-xl uppercase italic">JHAKKAS <span className="text-primary NOT-italic">NIHONGO</span></span>
         </div>
-        
-        <NavButton active={currentTab === 'dashboard'} onClick={() => setCurrentTab('dashboard')} icon={<Activity />} label="HQ" />
-        <NavButton active={currentTab === 'kana'} onClick={() => setCurrentTab('kana')} icon={<BookOpen />} label="KANA" />
-        <NavButton active={currentTab === 'jlpt'} onClick={() => setCurrentTab('jlpt')} icon={<GraduationCap />} label="LEARN" />
-        <NavButton active={currentTab === 'items'} onClick={() => setCurrentTab('items')} icon={<Package />} label="DATA" />
-        
-        {/* Furigana Hot Toggle */}
-        <NavButton 
-          active={false} 
-          onClick={() => {
-            const newVal = !settings.showFurigana;
-            updateSettings({ showFurigana: newVal });
-            toast.success(newVal ? "Furigana Synced" : "Furigana Offline");
-          }} 
-          icon={settings.showFurigana ? <Eye className="text-emerald-400" /> : <EyeOff className="text-rose-400" />} 
-          label={settings.showFurigana ? "FURIGANA ON" : "FURIGANA OFF"} 
-        />
 
-        <NavButton active={false} onClick={() => setFocusMode(!focusMode)} icon={<Zap className={focusMode ? 'text-indigo-400' : ''} />} label="FOCUS" />
-        <NavButton active={currentTab === 'community'} onClick={() => setCurrentTab('community')} icon={<Users />} label="NEXUS" />
-        <NavButton active={currentTab === 'settings'} onClick={() => setCurrentTab('settings')} icon={<Settings />} label="CONFIG" />
-        
-        {profile?.role === 'admin' && (
-          <NavButton active={currentTab === 'admin'} onClick={() => setCurrentTab('admin')} icon={<Package className="text-rose-500" />} label="CORE" />
-        )}
-        
-        <div className="hidden md:block mt-auto mb-10">
-          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center font-black text-xs text-indigo-400">
-            {profile?.displayName?.charAt(0)}
-          </div>
-        </div>
-      </nav>
-
-      {/* Main Content Area */}
-      <main className="animate-in fade-in duration-700">
-        {currentTab === 'dashboard' && <Dashboard onStartLessons={startLessons} onStartReviews={startReviews} />}
-        {currentTab === 'items' && <div className="p-4 md:p-8"><ItemsView /></div>}
-        {currentTab === 'jlpt' && (
-          <div className="p-4 md:p-8 space-y-8 md:space-y-12">
-            <div className="max-w-7xl mx-auto space-y-6 md:space-y-8">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-                <div className="space-y-2">
-                  <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">Learning Hub</h2>
-                  <p className="text-gray-500 font-medium italic text-sm md:text-base">Architecting your Japanese knowledge base.</p>
-                </div>
-                <div className="flex bg-white/5 p-1.5 rounded-2xl border border-white/10 backdrop-blur-xl">
-                  {(['n5', 'n4', 'n3', 'n2', 'n1'] as JLPTLevel[]).map(level => (
-                    <button 
-                      key={level}
-                      onClick={() => setJlptState({ ...jlptState, level })}
-                      className={`h-11 px-6 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all ${
-                        jlptState.level === level ? 'bg-indigo-600 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300'
-                      }`}
-                    >
-                      {level}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex overflow-x-auto no-scrollbar gap-4 border-b border-white/5 pb-6">
-                {(['vocabulary', 'grammar', 'kanji', 'dokkai'] as JLPTSection[]).map(section => (
-                  <button 
-                    key={section}
-                    onClick={() => setJlptState({ ...jlptState, section })}
-                    className={`rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] h-12 px-8 transition-all border ${
-                      jlptState.section === section 
-                        ? 'bg-white/10 border-indigo-500 text-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.1)]' 
-                        : 'text-gray-600 border-white/5 hover:border-white/10'
-                    }`}
-                  >
-                    {section}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="max-w-7xl mx-auto">
-              <JLPTView 
-                level={jlptState.level} 
-                section={jlptState.section} 
-                onBack={() => setCurrentTab('dashboard')}
+        <div className="flex items-center gap-6">
+          <div className="hidden md:flex flex-col items-end">
+            <span className="text-[9px] font-black uppercase text-muted-foreground tracking-[0.2em]">Daily Focus</span>
+            <div className="w-32 h-1 bg-muted rounded-full mt-1.5 overflow-hidden">
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: `${getTodayProgress().percentage}%` }}
+                className="h-full bg-primary" 
               />
             </div>
           </div>
+          <div className="group relative">
+            <div className="w-10 h-10 rounded-full border-2 border-primary/20 p-0.5 cursor-pointer hover:border-primary transition-all">
+               <div className="w-full h-full rounded-full bg-muted flex items-center justify-center text-primary font-black text-xs uppercase overflow-hidden">
+                 {profile?.displayName?.charAt(0) || <User size={16} />}
+               </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-6 md:translate-x-0 md:top-24 md:bottom-auto bg-card border border-border rounded-sm p-2 flex md:flex-col gap-1 z-50 shadow-xl">
+        <div className="hidden md:flex items-center justify-center w-10 h-10 rounded-sm bg-primary text-primary-foreground font-black text-xl mb-4">
+          J
+        </div>
+        
+        <NavButton active={currentTab === 'dashboard'} onClick={() => setCurrentTab('dashboard')} icon={<Activity />} label={t('hq')} />
+        <NavButton active={currentTab === 'kana'} onClick={() => setCurrentTab('kana')} icon={<BookOpen />} label={t('kana')} />
+        <NavButton active={currentTab === 'jlpt'} onClick={() => setCurrentTab('jlpt')} icon={<Map />} label="MASTERY HUB" />
+        <NavButton active={currentTab === 'community'} onClick={() => setCurrentTab('community')} icon={<Binary />} label="COMMUNITY" />
+        <NavButton active={currentTab === 'items'} onClick={() => setCurrentTab('items')} icon={<SearchIcon />} label={t('search')} />
+        
+        <div className="w-full h-px bg-border/50 my-2 hidden md:block" />
+
+        <NavButton 
+          active={false} 
+          onClick={() => updateSettings({ showFurigana: !settings.showFurigana })} 
+          icon={settings.showFurigana ? <Eye className="text-emerald-500" /> : <EyeOff className="text-rose-500" />} 
+          label="FURI" 
+        />
+
+        <NavButton 
+          active={false} 
+          onClick={() => {
+            const next = settings.theme === 'light' ? 'dark' : 'light';
+            updateSettings({ theme: next });
+          }} 
+          icon={<Paintbrush />} 
+          label="COLOR" 
+        />
+
+        <NavButton active={currentTab === 'settings'} onClick={() => setCurrentTab('settings')} icon={<SettingsIcon />} label={t('settings')} />
+        
+        {user?.role === 'admin' && (
+          <NavButton active={currentTab === 'admin'} onClick={() => setCurrentTab('admin')} icon={<Package className="text-rose-500" />} label="CORE" />
         )}
-        {currentTab === 'kana' && <div className="p-4 md:p-8"><KanaView /></div>}
-        {currentTab === 'community' && < CommunityView />}
-        {currentTab === 'settings' && <SettingsView />}
-        {currentTab === 'admin' && <AdminView />}
+      </nav>
+
+      <main className="pt-24 pb-32 md:pb-6 md:pl-32 lg:pl-32 max-w-7xl mx-auto min-h-screen overflow-x-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentTab}
+            initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="px-4 md:px-8"
+          >
+            {currentTab === 'dashboard' && (
+              <Dashboard 
+                onStartLessons={() => startLessons(preselectedLevel, 1)} 
+                onStartReviews={startReviews} 
+                onSelectLevel={(level) => {
+                  setPreselectedLevel(level);
+                  setCurrentTab('jlpt');
+                }}
+              />
+            )}
+            {currentTab === 'items' && <ItemsView />}
+            {currentTab === 'jlpt' && (
+              <div className="space-y-8">
+                <AnimatePresence mode="wait">
+                  {!activeQuiz ? (
+                    <motion.div
+                      key="selection"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                    >
+                      <MasteryHubView 
+                        initialLevel={preselectedLevel}
+                        lockLevel={true}
+                        onStartQuiz={(level, lesson, category, isCumulative, limit) => {
+                          setActiveQuiz({ level, lesson, category, isCumulative, limit });
+                        }}
+                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="quiz"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                    >
+                      <JLPTQuizEngine 
+                        level={activeQuiz.level}
+                        lessonNumber={activeQuiz.lesson}
+                        category={activeQuiz.category}
+                        limit={activeQuiz.limit}
+                        isCumulative={activeQuiz.isCumulative}
+                        onResult={(isCorrect) => {
+                          setMascotState(isCorrect ? 'success' : 'error');
+                          setTimeout(() => setMascotState('idle'), 1200);
+                        }}
+                        onFinish={() => setActiveQuiz(null)}
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
+            {currentTab === 'kana' && (
+              <KanaView 
+                onResult={(isCorrect) => {
+                  setMascotState(isCorrect ? 'success' : 'error');
+                  setTimeout(() => setMascotState('idle'), 2000);
+                }} 
+              />
+            )}
+            {currentTab === 'community' && < CommunityView />}
+            {currentTab === 'settings' && <SettingsView />}
+            {currentTab === 'admin' && <AdminView />}
+          </motion.div>
+        </AnimatePresence>
       </main>
+
+      {/* Persistent Mascot */}
+      <div className="fixed bottom-24 right-6 md:bottom-10 md:right-10 z-[60]">
+        <JhakkasBot state={mascotState} />
+      </div>
     </div>
   );
 }
@@ -252,20 +278,24 @@ function NavButton({ active, onClick, icon, label }: { active: boolean, onClick:
   return (
     <button 
       onClick={onClick}
-      className={`flex flex-col items-center gap-2 p-4 rounded-3xl transition-all duration-500 group ${
+      className={`flex flex-col items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-sm transition-all relative group ${
         active 
-          ? 'bg-indigo-600/10 text-indigo-400 shadow-[inset_0_0_20px_rgba(99,102,241,0.05)]' 
-          : 'text-gray-600 hover:text-gray-400'
+          ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' 
+          : 'text-muted-foreground hover:bg-muted/80 hover:text-foreground'
       }`}
     >
-      <div className={`transition-transform duration-500 ${active ? 'scale-110' : 'group-hover:scale-110'}`}>
-        {React.cloneElement(icon as React.ReactElement, { size: 24, strokeWidth: active ? 3 : 2 } as any)}
+      <div className={`transition-transform duration-300 ${active ? 'scale-110' : 'group-hover:translate-y-[-2px]'}`}>
+        {React.cloneElement(icon as React.ReactElement, { size: 18, strokeWidth: 2.5 } as any)}
       </div>
-      <span className="text-[9px] font-black uppercase tracking-[0.3em] hidden md:block">{label}</span>
-      {active && <motion.div layoutId="nav-active" className="absolute left-0 w-1 h-8 bg-indigo-500 rounded-r-full hidden md:block" />}
+      <span className="text-[8px] font-black uppercase tracking-[0.2em] mt-2 hidden md:block opacity-70">{label}</span>
+      {active && (
+        <motion.div 
+          layoutId="nav-active"
+          className="absolute -left-1 w-1 h-6 bg-primary rounded-full hidden md:block" 
+        />
+      )}
     </button>
   );
 }
 
 export default App;
-

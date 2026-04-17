@@ -6,7 +6,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v1',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '出身',
     readings: ['shusshin'],
     meanings: ['origin', 'birthplace']
@@ -15,7 +15,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v2',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: 'ハノイ',
     readings: ['hanoi'],
     meanings: ['Hanoi']
@@ -24,7 +24,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v3',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '田舎',
     readings: ['inaka'],
     meanings: ['countryside', 'hometown']
@@ -33,7 +33,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v4',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '都会',
     readings: ['tokai'],
     meanings: ['city']
@@ -42,7 +42,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v5',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '景色',
     readings: ['keshiki'],
     meanings: ['scenery', 'landscape']
@@ -51,7 +51,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v6',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '空気',
     readings: ['kuuki'],
     meanings: ['air']
@@ -60,7 +60,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v7',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '美味しい',
     readings: ['oishii'],
     meanings: ['delicious']
@@ -69,7 +69,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v8',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '新鮮な',
     readings: ['shinsen na'],
     meanings: ['fresh']
@@ -78,7 +78,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v9',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '静かな',
     readings: ['shizuka na'],
     meanings: ['quiet']
@@ -87,7 +87,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v10',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '賑やかな',
     readings: ['nigiyaka na'],
     meanings: ['lively', 'busy']
@@ -96,7 +96,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v11',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '有名な',
     readings: ['yuumei na'],
     meanings: ['famous']
@@ -105,7 +105,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v12',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '便利な',
     readings: ['benri na'],
     meanings: ['convenient']
@@ -114,7 +114,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v13',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '不便な',
     readings: ['fuben na'],
     meanings: ['inconvenient']
@@ -123,7 +123,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v14',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '遠い',
     readings: ['tooi'],
     meanings: ['far']
@@ -132,7 +132,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v15',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '近い',
     readings: ['chikai'],
     meanings: ['close']
@@ -141,7 +141,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v16',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '高い',
     readings: ['takai'],
     meanings: ['high', 'expensive']
@@ -150,7 +150,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v17',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '低い',
     readings: ['hikui'],
     meanings: ['low']
@@ -159,7 +159,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v18',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '暑い',
     readings: ['atsui'],
     meanings: ['hot']
@@ -168,7 +168,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v19',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '寒い',
     readings: ['samui'],
     meanings: ['cold']
@@ -177,7 +177,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v20',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '涼しい',
     readings: ['suzushii'],
     meanings: ['cool']
@@ -186,7 +186,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v21',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '暖かい',
     readings: ['atatakai'],
     meanings: ['warm']
@@ -195,7 +195,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v22',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '理由',
     readings: ['riyuu'],
     meanings: ['reason']
@@ -204,7 +204,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v23',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '説明',
     readings: ['setsumei'],
     meanings: ['explanation']
@@ -213,7 +213,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v24',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '事情',
     readings: ['jijou'],
     meanings: ['circumstances']
@@ -222,7 +222,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v25',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '都合',
     readings: ['tsugou'],
     meanings: ['convenience', 'schedule']
@@ -231,7 +231,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v26',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '気分',
     readings: ['kibun'],
     meanings: ['feeling', 'mood']
@@ -240,7 +240,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v27',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '頭',
     readings: ['atama'],
     meanings: ['head']
@@ -249,7 +249,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v28',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: 'お腹',
     readings: ['onaka'],
     meanings: ['stomach']
@@ -258,7 +258,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v29',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '喉',
     readings: ['nodo'],
     meanings: ['throat']
@@ -267,7 +267,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v30',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '体',
     readings: ['karada'],
     meanings: ['body']
@@ -276,7 +276,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v31',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '風邪',
     readings: ['kaze'],
     meanings: ['cold', 'flu']
@@ -285,7 +285,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v32',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '熱',
     readings: ['netsu'],
     meanings: ['fever']
@@ -294,7 +294,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v33',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '遅れる',
     readings: ['okureru'],
     meanings: ['to be late']
@@ -303,7 +303,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v34',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '間に合う',
     readings: ['maniau'],
     meanings: ['to be in time']
@@ -312,7 +312,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v35',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '拾う',
     readings: ['hirou'],
     meanings: ['to pick up', 'to find']
@@ -321,7 +321,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v36',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '探す',
     readings: ['sagasu'],
     meanings: ['to search', 'to look for']
@@ -330,7 +330,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v37',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '捨てる',
     readings: ['suteru'],
     meanings: ['to throw away']
@@ -339,7 +339,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v38',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '連絡',
     readings: ['renraku'],
     meanings: ['contact', 'communication']
@@ -348,7 +348,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v39',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '相談',
     readings: ['soudan'],
     meanings: ['consultation']
@@ -357,7 +357,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v40',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '申し込む',
     readings: ['moushikomu'],
     meanings: ['to apply']
@@ -366,7 +366,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v41',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: 'お湯',
     readings: ['oyu'],
     meanings: ['hot water']
@@ -375,7 +375,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v42',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '洗濯物',
     readings: ['sentakumono'],
     meanings: ['laundry']
@@ -384,7 +384,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v43',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '掃除',
     readings: ['souji'],
     meanings: ['cleaning']
@@ -393,7 +393,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v44',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '片付け',
     readings: ['katadzuke'],
     meanings: ['tidying up']
@@ -402,7 +402,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v45',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '生活',
     readings: ['seikatsu'],
     meanings: ['life', 'lifestyle']
@@ -411,7 +411,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v46',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '習慣',
     readings: ['shuukan'],
     meanings: ['habit', 'custom']
@@ -420,7 +420,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v47',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '経験',
     readings: ['keiken'],
     meanings: ['experience']
@@ -429,7 +429,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v48',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '場所',
     readings: ['basho'],
     meanings: ['place', 'location']
@@ -438,7 +438,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v49',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '機会',
     readings: ['kikai'],
     meanings: ['opportunity']
@@ -447,7 +447,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v50',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: 'チャンス',
     readings: ['chansu'],
     meanings: ['chance']
@@ -456,7 +456,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v51',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '景色',
     readings: ['keshiki'],
     meanings: ['view', 'landscape']
@@ -465,7 +465,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-v52',
     lessonNumber: 4,
     type: 'vocabulary',
-    level: 2,
+    level: 4,
     character: '環境',
     readings: ['kankyou'],
     meanings: ['environment']
@@ -476,7 +476,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-g1',
     lessonNumber: 4,
     type: 'grammar',
-    level: 2,
+    level: 4,
     character: '〜んです (Explanation)',
     readings: ['~ n desu'],
     meanings: ['It is that... (Explanatory/Seeking info)'],
@@ -490,7 +490,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-g2',
     lessonNumber: 4,
     type: 'grammar',
-    level: 2,
+    level: 4,
     character: '〜て いただけませんか',
     readings: ['~te itadakemasen ka'],
     meanings: ['Could you please [Verb]? (Polite Request)'],
@@ -503,7 +503,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-g3',
     lessonNumber: 4,
     type: 'grammar',
-    level: 2,
+    level: 4,
     character: '〜すぎます',
     readings: ['~ sugimasu'],
     meanings: ['Too much / Excessively'],
@@ -516,7 +516,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-g4',
     lessonNumber: 4,
     type: 'grammar',
-    level: 2,
+    level: 4,
     character: '〜やすい / 〜にくい',
     readings: ['~ yasui / ~ nikui'],
     meanings: ['Easy to do / Hard to do'],
@@ -532,7 +532,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-d1',
     lessonNumber: 4,
     type: 'dokkai',
-    level: 2,
+    level: 4,
     readings: [],
     character: '私の 出身',
     meanings: ['My Hometown'],
@@ -550,7 +550,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-d2',
     lessonNumber: 4,
     type: 'dokkai',
-    level: 2,
+    level: 4,
     readings: [],
     character: '説明を お願いします',
     meanings: ['Please Explain'],
@@ -568,7 +568,7 @@ export const n4chapter4: Item[] = [
     id: 'tr4-ch4-d3',
     lessonNumber: 4,
     type: 'dokkai',
-    level: 2,
+    level: 4,
     readings: [],
     character: '忙しすぎます',
     meanings: ['Too Busy'],
@@ -590,7 +590,7 @@ export const n4chapter4: Item[] = [
     character: '安',
     readings: ["あん","やすい","やすまる","やす","やすらか"],
     meanings: ["Relax","Cheap","Low","Quiet","Rested","Contented","Peaceful"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 6'
   },
 {
@@ -599,7 +599,7 @@ export const n4chapter4: Item[] = [
     character: '院',
     readings: ["いん"],
     meanings: ["Inst.","Institution","Temple","Mansion","School"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 10'
   },
 {
@@ -608,7 +608,7 @@ export const n4chapter4: Item[] = [
     character: '心',
     readings: ["しん","こころ","ごころ"],
     meanings: ["Heart","Mind","Spirit","Heart Radical (no. 61)"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 4'
   },
 {
@@ -617,7 +617,7 @@ export const n4chapter4: Item[] = [
     character: '界',
     readings: ["かい"],
     meanings: ["World","Boundary"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 9'
   },
 {
@@ -626,7 +626,7 @@ export const n4chapter4: Item[] = [
     character: '教',
     readings: ["きょう","おしえる","おそわる"],
     meanings: ["Teach","Faith","Doctrine"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 11'
   },
 {
@@ -635,7 +635,7 @@ export const n4chapter4: Item[] = [
     character: '文',
     readings: ["ぶん","もん","ふみ","あや"],
     meanings: ["Sentence","Literature","Style","Art","Decoration","Figures","Plan","Literary Radical (no. 67)"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 4'
   },
 {
@@ -644,7 +644,7 @@ export const n4chapter4: Item[] = [
     character: '元',
     readings: ["げん","がん","もと"],
     meanings: ["Beginning","Former Time","Origin"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 4'
   },
 {
@@ -653,7 +653,7 @@ export const n4chapter4: Item[] = [
     character: '重',
     readings: ["じゅう","ちょう","え","おもい","おもり","おもなう","かさねる","かさなる","おも"],
     meanings: ["Heavy","Important","Esteem","Respect","Heap Up","Pile Up","Nest Of Boxes","-fold"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 9'
   },
 {
@@ -662,7 +662,7 @@ export const n4chapter4: Item[] = [
     character: '近',
     readings: ["きん","こん","ちかい"],
     meanings: ["Near","Early","Akin","Tantamount"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 7'
   },
 {
@@ -671,7 +671,7 @@ export const n4chapter4: Item[] = [
     character: '考',
     readings: ["こう","かんがえる","かんがえ"],
     meanings: ["Consider","Think Over"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 6'
   },
 {
@@ -680,7 +680,7 @@ export const n4chapter4: Item[] = [
     character: '画',
     readings: ["が","かく","え","かい","えがく","かくする","かぎる","はかりごと","はかる"],
     meanings: ["Brush-stroke","Picture"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 8'
   },
 {
@@ -689,7 +689,7 @@ export const n4chapter4: Item[] = [
     character: '海',
     readings: ["かい","うみ"],
     meanings: ["Sea","Ocean"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 9'
   },
 {
@@ -698,7 +698,7 @@ export const n4chapter4: Item[] = [
     character: '売',
     readings: ["ばい","うる","うれる"],
     meanings: ["Sell"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 7'
   },
 {
@@ -707,7 +707,7 @@ export const n4chapter4: Item[] = [
     character: '知',
     readings: ["ち","しる","しらせる"],
     meanings: ["Know","Wisdom"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 8'
   },
 {
@@ -716,7 +716,7 @@ export const n4chapter4: Item[] = [
     character: '道',
     readings: ["どう","とう","みち","いう"],
     meanings: ["Road-way","Street","District","Journey","Course","Moral","Teachings"],
-    level: 2,
+    level: 4,
     explanation: 'Strokes: 12'
   }
 ];

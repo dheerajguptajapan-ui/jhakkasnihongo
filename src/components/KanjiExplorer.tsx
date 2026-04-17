@@ -5,9 +5,19 @@ import { Badge } from './ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { ScrollArea } from './ui/scroll-area';
 import { Furigana } from './Furigana';
-import { motion, AnimatePresence } from 'framer-motion';
+import { StrokeOrder } from './StrokeOrder';
+import { motion } from 'framer-motion';
 import { useAuth } from '../lib/AuthContext';
-import { Sparkles, Book, Layers, Layout as LayoutIcon } from 'lucide-react';
+import { 
+  Sparkles, 
+  Book, 
+  Layers, 
+  Layout as LayoutIcon, 
+  PenTool,
+  Quote,
+  Zap,
+  BookOpen
+} from 'lucide-react';
 
 interface KanjiExplorerProps {
   items: Item[];
@@ -15,138 +25,179 @@ interface KanjiExplorerProps {
 
 export const KanjiExplorer: React.FC<KanjiExplorerProps> = ({ items }) => {
   const { showFurigana } = useAuth();
-  const [selectedKanji, setSelectedKanji] = useState<Item | null>(null);
 
   if (items.length === 0) {
     return (
-      <div className="text-center py-20 bg-white/5 rounded-[2.5rem] border-2 border-dashed border-white/10">
-        <p className="text-gray-400 font-medium text-lg">No kanji found for this level.</p>
+      <div className="text-center py-20 bg-white/5 rounded-sm border-2 border-dashed border-white/10">
+        <p className="text-gray-400 font-black text-sm uppercase tracking-widest">No data synchronized for this level.</p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-      {items.map((kanji, idx) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 pb-12">
+      {items.map((kanji) => (
         <Dialog key={kanji.id}>
           <DialogTrigger
             render={
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ y: -4 }}
                 className="relative group cursor-pointer"
               />
             }
           >
-            <Card className="h-full bg-white/5 border-white/10 hover:border-indigo-500/50 transition-all duration-500 backdrop-blur-xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-4 relative z-10">
-                <div className="text-5xl font-black text-white group-hover:text-indigo-400 transition-colors duration-300">
+            <Card className="h-full bg-card border-border hover:border-primary/40 transition-all duration-300 relative overflow-hidden rounded-sm shadow-sm group">
+              <CardContent className="p-6 flex flex-col items-center text-center space-y-3 relative z-10">
+                <div className="text-5xl font-black text-foreground group-hover:scale-110 transition-transform duration-300">
                   {kanji.character}
                 </div>
                 <div className="space-y-1">
-                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-500 group-hover:text-gray-300 transition-colors">
-                    {kanji.readings.slice(0, 1).join(', ')}
+                  <div className="text-[9px] font-black uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">
+                    {(kanji.kunReadings?.[0] || kanji.onReadings?.[0] || kanji.readings?.[0])}
                   </div>
-                  <div className="text-sm text-indigo-400 font-bold line-clamp-1">
+                  <div className="text-xs text-primary font-black uppercase line-clamp-1 tracking-tight">
                     {kanji.meanings[0]}
                   </div>
                 </div>
               </CardContent>
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-indigo-500/0 group-hover:bg-indigo-500 transition-all duration-500" />
             </Card>
           </DialogTrigger>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col p-0 bg-slate-950 border-white/10 rounded-[3rem] shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-            <DialogHeader className="p-10 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border-b border-white/5 relative">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[100px] -mr-32 -mt-32" />
-              <div className="flex items-center gap-10 relative z-10">
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col p-0 bg-background border-border rounded-sm shadow-2xl">
+            <DialogHeader className="p-8 md:p-12 bg-muted/30 border-b border-border relative">
+              <div className="flex flex-col md:flex-row items-center md:items-end gap-8 relative z-10">
                 <motion.div 
-                  initial={{ rotate: -10, scale: 0.8 }}
-                  animate={{ rotate: 0, scale: 1 }}
-                  className="text-9xl font-black text-white drop-shadow-[0_0_30px_rgba(99,102,241,0.3)]"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  className="text-9xl font-black text-foreground drop-shadow-sm select-none"
                 >
                   {kanji.character}
                 </motion.div>
-                <div className="space-y-4">
-                  <div className="flex gap-2">
-                    <Badge className="bg-indigo-500/20 text-indigo-400 border-indigo-500/30 font-black text-[10px] uppercase tracking-widest px-3 py-1">
-                      N5 Level
+                <div className="space-y-4 flex-1 text-center md:text-left">
+                  <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                    <Badge className="bg-primary/10 text-primary border-primary/20 font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-sm">
+                      JLPT N{kanji.level} Mission
                     </Badge>
-                    <Badge className="bg-white/5 text-gray-400 border-white/10 font-black text-[10px] uppercase tracking-widest px-3 py-1">
-                      Radical: {kanji.radical}
+                    <Badge className="bg-muted text-muted-foreground border-border font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-sm">
+                      Radical: {kanji.radical || 'None'}
                     </Badge>
                   </div>
-                  <DialogTitle className="text-5xl font-black text-white leading-tight">
-                    {kanji.meanings.join(', ')}
+                  <DialogTitle className="text-4xl md:text-5xl font-black text-foreground leading-tight tracking-tighter uppercase">
+                    {kanji.meanings.join(' • ')}
                   </DialogTitle>
                 </div>
               </div>
             </DialogHeader>
-            <ScrollArea className="flex-1 p-10 bg-[#0A0A0F]">
+
+            <ScrollArea className="flex-1 p-8 md:p-12">
               <div className="space-y-12 pb-10">
-                {/* Readings & Combinations */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-2 text-gray-500">
-                      <LayoutIcon size={14} className="text-indigo-400" />
-                      <h3 className="text-[10px] font-black uppercase tracking-[0.2em]">Readings</h3>
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                      {kanji.readings.map((r, i) => (
-                        <Badge key={i} className="bg-white/5 border-white/10 text-white font-bold px-4 py-2 rounded-xl">
-                          {r}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-2 text-gray-500">
-                      <Layers size={14} className="text-purple-400" />
-                      <h3 className="text-[10px] font-black uppercase tracking-[0.2em]">Vocab Fusion</h3>
-                    </div>
-                    <div className="space-y-3">
-                      {kanji.combinations?.map((c, i) => (
-                        <div key={i} className="flex justify-between items-center p-4 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                          <div className="flex flex-col">
-                            <span className="font-black text-white text-lg">{c.word}</span>
-                            <span className="text-xs text-indigo-400 font-bold tracking-widest uppercase">{c.reading}</span>
-                          </div>
-                          <span className="text-gray-400 font-medium">{c.meaning}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                
+                {/* Writing & Reading Core */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                   {/* Writing Engine */}
+                   <div className="space-y-6">
+                      <div className="flex items-center gap-3 text-muted-foreground">
+                        <PenTool size={16} className="text-primary" />
+                        <h3 className="text-[10px] font-black uppercase tracking-[0.3em]">Writing Engine</h3>
+                      </div>
+                      <div className="p-6 bg-muted/20 border border-border rounded-sm flex items-center justify-center min-h-[220px]">
+                        <StrokeOrder character={kanji.character} />
+                      </div>
+                   </div>
+
+                   {/* Phonic Calibration (Readings) */}
+                   <div className="space-y-6">
+                      <div className="flex items-center gap-3 text-muted-foreground">
+                        <Zap size={16} className="text-amber-500" />
+                        <h3 className="text-[10px] font-black uppercase tracking-[0.3em]">Phonic Calibration</h3>
+                      </div>
+                      
+                      <div className="space-y-4">
+                         {/* Kun-yomi */}
+                         <div className="p-5 bg-card border border-border rounded-sm space-y-2">
+                            <p className="text-[9px] font-black text-primary uppercase tracking-widest">KUNYOMI (Native)</p>
+                            <div className="flex flex-wrap gap-2">
+                               {(kanji.kunReadings || []).length > 0 ? (
+                                 kanji.kunReadings?.map((r, i) => (
+                                   <span key={i} className="text-xl font-black text-foreground">{r}</span>
+                                 ))
+                               ) : (
+                                 <span className="text-xs font-bold text-muted-foreground uppercase">None Recorded</span>
+                               )}
+                            </div>
+                         </div>
+                         
+                         {/* On-yomi */}
+                         <div className="p-5 bg-card border border-border rounded-sm space-y-2">
+                            <p className="text-[9px] font-black text-rose-500 uppercase tracking-widest">ONYOMI (Sino)</p>
+                            <div className="flex flex-wrap gap-2">
+                               {(kanji.onReadings || []).length > 0 ? (
+                                 kanji.onReadings?.map((r, i) => (
+                                   <span key={i} className="text-xl font-black text-foreground">{r}</span>
+                                 ))
+                               ) : (
+                                 <span className="text-xs font-bold text-muted-foreground uppercase">None Recorded</span>
+                               )}
+                            </div>
+                         </div>
+                      </div>
+                   </div>
                 </div>
 
-                {/* Mnemonic */}
+                {/* Vocab Fusion (Jukugo) */}
                 <div className="space-y-6">
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <Sparkles size={14} className="text-amber-400" />
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.2em]">Memory Prism (Mnemonic)</h3>
+                  <div className="flex items-center gap-3 text-muted-foreground">
+                    <Layers size={16} className="text-indigo-400" />
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em]">Vocab Fusion (Jukugo)</h3>
                   </div>
-                  <p className="text-gray-300 leading-relaxed text-xl bg-gradient-to-r from-amber-500/5 to-transparent p-8 rounded-3xl border border-amber-500/10 italic">
-                    {kanji.mnemonic}
-                  </p>
-                </div>
-
-                {/* Sentences */}
-                <div className="space-y-6">
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <Book size={14} className="text-emerald-400" />
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.2em]">Example Resonance</h3>
-                  </div>
-                  <div className="space-y-4">
-                    {kanji.sentences?.map((s, i) => (
-                      <div key={i} className="p-6 bg-white/[0.02] rounded-[1.5rem] border border-white/5 space-y-2 group/s">
-                        <div className="text-2xl font-bold text-white group-hover/s:text-indigo-400 transition-colors">
-                          <Furigana text={s.furigana || s.japanese} show={showFurigana} />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {(kanji.jukugo || kanji.combinations)?.map((c, i) => (
+                      <div key={i} className="flex justify-between items-center p-5 bg-card border border-border rounded-sm hover:border-primary/20 transition-colors group/item">
+                        <div className="flex flex-col gap-1">
+                          <span className="font-black text-foreground text-2xl group-hover/item:text-primary transition-colors">{c.word}</span>
+                          <span className="text-[10px] text-muted-foreground font-black tracking-[0.2em] uppercase">{c.reading}</span>
                         </div>
-                        <p className="text-sm text-gray-500 font-medium border-l-2 border-indigo-500/30 pl-4 italic">{s.english}</p>
+                        <span className="text-xs font-bold text-muted-foreground uppercase tracking-tight text-right max-w-[50%]">{c.meaning}</span>
                       </div>
                     ))}
                   </div>
                 </div>
+
+                {/* Example Resonance (Sentences) */}
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3 text-muted-foreground">
+                    <BookOpen size={16} className="text-emerald-500" />
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em]">Context Resonance</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {kanji.sentences?.map((s, i) => (
+                      <div key={i} className="p-8 bg-muted/10 border border-border rounded-sm space-y-4 relative overflow-hidden group/s">
+                        <Quote className="absolute -top-2 -left-2 text-primary opacity-5 group-hover/s:opacity-10" size={80} />
+                        <div className="text-3xl font-bold text-foreground relative z-10 leading-relaxed">
+                          <Furigana text={s.furigana || s.japanese} show={showFurigana} />
+                        </div>
+                        <div className="flex gap-4 items-center relative z-10 pt-2">
+                           <div className="w-8 h-[2px] bg-primary/30" />
+                           <p className="text-sm font-bold text-muted-foreground italic uppercase tracking-tight">{s.english}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Mnemonic Segment */}
+                {kanji.mnemonic && (
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <Sparkles size={16} className="text-amber-500" />
+                      <h3 className="text-[10px] font-black uppercase tracking-[0.3em]">Memory Calibration</h3>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed text-lg bg-muted/20 p-8 rounded-sm border-l-4 border-amber-500 italic">
+                      {kanji.mnemonic}
+                    </p>
+                  </div>
+                )}
               </div>
             </ScrollArea>
           </DialogContent>
@@ -155,4 +206,3 @@ export const KanjiExplorer: React.FC<KanjiExplorerProps> = ({ items }) => {
     </div>
   );
 };
-

@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../lib/AuthContext';
 import { PersistenceService } from '../lib/services/PersistenceService';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Switch } from './ui/switch';
 import { Label } from './ui/label';
-import { Download, Upload, Moon, Sun, Monitor, ShieldCheck, Database, Trash2, Type, RefreshCcw } from 'lucide-react';
+import { 
+  Download, 
+  Upload, 
+  Moon, 
+  Sun, 
+  Monitor, 
+  ShieldCheck, 
+  Database, 
+  Trash2, 
+  Type, 
+  RefreshCcw,
+  Camera,
+  BookOpen,
+  User,
+  Star,
+  MessageSquare,
+  Zap,
+  CheckCircle2
+} from 'lucide-react';
 import { toast } from 'sonner';
 import { Slider } from './ui/slider';
 import { CurriculumSyncService } from '../lib/services/CurriculumSyncService';
+import { UserFeedback } from '../types';
 
 export const SettingsView: React.FC = () => {
-  const { settings, updateSettings, profile } = useAuth();
+  const { settings, updateSettings, profile, logout } = useAuth();
+  const [feedbackText, setFeedbackText] = useState('');
+  const [feedbackRating, setFeedbackRating] = useState(5);
+  const [feedbackCategory, setFeedbackCategory] = useState<'bug' | 'feature' | 'praise' | 'other'>('praise');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleExport = async () => {
     try {
@@ -54,170 +76,276 @@ export const SettingsView: React.FC = () => {
     }
   };
 
+  const submitFeedback = async () => {
+    if (!feedbackText.trim()) {
+      toast.error("Please enter your feedback text.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    const feedback: UserFeedback = {
+      id: Math.random().toString(36).substr(2, 9),
+      userId: profile?.uid || 'guest',
+      userName: profile?.displayName || 'Guest',
+      text: feedbackText,
+      rating: feedbackRating,
+      category: feedbackCategory,
+      appVersion: '3.0.0',
+      currentLevel: profile?.level || 5,
+      timestamp: new Date().toISOString(),
+      isResolved: false
+    };
+
+    try {
+      await PersistenceService.saveFeedback(feedback);
+      toast.success("Feedback Logged to Secure Feed!");
+      setFeedbackText('');
+      setFeedbackRating(5);
+      setFeedbackCategory('praise');
+    } catch (e) {
+      toast.error("Feedback transmission failed.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="max-w-3xl mx-auto p-6 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="flex flex-col gap-2">
-        <h2 className="text-3xl font-black text-slate-800 dark:text-white uppercase tracking-tight">Settings</h2>
-        <p className="text-slate-500 dark:text-slate-400 font-medium">Manage your offline learning experience.</p>
+    <div className="max-w-4xl mx-auto py-8 px-4 space-y-12 animate-in fade-in duration-500 pb-20">
+      <div className="flex flex-col gap-2 border-l-4 border-primary pl-6">
+        <h2 className="text-4xl font-black text-foreground uppercase tracking-tighter italic">JHAKKAS <span className="text-primary NOT-italic">SETTINGS</span></h2>
+        <p className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.4em]">Personal Preference Sector</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Appearance */}
-        <Card className="border-none shadow-xl shadow-slate-100 dark:shadow-none dark:bg-slate-900 rounded-3xl overflow-hidden">
-          <CardHeader className="bg-sky-600 p-6 text-white">
-            <CardTitle className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
-              <Sun className="w-4 h-4" />
-              Appearance
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-6 space-y-6">
-            <div className="space-y-4">
-              <Label className="text-xs font-black text-slate-400 uppercase tracking-widest">Theme Mode</Label>
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  { id: 'light', icon: Sun, label: 'Light' },
-                  { id: 'dark', icon: Moon, label: 'Dark' },
-                  { id: 'system', icon: Monitor, label: 'Auto' }
-                ].map((t) => (
-                  <Button
-                    key={t.id}
-                    variant={settings.theme === t.id ? 'default' : 'outline'}
-                    className={`h-20 flex-col gap-2 rounded-2xl ${
-                      settings.theme === t.id ? 'bg-sky-600 text-white' : 'border-slate-100 dark:border-slate-800'
-                    }`}
-                    onClick={() => updateSettings({ theme: t.id as any })}
-                  >
-                    <t.icon className="w-5 h-5" />
-                    <span className="text-[10px] font-black uppercase">{t.label}</span>
-                  </Button>
-                ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Core Controls */}
+        <div className="space-y-8">
+            <div className="bg-card border border-border rounded-sm overflow-hidden shadow-sm">
+              <div className="bg-primary p-6 flex items-center justify-between">
+                <h3 className="text-xs font-black uppercase tracking-[0.3em] text-white">Interface Scaling</h3>
+                <Type className="w-4 h-4 text-white" />
               </div>
+                <div className="p-8 space-y-8">
+                    <div className="space-y-6">
+                        <div className="flex justify-between items-center">
+                            <Label className="text-sm font-black uppercase tracking-tight text-foreground">Global Scaling</Label>
+                            <span className="text-[10px] font-black font-mono bg-primary text-white px-2 py-0.5 rounded-sm">
+                                {Math.round(settings.fontScale * 100)}%
+                            </span>
+                        </div>
+                        <Slider
+                            value={[settings.fontScale]}
+                            min={0.6}
+                            max={1.4}
+                            step={0.05}
+                            onValueChange={([val]) => updateSettings({ fontScale: val })}
+                        />
+                        
+                        {/* Live Preview */}
+                        <div className="p-4 bg-muted/30 rounded-sm border border-border/50 space-y-2">
+                             <p className="text-[8px] font-black uppercase text-muted-foreground tracking-widest">Live Preview</p>
+                             <div className="p-3 bg-card border border-border rounded-sm overflow-hidden text-center">
+                                <p style={{ fontSize: `${24 * settings.fontScale}px` }} className="font-black text-foreground leading-tight transition-all duration-300">
+                                    日本語の勉強。
+                                </p>
+                                <p style={{ fontSize: `${12 * settings.fontScale}px` }} className="text-muted-foreground font-bold mt-1 transition-all duration-300">
+                                    Studying Japanese.
+                                </p>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-6 border-t border-border">
+                        <div className="space-y-1">
+                            <Label className="text-sm font-black uppercase tracking-tight text-foreground">Global Furigana</Label>
+                            <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Secure linking assistance</p>
+                        </div>
+                        <Switch 
+                            checked={settings.showFurigana}
+                            onCheckedChange={(val) => updateSettings({ showFurigana: val })}
+                        />
+                    </div>
+                </div>
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
-              <div className="space-y-0.5">
-                <Label className="text-sm font-bold">Show Furigana</Label>
-                <p className="text-xs text-slate-500">Always show readings above Kanji</p>
-              </div>
-              <Switch 
-                checked={settings.showFurigana}
-                onCheckedChange={(val) => updateSettings({ showFurigana: val })}
-              />
+            <div className="bg-card border border-border rounded-sm overflow-hidden shadow-sm">
+                <div className="bg-foreground p-6 flex items-center justify-between">
+                    <h3 className="text-xs font-black uppercase tracking-[0.3em] text-background">App Updates</h3>
+                    <RefreshCcw className="w-4 h-4 text-background" />
+                </div>
+                <div className="p-8 space-y-6">
+                    <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest leading-relaxed">
+                        Update the lexical matrix from the primary GitHub repository.
+                    </p>
+                    <Button 
+                        onClick={async () => {
+                            const syncPromise = CurriculumSyncService.syncWithGitHub();
+                            toast.promise(syncPromise, {
+                                loading: 'Initiating Global Sync...',
+                                success: (res) => res ? 'Curriculum Synchronized!' : 'No new updates.',
+                                error: 'Sync Interrupted.'
+                            });
+                            if (await syncPromise) {
+                                setTimeout(() => window.location.reload(), 1500);
+                            }
+                        }}
+                        className="w-full bg-primary text-white h-14 rounded-sm font-black text-xs uppercase tracking-[0.3em] shadow-xl shadow-primary/20"
+                    >
+                        INITIATE GLOBAL SYNC
+                    </Button>
+                </div>
             </div>
+        </div>
 
-            <div className="space-y-4 pt-4 border-t border-slate-50 dark:border-slate-800">
-              <div className="flex justify-between items-center">
-                <Label className="text-sm font-bold flex items-center gap-2">
-                  <Type className="w-4 h-4 text-sky-500" />
-                  UI Scaling
-                </Label>
-                <span className="text-[10px] font-black font-mono bg-sky-50 dark:bg-sky-900/30 px-2 py-0.5 rounded text-sky-600">
-                  {Math.round(settings.fontScale * 100)}%
-                </span>
-              </div>
-              <Slider
-                value={[settings.fontScale]}
-                min={0.6}
-                max={1.4}
-                step={0.05}
-                onValueChange={([val]) => updateSettings({ fontScale: val })}
-                className="py-4"
-              />
-              <p className="text-[10px] text-slate-500 italic">Adjust text size for optimal mobile density.</p>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Data Management */}
-        <Card className="border-none shadow-xl shadow-slate-100 dark:shadow-none dark:bg-slate-900 rounded-3xl overflow-hidden">
-          <CardHeader className="bg-emerald-600 p-6 text-white">
-            <CardTitle className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
-              <Database className="w-4 h-4" />
-              Data & Backup
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-6 space-y-6">
-            <div className="space-y-3">
-              <p className="text-xs text-slate-500 font-medium">Export your data to a JSON file to transfer it to a new device.</p>
-              <Button 
-                onClick={handleExport}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 h-12 rounded-2xl font-bold gap-2"
-              >
-                <Download className="w-4 h-4" />
-                Backup Progress
-              </Button>
-            </div>
-
-            <div className="space-y-3 pt-6 border-t border-slate-50 dark:border-slate-800">
-              <p className="text-xs text-slate-500 font-medium">Restore from a previously saved backup file.</p>
-              <div className="relative">
-                <input
-                  type="file"
-                  accept=".json"
-                  onChange={handleImport}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                />
-                <Button variant="outline" className="w-full h-12 rounded-2xl font-bold gap-2 border-slate-200 dark:border-slate-800">
-                  <Upload className="w-4 h-4" />
-                  Restore Progress
-                </Button>
-              </div>
-            </div>
-
-            <div className="space-y-3 pt-6 border-t border-slate-50 dark:border-slate-800">
-              <Label className="text-xs font-black text-slate-400 uppercase tracking-widest">Global Curriculum</Label>
-              <Button 
-                onClick={async () => {
-                  const syncPromise = CurriculumSyncService.syncWithGitHub();
-                  toast.promise(syncPromise, {
-                    loading: 'Syncing Lexical Matrix from GitHub...',
-                    success: (res) => res ? 'Curriculum Synchronized!' : 'No new updates found.',
-                    error: 'Connection Lost or Repo Private.'
-                  });
-                  if (await syncPromise) {
-                    setTimeout(() => window.location.reload(), 1500);
-                  }
-                }}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 h-12 rounded-2xl font-bold gap-2 text-white shadow-lg shadow-indigo-500/20"
-              >
-                <RefreshCcw className="w-4 h-4" />
-                Update Content
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Account / Dangerous Space */}
-      <Card className="border-none shadow-xl shadow-slate-100 dark:shadow-none dark:bg-slate-900 rounded-3xl overflow-hidden">
-        <CardContent className="p-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center text-sky-600">
-                <ShieldCheck className="w-8 h-8" />
-              </div>
-              <div>
-                <p className="text-sm font-black uppercase tracking-widest text-slate-400">Current User</p>
-                <p className="text-xl font-black text-slate-800 dark:text-white">{profile?.displayName}</p>
-              </div>
+        {/* Core Review Loop (Feedback) */}
+        <div className="bg-card border-2 border-primary/20 rounded-sm overflow-hidden shadow-2xl">
+            <div className="bg-primary/5 p-6 border-b border-primary/10 flex items-center justify-between">
+                <div className="space-y-1">
+                    <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary">Service Feedback</h3>
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Report bugs or give praise</p>
+                </div>
+                <MessageSquare className="w-5 h-5 text-primary animate-pulse" />
             </div>
             
-            <div className="flex gap-4">
-              <Button 
-                variant="destructive" 
-                onClick={clearProgress}
-                className="h-12 px-6 rounded-2xl font-bold gap-2 bg-rose-500 hover:bg-rose-600"
-              >
-                <Trash2 className="w-4 h-4" />
-                Wipe All Data
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+            <div className="p-8 space-y-6">
+                <div className="space-y-3">
+                    <Label className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Sentiment Rating</Label>
+                    <div className="flex gap-2 justify-center py-2 bg-muted/20 rounded-sm">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                            <button
+                                key={star}
+                                onClick={() => setFeedbackRating(star)}
+                                className={`transition-all duration-300 transform ${feedbackRating >= star ? 'scale-125' : 'scale-100 opacity-40'}`}
+                            >
+                                <Zap className={`w-8 h-8 ${feedbackRating >= star ? 'text-primary fill-primary' : 'text-muted-foreground'}`} />
+                            </button>
+                        ))}
+                    </div>
+                </div>
 
-      <div className="text-center">
-        <p className="text-[10px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-[0.4em]">jhakkasnihongo v2.2.0 (Neural Link Mastery)</p>
+                <div className="space-y-3">
+                    <Label className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Intel Category</Label>
+                    <div className="grid grid-cols-2 gap-2">
+                        {['praise', 'bug', 'feature', 'other'].map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => setFeedbackCategory(cat as any)}
+                                className={`h-10 rounded-sm border-2 text-[10px] font-black uppercase tracking-widest transition-all ${
+                                    feedbackCategory === cat 
+                                    ? 'bg-primary border-primary text-white shadow-lg' 
+                                    : 'border-border text-muted-foreground hover:border-primary/50'
+                                }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="space-y-3">
+                    <Label className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Your Message</Label>
+                    <textarea 
+                        value={feedbackText}
+                        onChange={(e) => setFeedbackText(e.target.value)}
+                        placeholder="Tell us what you think..."
+                        className="w-full h-32 bg-muted/30 border-2 border-border p-4 rounded-sm text-xs font-bold text-foreground focus:border-primary outline-none transition-all placeholder:text-muted-foreground/50 resize-none"
+                    />
+                </div>
+
+                <Button 
+                    onClick={submitFeedback}
+                    disabled={isSubmitting}
+                    className="w-full h-16 bg-primary text-white rounded-sm font-black text-xs uppercase tracking-[0.4em] shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
+                >
+                    {isSubmitting ? 'TRANSMITTING...' : 'EXECUTE SUBMISSION'}
+                </Button>
+            </div>
+        </div>
+      </div>
+
+      {/* Account / Configuration */}
+      <div className="bg-card border-l-4 border-rose-600 rounded-sm p-10 flex flex-col md:flex-row justify-between items-center gap-8 shadow-xl">
+        <div className="flex items-center gap-6">
+            <div className="relative group">
+                <div className="w-20 h-20 rounded-sm bg-muted flex items-center justify-center text-muted-foreground border border-border overflow-hidden">
+                    {profile?.photoURL ? (
+                        <img src={profile.photoURL} alt="Profile" className="w-full h-full object-cover" />
+                    ) : (
+                        <User className="w-10 h-10" />
+                    )}
+                </div>
+                <label className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity">
+                    <Camera className="w-5 h-5 text-white" />
+                    <input type="file" accept="image/*" className="hidden" onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = (event) => {
+                                const base64 = event.target?.result as string;
+                                PersistenceService.getUserProfile().then(p => {
+                                    if (p) PersistenceService.saveUserProfile({ ...p, photoURL: base64 }).then(() => {
+                                        toast.success('Avatar Sync Complete');
+                                        setTimeout(() => window.location.reload(), 500);
+                                    });
+                                });
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    }} />
+                </label>
+            </div>
+            <div>
+                <p className="text-[9px] font-black uppercase tracking-[0.4em] text-muted-foreground">User Identity</p>
+                <div className="flex items-center gap-4">
+                    <p className="text-3xl font-black text-foreground uppercase tracking-tight">{profile?.displayName}</p>
+                    <div className="px-2 py-0.5 bg-rose-600 text-white text-[8px] font-black uppercase rounded-sm">
+                        {profile?.role === 'admin' ? 'ARCHITECT' : 'PILOT'}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div className="flex gap-4">
+            <div className="bg-card border border-border rounded-sm p-4 hidden md:flex items-center gap-4 shadow-sm">
+                <div className="space-y-1">
+                    <p className="text-[8px] font-black text-muted-foreground uppercase tracking-widest">Data Flux</p>
+                    <div className="flex gap-2">
+                        <Button 
+                            onClick={handleExport}
+                            size="sm"
+                            className="bg-muted hover:bg-muted/80 text-foreground text-[8px] font-black px-4"
+                        >
+                            EXPORT
+                        </Button>
+                        <Button 
+                            size="sm"
+                            className="bg-muted hover:bg-muted/80 text-foreground text-[8px] font-black px-4 relative overflow-hidden"
+                        >
+                            IMPORT
+                            <input type="file" accept=".json" onChange={handleImport} className="absolute inset-0 opacity-0 cursor-pointer" />
+                        </Button>
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-col gap-2">
+                <Button 
+                    onClick={logout}
+                    className="h-12 px-8 rounded-sm font-black bg-foreground text-background hover:bg-primary hover:text-white transition-all uppercase tracking-[0.2em] text-[10px] shadow-lg active:scale-95"
+                >
+                    DISCONNECT
+                </Button>
+                <Button 
+                    variant="destructive" 
+                    onClick={clearProgress}
+                    className="h-10 px-6 rounded-sm font-black bg-rose-600 hover:bg-rose-700 text-white uppercase tracking-[0.2em] text-[10px]"
+                >
+                    PURGE DATA
+                </Button>
+            </div>
+        </div>
+      </div>
+
+      <div className="text-center pt-8 border-t border-border">
+        <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.5em] opacity-40 italic">JHAKKASNIHONGO V3.0.0 // SIMPLE EDITION</p>
       </div>
     </div>
   );

@@ -1,9 +1,15 @@
 export type ItemType = 'radical' | 'kanji' | 'vocabulary' | 'grammar' | 'dokkai';
 
+export interface TextSegment {
+  text: string;
+  reading: string | null;
+}
+
 export interface Sentence {
-  japanese: string;
+  japanese: string | TextSegment[];
   english: string;
-  furigana?: string; // Format: "漢字[かんじ]"
+  furigana?: string;
+  segments?: TextSegment[];
 }
 
 export interface GrammarPoint {
@@ -12,13 +18,13 @@ export interface GrammarPoint {
   meaning: string;
   explanation: string;
   examples: Sentence[];
-  level: number; // 1 for N5, 2 for N4, etc.
+  level: number;
 }
 
 export interface DokkaiPassage {
   id: string;
   title: string;
-  content: string; // Furigana format supported
+  content: string | TextSegment[];
   translation: string;
   questions: {
     question: string;
@@ -28,10 +34,25 @@ export interface DokkaiPassage {
   level: number;
 }
 
-export interface DokkaiQuestion {
-  question: string;
-  options: string[];
-  answerIndex: number;
+export interface UserProfile {
+  uid: string;
+  displayName: string;
+  level: number;
+  xp: number;
+  isPremium?: boolean;
+  synapticStability: number;
+  linkQuality: number;
+  dailyGoal: number;
+  enrolledLevels: number[]; // List of JLPT levels (1-5) currently tracked
+  joinedAt: string;
+  dailySyncHistory: {
+    [date: string]: {
+      lessons: number;
+      reviews: number;
+    }
+  };
+  role?: 'user' | 'admin';
+  photoURL?: string;
 }
 
 export interface Item {
@@ -40,30 +61,22 @@ export interface Item {
   character: string;
   meanings: string[];
   readings?: string[];
+  kunReadings?: string[];
+  onReadings?: string[];
   level: number;
   mnemonic?: string;
   radical?: string;
   sentences?: Sentence[];
   combinations?: { word: string; reading: string; meaning: string }[];
+  jukugo?: { word: string; reading: string; meaning: string }[];
   dayToDayUses?: string[];
   // For Grammar/Dokkai specific fields
   explanation?: string;
-  content?: string;
+  content?: string | TextSegment[];
   translation?: string;
-  questions?: DokkaiQuestion[];
+  questions?: any[];
   lessonNumber?: number;
-}
-
-
-export interface UserProfile {
-  uid: string;
-  displayName: string;
-  level: number;
-  xp: number;
-  synapticStability: number; // For Neural Link: Replaces XP/Level in UI
-  linkQuality: number;       // For Neural Link: 0.1% style naming
-  joinedAt?: any;
-  role?: 'user' | 'admin';
+  segments?: TextSegment[];
 }
 
 export interface UserItem {
@@ -81,19 +94,19 @@ export interface UserItem {
 
 export const SRS_INTERVALS = [
   0, // Lesson (not started)
-  4 * 60 * 60 * 1000, // Apprentice 1: 4 hours
-  8 * 60 * 60 * 1000, // Apprentice 2: 8 hours
-  23 * 60 * 60 * 1000, // Apprentice 3: 23 hours
-  47 * 60 * 60 * 1000, // Apprentice 4: 47 hours
-  7 * 24 * 60 * 60 * 1000, // Guru 1: 1 week
-  14 * 24 * 60 * 60 * 1000, // Guru 2: 2 weeks
-  30 * 24 * 60 * 60 * 1000, // Master: 1 month
-  120 * 24 * 60 * 60 * 1000, // Enlightened: 4 months
-  -1, // Burned
+  4 * 60 * 60 * 1000,
+  8 * 60 * 60 * 1000,
+  23 * 60 * 60 * 1000,
+  47 * 60 * 60 * 1000,
+  7 * 24 * 60 * 60 * 1000,
+  14 * 24 * 60 * 60 * 1000,
+  30 * 24 * 60 * 60 * 1000,
+  120 * 24 * 60 * 60 * 1000,
+  -1,
 ];
 
-export const SRS_STAGES_NAMES = [
-  "Lesson",
+export const SRS_STAGE_NAMES = [
+  "New",
   "Apprentice I",
   "Apprentice II",
   "Apprentice III",
@@ -104,3 +117,34 @@ export const SRS_STAGES_NAMES = [
   "Enlightened",
   "Burned"
 ];
+
+export interface UserFeedback {
+  id: string;
+  userId: string;
+  userName: string;
+  text: string;
+  rating: number; // 1-5
+  category: 'bug' | 'feature' | 'praise' | 'other';
+  appVersion: string;
+  currentLevel: number;
+  timestamp: string;
+  isResolved: boolean;
+}
+
+export interface UserAccount {
+  uid: string;
+  email: string;
+  passwordHash: string;
+  name: string;
+  role: 'user' | 'admin';
+  createdAt: string;
+  lastLoginAt: string;
+}
+
+export interface UserSession {
+  uid: string;
+  email: string;
+  name: string;
+  role: 'user' | 'admin';
+  sealedAt: string;
+}

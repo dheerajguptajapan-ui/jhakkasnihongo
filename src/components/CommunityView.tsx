@@ -106,13 +106,11 @@ export const CommunityView: React.FC = () => {
             
             <div className="flex flex-col items-center md:items-end gap-3 w-full md:w-auto">
               <Button 
-                render={
-                  <a href="https://github.com/dheerajguptajapan-ui/jhakkasnihongo/releases" target="_blank" rel="noopener noreferrer" />
-                }
+                onClick={() => window.open('https://github.com/dheerajguptajapan-ui/jhakkasnihongo/releases/latest/download/app-debug.apk', '_blank')}
                 className="w-full md:w-auto bg-white text-indigo-900 hover:bg-indigo-50 h-14 px-8 rounded-2xl font-black gap-2 transition-transform active:scale-95"
               >
                 <Download className="w-5 h-5" />
-                Download APK (v1.0.0)
+                Download APK (Latest)
               </Button>
               <p className="text-[10px] text-indigo-300 font-bold uppercase tracking-widest text-center md:text-right">
                 Note: "Install from Unknown Sources" must be enabled.

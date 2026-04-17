@@ -1,7 +1,7 @@
 # 🧠 Jhakkas Nihongo: Neural Link
 
 ![Jhakkas Nihongo](https://img.shields.io/badge/Status-Elite_Release-6366f1?style=for-the-badge&logo=dna)
-![Version](https://img.shields.io/badge/Version-2.1.0-emerald?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-3.1.0-emerald?style=for-the-badge)
 ![License](https://img.shields.io/badge/Platform-Android%20%7C%20Web-sky?style=for-the-badge)
 
 Jhakkas Nihongo is a **premium, high-performance** Japanese language learning platform built for serious students. Featuring an elite modular curriculum, scientifically-optimized spaced repetition (SM-2), and a deep-immersion "Tokyo Midnight" cyberpunk interface.
@@ -12,7 +12,7 @@ Jhakkas Nihongo is a **premium, high-performance** Japanese language learning pl
 
 Access your learning nexus anywhere with the official Android application.
 
-[**⬇️ Download Jhakkas Nihongo APK (v2.1.0)**](https://github.com/dheerajguptajapan-ui/jhakkasnihongo/releases/latest/download/app-debug.apk)
+[**⬇️ Download Jhakkas Nihongo APK (v3.1.0)**](https://github.com/dheerajguptajapan-ui/jhakkasnihongo/releases/latest/download/app-debug.apk)
 
 > [!TIP]
 > You may need to enable "Install from Unknown Sources" in your device settings to install this APK.
@@ -42,3 +42,4 @@ Access your learning nexus anywhere with the official Android application.
 ---
 
 Developed with absolute precision using the **Elite Overhaul** strategy.
+

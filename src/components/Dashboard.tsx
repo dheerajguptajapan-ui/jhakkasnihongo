@@ -1,273 +1,274 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../lib/AuthContext';
-import { getAllItems } from '../lib/curriculum';
-import { Item, UserItem, SRS_STAGES_NAMES } from '../types';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Button } from './ui/button';
-import { Progress } from './ui/progress';
-import { BookOpen, GraduationCap, Trophy, BarChart3, Zap, Flame, Target } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
-import { KanjiExplorer } from './KanjiExplorer';
+import { useI18n } from '../lib/i18n';
 import { PersistenceService } from '../lib/services/PersistenceService';
+import { getAllItems } from '../lib/curriculum';
+import { Item, UserItem } from '../types';
+import { Card, CardContent } from './ui/card';
+import { Button } from './ui/button';
+import { ProgressCharts } from './ProgressCharts';
+import { motion } from 'motion/react';
+import { 
+  BookOpen, 
+  GraduationCap, 
+  Flame, 
+  Briefcase,
+  UserCheck,
+  Zap,
+  Target,
+  CheckCircle,
+  Layout,
+  BarChart3
+} from 'lucide-react';
+import { DashboardSkeleton } from './DashboardSkeleton';
 
 interface DashboardProps {
   onStartLessons: () => void;
   onStartReviews: () => void;
+  onSelectLevel: (level: number) => void;
 }
 
-export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartReviews }) => {
-  const { user, profile } = useAuth();
+export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartReviews, onSelectLevel }) => {
+  const { user, profile, getTodayProgress, calculateCurrentStreak, getLevelStats } = useAuth();
+  const { t } = useI18n();
+  
+  const [quotes] = useState([
+    "Consistency is the path to mastery.",
+    "Every mission completed strengthens your Core link.",
+    "Focus on the matrix. Mastery is your destination.",
+    "Your synaptic matrix is expanding. Keep pushing.",
+    "Small steps, big impact. Keep learning.",
+    "The best time to practice was yesterday. The second best time is now."
+  ]);
+  const [quote, setQuote] = useState("");
+
+  useEffect(() => {
+    setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+  }, []);
   const [items, setItems] = useState<Item[]>([]);
   const [userItems, setUserItems] = useState<UserItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [levelStats, setLevelStats] = useState<Record<number, { seen: number; total: number; percentage: number }>>({});
 
   useEffect(() => {
     const loadData = async () => {
       if (!user) return;
       setLoading(true);
-
-      // Modular Curriculum Loading
       const allItems = getAllItems();
       const storedUserItems = await PersistenceService.getUserItems();
+      const stats = await getLevelStats();
       
       setItems(allItems);
       setUserItems(storedUserItems);
+      setLevelStats(stats);
       setLoading(false);
     };
-
     loadData();
   }, [user]);
 
   const reviewsAvailable = userItems.filter(ui => {
-    if (ui.srsStage === 0) return false;
-    if (ui.srsStage === 9) return false;
+    if (ui.srsStage === 0 || ui.srsStage === 9) return false;
     if (!ui.nextReviewAt) return true;
     return new Date(ui.nextReviewAt) <= new Date();
   }).length;
 
-  const lessonsAvailable = items.filter(item => 
-    !userItems.find(ui => ui.itemId === item.id) && (item.level || 1) <= (profile?.level || 1)
-  ).length;
+  const srsDistribution = {
+    apprentice: userItems.filter(ui => ui.srsStage >= 1 && ui.srsStage <= 4).length,
+    guru: userItems.filter(ui => ui.srsStage >= 5 && ui.srsStage <= 6).length,
+    master: userItems.filter(ui => ui.srsStage >= 7 && ui.srsStage <= 8).length,
+    burned: userItems.filter(ui => ui.srsStage === 9).length,
+  };
 
-  const srsDistribution = SRS_STAGES_NAMES.map((name, index) => ({
-    name,
-    value: userItems.filter(ui => ui.srsStage === index).length
-  })).filter(d => d.value > 0);
+  const { percentage, total: todayTotal } = getTodayProgress();
+  const streak = calculateCurrentStreak();
 
-  const COLORS = ['#64748b', '#38bdf8', '#0ea5e9', '#6366f1', '#8b5cf6', '#a855f7', '#d946ef', '#ec4899', '#f43f5e', '#ef4444'];
+  const tracks = [
+    { id: 5, label: 'N5', title: 'N5 Foundation', desc: 'Basics of daily Japanese.', icon: <GraduationCap size={24} className="text-blue-500" /> },
+    { id: 4, label: 'N4', title: 'N4 Pre-Int', desc: 'Everyday life communication.', icon: <BookOpen size={24} className="text-emerald-500" /> },
+    { id: 3, label: 'N3', title: 'N3 Intermediate', desc: 'Bridge to advanced fluency.', icon: <Briefcase size={24} className="text-amber-500" /> },
+    { id: 2, label: 'N2', title: 'N2 Pre-Adv', desc: 'Business and specialized topics.', icon: <UserCheck size={24} className="text-fuchsia-500" /> },
+    { id: 1, label: 'N1', title: 'N1 Advanced', desc: 'Polished academic proficiency.', icon: <Zap size={24} className="text-rose-500" /> },
+  ];
 
-  if (loading) return (
-    <div className="flex flex-col items-center justify-center h-[60vh] space-y-4">
-      <div className="w-12 h-12 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
-      <p className="text-gray-500 font-black uppercase tracking-widest text-[10px]">Accessing Core...</p>
-    </div>
-  );
+  if (loading) return <DashboardSkeleton />;
 
   return (
-    <div className="max-w-7xl mx-auto p-6 space-y-12 pb-24">
-      {/* Header Section */}
-      <motion.div 
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
-      >
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-[0_0_20px_rgba(79,70,229,0.3)]">
-              J
-            </div>
-            <h1 className="text-5xl font-black tracking-tighter text-white uppercase">
-              Okaeri, <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">{profile?.displayName}</span>
-            </h1>
-          </div>
-          <p className="text-gray-500 font-medium italic pl-1 flex items-center gap-2">
-             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-             Core systems operational • {items.length} lexical nodes indexed
-          </p>
-        </div>
-        
-        <div className="flex items-center gap-4">
-          <div className="flex flex-col items-end">
-             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-600">Cognitive Load</span>
-             <span className="text-2xl font-black text-white">{Math.round((userItems.length / items.length) * 100)}%</span>
-          </div>
-          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-            <Flame className="text-orange-500" size={24} />
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Action Nodes */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
-          <Card className="h-full bg-white/5 border-white/10 hover:border-indigo-500/30 transition-all duration-500 backdrop-blur-2xl rounded-[2.5rem] relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-[60px] -mr-16 -mt-16 group-hover:bg-indigo-500/20 transition-colors" />
-            <CardHeader className="p-10 pb-0">
-               <div className="flex items-center justify-between mb-8">
-                 <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-xl shadow-indigo-500/20">
-                    <BookOpen size={28} />
-                 </div>
-                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">Node Expansion</span>
-               </div>
-               <div className="space-y-2">
-                 <div className="text-7xl font-black text-white tracking-tighter tabular-nums">{lessonsAvailable}</div>
-                 <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">New Data Fragments</p>
-               </div>
-            </CardHeader>
-            <CardContent className="p-10">
-              <Button 
-                className="w-full bg-indigo-600 hover:bg-indigo-500 h-16 text-lg font-black rounded-3xl shadow-2xl shadow-indigo-500/30 transition-all active:scale-95 group" 
-                disabled={lessonsAvailable === 0}
-                onClick={onStartLessons}
-              >
-                Sync Lessons
-                <Zap className="ml-2 w-5 h-5 group-hover:animate-pulse" />
-              </Button>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
-          <Card className="h-full bg-white/5 border-white/10 hover:border-rose-500/30 transition-all duration-500 backdrop-blur-2xl rounded-[2.5rem] relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-full blur-[60px] -mr-16 -mt-16 group-hover:bg-rose-500/20 transition-colors" />
-            <CardHeader className="p-10 pb-0">
-               <div className="flex items-center justify-between mb-8">
-                 <div className="w-14 h-14 rounded-2xl bg-rose-600 flex items-center justify-center text-white shadow-xl shadow-rose-500/20">
-                    <Target size={28} />
-                 </div>
-                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">Synapse Training</span>
-               </div>
-               <div className="space-y-2">
-                 <div className="text-7xl font-black text-white tracking-tighter tabular-nums">{reviewsAvailable}</div>
-                 <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">Pending Verifications</p>
-               </div>
-            </CardHeader>
-            <CardContent className="p-10">
-              <Button 
-                className="w-full bg-rose-600 hover:bg-rose-50 h-16 text-lg font-black rounded-3xl shadow-2xl shadow-rose-500/30 text-white transition-all active:scale-95" 
-                disabled={reviewsAvailable === 0}
-                onClick={onStartReviews}
-              >
-                Execute Reviews
-              </Button>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-
-      {/* Data Visualization Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <Card className="lg:col-span-2 bg-white/5 border-white/10 backdrop-blur-xl rounded-[2.5rem] overflow-hidden">
-          <CardHeader className="border-b border-white/5 p-8 flex flex-row items-center justify-between">
-            <CardTitle className="flex items-center text-white font-black uppercase tracking-[0.2em] text-xs">
-              <BarChart3 className="w-4 h-4 mr-3 text-indigo-400" />
-              SRS Spectrum Analytics
-            </CardTitle>
-            <Trophy className="text-amber-400" size={18} />
-          </CardHeader>
-          <CardContent className="h-[400px] p-8">
-            {userItems.length > 0 ? (
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={srsDistribution}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={90}
-                    outerRadius={120}
-                    paddingAngle={10}
-                    dataKey="value"
-                    stroke="none"
-                  >
-                    {srsDistribution.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip 
-                    contentStyle={{ backgroundColor: 'rgba(15, 23, 42, 0.9)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}
-                    itemStyle={{ color: '#fff', fontWeight: '900', textTransform: 'uppercase', fontSize: '10px' }}
-                  />
-                  <Legend verticalAlign="bottom" height={36} wrapperStyle={{ paddingTop: '20px', fontSize: '10px', fontWeight: '900', textTransform: 'uppercase' }} />
-                </PieChart>
-              </ResponsiveContainer>
-            ) : (
-              <div className="flex flex-col items-center justify-center h-full text-gray-600 space-y-6">
-                <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center">
-                  <BarChart3 className="w-10 h-10 opacity-20" />
-                </div>
-                <div className="text-center">
-                   <p className="font-black uppercase tracking-[0.3em] text-[10px]">No Neural Data Found</p>
-                   <p className="text-xs mt-2 italic">Begin syncing lessons to generate metrics.</p>
-                </div>
+    <div className="min-h-screen bg-background">
+      {/* SECTION 1: Absolute Black Hero (Chiaroscuro) */}
+      <div className="bg-black text-white p-6 md:p-12 space-y-8 border-b border-white/5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          <div className="lg:col-span-1 space-y-6">
+            <div className="flex flex-col gap-2">
+              <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic">
+                JHAKKAS <span className="text-white NOT-italic">CORE</span>
+              </h1>
+              <p className="text-lg font-black text-primary tracking-[0.2em] uppercase mt-2">
+                WELCOME, {profile?.displayName || 'RECRUIT'}
+              </p>
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <p className="text-[10px] font-black uppercase tracking-[0.5em] opacity-60">SECURE SYNC ACTIVE</p>
               </div>
-            )}
-          </CardContent>
-        </Card>
+            </div>
 
-        <Card className="bg-white/5 border-white/10 backdrop-blur-xl rounded-[2.5rem] overflow-hidden">
-          <CardHeader className="border-b border-white/5 p-8">
-            <CardTitle className="text-white font-black uppercase tracking-[0.2em] text-xs">Pilot Meta-Data</CardTitle>
-          </CardHeader>
-          <CardContent className="p-8 space-y-10">
             <div className="space-y-4">
               <div className="flex justify-between items-end">
-                <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Synaptic Stability</span>
-                <span className="text-sm font-black text-indigo-400">Lv.{profile?.level || 1} • {profile?.linkQuality || 0.1}%</span>
+                <p className="text-[10px] font-black uppercase tracking-widest opacity-60">Session Convergence</p>
+                <span className="text-2xl font-black tabular-nums">{percentage}%</span>
               </div>
-              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="w-full h-1 bg-white/10 rounded-sm overflow-hidden">
                 <motion.div 
                   initial={{ width: 0 }}
-                  animate={{ width: `${(profile?.synapticStability || 0) % 100}%` }}
-                  className="h-full bg-gradient-to-r from-indigo-500 to-cyan-500 shadow-[0_0_10px_rgba(34,211,238,0.5)]" 
+                  animate={{ width: `${Math.min(100, percentage)}%` }}
+                  className="h-full bg-white shadow-[0_0_15px_rgba(255,255,255,0.5)]"
                 />
               </div>
+              <p className="text-[10px] font-bold opacity-40 uppercase tracking-widest">
+                {todayTotal} OBJECTS CACHED / GOAL {profile?.dailyGoal || 20}
+              </p>
             </div>
-            
-            <div className="space-y-6 pt-6 border-t border-white/5">
-              <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em]">Operational Milestones</h4>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-[1.5rem] border border-white/5">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
-                    <Trophy size={18} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-black text-white uppercase tracking-tight">Apprentice I</p>
-                    <p className="text-[10px] text-gray-500 font-bold uppercase mt-0.5 tracking-widest">Base Established</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 p-5 bg-white/[0.02] rounded-[1.5rem] border border-white/5 opacity-40">
-                  <div className="w-10 h-10 rounded-xl bg-gray-500/10 flex items-center justify-center text-gray-500">
-                    <GraduationCap size={18} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-black text-gray-500 uppercase tracking-tight">N5 Certification</p>
-                    <p className="text-[10px] text-gray-600 font-bold uppercase mt-0.5 tracking-widest">Locked</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Kanji Feed */}
-      <section className="space-y-8 pt-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-8 gap-4">
-          <div className="space-y-2">
-            <h2 className="text-4xl font-black text-white uppercase tracking-tighter">
-              N5 <span className="text-indigo-400">Lexicon</span> Collection
-            </h2>
-            <p className="text-gray-500 text-sm font-medium italic">High-frequency ideograms optimized for rapid recognition.</p>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full">
-            <span className="text-indigo-400 font-black text-xs">{items.filter(i => i.type === 'kanji' && i.level === 1).length}</span>
-            <span className="text-[10px] text-gray-500 font-black uppercase tracking-widest">Modules Loaded</span>
+          
+          <div className="lg:col-span-2">
+            <ProgressCharts profile={profile} srsDistribution={srsDistribution} isDark />
           </div>
         </div>
-        <KanjiExplorer items={items.filter(i => i.type === 'kanji' && i.level === 1)} />
-      </section>
+      </div>
+
+      {/* SECTION 2: Pure White Operations (Chiaroscuro) */}
+      <div className="bg-white text-black p-6 md:p-12 border-b border-black/5">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-1">
+              <h2 className="text-2xl font-black uppercase tracking-tight">MISSION STATUS</h2>
+              <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">Sector Performance & Review Protocols</p>
+            </div>
+            
+            <div className="flex gap-4">
+              <div className="px-6 py-3 bg-black text-white rounded-sm">
+                <p className="text-[8px] font-black uppercase tracking-[0.3em] opacity-60">Daily Streak</p>
+                <p className="text-xl font-black">{streak} DAYS</p>
+              </div>
+              <Button 
+                onClick={onStartReviews}
+                disabled={reviewsAvailable === 0}
+                className="h-full px-8 bg-primary rounded-sm font-black text-xs tracking-[0.3em] uppercase"
+              >
+                SYNC REVIEWS ({reviewsAvailable})
+              </Button>
+            </div>
+          </div>
+
+          {/* Level Stats Detail */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {[1,2,3,4,5].reverse().map(l => (
+              <div key={l} className="p-4 bg-muted/50 border border-black/5 rounded-sm space-y-3">
+                <p className="text-[10px] font-black opacity-60">TACTICAL N{l}</p>
+                <div className="h-1 bg-black/5 rounded-sm overflow-hidden">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: `${levelStats[l]?.percentage || 0}%` }}
+                    className="h-full bg-black/20"
+                  />
+                </div>
+                <p className="text-xl font-black tabular-nums">{levelStats[l]?.percentage || 0}%</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* SECTION 3: Absolute Black Hub (Chiaroscuro) */}
+      <div className="bg-black text-white p-6 md:p-12">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="flex items-center justify-between border-b border-white/10 pb-8">
+            <div className="space-y-1">
+              <h2 className="text-3xl font-black uppercase tracking-tighter italic">LEARNING <span className="NOT-italic text-primary">TRACKS</span></h2>
+              <p className="text-[10px] font-black uppercase tracking-[0.4em] opacity-40">Tactical Sector Access</p>
+            </div>
+            <div className="hidden md:block">
+               <p className="text-[8px] font-black uppercase tracking-[0.2em] opacity-30 text-right">REPOSITORY PROTECTED</p>
+               <p className="text-[8px] font-black uppercase tracking-[0.2em] opacity-30 text-right">ENROLLMENT REQUIRED FOR CORE SYNC</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            {tracks.map((track) => {
+              const isEnrolled = profile?.enrolledLevels?.includes(track.id);
+              const stats = levelStats[track.id] || { percentage: 0 };
+              return (
+              <div
+                key={track.id}
+                className={`group relative p-6 rounded-sm bg-card border flex flex-col h-full transition-all hover:border-primary/40 ${
+                    isEnrolled ? 'border-primary shadow-lg' : 'border-border opacity-70 hover:opacity-100'
+                }`}
+              >
+                {isEnrolled && (
+                    <div className="absolute top-4 right-4 text-primary bg-primary/10 p-1.5 ">
+                        <CheckCircle size={14} strokeWidth={3} />
+                    </div>
+                )}
+                <div className={`w-12 h-12 rounded-sm bg-muted flex items-center justify-center mb-4 transition-transform group-hover:scale-110`}>
+                  {track.icon}
+                </div>
+                <h3 className="text-lg font-black uppercase text-foreground leading-tight">{track.title}</h3>
+                
+                {/* Completion Bar */}
+                <div className="mt-2 space-y-1">
+                  <div className="flex justify-between text-[8px] font-black uppercase opacity-60">
+                    <span>Sync Progress</span>
+                    <span>{stats.percentage}%</span>
+                  </div>
+                  <div className="w-full h-1 bg-muted rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: `${stats.percentage}%` }}
+                      className="h-full bg-primary"
+                    />
+                  </div>
+                </div>
+
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground leading-relaxed mt-4 line-clamp-2 min-h-[2.5rem]">{track.desc}</p>
+                
+                <Button 
+                  variant={isEnrolled ? "default" : "outline"}
+                  className={`w-full font-black rounded-sm mt-auto h-10 text-[10px] tracking-widest uppercase shadow-none ${
+                    isEnrolled ? 'bg-primary text-white' : 'border-border text-foreground hover:bg-muted'
+                  }`}
+                  onClick={() => onSelectLevel(track.id)}
+                >
+                  {isEnrolled ? "RESUME MISSION" : "INIT SYNC"}
+                </Button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      </div>
     </div>
   );
 };
 
+const ActionCard = ({ title, subtitle, count, icon, onClick, disabled, statusText = "Available" }: any) => (
+  <button 
+    onClick={onClick}
+    disabled={disabled}
+    className={`group relative p-6 rounded-sm border text-left flex justify-between items-center transition-all ${
+      disabled 
+        ? 'opacity-40 cursor-not-allowed bg-muted/30 border-border' 
+        : 'bg-card border-border hover:border-primary/20 hover:shadow-lg'
+    }`}
+  >
+    <div className="space-y-1">
+      <h3 className="text-sm font-black text-foreground uppercase tracking-[0.2em]">{title}</h3>
+      <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] mb-1">Jhakkas Activity</p>
+      <div className="flex items-end gap-3">
+        <span className="text-4xl font-black tabular-nums">{count}</span>
+        <span className="text-sm font-bold text-muted-foreground uppercase pb-1 tracking-widest">Items SYNCED</span>
+      </div>
+    </div>
+    <div className="w-16 h-16 rounded-sm bg-muted/50 flex items-center justify-center shrink-0 transition-transform group-hover:scale-110">
+      {icon}
+    </div>
+  </button>
+);
