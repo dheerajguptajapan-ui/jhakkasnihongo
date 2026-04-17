@@ -4,7 +4,6 @@ import { useAuth } from './lib/AuthContext';
 import { Dashboard } from './components/Dashboard';
 import { ReviewSession } from './components/ReviewSession';
 import { ItemsView } from './components/ItemsView';
-import { CommunityView } from './components/CommunityView';
 import { SettingsView } from './components/SettingsView';
 import { AdminView } from './components/AdminView';
 import { KanaView } from './components/KanaView';
@@ -43,7 +42,7 @@ export type JLPTSection = 'kanji' | 'vocabulary' | 'grammar' | 'dokkai';
 function App() {
   const { user, profile, loading, settings, updateSettings, getTodayProgress } = useAuth();
   const { t } = useI18n();
-  const [currentTab, setCurrentTab] = useState<'dashboard' | 'items' | 'jlpt' | 'kana' | 'community' | 'settings' | 'admin'>('dashboard');
+  const [currentTab, setCurrentTab] = useState<'dashboard' | 'items' | 'jlpt' | 'kana' | 'settings' | 'admin'>('dashboard');
   const [session, setSession] = useState<{ type: 'review', items: any[] } | null>(null);
   const [mascotState, setMascotState] = useState<'idle' | 'success' | 'error'>('idle');
   const [activeQuiz, setActiveQuiz] = useState<{
@@ -159,7 +158,6 @@ function App() {
         <NavButton active={currentTab === 'dashboard'} onClick={() => setCurrentTab('dashboard')} icon={<Activity />} label={t('hq')} />
         <NavButton active={currentTab === 'kana'} onClick={() => setCurrentTab('kana')} icon={<BookOpen />} label={t('kana')} />
         <NavButton active={currentTab === 'jlpt'} onClick={() => setCurrentTab('jlpt')} icon={<Map />} label="MASTERY HUB" />
-        <NavButton active={currentTab === 'community'} onClick={() => setCurrentTab('community')} icon={<Binary />} label="COMMUNITY" />
         <NavButton active={currentTab === 'items'} onClick={() => setCurrentTab('items')} icon={<SearchIcon />} label={t('search')} />
         
         <div className="w-full h-px bg-border/50 my-2 hidden md:block" />
@@ -259,7 +257,6 @@ function App() {
                 }} 
               />
             )}
-            {currentTab === 'community' && < CommunityView />}
             {currentTab === 'settings' && <SettingsView />}
             {currentTab === 'admin' && <AdminView />}
           </motion.div>

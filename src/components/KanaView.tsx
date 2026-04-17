@@ -107,7 +107,8 @@ export const KanaView: React.FC<KanaViewProps> = ({ onResult }) => {
                       key={i}
                       variant="outline"
                       onClick={() => handleAnswer(opt)}
-                      className="h-14 rounded-sm border-border hover:border-primary hover:bg-primary/5 text-foreground font-black text-xs uppercase tracking-[0.2em] transition-all active:scale-[0.98]"
+                      disabled={feedback !== null}
+                      className="h-14 rounded-sm border-border hover:border-primary hover:bg-primary/5 text-foreground font-black text-xs uppercase tracking-[0.2em] transition-all active:scale-[0.98] disabled:opacity-50"
                     >
                       {opt}
                     </Button>
@@ -127,6 +128,20 @@ export const KanaView: React.FC<KanaViewProps> = ({ onResult }) => {
                 <div className="text-center p-6 bg-background border border-border shadow-2xl rounded-sm">
                    <p className="text-4xl font-black uppercase tracking-tighter text-primary">
                       FAILED
+                   </p>
+                </div>
+              </motion.div>
+            )}
+            {feedback === 'correct' && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 z-10 flex items-center justify-center backdrop-blur-sm bg-emerald-600/5"
+              >
+                <div className="text-center p-6 bg-background border border-border shadow-2xl rounded-sm">
+                   <p className="text-4xl font-black uppercase tracking-tighter text-emerald-500">
+                      SUCCESS
                    </p>
                 </div>
               </motion.div>

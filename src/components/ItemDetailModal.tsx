@@ -37,9 +37,9 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose 
 
   return (
     <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-4xl max-h-[95vh] md:max-h-[90vh] overflow-hidden flex flex-col p-0 bg-background border-border rounded-sm shadow-2xl">
-        <DialogHeader className="p-6 md:p-12 bg-muted/30 border-b border-border relative">
-          <div className="flex flex-col md:flex-row items-center md:items-end gap-8 relative z-10">
+      <DialogContent className="max-w-4xl w-[95vw] md:w-full h-fit max-h-[92vh] md:max-h-[90vh] overflow-hidden flex flex-col p-0 bg-background border-border rounded-sm shadow-2xl focus:outline-none">
+        <DialogHeader className="p-4 md:p-12 bg-muted/30 border-b border-border relative shrink-0">
+          <div className="flex flex-col md:flex-row items-center md:items-end gap-3 md:gap-8 relative z-10">
             <motion.div 
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -69,8 +69,8 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose 
           </div>
         </DialogHeader>
 
-        <ScrollArea className="flex-1 p-6 md:p-12">
-          <div className="space-y-8 md:space-y-12 pb-10">
+        <ScrollArea className="flex-1 px-4 py-6 md:p-12 overscroll-contain">
+          <div className="space-y-8 md:space-y-12 pb-20">
             
             {/* Primary Grid: Readings & Explanation */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
