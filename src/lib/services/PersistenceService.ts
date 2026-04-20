@@ -1,4 +1,4 @@
-import { UserItem, UserProfile } from '../../types';
+import { Item, UserItem, UserProfile } from '../../types';
 import { NativeStorage } from './NativeStorage';
 
 /**
@@ -14,7 +14,8 @@ const STORAGE_KEYS = {
   CURRICULUM_PATCH: 'jhakkas_curriculum_patch',
   FEEDBACK: 'jhakkas_feedback',
   ACCOUNTS: 'jhakkas_accounts_registry',
-  SESSION: 'jhakkas_active_session'
+  SESSION: 'jhakkas_active_session',
+  ITEM_OVERRIDES: 'jhakkas_item_overrides'
 };
 
 export interface AppSettings {
@@ -136,6 +137,16 @@ export const PersistenceService = {
     }
   },
 
+  // --- Remote Curriculum Patch ---
+  async getRemotePatch(): Promise<Item[]> {
+    const data = await NativeStorage.get<Item[]>(STORAGE_KEYS.CURRICULUM_PATCH);
+    return data || [];
+  },
+
+  async setRemotePatch(items: Item[]): Promise<void> {
+    await NativeStorage.set(STORAGE_KEYS.CURRICULUM_PATCH, items);
+  },
+
 
   // --- Feedback ---
   async getAllFeedback(): Promise<any[]> {
@@ -205,5 +216,23 @@ export const PersistenceService = {
     const registry = await this.getAccountRegistry();
     const filtered = registry.filter(a => a.uid !== uid);
     await NativeStorage.set(STORAGE_KEYS.ACCOUNTS, filtered);
+  },
+
+  // --- Item Overrides ---
+  async getItemOverrides(): Promise<Record<string, any>> {
+    const data = await NativeStorage.get<Record<string, any>>(STORAGE_KEYS.ITEM_OVERRIDES);
+    return data || {};
+  },
+
+  async saveItemOverride(itemId: string, override: any): Promise<void> {
+    const current = await this.getItemOverrides();
+    current[itemId] = { ...current[itemId], ...override, updatedAt: new Date().toISOString() };
+    await NativeStorage.set(STORAGE_KEYS.ITEM_OVERRIDES, current);
+  },
+
+  async removeItemOverride(itemId: string): Promise<void> {
+    const current = await this.getItemOverrides();
+    delete current[itemId];
+    await NativeStorage.set(STORAGE_KEYS.ITEM_OVERRIDES, current);
   }
 };
