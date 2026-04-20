@@ -15,60 +15,23 @@ export const JhakkasBot: React.FC<JhakkasBotProps> = ({ state }) => {
 
   return (
     <>
-      {/* SUCCESS OVERLAY (PORTAL-LIKE CENTER VIEW) */}
+      {/* SUCCESS SPEECH BUBBLE (NON-BLOCKING) */}
       <AnimatePresence>
         {isSuccess && (
           <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/40 backdrop-blur-md pointer-events-none"
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            className="absolute -top-16 right-0 z-[100] px-4 py-2 bg-primary border border-white/20 rounded-sm shadow-2xl"
           >
-            <motion.div
-              initial={{ scale: 0.5, y: 100 }}
-              animate={{ 
-                scale: 1, 
-                y: 0,
-                rotate: [0, -5, 5, -5, 0]
-              }}
-              transition={{ 
-                type: "spring", 
-                duration: 0.8,
-                rotate: { repeat: Infinity, duration: 2, ease: "easeInOut" }
-              }}
-              className="flex flex-col items-center gap-8"
-            >
-              <div className="text-center space-y-2">
-                <motion.h2 
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ repeat: Infinity, duration: 1 }}
-                  className="text-6xl md:text-8xl font-black text-white italic tracking-tighter"
-                >
-                  SUGOII!
-                </motion.h2>
-                <p className="text-primary font-black tracking-[0.5em] uppercase text-sm">Target Synchronized</p>
-              </div>
-
-              {/* GIANT DANCING PANDA */}
-              <div className="relative w-64 h-64">
-                 <PandaGraphic size={256} state={state} />
-              </div>
-
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="px-6 py-2 bg-white/10 border border-white/20 rounded-sm text-[10px] font-black text-white uppercase tracking-[0.3em]"
-              >
-                Press anywhere to continue
-              </motion.div>
-            </motion.div>
+            <span className="text-xl font-black text-white italic tracking-tighter uppercase whitespace-nowrap">SUGOII!</span>
+            <div className="absolute -bottom-2 right-6 w-4 h-4 bg-primary rotate-45 border-r border-b border-white/20" />
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* STANDARD CORNER BOT (IDLE/ERROR) */}
-      <div className={`relative w-24 h-32 pointer-events-none select-none flex items-center justify-center transition-opacity duration-300 ${isSuccess ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`relative w-24 h-32 pointer-events-none select-none flex items-center justify-center transition-opacity duration-300`}>
         <motion.div
           animate={
             state === 'error'

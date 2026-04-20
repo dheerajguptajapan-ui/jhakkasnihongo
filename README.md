@@ -1,45 +1,47 @@
-# 🧠 Jhakkas Nihongo: Neural Link
+# 🏎️ JHAKKAS NIHONGO
+### Performance Japanese Mastery | Offline-First | Gamified SRS
 
-![Jhakkas Nihongo](https://img.shields.io/badge/Status-Elite_Release-6366f1?style=for-the-badge&logo=dna)
-![Version](https://img.shields.io/badge/Version-3.1.0-emerald?style=for-the-badge)
-![License](https://img.shields.io/badge/Platform-Android%20%7C%20Web-sky?style=for-the-badge)
+Jhakkas Nihongo is an elite, high-performance Japanese learning engine built for the modern mobile architect. Designed with a **"Top 1%" aesthetic**, it combines a robust Spaced Repetition System (SRS) with a zero-latency, offline-first architecture.
 
-Jhakkas Nihongo is a **premium, high-performance** Japanese language learning platform built for serious students. Featuring an elite modular curriculum, scientifically-optimized spaced repetition (SM-2), and a deep-immersion "Tokyo Midnight" cyberpunk interface.
+## ⚡ Core Architecture
+- **Offline-First Persistence**: Engineered with `@capacitor/preferences` to eliminate internet dependency. Study anywhere, anytime, with 100% data consistency.
+- **Global Scaling Engine**: A universal layout engine that adapts to user-defined font scales, ensuring a perfect "Mission Control" experience on any hardware.
+- **Atomic SRS Engine**: Advanced SM-2 algorithm integration for precision vocabulary retention and kanji mastery.
+- **Universal Grammar Engine**: Programmatic grammar parsing with native HTML5 `<ruby>` support for clean furigana rendering.
+
+## 📱 Mobile-First UI/UX
+- **Normalized Kana Selection**: Standardized 5-column Gojuuon grid for authentic linguistic alignment.
+- **High-Density Dashboards**: Ferrari-inspired "Mission Status" grids optimized for maximum information density on small viewports.
+- **Glassmorphic HUD**: A premium, high-contrast interface featuring cinematic transitions and reactive micro-animations.
+
+## 🛠️ Tech Stack
+- **Framework**: React 19 + Vite
+- **Styling**: Tailwind CSS 4.0 + Shadcn UI
+- **Native Context**: Capacitor 8.3 (Android Optimized)
+- **CI/CD**: Automated GitHub Actions for APK Distribution
+
+## 🚀 Get Started
+
+### Automated APK Download
+The latest Android build is automatically generated on every commit. 
+1. Go to the **Actions** tab on GitHub.
+2. Select the latest **"Build Android APK"** workflow.
+3. Download the **app-debug-apk** artifact.
+
+### Local Development
+```bash
+# Install dependencies
+npm install
+
+# Run dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Sync to Android
+npx cap sync android
+```
 
 ---
-
-## 🚀 Mobile Portal (Android)
-
-Access your learning nexus anywhere with the official Android application.
-
-[**⬇️ Download Jhakkas Nihongo APK (v3.1.0)**](https://github.com/dheerajguptajapan-ui/jhakkasnihongo/releases/latest/download/app-debug.apk)
-
-> [!TIP]
-> You may need to enable "Install from Unknown Sources" in your device settings to install this APK.
-
----
-
-## 🧬 Nexus Features
-
-*   **Neural Link Interface**: High-contrast, low-fatigue cyberpunk UI optimized for deep focus.
-*   **SM-2 Synapse Scheduling**: Advanced algorithm that adapts to your unique learning curve, scheduling reviews for peak retention.
-*   **Modular Data Streams**: 25+ lessons of vocabulary, grammar, kanji, and reading (Dokkai) partitioned for rapid access.
-*   **Neural TTS**: Real-time auditory feedback for every character and word.
-*   **Focus Mode**: Zero-distraction mode for high-intensity study sessions.
-
----
-
-## 🛠️ Technical Stack
-
-| Component | Technology |
-| :--- | :--- |
-| **Frontend** | React 19 + TypeScript |
-| **Styling** | Tailwind CSS + OKLCH Color Space |
-| **Mobile** | Capacitor 8.3 & Android Native |
-| **Performance** | SM-2 Spaced Repetition Algorithm |
-| **CI/CD** | GitHub Actions Adaptive Pipeline |
-
----
-
-Developed with absolute precision using the **Elite Overhaul** strategy.
-
+*Built for the next generation of Japanese Masters. JHAKKAS CORE v3.1.0*
