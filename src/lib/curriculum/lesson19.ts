@@ -53,27 +53,4 @@ export const lesson19: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl19-d1',
-    lessonNumber: 19,
-    type: 'dokkai',
-    level: 1,
-    character: 'Dheerajさんの日本経験',
-    meanings: ['Dheeraj\'s Experience in Japan'],
-    content: [
-      { text: 'Dheerajさんは', reading: 'Dheeraj-san wa' }, { text: '日本に来てから、', reading: 'nihon ni kite kara' }, { text: '色々', reading: 'いろいろ' }, { text: 'な', reading: null }, { text: '旅行', reading: 'りょこう' }, { text: 'を', reading: null }, { text: 'しました。', reading: null },
-      { text: '\n', reading: null },
-      { text: '富士山', reading: 'ふじさん' }, { text: 'に', reading: null }, { text: '登ったり', reading: 'のぼったり' }, { text: '、京都の', reading: 'きょうとの' }, { text: 'お寺', reading: 'おてら' }, { text: 'を見たりしました。', reading: null }
-    ],
-    translation: 'Since coming to Japan, Dheeraj has taken various trips. He has done things like climbing Mt. Fuji and visiting temples in Kyoto.',
-    questions: [
-      {
-        question: 'Dheerajさんは 富士山に 登ったことが ありますか。',
-        options: ['はい、あります。', 'いいえ、ありません。', 'まだです。', '分かりません。'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];

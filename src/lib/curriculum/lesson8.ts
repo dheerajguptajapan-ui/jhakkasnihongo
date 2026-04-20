@@ -74,29 +74,4 @@ export const lesson8: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl8-d1',
-    lessonNumber: 8,
-    type: 'dokkai',
-    level: 5,
-    character: '東京の生活',
-    meanings: ['Life in Tokyo'],
-    content: [
-      { text: '東京', reading: 'とうきょう' }, { text: 'の', reading: null }, { text: '生活', reading: 'せいかつ' }, { text: 'は', reading: null }, { text: 'どうですか。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'とても', reading: null }, { text: '忙しい', reading: 'いそがしい' }, { text: 'ですが、', reading: null }, { text: 'おもしろい', reading: null }, { text: 'です。', reading: null },
-      { text: '\n', reading: null },
-      { text: '食べ物', reading: 'たべもの' }, { text: 'は', reading: null }, { text: 'おいしい', reading: null }, { text: 'ですが、', reading: null }, { text: 'とても', reading: null }, { text: '高い', reading: 'たかい' }, { text: 'です。', reading: null }
-    ],
-    translation: 'How is life in Tokyo? It is very busy, but interesting. The food is delicious, but very expensive.',
-    questions: [
-      {
-        question: '東京の食べ物は どうですか。',
-        options: ['安くて おいしいです', 'おいしいですが、高いです', 'あまり おいしくないです', '高くて まずいです'],
-        answerIndex: 1
-      }
-    ]
-  }
 ];

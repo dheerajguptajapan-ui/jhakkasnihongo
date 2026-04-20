@@ -64,29 +64,4 @@ export const lesson5: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl5-d1',
-    lessonNumber: 5,
-    type: 'dokkai',
-    level: 5,
-    character: 'リヤの旅行',
-    meanings: ['Riya\'s Trip'],
-    content: [
-      { text: '私は', reading: 'わたしは' }, { text: '明日', reading: 'あした' }, { text: '東京', reading: 'とうきょう' }, { text: 'へ', reading: null }, { text: '行きます。', reading: 'いきます' },
-      { text: '\n', reading: null },
-      { text: '一人で', reading: 'ひとりで' }, { text: '行きます。', reading: 'いきます' }, { text: '新幹線', reading: 'しんかんせん' }, { text: 'で', reading: null }, { text: '行きます。', reading: 'いきます' },
-      { text: '\n', reading: null },
-      { text: '日曜日', reading: 'にちようび' }, { text: 'に', reading: null }, { text: 'うち', reading: null }, { text: 'へ', reading: null }, { text: '帰ります。', reading: 'かえります' }
-    ],
-    translation: 'I will go to Tokyo tomorrow. I will go alone. I will go by bullet train. I will return home on Sunday.',
-    questions: [
-      {
-        question: 'Riyaさんは 何で 東京へ 行きますか。',
-        options: ['新幹線', '飛行機', 'バス', '電車'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];

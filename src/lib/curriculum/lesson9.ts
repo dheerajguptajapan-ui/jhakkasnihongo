@@ -61,27 +61,4 @@ export const lesson9: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl9-d1',
-    lessonNumber: 9,
-    type: 'dokkai',
-    level: 5,
-    character: 'カラオケ',
-    meanings: ['Karaoke'],
-    content: [
-      { text: 'Aalindさん、', reading: 'Aalind-san' }, { text: '土曜日', reading: 'どようび' }, { text: 'に', reading: null }, { text: '一緒に', reading: 'いっしょに' }, { text: 'カラオケ', reading: null }, { text: 'へ', reading: null }, { text: '行きませんか。', reading: 'いきませんか' },
-      { text: '\n', reading: null },
-      { text: '土曜日', reading: 'どようび' }, { text: 'ですか。', reading: null }, { text: 'すみません。', reading: null }, { text: '用事', reading: 'ようじ' }, { text: 'が', reading: null }, { text: 'ありますから、', reading: null }, { text: '行けません。', reading: 'いけません' }
-    ],
-    translation: "Aalind, won't you go to karaoke with me on Saturday? Saturday? I'm sorry. I have an errand, so I can't go.",
-    questions: [
-      {
-        question: 'どうして Aalindさんは 行けませんか。',
-        options: ['時間が ありませんから', '約束が ありますから', '用事が ありますから', '日本語が わかりませんから'],
-        answerIndex: 2
-      }
-    ]
-  }
 ];

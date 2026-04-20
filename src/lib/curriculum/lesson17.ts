@@ -54,29 +54,4 @@ export const lesson17: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl17-d1',
-    lessonNumber: 17,
-    type: 'dokkai',
-    level: 1,
-    character: '病院で',
-    meanings: ['At the Clinic'],
-    content: [
-      { text: '医者: ', reading: 'いしゃ' }, { text: 'どうしましたか。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'Aalind: ', reading: null }, { text: '昨日', reading: 'きのう' }, { text: 'から', reading: null }, { text: '熱', reading: 'ねつ' }, { text: 'が', reading: null }, { text: 'あります。', reading: null },
-      { text: '\n', reading: null },
-      { text: '医者: ', reading: 'いしゃ' }, { text: 'お風呂', reading: 'おふろ' }, { text: 'に', reading: null }, { text: '入らないで', reading: 'はいらないで' }, { text: 'ください。薬を', reading: 'くすりを' }, { text: '飲まなければ', reading: 'のまなきれれば' }, { text: 'なりません。', reading: null }
-    ],
-    translation: "Doctor: What's the matter? Aalind: I've had a fever since yesterday. Doctor: Don't take a bath. You must take medicine.",
-    questions: [
-      {
-        question: 'Aalindさんは 今日 何を しなければ なりませんか。',
-        options: ['お風呂に 入る', '薬を 飲む', '仕事をする', '散歩をする'],
-        answerIndex: 1
-      }
-    ]
-  }
 ];

@@ -43,7 +43,6 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
   const [selectedLevel, setSelectedLevel] = useState<number>(initialLevel);
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedDokkai, setSelectedDokkai] = useState<Item | null>(null);
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const [quizSetup, setQuizSetup] = useState<{ category: string } | null>(null);
   const [quizCount, setQuizCount] = useState<number>(20);
@@ -276,10 +275,7 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
                 {filteredItems.map((item) => (
                   <Card 
                     key={item.id}
-                    onClick={() => {
-                       if (item.type === 'dokkai') setSelectedDokkai(item);
-                       else setSelectedItem(item);
-                    }}
+                    onClick={() => setSelectedItem(item)}
                     className="border border-border bg-card rounded-sm cursor-pointer hover:border-primary hover:shadow-lg transition-all"
                   >
                     <CardContent className="p-6 flex items-center gap-6">
@@ -440,75 +436,7 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
       )}
 
 
-      {typeof document !== 'undefined' && createPortal(
-        <AnimatePresence>
-          {selectedDokkai && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] bg-background bg-cyber-grid flex flex-col overflow-y-auto"
-            >
-              <div className="max-w-3xl mx-auto w-full px-6 py-8 space-y-8">
-              <div className="flex items-center justify-between">
-                <Button variant="ghost" onClick={() => setSelectedDokkai(null)} className="gap-2 font-bold text-foreground hover:bg-muted">
-                  <ArrowLeft size={18} /> 戻る (Back)
-                </Button>
-                <div className="flex items-center gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => updateSettings({ showFurigana: !showFurigana })}
-                    className={`text-xs font-bold gap-1.5 ${showFurigana ? 'border-primary text-primary bg-primary/5' : 'text-muted-foreground'}`}
-                  >
-                    {showFurigana ? <Eye size={13} /> : <EyeOff size={13} />}
-                    FURIGANA
-                  </Button>
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Reader Mode</span>
-                </div>
-              </div>
 
-              <div className="space-y-2 border-b border-border pb-6">
-                <h1 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
-                  <RubyText text={selectedDokkai.character || ''} showFurigana={showFurigana} />
-                </h1>
-                <p className="text-base text-muted-foreground">{selectedDokkai.meanings.join(' · ')}</p>
-              </div>
-
-              {selectedDokkai.content && (
-                <div className="leading-[2.2] text-xl md:text-2xl text-foreground font-medium">
-                  <RubyText 
-                    text={typeof selectedDokkai.content === 'string' ? selectedDokkai.content : selectedDokkai.character || ''} 
-                    showFurigana={showFurigana}
-                  />
-                </div>
-              )}
-
-              {selectedDokkai.translation && (
-                <div className="bg-muted border border-border p-8 rounded-sm">
-                  <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-4">English Translation</p>
-                  <p className="text-sm text-foreground font-bold leading-relaxed">{selectedDokkai.translation}</p>
-                </div>
-              )}
-
-              {/* Questions Removed as per Mission Parameters */}
-
-              <div className="flex flex-col items-center gap-4 pt-8 pb-16">
-              <div className="flex flex-col items-center gap-6 pt-10 pb-16">
-                <Button 
-                  onClick={() => setSelectedDokkai(null)}
-                  className="h-14 px-12 rounded-sm font-black bg-primary text-white text-xs tracking-[0.4em] shadow-2xl hover:opacity-90 uppercase"
-                >
-                  CONVERGENCE COMPLETE
-                </Button>
-              </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>,
-      document.body
-    )}
 
       <ItemDetailModal 
         item={selectedItem} 

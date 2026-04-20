@@ -83,37 +83,4 @@ export const lesson2: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'l2-d1',
-    lessonNumber: 2,
-    type: 'dokkai',
-    level: 5,
-    character: 'Neural Sync Log: Item Discovery',
-    meanings: ['Neural Sync Log'],
-    content: [
-      { text: 'Aalind：あのう、これ', reading: null },
-      { text: 'は', reading: null },
-      { text: '何', reading: 'なん' },
-      { text: 'ですか', reading: null },
-      { text: '。\n', reading: null },
-      { text: 'Riya：それ', reading: null },
-      { text: 'は', reading: null },
-      { text: '日本語', reading: 'にほんご' },
-      { text: 'の', reading: null },
-      { text: '時計', reading: 'とけい' },
-      { text: 'です', reading: null },
-      { text: '。\n', reading: null },
-      { text: 'Aalind：そうですか。ありがとう。', reading: null }
-    ],
-    translation: 'Aalind: Er, what is this?\nRiya: That is a Japanese watch.\nAalind: I see. Thank you.',
-    questions: [
-      {
-        question: '「これ」は 何ですか。',
-        options: ['ほん', 'とけい', 'コンピューター', 'かぎ'],
-        answerIndex: 1
-      }
-    ]
-  }
 ];

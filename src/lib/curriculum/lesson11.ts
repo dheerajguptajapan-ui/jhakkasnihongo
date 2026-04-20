@@ -58,27 +58,4 @@ export const lesson11: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl11-d1',
-    lessonNumber: 11,
-    type: 'dokkai',
-    level: 1,
-    character: 'カフェで',
-    meanings: ['At the Cafe'],
-    content: [
-      { text: 'A: ', reading: null }, { text: 'コーヒーを', reading: null }, { text: '２つ', reading: 'ふたつ' }, { text: 'と', reading: null }, { text: '紅茶', reading: 'こうちゃ' }, { text: 'を', reading: null }, { text: '１つ', reading: 'ひとつ' }, { text: 'ください。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'B: ', reading: null }, { text: '全部で', reading: 'ぜんぶで' }, { text: 'いくらですか。', reading: null }
-    ],
-    translation: "A: Two coffees and one tea, please. B: How much is it in total?",
-    questions: [
-      {
-        question: '飲み物は 全部で いくつですか。',
-        options: ['１つ', '２つ', '３つ', '４つ'],
-        answerIndex: 2
-      }
-    ]
-  }
 ];

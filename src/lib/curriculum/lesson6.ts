@@ -78,29 +78,4 @@ export const lesson6: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl6-d1',
-    lessonNumber: 6,
-    type: 'dokkai',
-    level: 5,
-    character: 'Dheerajの朝',
-    meanings: ['Dheeraj\'s Morning'],
-    content: [
-      { text: '私は', reading: 'わたしは' }, { text: '毎朝', reading: 'まいあさ' }, { text: '７時', reading: 'しちじ' }, { text: 'に', reading: null }, { text: '起きます。', reading: 'おきます' },
-      { text: '\n', reading: null },
-      { text: '朝ごはん', reading: 'あさごはん' }, { text: 'を', reading: null }, { text: '食べません。', reading: 'たべません' }, { text: 'コーヒーを', reading: null }, { text: '飲みます。', reading: 'のみます' },
-      { text: '\n', reading: null },
-      { text: 'それから', reading: null }, { text: '会社', reading: 'かいしゃ' }, { text: 'へ', reading: null }, { text: '行きます。', reading: 'いきます' }
-    ],
-    translation: 'I get up at 7 every morning. I do not eat breakfast. I drink coffee. After that, I go to the office.',
-    questions: [
-      {
-        question: 'Dheerajさんは 朝ごはんを 食べますか。',
-        options: ['はい、食べます。', 'いいえ、食べません。'],
-        answerIndex: 1
-      }
-    ]
-  }
 ];

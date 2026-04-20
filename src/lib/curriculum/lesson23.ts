@@ -51,27 +51,4 @@ export const lesson23: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl23-d1',
-    lessonNumber: 23,
-    type: 'dokkai',
-    level: 5,
-    character: '道を 教えてください',
-    meanings: ['Please Tell Me the Way'],
-    content: [
-      { text: 'Aalind: ', reading: null }, { text: 'すみません。市役所', reading: 'しやくしょ' }, { text: 'は どこですか。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'Dheeraj: ', reading: null }, { text: 'この', reading: null }, { text: '道', reading: 'みち' }, { text: 'を まっすぐ行くと、', reading: 'massugu iku to' }, { text: '信号', reading: 'しんごう' }, { text: 'が あります。その信号を', reading: null }, { text: '左', reading: 'ひだり' }, { text: 'へ曲がってください。', reading: 'magatte kudasai' }
-    ],
-    translation: 'Aalind: Excuse me, where is the City Hall? Dheeraj: If you go straight along this road, there is a traffic light. Turn left at that light.',
-    questions: [
-      {
-        question: '市役所は どこに ありますか。',
-        options: ['信号を 左へ 曲がった所', '信号の 前', '駅の 隣', '分かりません'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];

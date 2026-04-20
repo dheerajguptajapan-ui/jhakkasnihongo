@@ -76,27 +76,4 @@ export const lesson15: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl15-d1',
-    lessonNumber: 15,
-    type: 'dokkai',
-    level: 1,
-    character: '図書館の規則',
-    meanings: ['Library Rules'],
-    content: [
-      { text: 'この', reading: null }, { text: '図書館', reading: 'としょかん' }, { text: 'で', reading: null }, { text: '食べ物', reading: 'たべもの' }, { text: 'を', reading: null }, { text: '食べては', reading: 'たべては' }, { text: 'いけません。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'でも、', reading: null }, { text: 'パソコンを', reading: null }, { text: '使っても', reading: 'つかっても' }, { text: 'いいです。', reading: null }
-    ],
-    translation: 'You must not eat food in this library. However, you may use a computer.',
-    questions: [
-      {
-        question: '図書館で 何を しても いいですか。',
-        options: ['ごはんを 食べる', 'タバコを 吸う', 'パソコンを 使う', '音楽を 聞く'],
-        answerIndex: 2
-      }
-    ]
-  }
 ];

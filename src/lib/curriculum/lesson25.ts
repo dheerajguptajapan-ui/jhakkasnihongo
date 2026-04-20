@@ -51,29 +51,4 @@ export const lesson25: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl25-d1',
-    lessonNumber: 25,
-    type: 'dokkai',
-    level: 5,
-    character: 'お世話に なりました',
-    meanings: ['Thank You for Everything'],
-    content: [
-      { text: 'Dheerajさん、長い', reading: 'ながい' }, { text: '間', reading: 'あいだ' }, { text: 'お世話に', reading: 'おせわに' }, { text: 'なりました。', reading: null },
-      { text: '\n', reading: null },
-      { text: '来月', reading: 'らいげつ' }, { text: 'インドへ 帰ります', reading: 'kaerimasu' }, { text: '。', reading: null },
-      { text: '\n', reading: null },
-      { text: '帰っても', reading: 'kaettemo' }, { text: '、時々', reading: 'tokidoki' }, { text: '日本語を', reading: null }, { text: '勉強', reading: 'べんきょう' }, { text: 'します。どうぞ お元気で。', reading: null }
-    ],
-    translation: 'Dheeraj, thank you for everything over this long time. I will return to India next month. Even after I return, I will study Japanese from time to time. Best of luck.',
-    questions: [
-      {
-        question: 'この人は 来月 何を しますか。',
-        options: ['インドへ 帰る', '日本に 来る', '引っ越しする', '仕事を 辞める'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];

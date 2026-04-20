@@ -56,27 +56,4 @@ export const lesson13: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl13-d1',
-    lessonNumber: 13,
-    type: 'dokkai',
-    level: 1,
-    character: '誕生日の願い',
-    meanings: ['Birthday Wish'],
-    content: [
-      { text: 'Aalind: ', reading: null }, { text: 'Riyaさん、来週', reading: 'Riya-san, raishuu' }, { text: '誕生日', reading: 'たんじょうび' }, { text: 'ですね。何が', reading: null }, { text: 'ほしい', reading: null }, { text: 'ですか。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'Riya: ', reading: null }, { text: 'そうですね。私は', reading: 'わたしは' }, { text: '広い', reading: 'ひろい' }, { text: '家', reading: 'いえ' }, { text: 'が', reading: null }, { text: 'ほしい', reading: null }, { text: 'です。', reading: null }
-    ],
-    translation: "Aalind: Riya, it's your birthday next week. What do you want? Riya: Well, I want a spacious house.",
-    questions: [
-      {
-        question: 'Riyaさんは 何が ほしいですか。',
-        options: ['広い 家', '新しい 車', 'お金', '休み'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];

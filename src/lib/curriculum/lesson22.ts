@@ -51,27 +51,4 @@ export const lesson22: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl22-d1',
-    lessonNumber: 22,
-    type: 'dokkai',
-    level: 5,
-    character: 'Riyaさんの写真',
-    meanings: ['Riya\'s Photo'],
-    content: [
-      { text: 'これ', reading: null }, { text: 'は', reading: null }, { text: '昨日', reading: 'きのう' }, { text: '奈良', reading: 'なら' }, { text: 'で', reading: null }, { text: '撮った', reading: 'とった' }, { text: '写真', reading: 'しゃしん' }, { text: 'です。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'あの', reading: null }, { text: '木', reading: 'き' }, { text: 'の', reading: null }, { text: '下', reading: 'した' }, { text: 'で', reading: null }, { text: 'お弁当', reading: 'おべんとう' }, { text: 'を', reading: null }, { text: '食べている', reading: 'たべている' }, { text: '人', reading: 'ひと' }, { text: 'は', reading: null }, { text: 'Riyaさんです。', reading: null }
-    ],
-    translation: 'This is a photo taken in Nara yesterday. The person eating lunch under that tree is Riya.',
-    questions: [
-      {
-        question: 'Riyaさんは どこで お弁当を 食べていますか。',
-        options: ['木の下', '川のそば', '駅', 'お寺'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];

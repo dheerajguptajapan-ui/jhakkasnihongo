@@ -51,29 +51,4 @@ export const lesson10: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl10-d1',
-    lessonNumber: 10,
-    type: 'dokkai',
-    level: 1,
-    character: 'Dheerajの部屋',
-    meanings: ['Dheeraj\'s Room'],
-    content: [
-      { text: '私の', reading: 'わたしの' }, { text: '部屋', reading: 'へや' }, { text: 'に', reading: null }, { text: '何が', reading: 'なにが' }, { text: 'ありますか。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'ベッドと', reading: null }, { text: '机', reading: 'つくえ' }, { text: 'と', reading: null }, { text: '椅子', reading: 'いす' }, { text: 'が', reading: null }, { text: 'あります。', reading: null },
-      { text: '\n', reading: null },
-      { text: '机', reading: 'つくえ' }, { text: 'の', reading: null }, { text: '上', reading: 'うえ' }, { text: 'に', reading: null }, { text: 'パソコンと', reading: null }, { text: '本', reading: 'ほん' }, { text: 'が', reading: null }, { text: 'あります。', reading: null }
-    ],
-    translation: 'What is in my room? There is a bed, a desk, and a chair. On the desk, there is a computer and a book.',
-    questions: [
-      {
-        question: '机の 上に 何が ありますか。',
-        options: ['ベッド', 'パソコンと 本', '椅子', '冷蔵庫'],
-        answerIndex: 1
-      }
-    ]
-  }
 ];

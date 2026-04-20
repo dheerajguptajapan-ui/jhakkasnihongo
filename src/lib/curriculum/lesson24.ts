@@ -39,29 +39,4 @@ export const lesson24: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl24-d1',
-    lessonNumber: 24,
-    type: 'dokkai',
-    level: 5,
-    character: '誕生日のプレゼント',
-    meanings: ['Birthday Present'],
-    content: [
-      { text: '昨日', reading: 'きのう' }, { text: 'は', reading: null }, { text: '私の', reading: 'わたしの' }, { text: '誕生日', reading: 'たんじょうび' }, { text: 'でした。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'Dheerajさんは', reading: 'Dheeraj-san wa' }, { text: 'ネクタイを', reading: null }, { text: 'くれました。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'Riyaさんは', reading: 'Riya-san wa' }, { text: 'パーティーを', reading: null }, { text: '準備', reading: 'じゅんび' }, { text: 'してくれました。', reading: null }
-    ],
-    translation: 'Yesterday was my birthday. Dheeraj gave me a tie. Riya prepared a party for me.',
-    questions: [
-      {
-        question: 'Dheerajさんは 何を くれましたか。',
-        options: ['ネクタイ', 'お菓子', '本', '時計'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];

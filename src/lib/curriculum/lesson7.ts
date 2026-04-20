@@ -81,28 +81,4 @@ export const lesson7: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl7-d1',
-    lessonNumber: 7,
-    type: 'dokkai',
-    level: 5,
-    character: '誕生日',
-    meanings: ['Birthday'],
-    content: [
-      { text: '私は', reading: 'わたしは' }, { text: '先週', reading: 'せんしゅう' }, { text: 'Dheerajさんに', reading: 'Dheeraj-san ni' }, { text: '誕生日', reading: 'たんじょうび' }, { text: 'の', reading: null }, { text: 'プレゼント', reading: null }, { text: 'を', reading: null }, { text: 'もらいました。', reading: null },
-      { text: '\n', reading: null },
-      { text: '素敵な', reading: 'すてきな' }, { text: 'シャツ', reading: null }, { text: 'です。', reading: null },
-      { text: '私は', reading: 'わたしは' }, { text: 'Dheerajさんに', reading: 'Dheeraj-san ni' }, { text: 'ネクタイ', reading: null }, { text: 'を', reading: null }, { text: 'あげました。', reading: null }
-    ],
-    translation: 'Last week I received a birthday present from Dheeraj. It is a nice shirt. I gave Dheeraj a necktie.',
-    questions: [
-      {
-        question: 'Dheerajさんは 何を もらいましたか。',
-        options: ['シャツ', 'ネクタイ', '花', 'お金'],
-        answerIndex: 1
-      }
-    ]
-  }
 ];

@@ -70,29 +70,4 @@ export const lesson12: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl12-d1',
-    lessonNumber: 12,
-    type: 'dokkai',
-    level: 1,
-    character: '日本の季節',
-    meanings: ['Seasons in Japan'],
-    content: [
-      { text: '日本', reading: 'にほん' }, { text: 'に', reading: null }, { text: '季節', reading: 'きせつ' }, { text: 'が', reading: null }, { text: '４つ', reading: 'よっつ' }, { text: 'あります。', reading: null },
-      { text: '\n', reading: null },
-      { text: '春、夏、秋、冬', reading: 'はる、なつ、あき、ふゆ' }, { text: 'です。', reading: null },
-      { text: '\n', reading: null },
-      { text: '私は', reading: 'わたしは' }, { text: '秋', reading: 'あき' }, { text: 'が', reading: null }, { text: '一番', reading: 'いちばん' }, { text: '好き', reading: 'すき' }, { text: 'です。', reading: null }
-    ],
-    translation: 'There are four seasons in Japan: Spring, Summer, Autumn, and Winter. I like autumn the best.',
-    questions: [
-      {
-        question: 'どの 季節が 一番 好きですか。',
-        options: ['春', '夏', '秋', '冬'],
-        answerIndex: 2
-      }
-    ]
-  }
 ];

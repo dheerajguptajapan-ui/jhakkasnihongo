@@ -55,27 +55,4 @@ export const lesson16: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl16-d1',
-    lessonNumber: 16,
-    type: 'dokkai',
-    level: 1,
-    character: 'Dheerajさんの紹介',
-    meanings: ['Introduction of Dheeraj'],
-    content: [
-      { text: 'Dheerajさんは', reading: 'Dheeraj-san wa' }, { text: 'エンジニアで、', reading: null }, { text: '背', reading: 'せ' }, { text: 'が', reading: null }, { text: '高い', reading: 'たかい' }, { text: 'です。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'とても', reading: null }, { text: '親切', reading: 'しんせつ' }, { text: 'で、明るい', reading: 'あかるい' }, { text: '人', reading: 'ひと' }, { text: 'です。', reading: null }
-    ],
-    translation: 'Dheeraj is an engineer and he is tall. He is very kind and a cheerful person.',
-    questions: [
-      {
-        question: 'Dheerajさんは どんな 人ですか。',
-        options: ['背が 低くて、静かな 人', '背が 高くて、明るい 人', '若くて、怖い 人', '髪が 長くて、きれいな 人'],
-        answerIndex: 1
-      }
-    ]
-  }
 ];

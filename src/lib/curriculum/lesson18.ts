@@ -53,27 +53,4 @@ export const lesson18: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl18-d1',
-    lessonNumber: 18,
-    type: 'dokkai',
-    level: 1,
-    character: 'Riyaさんの趣味',
-    meanings: ['Riya\'s Hobby'],
-    content: [
-      { text: '私の', reading: 'わたしの' }, { text: '趣味', reading: 'しゅみ' }, { text: 'は', reading: null }, { text: 'ピアノを', reading: null }, { text: '弾く', reading: 'ひく' }, { text: 'こと', reading: null }, { text: 'です。', reading: null },
-      { text: '\n', reading: null },
-      { text: 'クラシックも', reading: null }, { text: 'ジャズも', reading: null }, { text: '弾く', reading: 'ひく' }, { text: 'こと', reading: null }, { text: 'が', reading: null }, { text: 'できます。', reading: null }
-    ],
-    translation: 'My hobby is playing the piano. I can play both classical and jazz.',
-    questions: [
-      {
-        question: 'Riyaさんは 何を 弾くことが できますか。',
-        options: ['ピアノ', 'ギター', 'ドラム', 'バイオリン'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];

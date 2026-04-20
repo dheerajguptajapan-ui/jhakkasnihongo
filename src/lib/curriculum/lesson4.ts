@@ -81,32 +81,4 @@ export const lesson4: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl4-d1',
-    lessonNumber: 4,
-    type: 'dokkai',
-    level: 5,
-    character: 'Dheerajの一日',
-    meanings: ['Dheeraj\'s Day'],
-    content: [
-      { text: '私は', reading: 'わたしは' }, { text: '毎日', reading: 'まいにち' }, { text: '６時', reading: 'ろくじ' }, { text: 'に', reading: null }, { text: '起きます。', reading: 'おきます' },
-      { text: '\n', reading: null },
-      { text: '９時', reading: 'くじ' }, { text: 'から', reading: null }, { text: '５時', reading: 'ごじ' }, { text: 'まで', reading: null }, { text: '働きます。', reading: 'はたらきます' },
-      { text: '\n', reading: null },
-      { text: '７時', reading: 'しちじ' }, { text: 'に', reading: null }, { text: 'うち', reading: null }, { text: 'へ', reading: null }, { text: '帰ります。', reading: 'かえります' },
-      { text: '１１時', reading: 'じゅういちじ' }, { text: 'に', reading: null }, { text: '寝ます。', reading: 'ねます' },
-      { text: '\n', reading: null },
-      { text: '土曜日', reading: 'どようび' }, { text: 'と', reading: null }, { text: '日曜日', reading: 'にちようび' }, { text: 'は', reading: null }, { text: '休みます。', reading: 'やすみます' }
-    ],
-    translation: 'I get up at 6 every day. I work from 9 to 5. I return home at 7. I go to bed at 11. I rest on Saturdays and Sundays.',
-    questions: [
-      {
-        question: 'Dheerajさんは 何時に 寝ますか。',
-        options: ['６時', '７時', '９時', '１１時'],
-        answerIndex: 3
-      }
-    ]
-  }
 ];

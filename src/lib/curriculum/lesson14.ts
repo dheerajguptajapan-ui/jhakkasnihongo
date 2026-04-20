@@ -56,27 +56,4 @@ export const lesson14: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl14-d1',
-    lessonNumber: 14,
-    type: 'dokkai',
-    level: 1,
-    character: '荷物を 持ちましょうか',
-    meanings: ['Shall I carry your bags?'],
-    content: [
-      { text: 'Dheeraj: ', reading: null }, { text: '重そうですね。', reading: 'おもそうですね' }, { text: '荷物', reading: 'にもつ' }, { text: 'を', reading: null }, { text: '持ちましょうか。', reading: 'もちましょうか' },
-      { text: '\n', reading: null },
-      { text: 'Riya: ', reading: null }, { text: 'すみません。お願いします。', reading: null }
-    ],
-    translation: "Dheeraj: It looks heavy. Shall I carry your bag? Riya: Thank you. Please.",
-    questions: [
-      {
-        question: 'Dheerajさんは 何を しましたか。',
-        options: ['荷物を 持ちました', 'タクシーを 呼びました', '名前を 聞きました', '地図を 見せました'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];

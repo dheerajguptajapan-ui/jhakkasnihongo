@@ -53,27 +53,4 @@ export const lesson21: Item[] = [
       }
     ]
   },
-
-  // --- DOKKAI ---
-  {
-    id: 'nl21-d1',
-    lessonNumber: 21,
-    type: 'dokkai',
-    level: 5,
-    character: '日本人に ついて',
-    meanings: ['About Japanese People'],
-    content: [
-      { text: 'Riya: ', reading: null }, { text: 'Dheerajさんは 日本人に ついて どう 思いますか。', reading: 'nihonjin ni tsuite dou omoimasu ka?' },
-      { text: '\n', reading: null },
-      { text: 'Dheeraj: ', reading: null }, { text: 'そうですね。とても 親切', reading: 'しんせつ' }, { text: 'だと 思います。でも、少し 忙しすぎますね。', reading: 'isogashisugimasu ne' }
-    ],
-    translation: 'Riya: Dheeraj, what do you think about Japanese people? Dheeraj: Well, I think they are very kind. But they are a bit too busy.',
-    questions: [
-      {
-        question: 'Dheerajさんは 日本人を どう 思っていますか。',
-        options: ['親切だけど、忙しい', '静かで、きれい', '面白くない', '嫌い'],
-        answerIndex: 0
-      }
-    ]
-  }
 ];
