@@ -37,7 +37,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose 
 
   return (
     <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-4xl w-full h-[96vh] md:h-fit md:max-h-[90vh] overflow-hidden flex flex-col p-0 bg-background border-border rounded-none md:rounded-sm shadow-2xl focus:outline-none focus-visible:outline-none">
+      <DialogContent className="max-w-4xl w-full h-[85vh] md:h-fit md:max-h-[90vh] top-[12%] translate-y-0 sm:top-1/2 sm:-translate-y-1/2 overflow-hidden flex flex-col p-0 bg-background border-border rounded-none md:rounded-sm shadow-2xl focus:outline-none focus-visible:outline-none">
         <ScrollArea className="flex-1 px-4 py-4 md:p-12 overscroll-contain">
           <div className="space-y-6 md:space-y-10 pb-20">
             {/* UNIFIED HEADER (NOW SCROLLABLE) */}
