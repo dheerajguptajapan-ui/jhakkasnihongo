@@ -69,6 +69,7 @@
   
   --radius: 2px;
   --font-sans: 'Geist Variable', 'Outfit', sans-serif;
+  --font-scale: 1; /* Dynamic entry point */
 }
 
 .dark {
@@ -147,7 +148,9 @@
 
 @layer base {
   html {
-    font-size: 16px;
+    /* Critical Scaling Engine: Drives all 'rem' based typography and spacing */
+    font-size: calc(16px * var(--font-scale, 1));
+    transition: font-size 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
   body {

@@ -39,6 +39,43 @@ import { Toaster, toast } from 'sonner';
 export type JLPTLevel = 'n5' | 'n4' | 'n3' | 'n2' | 'n1';
 export type JLPTSection = 'kanji' | 'vocabulary' | 'grammar' | 'dokkai';
 
+class NativeErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+  constructor(props: any) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="flex flex-col items-center justify-center min-h-[50vh] p-8 text-center space-y-6">
+          <div className="w-16 h-16 bg-rose-600 rounded-sm flex items-center justify-center">
+            <Activity className="text-white w-8 h-8" />
+          </div>
+          <div className="space-y-2">
+            <h2 className="text-2xl font-black uppercase italic tracking-tighter">ENGINE_RECOVERY_MODE</h2>
+            <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest leading-loose">
+              An unexpected vector collision occurred in the native layer.<br/>
+              The session has been stabilized for protection.
+            </p>
+          </div>
+          <Button 
+            onClick={() => window.location.reload()}
+            className="h-12 px-8 bg-primary rounded-sm font-black text-xs uppercase tracking-[0.3em]"
+          >
+            RE-INITIATE CORE
+          </Button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 function App() {
   const { user, profile, loading, settings, updateSettings, getTodayProgress } = useAuth();
   const { t } = useI18n();
@@ -54,7 +91,6 @@ function App() {
   } | null>(null);
   const [activeLessonSession, setActiveLessonSession] = useState<Item[] | null>(null);
   const [preselectedLevel, setPreselectedLevel] = useState<number>(5);
-  const { t } = useI18n();
 
   const handleQuizResult = async (isCorrect: boolean, item?: Item) => {
     setMascotState(isCorrect ? 'success' : 'error');
@@ -210,74 +246,76 @@ function App() {
       </nav>
 
       <main className="pt-24 pb-32 md:pb-6 md:pl-32 lg:pl-32 max-w-7xl mx-auto min-h-screen overflow-x-hidden">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentTab}
-            initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="px-4 md:px-8"
-          >
-            {currentTab === 'dashboard' && (
-              <Dashboard 
-                onStartLessons={() => startLessons(preselectedLevel, 1)} 
-                onStartReviews={startReviews} 
-                onSelectLevel={(level) => {
-                  setPreselectedLevel(level);
-                  setCurrentTab('jlpt');
-                }}
-              />
-            )}
-            {currentTab === 'items' && <ItemsView />}
-            {currentTab === 'jlpt' && (
-              <div className="space-y-8">
-                <AnimatePresence mode="wait">
-                  {!activeQuiz ? (
-                    <motion.div
-                      key="selection"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                    >
-                      <MasteryHubView 
-                        initialLevel={preselectedLevel}
-                        lockLevel={true}
-                        onStartQuiz={(level, lesson, category, isCumulative, limit) => {
-                          setActiveQuiz({ level, lesson, category, isCumulative, limit });
-                        }}
-                      />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="quiz"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                    >
-                      <JLPTQuizEngine 
-                        level={activeQuiz.level}
-                        lessonNumber={activeQuiz.lesson}
-                        category={activeQuiz.category}
-                        limit={activeQuiz.limit}
-                        isCumulative={activeQuiz.isCumulative}
-                        onResult={handleQuizResult}
-                        onFinish={() => setActiveQuiz(null)}
-                      />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            )}
-            {currentTab === 'kana' && (
-              <KanaView 
-                onResult={(isCorrect) => handleQuizResult(isCorrect)} 
-              />
-            )}
-            {currentTab === 'settings' && <SettingsView />}
-            {currentTab === 'admin' && <AdminView />}
-          </motion.div>
-        </AnimatePresence>
+        <NativeErrorBoundary>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTab}
+              initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="px-4 md:px-8"
+            >
+              {currentTab === 'dashboard' && (
+                <Dashboard 
+                  onStartLessons={() => startLessons(preselectedLevel, 1)} 
+                  onStartReviews={startReviews} 
+                  onSelectLevel={(level) => {
+                    setPreselectedLevel(level);
+                    setCurrentTab('jlpt');
+                  }}
+                />
+              )}
+              {currentTab === 'items' && <ItemsView />}
+              {currentTab === 'jlpt' && (
+                <div className="space-y-8">
+                  <AnimatePresence mode="wait">
+                    {!activeQuiz ? (
+                      <motion.div
+                        key="selection"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                      >
+                        <MasteryHubView 
+                          initialLevel={preselectedLevel}
+                          lockLevel={true}
+                          onStartQuiz={(level, lesson, category, isCumulative, limit) => {
+                            setActiveQuiz({ level, lesson, category, isCumulative, limit });
+                          }}
+                        />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="quiz"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                      >
+                        <JLPTQuizEngine 
+                          level={activeQuiz.level}
+                          lessonNumber={activeQuiz.lesson}
+                          category={activeQuiz.category}
+                          limit={activeQuiz.limit}
+                          isCumulative={activeQuiz.isCumulative}
+                          onResult={handleQuizResult}
+                          onFinish={() => setActiveQuiz(null)}
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )}
+              {currentTab === 'kana' && (
+                <KanaView 
+                  onResult={(isCorrect) => handleQuizResult(isCorrect)} 
+                />
+              )}
+              {currentTab === 'settings' && <SettingsView />}
+              {currentTab === 'admin' && <AdminView />}
+            </motion.div>
+          </AnimatePresence>
+        </NativeErrorBoundary>
       </main>
 
       {/* Persistent Mascot */}

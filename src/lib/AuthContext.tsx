@@ -29,16 +29,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [settings, setSettings] = useState<AppSettings>({ 
     showFurigana: true, 
     theme: 'system', 
-    fontScale: 0.8,
-    dailyNewCards: 20,
-    remoteUpdateUrl: ''
+    fontScale: 1.0,
+    dailyNewCards: 20
   });
 
   useEffect(() => {
     let isMounted = true;
     
     const loadSession = async () => {
-      console.log('[JhakkasMonitor] Synchronizing Session...');
+      console.log('[JhakkasOffline] Synchronizing Local Session...');
       
       try {
         const [session, storedSettings] = await Promise.all([
@@ -49,7 +48,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (!isMounted) return;
 
         if (session) {
-          console.log('[JhakkasMonitor] Session Sealed:', session.name);
+          console.log('[JhakkasOffline] Local Session Sealed:', session.name);
           setUser(session);
           
           // Load the specific user profile

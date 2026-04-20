@@ -37,7 +37,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose 
 
   return (
     <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-4xl w-[95vw] md:w-full h-fit max-h-[92vh] md:max-h-[90vh] overflow-hidden flex flex-col p-0 bg-background border-border rounded-sm shadow-2xl focus:outline-none">
+      <DialogContent className="max-w-4xl w-[100vw] md:w-full h-[96vh] md:h-fit md:max-h-[90vh] overflow-hidden flex flex-col p-0 bg-background border-border rounded-none md:rounded-sm shadow-2xl focus:outline-none focus-visible:outline-none">
         <DialogHeader className="p-4 md:p-12 bg-muted/30 border-b border-border relative shrink-0">
           <div className="flex flex-col md:flex-row items-center md:items-end gap-3 md:gap-8 relative z-10">
             <motion.div 

@@ -99,7 +99,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-center">
           <div className="lg:col-span-1 space-y-4 md:space-y-6">
             <div className="flex flex-col gap-1">
-              <h1 className="text-2xl md:text-6xl font-black uppercase tracking-tighter italic">
+              <h1 className="text-3xl md:text-6xl font-black uppercase tracking-tighter italic">
                 JHAKKAS <span className="text-white NOT-italic">CORE</span>
               </h1>
               <p className="text-[10px] md:text-lg font-black text-primary tracking-[0.2em] uppercase mt-1 md:mt-2">
@@ -160,9 +160,9 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
           </div>
 
           {/* Level Stats Detail */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-4">
             {[1,2,3,4,5].reverse().map(l => (
-              <div key={l} className="p-3 md:p-4 bg-muted/30 border border-black/5 rounded-sm space-y-2 md:space-y-3">
+              <div key={l} className="p-2 md:p-4 bg-muted/30 border border-black/5 rounded-sm space-y-1 md:space-y-3">
                 <p className="text-[8px] md:text-[10px] font-black opacity-60 uppercase">N{l}</p>
                 <div className="h-1 bg-black/5 rounded-sm overflow-hidden">
                   <motion.div 
@@ -171,7 +171,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
                     className="h-full bg-black/20"
                   />
                 </div>
-                <p className="text-sm md:text-xl font-black tabular-nums">{levelStats[l]?.percentage || 0}%</p>
+                <p className="text-xs md:text-xl font-black tabular-nums">{levelStats[l]?.percentage || 0}%</p>
               </div>
             ))}
           </div>

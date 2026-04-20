@@ -6,6 +6,23 @@ const config: CapacitorConfig = {
   webDir: 'dist',
   server: {
     androidScheme: 'https'
+  },
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 2000,
+      backgroundColor: "#000000",
+      showSpinner: false,
+      androidScaleType: "CENTER_CROP"
+    },
+    StatusBar: {
+      backgroundColor: "#000000",
+      style: "DARK"
+    },
+    Keyboard: {
+      resize: "body",
+      style: "DARK",
+      resizeOnFullScreen: true
+    }
   }
 };
 

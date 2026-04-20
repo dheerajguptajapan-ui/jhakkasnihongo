@@ -22,7 +22,6 @@ export interface AppSettings {
   theme: 'light' | 'dark' | 'system';
   fontScale: number; // 0.6 to 1.4
   dailyNewCards: number; // 20 to 100
-  remoteUpdateUrl: string;
 }
 
 export const PersistenceService = {
@@ -99,8 +98,7 @@ export const PersistenceService = {
       showFurigana: true, 
       theme: 'system', 
       fontScale: 0.8, // 20% reduction by default
-      dailyNewCards: 20,
-      remoteUpdateUrl: 'https://raw.githubusercontent.com/dwv2/jhakkasnihongo/main/curriculum_updates.json'
+      dailyNewCards: 20
     };
     return data ? { ...defaultSettings, ...data } : defaultSettings;
   },
@@ -138,15 +136,6 @@ export const PersistenceService = {
     }
   },
 
-  // --- Curriculum Patching ---
-  async getRemotePatch(): Promise<any[]> {
-    const data = await NativeStorage.get<any[]>(STORAGE_KEYS.CURRICULUM_PATCH);
-    return data || [];
-  },
-
-  async setRemotePatch(items: any[]): Promise<void> {
-    await NativeStorage.set(STORAGE_KEYS.CURRICULUM_PATCH, items);
-  },
 
   // --- Feedback ---
   async getAllFeedback(): Promise<any[]> {

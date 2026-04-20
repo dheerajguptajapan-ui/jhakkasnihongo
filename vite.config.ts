@@ -19,5 +19,26 @@ export default defineConfig(({mode}) => {
     server: {
       hmr: process.env.DISABLE_HMR !== 'true',
     },
+    build: {
+      target: 'es2020',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'curriculum-n1-n2': [
+              './src/lib/curriculum/n1chapter1',
+              './src/lib/curriculum/n2chapter1'
+            ],
+            'curriculum-n3-n4-n5': [
+              './src/lib/curriculum/n3chapter1',
+              './src/lib/curriculum/n4chapter1',
+              './src/lib/curriculum/lesson1'
+            ],
+            'vendor-react': ['react', 'react-dom'],
+            'vendor-ui': ['lucide-react', 'recharts', 'motion']
+          }
+        }
+      },
+      chunkSizeWarningLimit: 1000
+    }
   };
 });

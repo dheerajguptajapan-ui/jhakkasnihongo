@@ -189,7 +189,7 @@ export const KanaView: React.FC<KanaViewProps> = ({ onResult }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2">
+      <div className="grid grid-cols-5 md:grid-cols-10 gap-2">
         {data.map((char) => (
           <motion.button
             key={char.id}
@@ -199,7 +199,7 @@ export const KanaView: React.FC<KanaViewProps> = ({ onResult }) => {
               setSelectedChar(char);
               playAudio(char.character);
             }}
-            className="relative h-24 rounded-sm border border-border transition-all duration-300 bg-card hover:border-primary hover:shadow-lg flex flex-col items-center justify-center gap-1 group"
+            className="relative h-20 md:h-24 rounded-sm border border-border transition-all duration-300 bg-card hover:border-primary hover:shadow-lg flex flex-col items-center justify-center gap-1 group"
           >
             <span className="text-3xl font-black text-foreground group-hover:scale-110 transition-transform">{char.character}</span>
             <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">{char.readings[0]}</span>

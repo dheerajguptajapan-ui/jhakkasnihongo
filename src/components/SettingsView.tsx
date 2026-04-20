@@ -25,7 +25,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Slider } from './ui/slider';
-import { CurriculumSyncService } from '../lib/services/CurriculumSyncService';
+import { CurriculumService } from '../lib/services/CurriculumService';
 import { UserFeedback } from '../types';
 
 export const SettingsView: React.FC = () => {
@@ -169,28 +169,22 @@ export const SettingsView: React.FC = () => {
 
             <div className="bg-card border border-border rounded-sm overflow-hidden shadow-sm">
                 <div className="bg-foreground p-6 flex items-center justify-between">
-                    <h3 className="text-xs font-black uppercase tracking-[0.3em] text-background">App Updates</h3>
+                    <h3 className="text-xs font-black uppercase tracking-[0.3em] text-background">Internal Cache</h3>
                     <RefreshCcw className="w-4 h-4 text-background" />
                 </div>
                 <div className="p-8 space-y-6">
                     <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest leading-relaxed">
-                        Update the lexical matrix from the primary GitHub repository.
+                        Re-initialize the lexical matrix and rebuild local study vectors.
                     </p>
                     <Button 
                         onClick={async () => {
-                            const syncPromise = CurriculumSyncService.syncWithGitHub();
-                            toast.promise(syncPromise, {
-                                loading: 'Initiating Global Sync...',
-                                success: (res) => res ? 'Curriculum Synchronized!' : 'No new updates.',
-                                error: 'Sync Interrupted.'
-                            });
-                            if (await syncPromise) {
-                                setTimeout(() => window.location.reload(), 1500);
-                            }
+                            CurriculumService.initialize();
+                            toast.success('Local Cache Rebuilt!');
+                            setTimeout(() => window.location.reload(), 1000);
                         }}
                         className="w-full bg-primary text-white h-14 rounded-sm font-black text-xs uppercase tracking-[0.3em] shadow-xl shadow-primary/20"
                     >
-                        INITIATE GLOBAL SYNC
+                        REBUILD LOCAL CACHE
                     </Button>
                 </div>
             </div>

@@ -85,6 +85,7 @@ export interface UserItem {
   srsStage: number;
   nextReviewAt?: any;
   lastReviewedAt?: any;
+  lastStudiedAt?: string;
   streak: number;
   // SM-2 Algorithm metrics
   easinessFactor: number;
