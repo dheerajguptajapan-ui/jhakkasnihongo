@@ -37,40 +37,41 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose 
 
   return (
     <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-4xl w-[100vw] md:w-full h-[96vh] md:h-fit md:max-h-[90vh] overflow-hidden flex flex-col p-0 bg-background border-border rounded-none md:rounded-sm shadow-2xl focus:outline-none focus-visible:outline-none">
-        <DialogHeader className="p-4 md:p-12 bg-muted/30 border-b border-border relative shrink-0">
-          <div className="flex flex-col md:flex-row items-center md:items-end gap-3 md:gap-8 relative z-10">
-            <motion.div 
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              className={`font-black text-foreground drop-shadow-sm select-none whitespace-nowrap overflow-visible ${
-                isKanji 
-                  ? 'text-[clamp(4rem,15vw,8rem)] leading-none' 
-                  : 'text-[clamp(2rem,8vw,5rem)] md:text-7xl pt-4'
-              }`}
-            >
-               {isKanji ? item.character : <RubyText text={item.character} showFurigana={showFurigana} />}
-            </motion.div>
-            <div className="space-y-4 flex-1 text-center md:text-left">
-              <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                <Badge className="bg-primary/10 text-primary border-primary/20 font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-sm">
-                  JLPT N{item.level} {item.type.toUpperCase()}
-                </Badge>
-                {item.radical && (
-                  <Badge className="bg-muted text-muted-foreground border-border font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-sm">
-                    Radical: {item.radical}
-                  </Badge>
-                )}
-              </div>
-              <DialogTitle className="text-3xl md:text-5xl font-black text-foreground leading-tight tracking-tighter uppercase break-words">
-                {item.meanings.join(' • ')}
-              </DialogTitle>
-            </div>
-          </div>
-        </DialogHeader>
-
-        <ScrollArea className="flex-1 px-4 py-6 md:p-12 overscroll-contain">
+      <DialogContent className="max-w-4xl w-full h-[96vh] md:h-fit md:max-h-[90vh] overflow-hidden flex flex-col p-0 bg-background border-border rounded-none md:rounded-sm shadow-2xl focus:outline-none focus-visible:outline-none">
+        <ScrollArea className="flex-1 px-4 py-8 md:p-12 overscroll-contain">
           <div className="space-y-8 md:space-y-12 pb-20">
+            {/* UNIFIED HEADER (NOW SCROLLABLE) */}
+            <header className="space-y-6 md:space-y-8 border-b border-border/50 pb-8 md:pb-12">
+              <div className="flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-12">
+                <motion.div 
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  className={`font-black text-foreground drop-shadow-sm select-none text-center md:text-left ${
+                    isKanji 
+                      ? 'text-[clamp(3.5rem,20vw,8.5rem)] leading-none' 
+                      : 'text-[clamp(2rem,12vw,5.5rem)] leading-tight'
+                  }`}
+                >
+                  {isKanji ? item.character : <RubyText text={item.character} showFurigana={showFurigana} />}
+                </motion.div>
+                
+                <div className="flex-1 space-y-4 text-center md:text-left overflow-hidden w-full">
+                  <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                    <Badge className="bg-primary/10 text-primary border-primary/20 font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-sm">
+                      JLPT N{item.level} {item.type.toUpperCase()}
+                    </Badge>
+                    {item.radical && (
+                      <Badge className="bg-muted text-muted-foreground border-border font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-sm">
+                        {item.radical}
+                      </Badge>
+                    )}
+                  </div>
+                  <DialogTitle className="text-[clamp(1.5rem,8vw,3.5rem)] font-black text-foreground leading-tight tracking-tighter uppercase break-words">
+                    {item.meanings.join(' • ')}
+                  </DialogTitle>
+                </div>
+              </div>
+            </header>
             
             {/* Primary Grid: Readings & Explanation */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">

@@ -93,6 +93,76 @@ export const n5dokkai_expansion: Item[] = [
         options: ['不便', '便利だけど、人が多い', '静か', '遅い'],
         answerIndex: 1
       }
+  },
+  {
+    id: 'n5-d-x5',
+    lessonNumber: 10,
+    type: 'dokkai',
+    level: 5,
+    character: '喫茶店は どこですか',
+    meanings: ['Where is the Cafe?'],
+    content: [
+      { text: 'Aalind: ', reading: null }, { text: 'すみません。この 近くに', reading: 'kono chikaku ni' }, { text: '喫茶店', reading: 'きっさてん' }, { text: 'が', reading: null }, { text: 'ありますか。', reading: 'arimasu ka' },
+      { text: '\n', reading: null },
+      { text: 'Dheeraj: ', reading: null }, { text: 'はい、あそこに', reading: 'asoko ni' }, { text: '銀行', reading: 'ぎんこう' }, { text: 'が', reading: null }, { text: 'ありますね。', reading: null },
+      { text: '\n', reading: null },
+      { text: 'Dheeraj: ', reading: null }, { text: '喫茶店', reading: 'きっさてん' }, { text: 'は', reading: null }, { text: '銀行の', reading: 'ginkou no' }, { text: '隣', reading: 'となり' }, { text: 'に', reading: null }, { text: 'あります。', reading: null }
+    ],
+    translation: 'Aalind: Excuse me. Is there a cafe near here? Dheeraj: Yes, there is a bank over there. The cafe is next to the bank.',
+    questions: [
+      {
+        question: '喫茶店は どこに ありますか。',
+        options: ['銀行の 中', '銀行の 前', '銀行の 隣', '学校の 隣'],
+        answerIndex: 2
+      }
+    ]
+  },
+  {
+    id: 'n5-d-x6',
+    lessonNumber: 14,
+    type: 'dokkai',
+    level: 5,
+    character: 'お土産を 買います',
+    meanings: ['Buying a Gift'],
+    content: [
+      { text: 'Riya: ', reading: null }, { text: 'すみません。その', reading: null }, { text: '傘', reading: 'かさ' }, { text: 'を', reading: null }, { text: '見せて', reading: 'misete' }, { text: 'ください。', reading: null },
+      { text: '\n', reading: null },
+      { text: '店員: ', reading: 'ten\'in' }, { text: 'はい、どうぞ。これは', reading: null }, { text: '京都の', reading: 'kyouto no' }, { text: '傘', reading: 'かさ' }, { text: 'です。', reading: null },
+      { text: '\n', reading: null },
+      { text: 'Riya: ', reading: null }, { text: '綺麗ですね。これを', reading: 'kirei desu ne. kore o' }, { text: 'ください。', reading: null }
+    ],
+    translation: 'Riya: Excuse me. Please show me that umbrella. Staff: Yes, here you go. This is an umbrella from Kyoto. Riya: It\'s beautiful. I\'ll take it.',
+    questions: [
+      {
+        question: 'Riyaさんは 何を 買いましたか。',
+        options: ['鞄', '京都の 傘', '時計', '靴'],
+        answerIndex: 1
+      }
+    ]
+  },
+  {
+    id: 'n5-d-x7',
+    lessonNumber: 25,
+    type: 'dokkai',
+    level: 5,
+    character: '来年の 予定',
+    meanings: ['Plans for Next Year'],
+    content: [
+       { text: 'Dheeraj: ', reading: null }, { text: '来年', reading: 'らいねん' }, { text: '、大学を', reading: 'daigaku o' }, { text: '卒業', reading: 'そつぎょう' }, { text: 'したら', reading: 'shitara' }, { text: '、どう しますか。', reading: null },
+       { text: '\n', reading: null },
+       { text: 'Aalind: ', reading: null }, { text: '日本へ', reading: 'nihon e' }, { text: '留学', reading: 'りゅうがく' }, { text: 'します。', reading: null },
+       { text: '\n', reading: null },
+       { text: 'Dheeraj: ', reading: null }, { text: 'いいですね。もし', reading: 'moshi' }, { text: 'お金が', reading: 'okane ga' }, { text: 'なかったら', reading: 'nakattara' }, { text: '、どう しますか。', reading: null },
+       { text: '\n', reading: null },
+       { text: 'Aalind: ', reading: null }, { text: 'お金が なかったら、', reading: null }, { text: '一生懸命', reading: 'isshoukenmei' }, { text: '働きます。', reading: 'hatarakimasu' }
+    ],
+    translation: 'Dheeraj: What will you do after you graduate from university next year? Aalind: I will study abroad in Japan. Dheeraj: That\'s nice. If you don\'t have money, what will you do? Aalind: If I don\'t have money, I will work hard.',
+    questions: [
+      {
+        question: 'Aalindさんは いつ 日本へ 行きますか。',
+        options: ['今年', '来年', '去年', '毎日'],
+        answerIndex: 1
+      }
     ]
   }
 ];
