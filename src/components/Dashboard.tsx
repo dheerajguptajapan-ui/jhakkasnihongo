@@ -95,19 +95,19 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
   return (
     <div className="min-h-screen bg-background">
       {/* SECTION 1: Absolute Black Hero (Chiaroscuro) */}
-      <div className="bg-black text-white p-6 md:p-12 space-y-8 border-b border-white/5">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          <div className="lg:col-span-1 space-y-6">
-            <div className="flex flex-col gap-2">
-              <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic">
+      <div className="bg-black text-white p-4 md:p-12 space-y-6 md:space-y-8 border-b border-white/5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-center">
+          <div className="lg:col-span-1 space-y-4 md:space-y-6">
+            <div className="flex flex-col gap-1">
+              <h1 className="text-2xl md:text-6xl font-black uppercase tracking-tighter italic">
                 JHAKKAS <span className="text-white NOT-italic">CORE</span>
               </h1>
-              <p className="text-lg font-black text-primary tracking-[0.2em] uppercase mt-2">
+              <p className="text-[10px] md:text-lg font-black text-primary tracking-[0.2em] uppercase mt-1 md:mt-2">
                 WELCOME, {profile?.displayName || 'RECRUIT'}
               </p>
-              <div className="flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <p className="text-[10px] font-black uppercase tracking-[0.5em] opacity-60">SECURE SYNC ACTIVE</p>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <p className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] opacity-60">SYNC ACTIVE</p>
               </div>
             </div>
 
@@ -144,17 +144,17 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
               <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">Sector Performance & Review Protocols</p>
             </div>
             
-            <div className="flex gap-4">
-              <div className="px-6 py-3 bg-black text-white rounded-sm">
-                <p className="text-[8px] font-black uppercase tracking-[0.3em] opacity-60">Daily Streak</p>
-                <p className="text-xl font-black">{streak} DAYS</p>
+            <div className="flex items-center gap-2 md:gap-4">
+              <div className="px-4 md:px-6 py-2 md:py-3 bg-black text-white rounded-sm border border-white/10">
+                <p className="text-[7px] md:text-[8px] font-black uppercase tracking-[0.3em] opacity-60">Streak</p>
+                <p className="text-sm md:text-xl font-black">{streak} DAYS</p>
               </div>
               <Button 
                 onClick={onStartReviews}
                 disabled={reviewsAvailable === 0}
-                className="h-full px-8 bg-primary rounded-sm font-black text-xs tracking-[0.3em] uppercase"
+                className="h-10 md:h-12 px-4 md:px-8 bg-primary rounded-sm font-black text-[9px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase flex-1"
               >
-                SYNC REVIEWS ({reviewsAvailable})
+                REVIEWS ({reviewsAvailable})
               </Button>
             </div>
           </div>
@@ -162,8 +162,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
           {/* Level Stats Detail */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {[1,2,3,4,5].reverse().map(l => (
-              <div key={l} className="p-4 bg-muted/50 border border-black/5 rounded-sm space-y-3">
-                <p className="text-[10px] font-black opacity-60">TACTICAL N{l}</p>
+              <div key={l} className="p-3 md:p-4 bg-muted/30 border border-black/5 rounded-sm space-y-2 md:space-y-3">
+                <p className="text-[8px] md:text-[10px] font-black opacity-60 uppercase">N{l}</p>
                 <div className="h-1 bg-black/5 rounded-sm overflow-hidden">
                   <motion.div 
                     initial={{ width: 0 }}
@@ -171,7 +171,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
                     className="h-full bg-black/20"
                   />
                 </div>
-                <p className="text-xl font-black tabular-nums">{levelStats[l]?.percentage || 0}%</p>
+                <p className="text-sm md:text-xl font-black tabular-nums">{levelStats[l]?.percentage || 0}%</p>
               </div>
             ))}
           </div>

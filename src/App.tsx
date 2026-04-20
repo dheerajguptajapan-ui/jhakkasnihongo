@@ -54,6 +54,29 @@ function App() {
   } | null>(null);
   const [activeLessonSession, setActiveLessonSession] = useState<Item[] | null>(null);
   const [preselectedLevel, setPreselectedLevel] = useState<number>(5);
+  const { t } = useI18n();
+
+  const handleQuizResult = async (isCorrect: boolean, item?: Item) => {
+    setMascotState(isCorrect ? 'success' : 'error');
+    setTimeout(() => setMascotState('idle'), 1500);
+
+    if (user && isCorrect) {
+      // Track as a 'review' activity to increment XP and Synaptic Stability
+      await PersistenceService.trackActivity('reviews');
+      
+      if (item) {
+        // Find existing user item to update SRS or create new entry
+        const items = await PersistenceService.getUserItems();
+        const existing = items.find(ui => ui.itemId === item.id && ui.uid === user.uid);
+        
+        await PersistenceService.updateUserItem(user.uid, item.id, {
+          srsStage: existing ? Math.min(9, (existing.srsStage || 0) + 1) : 1,
+          lastStudiedAt: new Date().toISOString(),
+          streak: existing ? (existing.streak || 0) + 1 : 1
+        });
+      }
+    }
+  };
 
   React.useEffect(() => {
     CurriculumService.initialize();
@@ -124,9 +147,9 @@ function App() {
       <Toaster position="top-center" theme={settings.theme === 'dark' ? 'dark' : 'light'} richColors />
 
       <header className="fixed top-0 left-0 right-0 h-16 bg-background/80 backdrop-blur-md z-50 px-6 flex items-center justify-between border-b border-border/50">
-        <div className="flex items-center gap-3">
-          <AppLogo size={32} />
-          <span className="font-black tracking-tighter text-xl uppercase italic">JHAKKAS <span className="text-primary NOT-italic">NIHONGO</span></span>
+        <div className="flex items-center gap-2 md:gap-3">
+          <AppLogo size={24} className="md:w-8 md:h-8" />
+          <span className="font-black tracking-tighter text-base md:text-xl uppercase italic">JHAKKAS <span className="text-primary NOT-italic">NIHONGO</span></span>
         </div>
 
         <div className="flex items-center gap-6">
@@ -150,7 +173,7 @@ function App() {
         </div>
       </header>
       
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-6 md:translate-x-0 md:top-24 md:bottom-auto bg-card border border-border rounded-sm p-2 flex md:flex-col gap-1 z-50 shadow-xl">
+      <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 md:left-6 md:translate-x-0 md:top-24 md:bottom-auto bg-card border border-border rounded-sm p-1.5 flex md:flex-col gap-1 z-50 shadow-2xl">
         <div className="hidden md:flex items-center justify-center w-10 h-10 rounded-sm bg-primary text-primary-foreground font-black text-xl mb-4">
           J
         </div>
@@ -238,10 +261,7 @@ function App() {
                         category={activeQuiz.category}
                         limit={activeQuiz.limit}
                         isCumulative={activeQuiz.isCumulative}
-                        onResult={(isCorrect) => {
-                          setMascotState(isCorrect ? 'success' : 'error');
-                          setTimeout(() => setMascotState('idle'), 1200);
-                        }}
+                        onResult={handleQuizResult}
                         onFinish={() => setActiveQuiz(null)}
                       />
                     </motion.div>
@@ -251,10 +271,7 @@ function App() {
             )}
             {currentTab === 'kana' && (
               <KanaView 
-                onResult={(isCorrect) => {
-                  setMascotState(isCorrect ? 'success' : 'error');
-                  setTimeout(() => setMascotState('idle'), 2000);
-                }} 
+                onResult={(isCorrect) => handleQuizResult(isCorrect)} 
               />
             )}
             {currentTab === 'settings' && <SettingsView />}
@@ -275,14 +292,14 @@ function NavButton({ active, onClick, icon, label }: { active: boolean, onClick:
   return (
     <button 
       onClick={onClick}
-      className={`flex flex-col items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-sm transition-all relative group ${
+      className={`flex flex-col items-center justify-center w-10 h-10 md:w-16 md:h-16 rounded-sm transition-all relative group ${
         active 
           ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' 
           : 'text-muted-foreground hover:bg-muted/80 hover:text-foreground'
       }`}
     >
       <div className={`transition-transform duration-300 ${active ? 'scale-110' : 'group-hover:translate-y-[-2px]'}`}>
-        {React.cloneElement(icon as React.ReactElement, { size: 18, strokeWidth: 2.5 } as any)}
+        {React.cloneElement(icon as React.ReactElement, { size: 16, strokeWidth: 2.5 } as any)}
       </div>
       <span className="text-[8px] font-black uppercase tracking-[0.2em] mt-2 hidden md:block opacity-70">{label}</span>
       {active && (

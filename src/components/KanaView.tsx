@@ -12,7 +12,7 @@ interface KanaViewProps {
 const TabButton: React.FC<{ active: boolean; onClick: () => void; label: string }> = ({ active, onClick, label }) => (
   <button 
     onClick={onClick}
-    className={`h-9 px-4 md:px-6 rounded-sm font-black uppercase tracking-widest text-[9px] transition-all whitespace-nowrap ${
+    className={`h-8 px-3 md:px-6 rounded-sm font-black uppercase tracking-widest text-[8px] transition-all whitespace-nowrap ${
       active ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-muted-foreground hover:text-foreground'
     }`}
   >
@@ -89,15 +89,16 @@ export const KanaView: React.FC<KanaViewProps> = ({ onResult }) => {
         </div>
 
         <div className="bg-card border-2 border-border dark:border-primary/20 rounded-sm p-12 overflow-hidden relative shadow-premium flex flex-col items-center">
-          <AnimatePresence mode="wait">
+          <AnimatePresence initial={false}>
              <motion.div 
                key={currentTestChar.id}
-               initial={{ opacity: 0, x: 20 }}
-               animate={{ opacity: 1, x: 0 }}
-               exit={{ opacity: 0, x: -20 }}
-               className="flex flex-col items-center gap-16 w-full"
+               initial={{ opacity: 0, scale: 0.95 }}
+               animate={{ opacity: 1, scale: 1 }}
+               exit={{ opacity: 0, scale: 0.95 }}
+               transition={{ duration: 0.2 }}
+               className="flex flex-col items-center gap-12 md:gap-16 w-full"
              >
-                <div className="text-9xl font-black text-foreground drop-shadow-sm select-none">
+                <div className="text-8xl md:text-9xl font-black text-foreground drop-shadow-sm select-none">
                   {currentTestChar.character}
                 </div>
                 
@@ -108,7 +109,7 @@ export const KanaView: React.FC<KanaViewProps> = ({ onResult }) => {
                       variant="outline"
                       onClick={() => handleAnswer(opt)}
                       disabled={feedback !== null}
-                      className="h-14 rounded-sm border-border hover:border-primary hover:bg-primary/5 text-foreground font-black text-xs uppercase tracking-[0.2em] transition-all active:scale-[0.98] disabled:opacity-50"
+                      className="h-12 md:h-14 rounded-sm border-border hover:border-primary hover:bg-primary/5 text-foreground font-black text-xs uppercase tracking-[0.2em] transition-all active:scale-[0.98] disabled:opacity-50"
                     >
                       {opt}
                     </Button>
