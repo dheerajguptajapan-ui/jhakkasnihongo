@@ -6,8 +6,9 @@
 const PARTICLES = ['は', 'が', 'を', 'に', 'で', 'と', 'も', 'へ', 'まで', 'から', 'の', 'より'];
 const MASU_SUFFIXES = ['ます', 'ません', 'ました', 'ませんでした'];
 const I_ADJ_SUFFIXES = ['い', 'くない', 'かった', 'くなかった'];
+const COPULA_SUFFIXES = ['です', 'でした', 'ではありません', 'じゃありません', 'だった', 'じゃない'];
 
-export type GrammarCategory = 'PARTICLE' | 'MASU_VERB' | 'I_ADJECTIVE' | 'GENERAL';
+export type GrammarCategory = 'PARTICLE' | 'MASU_VERB' | 'I_ADJECTIVE' | 'COPULA' | 'GENERAL';
 
 export interface GrammarAnalysis {
   category: GrammarCategory;
@@ -21,7 +22,8 @@ export interface GrammarAnalysis {
  * Strips common sentence-ending punctuation for cleaner analysis
  */
 function cleanText(text: string): string {
-  return text.replace(/[。！？]/g, '');
+  if (!text) return '';
+  return text.replace(/[。！？、.!?]/g, '').trim();
 }
 
 /**
@@ -110,15 +112,38 @@ export function analyzeGrammarSegment(text: string, curriculumPool: string[] = [
     }
   }
 
-  // 4. Fallback (General Noun/Word)
+  // 4. Copula (Desu) Check
+  for (const suffix of COPULA_SUFFIXES) {
+    if (clean.endsWith(suffix)) {
+      const stem = clean.slice(0, clean.length - suffix.length);
+      const distractors = COPULA_SUFFIXES
+        .filter(s => s !== suffix)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3)
+        .map(s => stem + s + (text.endsWith('。') ? '。' : ''));
+
+      return {
+        category: 'COPULA',
+        correct: text,
+        distractors,
+        logicTitle: 'SYNTAX: COPULA (DESU)',
+        logicDescription: "Identifying the correct state-of-being marker (Copula). This tests your understanding of Tense (Past/Present) and Politeness/Negation."
+      };
+    }
+  }
+
+  // 5. Fallback (General Noun/Word)
   // Pull distractors from the curriculum pool of similar length
   const distractors = curriculumPool
-    .filter(t => t !== text && t.length >= 1 && t.length <= 10 && !t.match(/[。！？]/))
+    .filter(t => cleanText(t) !== clean && t.length >= 1 && t.length <= 15)
     .sort(() => 0.5 - Math.random())
     .slice(0, 3);
 
+  // If pool is empty or too small, use generic but Japanese-themed markers if we must, 
+  // but ideally the caller should provide a robust pool.
   while (distractors.length < 3) {
-    distractors.push(`Distractor ${distractors.length + 1}`);
+    const fallbacks = ['なし', '不明', '確認中', '未設定']; // Japanese for "none", "unknown", "verifying", "not set"
+    distractors.push(fallbacks[distractors.length] || '---');
   }
 
   return { 

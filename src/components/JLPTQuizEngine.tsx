@@ -56,7 +56,8 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
     if (category) {
       poolItems = poolItems.filter(i => i.type === category);
     } else {
-      poolItems = poolItems.filter(i => i.type === 'vocabulary' || i.type === 'kanji');
+      // INCLUDE GRAMMAR BY DEFAULT IN CHAPTER QUIZZES
+      poolItems = poolItems.filter(i => i.type === 'vocabulary' || i.type === 'kanji' || i.type === 'grammar');
     }
     
     if (poolItems.length === 0) {
@@ -64,13 +65,23 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
       return;
     }
 
+    // GLOBAL DISTRACTOR POOL: Pull from the entire level, not just the current lesson
+    const fullLevelItems = Object.values(allCurriculum[level] || {}).flat();
+    
     // Distractor pool for grammar syntax (Strictly Japanese segments ONLY)
-    const grammarPool = poolItems.flatMap(i => [
-      i.character,
-      ...(i.readings || []),
-      ...(i.sentences?.flatMap(s => s.segments?.map(seg => seg.text) || []) || [])
-    ])
-    .filter(t => t && t.length > 0 && t.length < 15 && !t.includes(' ') && !['。', '、', '？', '！', '「', '」'].includes(t))
+    const grammarPool = fullLevelItems.flatMap(i => {
+      const parts: string[] = [i.character, ...(i.readings || [])];
+      if (i.sentences) {
+        i.sentences.forEach(s => {
+          if (typeof s.japanese === 'string') parts.push(s.japanese);
+          if (Array.isArray(s.japanese)) s.japanese.forEach(seg => parts.push(seg.text));
+          if (s.segments) s.segments.forEach(seg => parts.push(seg.text));
+        });
+      }
+      return parts;
+    })
+    .map(t => (typeof t === 'string' ? t.trim() : ''))
+    .filter(t => t.length > 0 && t.length < 15 && !['。', '、', '？', '！', '「', '」'].includes(t))
     .filter(t => !/[a-zA-Z]/.test(t)); // PURGE ROMAJI/ENGLISH FROM OPTIONS
 
     const randomized = [...poolItems]
@@ -87,8 +98,12 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
           } else if (sentence.segments) {
             segments = sentence.segments;
           } else if (typeof sentence.japanese === 'string') {
-            // Fallback: splitting by common particles if segments are missing
-            segments = (sentence.japanese as string).split(/([はがをにでともへ。！？])/g).filter(Boolean).map(t => ({ text: t }));
+            // Fallback: splitting by common particles and copulas if segments are missing
+            // We use a more comprehensive list for N5/N4 (desu, masu, particles)
+            segments = (sentence.japanese as string)
+              .split(/([はがをにでともへより]|です|ます|でした|ました|じゃありません|ではありません)/g)
+              .filter(Boolean)
+              .map(t => ({ text: t.trim() }));
           }
 
           // Pick a random significant segment (not punctuation)
@@ -129,6 +144,7 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
   const options = useMemo(() => {
     if (!currentItem) return [];
     const qItem = currentItem as any;
+    const fullLevelItems = Object.values(allCurriculum[level] || {}).flat();
     
     // NEW GRAMMAR SYNTAX LOGIC
     if (qItem.questionType === 'syntax') {
@@ -152,15 +168,16 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
 
     const correct = isReading ? getSafeReading(qItem) : getSafeMeaning(qItem);
     
-    const others = queue
+    const others = fullLevelItems
       .filter(i => i.id !== currentItem.id)
       .map(i => isReading ? getSafeReading(i) : getSafeMeaning(i))
-      .filter((m, i, self) => m && m !== "DATA_OFFLINE" && self.indexOf(m) === i)
+      .filter((m, i, self) => m && m !== "DATA_OFFLINE" && self.indexOf(m) === i && m !== correct)
       .sort(() => 0.5 - Math.random())
       .slice(0, 3);
     
     while (others.length < 3) {
-      others.push(isReading ? "---" : `Distractor ${others.length + 1}`);
+      const fallbacks = isReading ? ['---', '...', '???'] : ['None', 'Unknown', 'TBD'];
+      others.push(fallbacks[others.length] || '---');
     }
     
     return [correct, ...others].sort(() => 0.5 - Math.random());
