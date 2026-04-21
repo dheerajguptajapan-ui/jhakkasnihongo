@@ -897,7 +897,7 @@ export const n5kanji_expansion: Item[] = [
       { word: "有名", reading: "ゆうめい", meaning: "Famous" }
     ],
     sentences: [
-      { japanese: "私の名前はアリンです。", furigana: "[私:わたし]の[名前:なまえ]はアリンです。", english: "My name is Aalind." },
+      { japanese: "私の名前はデレジです。", furigana: "[私:わたし]の[名前:なまえ]はデレジです。", english: "My name is Dheeraj." },
       { japanese: "有名になりたいですか？", furigana: "[有名:ゆうめい]になりたいですか？", english: "Do you want to be famous?" }
     ],
     explanation: 'Strokes: 6. Mnemonic: Saying your name with your mouth (口) in the evening (夕) when it\'s hard to see faces.'

@@ -12,8 +12,8 @@ export const lesson5: Item[] = [
     meanings: ['go'], 
     explanation: 'Polite form of 行く (iku). Indicates movement away from the current location toward a destination.',
     sentences: [
-      { japanese: '明日、東京へいきます。', english: 'I will go to Tokyo tomorrow.' },
-      { japanese: '銀行へいきます。', english: 'I am going to the bank.' }
+      { japanese: '明日、東京へいきます。', furigana: '[明日:あした]、[東京:とうきょう]へ[行:い]きます。', english: 'I will go to Tokyo tomorrow.' },
+      { japanese: '銀行へいきます。', furigana: '[銀行:ぎんこう]へ[行:い]きます。', english: 'I am going to the bank.' }
     ]
   },
   { 
@@ -24,10 +24,10 @@ export const lesson5: Item[] = [
     character: 'きます', 
     readings: ['kimasu'], 
     meanings: ['come'], 
-    explanation: 'Polite form of 来る (kuru). Indicates movement toward the current location of the speaker.',
+    explanation: 'Polite form of 来る (kuru). Indicates movement toward the current location of the speaker. Dheeraj is coming to my place!',
     sentences: [
-      { japanese: 'デレジさんはうちへきます。', english: 'Mr. Dheeraj is coming to my house.' },
-      { japanese: 'いつ日本へきましたか？', english: 'When did you come to Japan?' }
+      { japanese: 'デレジさんはうちへきます。', furigana: 'デレジさんはうちへ[来:き]ます。', english: 'Mr. Dheeraj is coming to my house.' },
+      { japanese: 'いつ日本へきましたか？', furigana: 'いつ[日本:にほん]へ[来:き]ましたか？', english: 'When did you come to Japan?' }
     ]
   },
   { 
@@ -38,10 +38,10 @@ export const lesson5: Item[] = [
     character: 'かえります', 
     readings: ['kaerimasu'], 
     meanings: ['go back', 'return'], 
-    explanation: 'Polite form of 帰る (kaeru). Used for returning to one\'s home, country, or original location.',
+    explanation: 'Polite form of 帰る (kaeru). Used for returning to one\'s home, country, or base.',
     sentences: [
-      { japanese: '６時にうちへかえります。', english: 'I will return home at 6.' },
-      { japanese: 'らいねん、インドへかえりますか？', english: 'Will you go back to India next year?' }
+      { japanese: '６時にうちへかえります。', furigana: '６[時:じ]にうちへ[帰:かえ]ります。', english: 'I will return home at 6.' },
+      { japanese: '来年、インドへかえります。', furigana: '[来年:らいねん]、インドへ[帰:かえ]ります。', english: 'I will return to India next year.' }
     ]
   },
   { 
@@ -52,10 +52,10 @@ export const lesson5: Item[] = [
     character: 'がっこう', 
     readings: ['gakkou'], 
     meanings: ['school'], 
-    explanation: 'General term for an educational institution (学校).',
+    explanation: 'General term for school (学校).',
     sentences: [
-      { japanese: 'がっこうへいきます。', english: 'I am going to school.' },
-      { japanese: 'このがっこうはとても安いです。', english: 'This school is very cheap.' }
+      { japanese: 'がっこうへいきます。', furigana: '[学校:がっこう]へ[行:い]きます。', english: 'I am going to school.' },
+      { japanese: 'この学校はきれいです。', furigana: 'この[学校:がっこう]はきれいです。', english: 'This school is beautiful.' }
     ]
   },
   { 
@@ -66,10 +66,10 @@ export const lesson5: Item[] = [
     character: 'スーパー', 
     readings: ['su-pa-'], 
     meanings: ['supermarket'], 
-    explanation: 'Abbreviation of "supermarket".',
+    explanation: 'Borrowed from English. Standard place to buy groceries in Tokyo.',
     sentences: [
-      { japanese: 'スーパーへ買い物にいきます。', english: 'I am going to the supermarket to shop.' },
-      { japanese: 'あのスーパーは大きいです。', english: 'That supermarket is big.' }
+      { japanese: 'スーパーへ買い物にいきます。', furigana: 'スーパーへ[買:か]い[物:もの]に[行:い]きます。', english: 'I am going to the supermarket to shop.' },
+      { japanese: 'あのスーパーは安いです。', furigana: 'あのスーパーは[安:やす]いです。', english: 'That supermarket is cheap.' }
     ]
   },
   { 
@@ -80,10 +80,10 @@ export const lesson5: Item[] = [
     character: 'えき', 
     readings: ['eki'], 
     meanings: ['station'], 
-    explanation: 'Train or subway station (駅).',
+    explanation: 'Train station (駅). Heart of Japanese transportation.',
     sentences: [
-      { japanese: 'えきはどこですか？', english: 'Where is the station?' },
-      { japanese: 'えきまで歩きます。', english: 'I walk to the station.' }
+      { japanese: 'えきはどこですか？', furigana: '[駅:えき]はどこですか？', english: 'Where is the station?' },
+      { japanese: '新宿（しんじゅく）駅まで歩きます。', furigana: '[新宿:しんじゅく][駅:えき]まで[歩:ある]きます。', english: 'I walk to Shinjuku station.' }
     ]
   },
   { 
@@ -94,10 +94,10 @@ export const lesson5: Item[] = [
     character: 'ひこうき', 
     readings: ['hikouki'], 
     meanings: ['airplane'], 
-    explanation: 'Aviation vehicle (飛行機).',
+    explanation: 'Airplane (飛行機). Flying into Narita or Haneda.',
     sentences: [
-      { japanese: 'ひこうきで日本へきました。', english: 'I came to Japan by airplane.' },
-      { japanese: 'ひこうきは速いですね。', english: 'Airplanes are fast, aren\'t they?' }
+      { japanese: 'ひこうきで日本へきました。', furigana: '[飛行機:ひこうき]で[日本:にほん]へ[来:き]ましたか。', english: 'Did you come to Japan by airplane?' },
+      { japanese: 'ひこうきは速いですね。', furigana: '[飛行機:ひこうき]は[速:はや]いですね。', english: 'Airplanes are fast, aren\'t they?' }
     ]
   },
   { 
@@ -108,10 +108,10 @@ export const lesson5: Item[] = [
     character: 'ふね', 
     readings: ['fune'], 
     meanings: ['ship', 'boat'], 
-    explanation: 'Watercraft (船).',
+    explanation: 'Ship or boat (船).',
     sentences: [
-      { japanese: 'ふねで島へいきます。', english: 'I go to the island by boat.' },
-      { japanese: '大きいふねが見えます。', english: 'I can see a large ship.' }
+      { japanese: 'ふねで島へいきます。', furigana: '[船:ふね]で[島:しま]へ[行:い]きます。', english: 'I go to the island by boat.' },
+      { japanese: '大きいふねが見えます。', furigana: '[大:おお]きい[船:ふね]が[見:み]えます。', english: 'I can see a large ship.' }
     ]
   },
   { 
@@ -122,10 +122,10 @@ export const lesson5: Item[] = [
     character: 'でんしゃ', 
     readings: ['densha'], 
     meanings: ['electric train'], 
-    explanation: 'Most common method of transport in Japanese cities (電車).',
+    explanation: 'Train (電車). Essential for city life in Japan.',
     sentences: [
-      { japanese: 'でんしゃで会社へいきます。', english: 'I go to the company by train.' },
-      { japanese: 'でんしゃは混んでいます。', english: 'The train is crowded.' }
+      { japanese: 'でんしゃで会社へいきます。', furigana: '[電車:でんしゃ]で[会社:かいしゃ]へ[行:い]きます。', english: 'I go to the company by train.' },
+      { japanese: 'でんしゃはとても混んでいます。', furigana: '[電車:でんしゃ]はとても[混:こ]んでいます。', english: 'The train is very crowded.' }
     ]
   },
   { 
@@ -136,10 +136,10 @@ export const lesson5: Item[] = [
     character: 'ちかてつ', 
     readings: ['chikatetsu'], 
     meanings: ['subway'], 
-    explanation: 'Underground rail system (地下鉄).',
+    explanation: 'Subway (地下鉄). Literal "underground iron."',
     sentences: [
-      { japanese: 'ちかてつは便利です。', english: 'The subway is convenient.' },
-      { japanese: 'ちかてつで銀座へいきます。', english: 'I go to Ginza by subway.' }
+      { japanese: 'ちかてつは便利です。', furigana: '[地下鉄:ちかてつ]は[便利:べんり]です。', english: 'The subway is convenient.' },
+      { japanese: 'ちかてつで銀座へいきます。', furigana: '[地下鉄:ちかてつ]で[銀座:ぎんざ]へ[行:い]きます。', english: 'I go to Ginza by subway.' }
     ]
   },
   { 
@@ -150,10 +150,38 @@ export const lesson5: Item[] = [
     character: 'しんかんせん', 
     readings: ['shinkansen'], 
     meanings: ['bullet train'], 
-    explanation: 'Japan\'s high-speed rail network (新幹線).',
+    explanation: 'Bullet Train (新幹線). High-speed rail connecting major cities.',
     sentences: [
-      { japanese: 'しんかんせんはとても速いです。', english: 'The Shinkansen is very fast.' },
-      { japanese: 'しんかんせんで大阪へいきます。', english: 'I go to Osaka by bullet train.' }
+      { japanese: 'しんかんせんはとても速いです。', furigana: '[新幹線:しんかんせん]はとても[速:はや]いです。', english: 'The Shinkansen is very fast.' },
+      { japanese: 'しんかんせんで大阪へいきましょう。', furigana: '[新幹線:しんかんせん]で[大阪:おおさか]へ[行:い]きましょう。', english: "Let's go to Osaka by bullet train." }
+    ]
+  },
+  { 
+    id: 'nl5-v12', 
+    lessonNumber: 5, 
+    type: 'vocabulary', 
+    level: 5, 
+    character: 'バス', 
+    readings: ['basu'], 
+    meanings: ['bus'], 
+    explanation: 'Bus. Useful for areas without many train lines.',
+    sentences: [
+      { japanese: 'バスで会社へ行きます。', furigana: 'バスで[会社:かいしゃ]へ[行:い]きます。', english: 'I go to the company by bus.' },
+      { japanese: 'バスは８時半に来ます。', furigana: 'バスは８[時:じ][半:はん]に[来:き]ます。', english: 'The bus comes at 8:30.' }
+    ]
+  },
+  { 
+    id: 'nl5-v13', 
+    lessonNumber: 5, 
+    type: 'vocabulary', 
+    level: 5, 
+    character: 'タクシー', 
+    readings: ['takushii'], 
+    meanings: ['taxi'], 
+    explanation: 'Taxi. High quality in Japan!',
+    sentences: [
+      { japanese: 'タクシーでえきへ行きました。', furigana: 'タクシーで[駅:えき]へ[行:い]きました。', english: 'I went to the station by taxi.' },
+      { japanese: 'タクシーは高いです。', furigana: 'タクシーは[高:たか]いです。', english: 'Taxis are expensive.' }
     ]
   },
   { 
@@ -164,10 +192,10 @@ export const lesson5: Item[] = [
     character: 'じてんしゃ', 
     readings: ['jitensha'], 
     meanings: ['bicycle'], 
-    explanation: 'Two-wheeled pedal vehicle (自転車).',
+    explanation: 'Bicycle (自転車). Very popular for commuting in Japan.',
     sentences: [
-      { japanese: 'じてんしゃで学校へいきます。', english: 'I go to school by bicycle.' },
-      { japanese: '新しいじてんしゃを買いました。', english: 'I bought a new bicycle.' }
+      { japanese: 'じてんしゃで学校へいきます。', furigana: '[自転車:じてんしゃ]で[学校:がっこう]へ[行:い]きます。', english: 'I go to school by bicycle.' },
+      { japanese: 'あたらしい自転車がほしいです。', furigana: '[新:あたら]しい[自転車:じてんしゃ]がほしいです。', english: 'I want a new bicycle.' }
     ]
   },
   { 
@@ -178,10 +206,10 @@ export const lesson5: Item[] = [
     character: 'あるいて', 
     readings: ['aruite'], 
     meanings: ['on foot'], 
-    explanation: 'Moving by walking (歩いて). Does not take the particle "de".',
+    explanation: 'Walking (歩いて). Does NOT take the particle "de"!',
     sentences: [
-      { japanese: '駅からうちまであるいてかえります。', english: 'I walk home from the station.' },
-      { japanese: 'あるいて５分です。', english: "It's 5 minutes on foot." }
+      { japanese: '駅からうちまであるいてかえります。', furigana: '[駅:えき]からうちまで[歩:ある]いて[帰:かえ]ります。', english: 'I walk home from the station.' },
+      { japanese: '会社まで歩いて行きます。', furigana: '[会社:かいしゃ]まで[歩:ある]いて[行:い]きます。', english: 'I go to the company on foot.' }
     ]
   },
   { 
@@ -192,10 +220,10 @@ export const lesson5: Item[] = [
     character: 'ひと', 
     readings: ['hito'], 
     meanings: ['person'], 
-    explanation: 'General term for a human being (人).',
+    explanation: 'Person or human (人).',
     sentences: [
-      { japanese: 'あのひとは誰ですか？', english: 'Who is that person?' },
-      { japanese: 'いいひとですね。', english: 'They are a good person, aren\'t they?' }
+      { japanese: 'あのひとは誰ですか？', furigana: 'あの[人:ひと]は[誰:だれ]ですか？', english: 'Who is that person?' },
+      { japanese: 'たくさんの人がいます。', furigana: 'たくさんの[人:ひと]がい[ます:ます]。', english: 'There are many people.' }
     ]
   },
   { 
@@ -206,10 +234,38 @@ export const lesson5: Item[] = [
     character: 'ともだち', 
     readings: ['tomodachi'], 
     meanings: ['friend'], 
-    explanation: 'A friend or companion (友達).',
+    explanation: 'Friend (友達). Dheeraj meets his tomodachi for lunch.',
     sentences: [
-      { japanese: 'ともだちと映画を見ます。', english: 'I will watch a movie with a friend.' },
-      { japanese: '彼は私のいいともだちです。', english: 'He is my good friend.' }
+      { japanese: 'ともだちと映画を見ます。', furigana: '[友達:ともだち]と[映画:えいが]を[見:み]ます。', english: 'I will watch a movie with a friend.' },
+      { japanese: '彼女は私のいいともだちです。', furigana: '[彼女:かのじょ]は[私:わたし]のいい[友達:ともだち]です。', english: 'She is my good friend.' }
+    ]
+  },
+  { 
+    id: 'nl5-v18', 
+    lessonNumber: 5, 
+    type: 'vocabulary', 
+    level: 5, 
+    character: 'かれ', 
+    readings: ['kare'], 
+    meanings: ['he', 'boyfriend'], 
+    explanation: 'He or boyfriend (彼).',
+    sentences: [
+      { japanese: '彼は学生です。', furigana: '[彼:かれ]は[学生:がくせい]です。', english: 'He is a student.' },
+      { japanese: '彼と学校へいきます。', furigana: '[彼:かれ]と[学校:がっこう]へ[行:い]きます。', english: 'I go to school with him.' }
+    ]
+  },
+  { 
+    id: 'nl5-v19', 
+    lessonNumber: 5, 
+    type: 'vocabulary', 
+    level: 5, 
+    character: 'かのじょ', 
+    readings: ['kanojo'], 
+    meanings: ['she', 'girlfriend'], 
+    explanation: 'She or girlfriend (彼女).',
+    sentences: [
+      { japanese: '彼女は先生です。', furigana: '[彼女:かのじょ]は[先生:せんせい]です。', english: 'She is a teacher.' },
+      { japanese: '彼女はきれいです。', furigana: '[彼女:かのじょ]はきれいです。', english: 'She is beautiful.' }
     ]
   },
   { 
@@ -220,10 +276,10 @@ export const lesson5: Item[] = [
     character: 'かぞく', 
     readings: ['kazoku'], 
     meanings: ['family'], 
-    explanation: 'One\'s family members (家族).',
+    explanation: 'Family (家族). Useful when talking about where your family lives.',
     sentences: [
-      { japanese: 'かぞくはインドにいます。', english: 'My family is in India.' },
-      { japanese: 'かぞくと旅行します。', english: 'I travel with my family.' }
+      { japanese: 'かぞくはインドにいます。', furigana: '[家族:かぞく]はインドにい[ます:ます]。', english: 'My family is in India.' },
+      { japanese: '家族と旅行します。', furigana: '[家族:かぞく]と[旅行:りょこう]します。', english: 'I travel with my family.' }
     ]
   },
   { 
@@ -233,11 +289,11 @@ export const lesson5: Item[] = [
     level: 5, 
     character: 'ひとりで', 
     readings: ['hitoride'], 
-    meanings: ['alone'], 
-    explanation: 'Doing something by oneself (一人で).',
+    meanings: ['alone', 'by oneself'], 
+    explanation: 'Doing something alone (一人で).',
     sentences: [
-      { japanese: 'ひとりでデパートへいきました。', english: 'I went to the department store alone.' },
-      { japanese: 'ひとりで勉強します。', english: 'I study alone.' }
+      { japanese: 'ひとりでデパートへいきました。', furigana: '[一人:ひとり]でデパートへ[行:い]きました。', english: 'I went to the department store alone.' },
+      { japanese: 'ひとりで勉強しますか。', furigana: '[一人:ひとり]で[勉強:べんきょう]しますか。', english: 'Do you study alone?' }
     ]
   },
   { 
@@ -248,10 +304,10 @@ export const lesson5: Item[] = [
     character: 'せんしゅう', 
     readings: ['senshuu'], 
     meanings: ['last week'], 
-    explanation: 'The week before the current one (先週).',
+    explanation: 'Last week (先週).',
     sentences: [
-      { japanese: 'せんしゅう、京都へいきました。', english: 'I went to Kyoto last week.' },
-      { japanese: 'せんしゅうは休みでした。', english: 'Last week was a holiday.' }
+      { japanese: 'せんしゅう、京都へいきました。', furigana: '[先週:せんしゅう]、[京都:きょうと]へ[行:い]きました。', english: 'I went to Kyoto last week.' },
+      { japanese: '先週、会社をやすみました。', furigana: '[先週:せんしゅう]、[会社:かいしゃ]を[休:やす]みました。', english: 'I rested from the company last week.' }
     ]
   },
   { 
@@ -262,10 +318,10 @@ export const lesson5: Item[] = [
     character: 'こんしゅう', 
     readings: ['konshuu'], 
     meanings: ['this week'], 
-    explanation: 'The current week (今週).',
+    explanation: 'This week (今週).',
     sentences: [
-      { japanese: 'こんしゅうは忙しいです。', english: 'I am busy this week.' },
-      { japanese: 'こんしゅうの土曜日は暇ですか？', english: 'Are you free this Saturday?' }
+      { japanese: 'こんしゅうは忙しいです。', furigana: '[今週:こんしゅう]は[忙:いそが]しいです。', english: 'I am busy this week.' },
+      { japanese: '今週の土曜日に会いましょう。', furigana: '[今週:こんしゅう]の[土曜日:どようび]に[会:あ]いましょう。', english: "Let's meet this Saturday." }
     ]
   },
   { 
@@ -276,10 +332,52 @@ export const lesson5: Item[] = [
     character: 'らいしゅう', 
     readings: ['raishuu'], 
     meanings: ['next week'], 
-    explanation: 'The week after the current one (来週).',
+    explanation: 'Next week (来週).',
     sentences: [
-      { japanese: 'らいしゅう、東京へいきます。', english: 'I will go to Tokyo next week.' },
-      { japanese: 'らいしゅうの月曜日に会いましょう。', english: "Let's meet next Monday." }
+      { japanese: 'らいしゅう、東京へいきます。', furigana: '[来週:らいしゅう]、[東京:とうきょう]へ[行:い]きます。', english: 'I will go to Tokyo next week.' },
+      { japanese: 'らいしゅうはやすみです。', furigana: '[来週:らいしゅう]は[休:やす]みです。', english: 'Next week is a holiday/break.' }
+    ]
+  },
+  { 
+    id: 'nl5-v25', 
+    lessonNumber: 5, 
+    type: 'vocabulary', 
+    level: 5, 
+    character: 'せんげつ', 
+    readings: ['sengetsu'], 
+    meanings: ['last month'], 
+    explanation: 'Last month (先月).',
+    sentences: [
+      { japanese: 'せんげつ、カメラを買いました。', furigana: '[先月:せんげつ]、カメラを[買:か]いました。', english: 'I bought a camera last month.' },
+      { japanese: '先月、京都へ行きました。', furigana: '[先月:せんげつ]、[京都:きょうと]へ[行:い]きました。', english: 'I went to Kyoto last month.' }
+    ]
+  },
+  { 
+    id: 'nl5-v26', 
+    lessonNumber: 5, 
+    type: 'vocabulary', 
+    level: 5, 
+    character: 'こんげつ', 
+    readings: ['kongetsu'], 
+    meanings: ['this month'], 
+    explanation: 'This month (今月).',
+    sentences: [
+      { japanese: 'こんげつは何月ですか。', furigana: '[今月:こんげつ]は[何月:なんがつ]ですか。', english: 'What month is this month?' },
+      { japanese: '今月も頑張りましょう！', furigana: '[今月:こんげつ]も[頑:がん][張:ば]りましょう！', english: "Let's do our best this month too!" }
+    ]
+  },
+  { 
+    id: 'nl5-v27', 
+    lessonNumber: 5, 
+    type: 'vocabulary', 
+    level: 5, 
+    character: 'らいげつ', 
+    readings: ['raigetsu'], 
+    meanings: ['next month'], 
+    explanation: 'Next month (来月).',
+    sentences: [
+      { japanese: 'らいげつ、結婚しますか。', furigana: '[来月:らいげつ]、[結婚:けっこん]しますか。', english: 'Will you get married next month?' },
+      { japanese: '来月はインドへ帰ります。', furigana: '[来月:らいげつ]はインドへ[帰:かえ]ります。', english: 'I will return to India next month.' }
     ]
   },
   { 
@@ -290,10 +388,10 @@ export const lesson5: Item[] = [
     character: 'きょねん', 
     readings: ['kyonen'], 
     meanings: ['last year'], 
-    explanation: 'The previous year (去年).',
+    explanation: 'Last year (去年).',
     sentences: [
-      { japanese: 'きょねん、日本へきました。', english: 'I came to Japan last year.' },
-      { japanese: 'きょねんは学生でした。', english: 'I was a student last year.' }
+      { japanese: 'きょねん、日本へきました。', furigana: '[去年:きょねん]、[日本:にほん]へ[来:き]ました。', english: 'I came to Japan last year.' },
+      { japanese: '去年は学生でした。', furigana: '[去年:きょねん]は[学生:がくせい]でした。', english: 'I was a student last year.' }
     ]
   },
   { 
@@ -304,10 +402,10 @@ export const lesson5: Item[] = [
     character: 'ことし', 
     readings: ['kotoshi'], 
     meanings: ['this year'], 
-    explanation: 'The current year (今年).',
+    explanation: 'This year (今年).',
     sentences: [
-      { japanese: 'ことし、３０歳になります。', english: "I'll turn 30 this year." },
-      { japanese: 'ことしはいい年ですね。', english: "It's a good year, isn't it?" }
+      { japanese: 'ことし、２５歳になります。', furigana: '[今年:ことし]、２５[歳:さい]になり[ます:ます]。', english: "I'll turn 25 this year." },
+      { japanese: 'ことしはいい年ですね。', furigana: '[今年:ことし]はいい[年:とし]ですね。', english: "It's a good year, isn't it?" }
     ]
   },
   { 
@@ -318,10 +416,38 @@ export const lesson5: Item[] = [
     character: 'らいねん', 
     readings: ['rainen'], 
     meanings: ['next year'], 
-    explanation: 'The following year (来年).',
+    explanation: 'Next year (来年).',
     sentences: [
-      { japanese: 'らいねん、結婚します。', english: 'I will get married next year.' },
-      { japanese: 'らいねんはどこへいきますか？', english: 'Where will you go next year?' }
+      { japanese: 'らいねん、日本へいきます。', furigana: '[来年:らいねん]、[日本:にほん]へ[行:い]きます。', english: 'I will go to Japan next year.' },
+      { japanese: 'らいねんはどこへいきますか？', furigana: '[来年:らいねん]はどこへ[行:い]きますか？', english: 'Where will you go next year?' }
+    ]
+  },
+  { 
+    id: 'nl5-v31', 
+    lessonNumber: 5, 
+    type: 'vocabulary', 
+    level: 5, 
+    character: '～月', 
+    readings: ['-gatsu'], 
+    meanings: ['～ month of the year'], 
+    explanation: 'Suffix for months (January to December). Note the irregulars for 4 (shigatsu), 7 (shichigatsu), and 9 (kugatsu).',
+    sentences: [
+      { japanese: '今は４月です。', furigana: 'いまは４[月:がつ]です。', english: "It's April now." },
+      { japanese: 'わたしの誕生日は７月です。', furigana: 'わたしの[誕生日:たんじょうび]は７[月:がつ]です。', english: 'My birthday is in July.' }
+    ]
+  },
+  { 
+    id: 'nl5-v32', 
+    lessonNumber: 5, 
+    type: 'vocabulary', 
+    level: 5, 
+    character: 'いつ', 
+    readings: ['itsu'], 
+    meanings: ['when'], 
+    explanation: 'Question word for time (When). Does NOT take the particle "ni"!',
+    sentences: [
+      { japanese: 'いつ日本へきましたか。', furigana: 'いつ[日本:にほん]へ[来:き]ましたか。', english: 'When did you come to Japan?' },
+      { japanese: 'いつ会いましょうか？', furigana: 'いつ[会:あ]いましょうか？', english: 'When shall we meet?' }
     ]
   },
   { 
@@ -332,10 +458,10 @@ export const lesson5: Item[] = [
     character: 'たんじょうび', 
     readings: ['tanjoubi'], 
     meanings: ['birthday'], 
-    explanation: 'One\'s date of birth (誕生日).',
+    explanation: 'Birthday (誕生日). A day for celebration!',
     sentences: [
-      { japanese: 'たんじょうびおめでとう！', english: 'Happy Birthday!' },
-      { japanese: 'あなたのたんじょうびはいつですか？', english: 'When is your birthday?' }
+      { japanese: 'たんじょうびおめでとう！', furigana: '[誕生日:たんじょうび]おめでとう！', english: 'Happy Birthday!' },
+      { japanese: 'デレジさんのたんじょうびはいつですか？', furigana: 'デレジさんの[誕生日:たんじょうび]はいつですか？', english: "When is Dheeraj's birthday?" }
     ]
   },
 
@@ -348,20 +474,34 @@ export const lesson5: Item[] = [
     character: 'Place へ いきます / きます / かえります',
     readings: ['Place e ikimasu / kimasu / kaerimasu'],
     meanings: ['Go / Come / Return to [Place]'],
-    explanation: 'The particle 「へ」 (pronounced "e") indicates the direction or destination of movement. It is always used with movement verbs like 「いきます」, 「きます」, and 「かえります」.',
+    explanation: 'The particle 「へ」 (pronounced "e") indicates the direction or destination of movement. Use it with movement verbs.',
     sentences: [
       {
         japanese: 'デレジさんは京都へ行きます。',
+        furigana: 'デレジさんは[京都:きょうと]へ[行:い]きます。',
         english: 'Mr. Dheeraj goes to Kyoto.',
         segments: [
-          { text: 'デレジさん', reading: null }, { text: 'は', reading: null }, { text: '京都', reading: 'きょうと' }, { text: 'へ', reading: null }, { text: '行きます', reading: 'いきます' }
+          { text: 'デレジさん', reading: null }, { text: 'は', reading: null }, { text: '京都', reading: 'きょうと' }, { text: 'へ', reading: null }, { text: '行きます', reading: 'いきます' }, { text: '。', reading: null }
         ]
-      },
+      }
+    ]
+  },
+  {
+    id: 'nl5-g2',
+    lessonNumber: 5,
+    type: 'grammar',
+    level: 5,
+    character: 'N(Person) と Verb',
+    readings: ['N(Person) to Verb'],
+    meanings: ['Do [Verb] with [Person]'],
+    explanation: 'The particle 「と」 indicates the person with whom an action is performed.',
+    sentences: [
       {
-        japanese: '私は５時にうちへかえります。',
-        english: 'I return home at 5.',
+        japanese: '友達と日本へ来ました。',
+        furigana: '[友達:ともだち]と[日本:にほん]へ[来:き]ました。',
+        english: 'I came to Japan with a friend.',
         segments: [
-          { text: '私', reading: 'わたし' }, { text: 'は', reading: null }, { text: '５時', reading: 'ごじ' }, { text: 'に', reading: null }, { text: 'うち', reading: null }, { text: 'へ', reading: null }, { text: 'かえります', reading: null }
+          { text: '友達', reading: 'ともだち' }, { text: 'と', reading: null }, { text: '日本', reading: 'にほん' }, { text: 'へ', reading: null }, { text: '来ました', reading: 'きました' }, { text: '。', reading: null }
         ]
       }
     ]
@@ -374,22 +514,16 @@ export const lesson5: Item[] = [
     character: 'Vehicle で いきます',
     readings: ['Vehicle de ikimasu'],
     meanings: ['Go by [Vehicle]'],
-    explanation: 'The particle 「で」 indicates the means or method of transportation. Exception: When walking, use 「あるいて」 (aruite) without the particle 「で」.',
+    explanation: 'The particle 「で」 indicates the means of transportation.',
     sentences: [
       {
         japanese: 'デレジさんは新幹線で行きます。',
+        furigana: 'デレジさんは[新幹線:しんかんせん]で[行:い]きます。',
         english: 'Mr. Dheeraj goes by bullet train.',
         segments: [
-          { text: 'デレジさん', reading: null }, { text: 'は', reading: null }, { text: '新幹線', reading: 'しんかんせん' }, { text: 'で', reading: null }, { text: '行きます', reading: 'いきます' }
-        ]
-      },
-      {
-        japanese: 'タクシーでえきへ行きました。',
-        english: 'I went to the station by taxi.',
-        segments: [
-          { text: 'タクシー', reading: null }, { text: 'で', reading: null }, { text: 'えき', reading: null }, { text: 'へ', reading: null }, { text: '行きました', reading: null }
+          { text: 'デレジさん', reading: null }, { text: 'は', reading: null }, { text: '新幹線', reading: 'しんかんせん' }, { text: 'で', reading: null }, { text: '行きます', reading: 'いきます' }, { text: '。', reading: null }
         ]
       }
     ]
-  },
+  }
 ];

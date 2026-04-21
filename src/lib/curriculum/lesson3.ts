@@ -10,10 +10,10 @@ export const lesson3: Item[] = [
     character: 'ここ',
     readings: ['koko'],
     meanings: ['here'],
-    explanation: 'Place near the speaker. Often used to indicate the current location.',
+    explanation: 'Place near the speaker (ここ). Often used to indicate the current location. Think of it as "this place."',
     sentences: [
-      { japanese: 'ここは教室です。', english: 'This is a classroom.' },
-      { japanese: 'ここは何ですか？', english: 'What is this place?' }
+      { japanese: 'ここは教室です。', furigana: 'ここは[教室:きょうしつ]です。', english: 'This is a classroom.' },
+      { japanese: 'ここは何ですか？', furigana: 'ここは[何:なん]ですか？', english: 'What is this place?' }
     ]
   },
   {
@@ -24,10 +24,10 @@ export const lesson3: Item[] = [
     character: 'そこ',
     readings: ['soko'],
     meanings: ['there'],
-    explanation: 'Place near the listener.',
+    explanation: 'Place near the listener (そこ). Use it to refer to a spot the person you are talking to is currently at or near.',
     sentences: [
-      { japanese: 'そこは食堂ですか？', english: 'Is that the dining hall?' },
-      { japanese: 'そこの赤いペンを取ってください。', english: 'Please take that red pen there.' }
+      { japanese: 'そこは食堂ですか？', furigana: 'そこは[食堂:しょくどう]ですか？', english: 'Is that the dining hall?' },
+      { japanese: 'そこは銀行ではありません。', furigana: 'そこは[銀行:ぎんこう]ではありません。', english: 'That is not a bank.' }
     ]
   },
   {
@@ -38,10 +38,10 @@ export const lesson3: Item[] = [
     character: 'あそこ',
     readings: ['asoko'],
     meanings: ['over there'],
-    explanation: 'Place far from both the speaker and the listener.',
+    explanation: 'Place far from both the speaker and the listener (あそこ). Usually requires pointing in the distance.',
     sentences: [
-      { japanese: 'あそこにトイレがあります。', english: 'There is a restroom over there.' },
-      { japanese: 'あそこはデレジさんの事務所です。', english: "That over there is Mr. Dheeraj's office." }
+      { japanese: 'あそこにトイレがあります。', furigana: 'あそこにトイレがあります。', english: 'There is a restroom over there.' },
+      { japanese: 'あそこはデレジさんの事務所です。', furigana: 'あそこはデレジさんの[事務所:じむしょ]です。', english: "That over there is Dheeraj's office." }
     ]
   },
   {
@@ -52,10 +52,10 @@ export const lesson3: Item[] = [
     character: 'どこ',
     readings: ['doko'],
     meanings: ['where'],
-    explanation: 'Interrogative for location.',
+    explanation: 'Interrogative for location (どこ). Essential for navigating Tokyo\'s complex stations!',
     sentences: [
-      { japanese: '受付はどこですか？', english: 'Where is the reception desk?' },
-      { japanese: 'あなたの家（うち）はどこですか？', english: 'Where is your house?' }
+      { japanese: '受付はどこですか？', furigana: '[受付:うけつけ]はどこですか？', english: 'Where is the reception desk?' },
+      { japanese: 'あなたの家（うち）はどこですか？', furigana: 'あなたの[家:うち]はどこですか？', english: 'Where is your house?' }
     ]
   },
   {
@@ -66,10 +66,10 @@ export const lesson3: Item[] = [
     character: 'こちら',
     readings: ['kochira'],
     meanings: ['this way', 'this place (polite)'],
-    explanation: 'Polite counterpart of "koko" or a direction toward the speaker.',
+    explanation: 'Polite counterpart of "koko" (こちら). Frequently used by staff in Japanese restaurants and offices.',
     sentences: [
-      { japanese: 'こちらはロビーです。', english: 'This is the lobby.' },
-      { japanese: 'こちらへどうぞ。', english: 'This way, please.' }
+      { japanese: 'こちらはロビーです。', furigana: 'こちらはロビーです。', english: 'This is the lobby.' },
+      { japanese: 'こちらへどうぞ。', furigana: 'こちらへどうぞ。', english: 'This way, please.' }
     ]
   },
   {
@@ -80,10 +80,10 @@ export const lesson3: Item[] = [
     character: 'そちら',
     readings: ['sochira'],
     meanings: ['that way', 'that place (polite)'],
-    explanation: 'Polite counterpart of "soko" or a direction toward the listener.',
+    explanation: 'Polite counterpart of "soko" (そちら). Use this to direct someone to a nearby area or refer to their location politely.',
     sentences: [
-      { japanese: 'そちらに階段があります。', english: 'There are stairs that way.' },
-      { japanese: 'そちらは何時ですか？', english: 'What time is it there?' }
+      { japanese: 'そちらに階段があります。', furigana: 'そちらに[階段:かいだん]があります。', english: 'There are stairs that way.' },
+      { japanese: 'そちらは何時ですか？', furigana: 'そちらは[何時:なんじ]ですか？', english: 'What time is it there?' }
     ]
   },
   {
@@ -94,10 +94,10 @@ export const lesson3: Item[] = [
     character: 'あちら',
     readings: ['achira'],
     meanings: ['that way over there', 'that place over there (polite)'],
-    explanation: 'Polite counterpart of "asoko" or a direction away from both parties.',
+    explanation: 'Polite counterpart of "asoko" (あちら). Point away from both parties when using this.',
     sentences: [
-      { japanese: 'あちらは駅です。', english: 'That over there is the station.' },
-      { japanese: 'あちらへ行きましょう。', english: "Let's go that way." }
+      { japanese: 'あちらは駅です。', furigana: 'あちらは[駅:えき]です。', english: 'That over there is the station.' },
+      { japanese: 'あちらへ行きましょう。', furigana: 'あちらへ[行:い]きましょう。', english: "Let's go that way." }
     ]
   },
   {
@@ -108,10 +108,10 @@ export const lesson3: Item[] = [
     character: 'どちら',
     readings: ['dochira'],
     meanings: ['which way', 'where (polite)'],
-    explanation: 'Polite counterpart of "doko" or "which way".',
+    explanation: 'Polite counterpart of "doko" (どちら). Use this when asking for someone\'s country or office professionally.',
     sentences: [
-      { japanese: 'お国はどちらですか？', english: 'Where are you from? (Which is your country?)' },
-      { japanese: 'エレベーターはどちらですか？', english: 'Which way is the elevator?' }
+      { japanese: 'お国はどちらですか。', furigana: 'お[国:くに]はどちらですか。', english: 'Where (Which country) are you from?' },
+      { japanese: '会議室はどちらですか？', furigana: '[会議室:かいぎしつ]はどちらですか？', english: 'Which way is the conference room?' }
     ]
   },
   {
@@ -119,13 +119,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '教室',
-    readings: ['きょうしつ', 'kyoushitsu'],
+    character: 'きょうしつ',
+    readings: ['kyoushitsu'],
     meanings: ['classroom'],
-    explanation: 'A room in a school or university where lessons are held.',
+    explanation: 'A place for study (教室). Combines "Teach" and "Room".',
     sentences: [
-      { japanese: 'ここは３階の教室です。', english: 'This is a 3rd-floor classroom.' },
-      { japanese: '教室に学生がいます。', english: 'The student is in the classroom.' }
+      { japanese: '教室は二階です。', furigana: '[教室:きょうしつ]は[二階:にかい]です。', english: 'The classroom is on the second floor.' },
+      { japanese: '静かな教室ですね。', furigana: '[静:しず]かな[教室:きょうしつ]ですね。', english: "It's a quiet classroom, isn't it?" }
     ]
   },
   {
@@ -133,13 +133,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '食堂',
-    readings: ['しょくどう', 'shokudou'],
+    character: 'しょくどう',
+    readings: ['shokudou'],
     meanings: ['dining hall', 'canteen'],
-    explanation: 'A place for eating, usually within an organization like a company or school.',
+    explanation: 'Commonly used for company cafeterias or university dining halls (食堂).',
     sentences: [
-      { japanese: '食堂は地下１階にあります。', english: 'The canteen is on the first basement floor.' },
-      { japanese: '食堂でお昼ご飯を食べます。', english: 'I eat lunch at the dining hall.' }
+      { japanese: '食堂でお昼を食べましょう。', furigana: '[食堂:しょくどう]でお[昼:ひる]を[食:た]べましょう。', english: "Let's eat lunch at the dining hall." },
+      { japanese: '会社に食堂がありますか。', furigana: '[会社:かいしゃ]に[食堂:しょくどう]がありますか。', english: 'Is there a cafeteria in the company?' }
     ]
   },
   {
@@ -147,13 +147,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '事務所',
-    readings: ['じむしょ', 'jimusho'],
+    character: 'じむしょ',
+    readings: ['jimusho'],
     meanings: ['office'],
-    explanation: 'A place where administrative work is done.',
+    explanation: 'A general office (事務所). Where the administrative business happens.',
     sentences: [
-      { japanese: '山田さんの事務所はどこですか？', english: "Where is Mr. Yamada's office?" },
-      { japanese: '事務所で仕事をします。', english: 'I work in the office.' }
+      { japanese: '事務所はどこですか？', furigana: '[事務所:じむしょ]はどこですか？', english: 'Where is the office?' },
+      { japanese: 'デレジさんの事務所はあそこです。', furigana: 'デレジさんの[事務所:じむしょ]はあそこです。', english: "Dheeraj's office is over there." }
     ]
   },
   {
@@ -161,13 +161,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '会議室',
-    readings: ['かいぎしつ', 'kaigishitsu'],
-    meanings: ['meeting room', 'conference room'],
-    explanation: 'A room used for meetings and discussions.',
+    character: 'かいぎしつ',
+    readings: ['kaigishitsu'],
+    meanings: ['conference room'],
+    explanation: 'Meeting room (会議室). Essential for those daily tech standups!',
     sentences: [
-      { japanese: '会議室でミーティングがあります。', english: 'There is a meeting in the conference room.' },
-      { japanese: 'ここはとても大きい会議室です。', english: 'This is a very large meeting room.' }
+      { japanese: '会議室で打ち合わせをします。', furigana: '[会議室:かいぎしつ]で[打:う]ち[合:あ]わせをします。', english: 'We will have a briefing in the conference room.' },
+      { japanese: '広い会議室ですね。', furigana: '[広:ひろ]い[会議室:かいぎしつ]ですね。', english: "It's a spacious meeting room, isn't it?" }
     ]
   },
   {
@@ -175,13 +175,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '受付',
-    readings: ['うけつけ', 'uketsuke'],
+    character: 'うけつけ',
+    readings: ['uketsuke'],
     meanings: ['reception desk'],
-    explanation: 'The place where visitors arrive in an office or building.',
+    explanation: 'The front desk or reception area (受付). Usually the first place you visit in a new building.',
     sentences: [
-      { japanese: '受付で聞いてください。', english: 'Please ask at the reception desk.' },
-      { japanese: '受付にきれいな花があります。', english: 'There are beautiful flowers at the reception.' }
+      { japanese: '受付であの人を待ちます。', furigana: '[受付:うけつけ]であの[人:ひと]を[待:ま]ちます。', english: 'I will wait for that person at the reception desk.' },
+      { japanese: '受付は一階にあります。', furigana: '[受付:うけつけ]は[一階:いっかい]にあります。', english: 'The reception is on the first floor.' }
     ]
   },
   {
@@ -190,12 +190,12 @@ export const lesson3: Item[] = [
     type: 'vocabulary',
     level: 5,
     character: 'ロビー',
-    readings: ['robi-'],
+    readings: ['robii'],
     meanings: ['lobby'],
-    explanation: 'The entrance hall of a building, usually larger than a hallway.',
+    explanation: 'Borrowed from English. Common meeting spot in hotels and tech offices.',
     sentences: [
-      { japanese: 'ロビーで待ってください。', english: 'Please wait in the lobby.' },
-      { japanese: 'ホテルのロビーはあそこです。', english: "The hotel's lobby is over there." }
+      { japanese: 'ロビーにデレジさんがいます。', furigana: 'ロビーにデレジさんがいます。', english: 'Dheeraj is in the lobby.' },
+      { japanese: 'ロビーで会いましょう。', furigana: 'ロビーで[会:あ]いましょう。', english: "Let's meet in the lobby." }
     ]
   },
   {
@@ -203,13 +203,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '部屋',
-    readings: ['へや', 'heya'],
+    character: 'へや',
+    readings: ['heya'],
     meanings: ['room'],
-    explanation: 'A general term for a room in a building or house.',
+    explanation: 'A general room (部屋). Could be an apartment room, hotel room, or meeting room.',
     sentences: [
-      { japanese: '私の部屋は２階です。', english: 'My room is on the 2nd floor.' },
-      { japanese: '静かな部屋が欲しいです。', english: 'I want a quiet room.' }
+      { japanese: '私の部屋は狭いです。', furigana: '[私:わたし]の[部屋:へや]は[狭:せま]いです。', english: 'My room is small/narrow.' },
+      { japanese: '部屋の鍵をください。', furigana: '[部屋:へや]の[鍵:かぎ]をください。', english: 'Please give me the room key.' }
     ]
   },
   {
@@ -219,11 +219,11 @@ export const lesson3: Item[] = [
     level: 5,
     character: 'トイレ',
     readings: ['toire'],
-    meanings: ['toilet', 'restroom'],
-    explanation: 'Katakana term for restroom. Polite synonyms include "otearai".',
+    meanings: ['restroom', 'toilet'],
+    explanation: 'Commonly used in daily life. Also known more formally as "otearai".',
     sentences: [
-      { japanese: 'トイレを借りてもいいですか？', english: 'May I borrow the restroom?' },
-      { japanese: 'トイレは事務所の隣です。', english: "The toilet is next to the office." }
+      { japanese: 'トイレはあちらです。', furigana: 'トイレはあちらです。', english: 'The restroom is that way.' },
+      { japanese: 'トイレはどこですか？', furigana: 'トイレはどこですか？', english: 'Where is the restroom?' }
     ]
   },
   {
@@ -231,13 +231,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '階段',
-    readings: ['かいだん', 'kaidan'],
-    meanings: ['staircase'],
-    explanation: 'A set of steps leading from one floor of a building to another.',
+    character: 'かいだん',
+    readings: ['kaidan'],
+    meanings: ['stairs'],
+    explanation: 'The steps or staircase (階段). High utility for navigating older Tokyo buildings.',
     sentences: [
-      { japanese: '階段はどこですか？', english: 'Where are the stairs?' },
-      { japanese: 'あそこに階段があります。', english: 'There are stairs over there.' }
+      { japanese: '階段はエスカレーターの隣です。', furigana: '[階段:かいだん]はエスカレーターの[隣:となり]です。', english: 'The stairs are next to the escalator.' },
+      { japanese: '階段で三階へ行きます。', furigana: '[階段:かいだん]で[三階:さんがい]へ[行:い]きます。', english: 'I will go to the third floor by stairs.' }
     ]
   },
   {
@@ -246,12 +246,12 @@ export const lesson3: Item[] = [
     type: 'vocabulary',
     level: 5,
     character: 'エレベーター',
-    readings: ['erebe-ta-'],
+    readings: ['erebeetaa'],
     meanings: ['elevator', 'lift'],
-    explanation: 'Mechanical platform for moving between floors.',
+    explanation: 'Borrowed from English. Standard in modern Tokyo buildings.',
     sentences: [
-      { japanese: 'エレベーターで４階へ行きます。', english: 'I go to the 4th floor by elevator.' },
-      { japanese: 'このエレベーターは速いです。', english: 'This elevator is fast.' }
+      { japanese: 'エレベーターはどこですか？', furigana: 'エレベーターはどこですか？', english: 'Where is the elevator?' },
+      { japanese: 'エレベーターで五階へ行きましょう。', furigana: 'エレベーターで[五階:ごかい]へ[行:い]きましょう。', english: "Let's go to the 5th floor by elevator." }
     ]
   },
   {
@@ -260,12 +260,12 @@ export const lesson3: Item[] = [
     type: 'vocabulary',
     level: 5,
     character: 'エスカレーター',
-    readings: ['esukare-ta-'],
+    readings: ['esukareetaa'],
     meanings: ['escalator'],
-    explanation: 'A moving staircase.',
+    explanation: 'Another borrowed term. Essential for Tokyo station navigation!',
     sentences: [
-      { japanese: 'エスカレーターはそちらです。', english: 'The escalator is that way.' },
-      { japanese: 'エスカレーターを使いましょう。', english: "Let's use the escalator." }
+      { japanese: 'エスカレーターはあちらです。', furigana: 'エスカレーターはあちらです。', english: 'The escalator is over there.' },
+      { japanese: 'エスカレーターの隣に階段があります。', furigana: 'エスカレーターの[隣:となり]に[階段:かいだん]があります。', english: 'There are stairs next to the escalator.' }
     ]
   },
   {
@@ -273,13 +273,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: 'お国',
+    character: 'おくに',
     readings: ['okuni'],
     meanings: ['country (polite)'],
-    explanation: 'Polite way to ask someone which country they are from. The "o-" is an honorific prefix.',
+    explanation: 'Polite way to refer to someone\'s home country (お国). The "o" prefix adds respect.',
     sentences: [
-      { japanese: 'お国はどちらですか？', english: 'Where are you from?' },
-      { japanese: 'お国はインドですか？', english: 'Is your country India?' }
+      { japanese: 'お国はどちらですか？', furigana: 'お[国:くに]はどちらですか？', english: 'Where are you from (polite)?' },
+      { japanese: 'あの方のお国はアメリカです。', furigana: 'あの方[かた]のお[国:くに]はアメリカです。', english: 'That person\'s country is America.' }
     ]
   },
   {
@@ -287,13 +287,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '会社',
-    readings: ['かいしゃ', 'kaisha'],
+    character: 'かいしゃ',
+    readings: ['kaisha'],
     meanings: ['company'],
-    explanation: 'A business organization or corporate firm.',
+    explanation: 'General term for a corporation or firm (会社). Dheeraj works at a tech kaisha.',
     sentences: [
-      { japanese: '事務所は会社の中にあります。', english: 'The office is inside the company.' },
-      { japanese: 'あなたの会社はどちらですか？', english: 'Which is your company?' }
+      { japanese: '会社は新宿にあります。', furigana: '[会社:かいしゃ]は[新宿:しんじゅく]にあります。', english: 'The company is in Shinjuku.' },
+      { japanese: 'あした、会社へ行きます。', furigana: 'あした、[会社:かいしゃ]へ[行:い]きます。', english: 'I will go to the company tomorrow.' }
     ]
   },
   {
@@ -304,10 +304,10 @@ export const lesson3: Item[] = [
     character: 'うち',
     readings: ['uchi'],
     meanings: ['house', 'home'],
-    explanation: 'One\'s own house or home. Also used informally to mean "I" or "my family".',
+    explanation: 'Refers to one\'s own home or house (家). Similar to "home" in English.',
     sentences: [
-      { japanese: 'うちに帰りましょう。', english: "Let's go home." },
-      { japanese: '私のうちは駅の近くです。', english: 'My house is near the station.' }
+      { japanese: '私の家（うち）へきませんか。', furigana: '[私:わたし]の[家:うち]へきませんか。', english: "Won't you come to my house?" },
+      { japanese: '家（うち）でテレビを見ます。', furigana: '[家:うち]でテレビを[見:み]ます。', english: 'I watch TV at home.' }
     ]
   },
   {
@@ -315,13 +315,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '電話',
-    readings: ['でんわ', 'denwa'],
+    character: 'でんわ',
+    readings: ['denwa'],
     meanings: ['telephone', 'phone call'],
-    explanation: 'Refers to both the physical device and the act of calling.',
+    explanation: 'Refers to the physical phone or the act of calling (電話). Modern usage often implies smartphones.',
     sentences: [
-      { japanese: '電話をかけます。', english: 'I make a phone call.' },
-      { japanese: '電話番号を教えてください。', english: 'Please tell me your phone number.' }
+      { japanese: '電話はどこですか。', furigana: '[電話:でんわ]はどこですか。', english: 'Where is the telephone?' },
+      { japanese: 'あそこで電話をします。', furigana: 'あそこで[電話:でんわ]をします。', english: "I'll make a phone call over there." }
     ]
   },
   {
@@ -329,13 +329,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '靴',
-    readings: ['くつ', 'kutsu'],
+    character: 'くつ',
+    readings: ['kutsu'],
     meanings: ['shoes'],
-    explanation: 'Footwear.',
+    explanation: 'Footwear (靴). Essential to remember: shoes are taken off in Japanese homes!',
     sentences: [
-      { japanese: 'この靴はいくらですか？', english: 'How much are these shoes?' },
-      { japanese: '靴を脱いでください。', english: 'Please take off your shoes.' }
+      { japanese: 'これはリヤさんの靴です。', furigana: 'これはリヤさんの[靴:くつ]です。', english: "These are Riya's shoes." },
+      { japanese: '靴はあそこに置いてください。', furigana: '[靴:くつ]はあそこに[置:お]いてください。', english: 'Please put your shoes over there.' }
     ]
   },
   {
@@ -346,10 +346,10 @@ export const lesson3: Item[] = [
     character: 'ネクタイ',
     readings: ['nekutai'],
     meanings: ['necktie'],
-    explanation: 'Formal neckwear.',
+    explanation: 'From English "necktie". Standard for salarymen in Tokyo business districts.',
     sentences: [
-      { japanese: 'ネクタイを締めます。', english: 'I put on a necktie.' },
-      { japanese: 'そのネクタイはとても素敵ですね。', english: 'That necktie is very nice, isn\'t it?' }
+      { japanese: 'このネクタイはいくらですか。', furigana: 'このネクタイはいくらですか。', english: 'How much is this necktie?' },
+      { japanese: 'そのネクタイは三千円です。', furigana: 'そのネクタイは[三千円:さんぜんえん]です。', english: 'That necktie is 3,000 yen.' }
     ]
   },
   {
@@ -360,10 +360,10 @@ export const lesson3: Item[] = [
     character: 'ワイン',
     readings: ['wain'],
     meanings: ['wine'],
-    explanation: 'Alcoholic drink made from fermented grapes.',
+    explanation: 'Borrowed from English. Popular in Tokyo\'s trendy bars.',
     sentences: [
-      { japanese: 'フランスのワインが好きです。', english: 'I like French wine.' },
-      { japanese: 'ワインを一杯ください。', english: 'A glass of wine, please.' }
+      { japanese: 'ワイン売り場は地下二階です。', furigana: 'ワイン[売:う]り[場:ば]は[地下二階:ちかにかい]です。', english: 'The wine section is on the second basement floor.' },
+      { japanese: 'このワインは美味しいですね。', furigana: 'このワインは[美味:おい]しいですね。', english: "This wine is delicious, isn't it?" }
     ]
   },
   {
@@ -373,11 +373,11 @@ export const lesson3: Item[] = [
     level: 5,
     character: 'たばこ',
     readings: ['tabako'],
-    meanings: ['tobacco', 'cigarette'],
-    explanation: 'Tobacco products.',
+    meanings: ['tobacco', 'cigarettes'],
+    explanation: 'Cigarettes (タバコ). Be careful of smoking areas in Tokyo.',
     sentences: [
-      { japanese: 'ここでたばこを吸わないでください。', english: 'Please do not smoke here.' },
-      { japanese: 'たばこを買います。', english: 'I buy cigarettes.' }
+      { japanese: 'タバコ売り場はどこですか？', furigana: 'タバコ[売:う]り[場:ば]はどこですか？', english: 'Where is the cigarette section?' },
+      { japanese: 'あした、たばこを買います。', furigana: 'あした、たばこを[買:か]います。', english: "I'll buy cigarettes tomorrow." }
     ]
   },
   {
@@ -385,13 +385,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '売り場',
-    readings: ['うりば', 'uriba'],
-    meanings: ['counter', 'department (in a store)'],
-    explanation: 'A specific area where items are sold.',
+    character: 'うりば',
+    readings: ['uriba'],
+    meanings: ['sales counter', 'section (in department store)'],
+    explanation: 'Literally "place to sell" (売り場). Used for different sections of a store (e.g. kutsu-uriba).',
     sentences: [
-      { japanese: '靴の売り場は２階です。', english: 'The shoe department is on the 2nd floor.' },
-      { japanese: 'この売り場はとても広いです。', english: 'This department is very spacious.' }
+      { japanese: 'カバン売り場はどこですか。', furigana: 'カバン[売:う]り[場:ば]はどこですか。', english: 'Where is the bag section?' },
+      { japanese: '地下に食品売り場があります。', furigana: '[地下:ちか]に[食品:しょくひん][売:う]り[場:ば]があります。', english: 'There is a food section in the basement.' }
     ]
   },
   {
@@ -399,13 +399,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '地下',
-    readings: ['ちか', 'chika'],
+    character: 'ちか',
+    readings: ['chika'],
     meanings: ['basement', 'underground'],
-    explanation: 'Area below the ground level.',
+    explanation: 'Underground or basement (地下). Many Tokyo restaurants and shops are in the "chika."',
     sentences: [
-      { japanese: '地下に駐車場があります。', english: 'There is a parking lot in the basement.' },
-      { japanese: '地下鉄に乗ります。', english: 'I take the subway.' }
+      { japanese: '地下に駅があります。', furigana: '[地下:ちか]に[駅:えき]があります。', english: 'The station is underground.' },
+      { japanese: '百貨店の地下はお菓子が多いです。', furigana: '[百貨店:ひゃっかてん]の[地下:ちか]はお[菓子:かし]が[多:おお]いです。', english: 'There are many sweets in the department store basement.' }
     ]
   },
   {
@@ -413,13 +413,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '～階',
+    character: '～かい',
     readings: ['-kai'],
-    meanings: ['～th floor'],
-    explanation: 'Suffix for counting floors.',
+    meanings: ['floor counter'],
+    explanation: 'Counter for floors (階). Note: 3rd floor is "sangai" (voiced).',
     sentences: [
-      { japanese: '事務所は５階にあります。', english: 'The office is on the 5th floor.' },
-      { japanese: 'ここは３階です。', english: 'This is the 3rd floor.' }
+      { japanese: '事務所は三階です。', furigana: '[事務所:じむしょ]は[三階:さんがい]です。', english: 'The office is on the 3rd floor.' },
+      { japanese: 'エレベーターで八階へ行きます。', furigana: 'エレベーターで[八階:はちかい]へ[行:い]きます。', english: 'I go to the 8th floor by elevator.' }
     ]
   },
   {
@@ -427,13 +427,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '何階',
-    readings: ['なんがい', 'nangai'],
-    meanings: ['what floor'],
-    explanation: 'Interrogative to ask for the floor number.',
+    character: 'いくら',
+    readings: ['ikura'],
+    meanings: ['how much'],
+    explanation: 'Interrogative for price (いくら). Essential for shopping.',
     sentences: [
-      { japanese: 'あなたの部屋は何階ですか？', english: 'What floor is your room on?' },
-      { japanese: '何階へ行きますか？', english: 'Which floor are you going to?' }
+      { japanese: 'この靴はいくらですか。', furigana: 'この[靴:くつ]はいくらですか。', english: 'How much are these shoes?' },
+      { japanese: 'それはいくらですか？', furigana: 'それはいくらですか？', english: 'How much is that?' }
     ]
   },
   {
@@ -441,13 +441,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: 'いくら',
-    readings: ['ikura'],
-    meanings: ['how much'],
-    explanation: 'Interrogative for price or quantity.',
+    character: 'ひゃく',
+    readings: ['hyaku'],
+    meanings: ['hundred'],
+    explanation: 'The number 100 (百).',
     sentences: [
-      { japanese: 'それはいくらですか？', english: 'How much is that?' },
-      { japanese: 'この本はいくらですか？', english: 'How much is this book?' }
+      { japanese: 'これは百円です。', furigana: 'これは[百円:ひゃくえん]です。', english: 'This is 100 yen.' },
+      { japanese: '三百五十円になります。', furigana: '[三百五十円:さんびゃくごじゅうえん]になります。', english: 'That will be 350 yen.' }
     ]
   },
   {
@@ -455,13 +455,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '百',
-    readings: ['ひゃく', 'hyaku'],
-    meanings: ['hundred'],
-    explanation: 'Numerical value 100.',
+    character: 'せん',
+    readings: ['sen'],
+    meanings: ['thousand'],
+    explanation: 'The number 1,000 (千).',
     sentences: [
-      { japanese: '百円です。', english: "It's 100 yen." },
-      { japanese: '百人が来ました。', english: 'One hundred people came.' }
+      { japanese: 'この時計は三千円です。', furigana: 'この[時計:とけい]は[三千円:さんぜんえん]です。', english: 'This watch is 3,000 yen.' },
+      { japanese: '千円貸してください。', furigana: '[千円:せんえん][貸:か]してください。', english: 'Please lend me 1,000 yen.' }
     ]
   },
   {
@@ -469,13 +469,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '千',
-    readings: ['せん', 'sen'],
-    meanings: ['thousand'],
-    explanation: 'Numerical value 1000.',
+    character: 'まん',
+    readings: ['man'],
+    meanings: ['ten thousand'],
+    explanation: 'The common unit for currency in Japan (万). 10,000 Yen is the highest-value bill.',
     sentences: [
-      { japanese: '千円を貸してください。', english: 'Please lend me 1000 yen.' },
-      { japanese: '千羽鶴を作りました。', english: 'I made a thousand paper cranes.' }
+      { japanese: '家賃は八万円です。', furigana: '[家賃:やちん]は[八万円:はちまんえん]です。', english: 'The rent is 80,000 yen.' },
+      { japanese: '一万円札がありますか。', furigana: '[一万円札:いちまんえんさつ]がありますか。', english: 'Do you have a 10,000 yen bill?' }
     ]
   },
   {
@@ -483,13 +483,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: '万',
-    readings: ['まん', 'man'],
-    meanings: ['ten thousand'],
-    explanation: 'Numerical unit representing 10,000.',
+    character: 'すみません',
+    readings: ['sumimasen'],
+    meanings: ['excuse me', 'sorry'],
+    explanation: 'Versatile Japanese phrase. Use it to catch someone\'s attention or apologize slightly.',
     sentences: [
-      { japanese: '一万円札です。', english: "It's a 10,000 yen bill." },
-      { japanese: '万人の拍手がありました。', english: 'There was applause from ten thousand people.' }
+      { japanese: 'すみません、メニューをください。', furigana: 'すみません、メニューをください。', english: 'Excuse me, please give me a menu.' },
+      { japanese: 'すみません、遅れました。', furigana: 'すみません、[遅:おく]れました。', english: "I'm sorry, I am late." }
     ]
   },
   {
@@ -497,13 +497,13 @@ export const lesson3: Item[] = [
     lessonNumber: 3,
     type: 'vocabulary',
     level: 5,
-    character: 'すみません',
-    readings: ['sumimasen'],
-    meanings: ['Excuse me'],
-    explanation: 'Versatile phrase for getting attention, apologizing, or thanking someone.',
+    character: '～でございます',
+    readings: ['-de gozaimasu'],
+    meanings: ['polite form of desu'],
+    explanation: 'Extremely polite version of "desu". Used by store staff and during formal business self-introductions.',
     sentences: [
-      { japanese: 'すみません、トイレはどこですか？', english: 'Excuse me, where is the restroom?' },
-      { japanese: 'すみません、その本を見せてください。', english: 'Excuse me, please show me that book.' }
+      { japanese: 'こちらは一階でございます。', furigana: 'こちらは[一階:いっかい]でございます。', english: 'This is the first floor (very polite).' },
+      { japanese: 'ありがとうございます。千円でございます。', furigana: 'ありがとうございます。[千円:せんえん]でございます。', english: 'Thank you. That will be 1,000 yen.' }
     ]
   },
   {
@@ -512,12 +512,12 @@ export const lesson3: Item[] = [
     type: 'vocabulary',
     level: 5,
     character: '見せてください',
-    readings: ['みせてください', 'misete kudasai'],
+    readings: ['misete kudasai'],
     meanings: ['Please show me ～'],
-    explanation: 'Polite request to view something.',
+    explanation: 'Polite request to view something (見せてください). Helpful when shopping!',
     sentences: [
-      { japanese: 'その靴を見せてください。', english: 'Please show me those shoes.' },
-      { japanese: 'あなたのパスポートを見せてください。', english: 'Please show me your passport.' }
+      { japanese: 'その靴を見せてください。', furigana: 'その[靴:くつ]を[見:み]せてください。', english: 'Please show me those shoes.' },
+      { japanese: 'あなたのパスポートを見せてください。', furigana: 'あなたのパスポートを[見:み]せてください。', english: 'Please show me your passport.' }
     ]
   },
   {
@@ -530,8 +530,8 @@ export const lesson3: Item[] = [
     meanings: ['well', 'then'],
     explanation: 'Conversational filler used when changing topics or making a decision. Short for "dewa".',
     sentences: [
-      { japanese: 'じゃ、始めましょう。', english: "Well then, let's begin." },
-      { japanese: 'じゃ、それをください。', english: 'Then, please give me that one.' }
+      { japanese: 'じゃ、始めましょう。', furigana: 'じゃ、[始:はじ]めましょう。', english: "Well then, let's begin." },
+      { japanese: 'じゃ、それをください。', furigana: 'じゃ、それをください。', english: 'Then, please give me that one.' }
     ]
   },
   {
@@ -544,8 +544,8 @@ export const lesson3: Item[] = [
     meanings: ['Please give me ～'],
     explanation: 'Used to request an item or service politely.',
     sentences: [
-      { japanese: 'これをください。', english: 'Please give me this.' },
-      { japanese: 'お水をください。', english: 'Water, please.' }
+      { japanese: 'これをください。', furigana: 'これをください。', english: 'Please give me this.' },
+      { japanese: 'お水をください。', furigana: 'お[水:みず]をください。', english: 'Water, please.' }
     ]
   },
 
@@ -562,22 +562,26 @@ export const lesson3: Item[] = [
     sentences: [
       {
         japanese: 'ここは会議室です。',
+        furigana: 'ここは[会議室:かいぎしつ]です。',
         english: 'This is the meeting room.',
         segments: [
-          { text: 'ここ', reading: 'ここ' },
+          { text: 'ここ', reading: null },
           { text: 'は', reading: null },
           { text: '会議室', reading: 'かいぎしつ' },
-          { text: 'です', reading: null }
+          { text: 'です', reading: null },
+          { text: '。', reading: null }
         ]
       },
       {
-        japanese: 'お手あらいはどこですか？',
+        japanese: 'トイレはどこですか？',
+        furigana: 'トイレはどこですか？',
         english: 'Where is the restroom?',
         segments: [
-          { text: 'お手あらい', reading: 'おてあらい' },
+          { text: 'トイレ', reading: null },
           { text: 'は', reading: null },
-          { text: 'どこ', reading: 'どこ' },
-          { text: 'ですか', reading: null }
+          { text: 'どこ', reading: null },
+          { text: 'ですか', reading: null },
+          { text: '？', reading: null }
         ]
       }
     ]
@@ -594,22 +598,14 @@ export const lesson3: Item[] = [
     sentences: [
       {
         japanese: 'デレジさんは事務所です。',
+        furigana: 'デレジさんは[事務所:じむしょ]です。',
         english: 'Mr. Dheeraj is in the office.',
         segments: [
           { text: 'デレジさん', reading: null },
           { text: 'は', reading: null },
           { text: '事務所', reading: 'じむしょ' },
-          { text: 'です', reading: null }
-        ]
-      },
-      {
-        japanese: '佐藤さんは受付です。',
-        english: 'Mr. Sato is at the reception.',
-        segments: [
-          { text: '佐藤さん', reading: 'さとうさん' },
-          { text: 'は', reading: null },
-          { text: '受付', reading: 'うけつけ' },
-          { text: 'です', reading: null }
+          { text: 'です', reading: null },
+          { text: '。', reading: null }
         ]
       }
     ]
@@ -625,23 +621,15 @@ export const lesson3: Item[] = [
     explanation: 'Polite counterparts to koko/soko/asoko/doko. These should be used in formal syncs, corporate environments, or with superiors.',
     sentences: [
       {
-        japanese: 'エレベーターはこちらです。',
-        english: 'The elevator is this way.',
+        japanese: '受付はこちらです。',
+        furigana: '[受付:うけつけ]はこちらです。',
+        english: 'The reception is this way.',
         segments: [
-          { text: 'エレベーター', reading: null },
+          { text: '受付', reading: 'うけつけ' },
           { text: 'は', reading: null },
-          { text: 'こちら', reading: 'こちら' },
-          { text: 'です', reading: null }
-        ]
-      },
-      {
-        japanese: '駅はあちらですか？',
-        english: 'Is the station over that way?',
-        segments: [
-          { text: '駅', reading: 'えき' },
-          { text: 'は', reading: null },
-          { text: 'あちら', reading: 'あちら' },
-          { text: 'ですか', reading: null }
+          { text: 'こちら', reading: null },
+          { text: 'です', reading: null },
+          { text: '。', reading: null }
         ]
       }
     ]
@@ -657,61 +645,17 @@ export const lesson3: Item[] = [
     explanation: 'The particle 「の」 indicates where a product was made (country) or which organization it belongs to (company).',
     sentences: [
       {
-        japanese: 'これは日本のワインです。',
+        japanese: 'これは 日本の ワインです。',
+        furigana: 'これは[日本:にほん]のワインです。',
         english: 'This is Japanese wine.',
         segments: [
-          { text: 'これ', reading: 'これ' },
+          { text: 'これ', reading: null },
           { text: 'は', reading: null },
           { text: '日本', reading: 'にほん' },
           { text: 'の', reading: null },
           { text: 'ワイン', reading: null },
-          { text: 'です', reading: null }
-        ]
-      },
-      {
-        japanese: 'あちらはIBMの事務所です。',
-        english: 'That over there is an IBM office.',
-        segments: [
-          { text: 'あちら', reading: 'あちら' },
-          { text: 'は', reading: null },
-          { text: 'IBM', reading: null },
-          { text: 'の', reading: null },
-          { text: '事務所', reading: 'じむしょ' },
-          { text: 'です', reading: null }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'mn3-g5',
-    lessonNumber: 3,
-    type: 'grammar',
-    level: 5,
-    character: 'Price: N は いくらですか',
-    readings: ['N wa ikura desu ka'],
-    meanings: ['How much is N?'],
-    explanation: 'Used to ask about the price of an item or service. Response usually includes the amount + 「円 (en)」 + 「です」.',
-    sentences: [
-      {
-        japanese: 'このネクタイはいくらですか。',
-        english: 'How much is this necktie?',
-        segments: [
-          { text: 'この', reading: null },
-          { text: 'ネクタイ', reading: null },
-          { text: 'は', reading: null },
-          { text: 'いくら', reading: 'いくら' },
-          { text: 'ですか', reading: null }
-        ]
-      },
-      {
-        japanese: 'あの時計は三千円です。',
-        english: 'That watch is 3,000 yen.',
-        segments: [
-          { text: 'あの', reading: null },
-          { text: '時計', reading: 'とけい' },
-          { text: 'は', reading: null },
-          { text: '三千円', reading: 'さんぜんえん' },
-          { text: 'です', reading: null }
+          { text: 'です', reading: null },
+          { text: '。', reading: null }
         ]
       }
     ]
