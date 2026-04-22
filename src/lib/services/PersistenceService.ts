@@ -37,6 +37,18 @@ export const PersistenceService = {
     if (!profile.enrolledLevels) profile.enrolledLevels = [];
     if (!profile.dailyGoal) profile.dailyGoal = 20; // Default goal
     await NativeStorage.set(STORAGE_KEYS.USER_PROFILE, profile);
+    
+    // Sync with Registry to ensure persistence across reloads
+    const registry = await this.getAccountRegistry();
+    const index = registry.findIndex(a => a.uid === profile.uid);
+    if (index >= 0) {
+      registry[index] = { 
+        ...registry[index], 
+        name: profile.displayName,
+        photoURL: profile.photoURL 
+      };
+      await NativeStorage.set(STORAGE_KEYS.ACCOUNTS, registry);
+    }
   },
 
   async trackActivity(type: 'lessons' | 'reviews'): Promise<void> {

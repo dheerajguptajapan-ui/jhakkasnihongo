@@ -29,7 +29,7 @@ import { CurriculumService } from '../lib/services/CurriculumService';
 import { UserFeedback } from '../types';
 
 export const SettingsView: React.FC = () => {
-  const { settings, updateSettings, profile, logout } = useAuth();
+  const { settings, updateSettings, profile, logout, updateProfile } = useAuth();
   const [feedbackText, setFeedbackText] = useState('');
   const [feedbackRating, setFeedbackRating] = useState(5);
   const [feedbackCategory, setFeedbackCategory] = useState<'bug' | 'feature' | 'praise' | 'other'>('praise');
@@ -275,11 +275,8 @@ export const SettingsView: React.FC = () => {
                             const reader = new FileReader();
                             reader.onload = (event) => {
                                 const base64 = event.target?.result as string;
-                                PersistenceService.getUserProfile().then(p => {
-                                    if (p) PersistenceService.saveUserProfile({ ...p, photoURL: base64 }).then(() => {
-                                        toast.success('Avatar Sync Complete');
-                                        setTimeout(() => window.location.reload(), 500);
-                                    });
+                                updateProfile({ photoURL: base64 }).then(() => {
+                                    toast.success('Avatar Sync Complete');
                                 });
                             };
                             reader.readAsDataURL(file);

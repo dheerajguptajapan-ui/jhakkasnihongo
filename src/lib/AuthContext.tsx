@@ -18,6 +18,7 @@ interface AuthContextType {
   updateSettings: (settings: Partial<AppSettings>) => Promise<void>;
   calculateCurrentStreak: () => number;
   getLevelStats: () => Promise<Record<number, { seen: number; total: number; percentage: number }>>;
+  updateProfile: (update: Partial<UserProfile>) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -298,6 +299,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     
     return stats;
   };
+  
+  const updateProfile = async (update: Partial<UserProfile>) => {
+    if (!profile) return;
+    const updated = { ...profile, ...update };
+    setProfile(updated);
+    await PersistenceService.saveUserProfile(updated);
+    
+    // Also update session name if the displayName changed
+    if (update.displayName && user) {
+        const updatedSession = { ...user, name: update.displayName };
+        setUser(updatedSession);
+        await PersistenceService.setSession(updatedSession);
+    }
+  };
 
   const logout = async () => {
     console.log('[AuthMonitor] Initiating Secure Termination...');
@@ -333,7 +348,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       settings,
       updateSettings,
       calculateCurrentStreak,
-      getLevelStats
+      getLevelStats,
+      updateProfile
     }}>
       {children}
     </AuthContext.Provider>
