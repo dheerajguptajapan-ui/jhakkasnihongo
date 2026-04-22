@@ -6,6 +6,7 @@ import { getAllItems } from '../lib/curriculum';
 import { Item, UserItem } from '../types';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
+import { Badge } from './ui/badge';
 import { ProgressCharts } from './ProgressCharts';
 import { motion } from 'motion/react';
 import { 
