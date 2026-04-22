@@ -18,7 +18,8 @@ import {
   Target,
   CheckCircle,
   Layout,
-  BarChart3
+  BarChart3,
+  Megaphone
 } from 'lucide-react';
 import { DashboardSkeleton } from './DashboardSkeleton';
 
@@ -132,6 +133,28 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
           <div className="lg:col-span-2">
             <ProgressCharts profile={profile} srsDistribution={srsDistribution} isDark />
           </div>
+        </div>
+      </div>
+
+      {/* Release Announcement Banner */}
+      <div className="bg-primary/10 border-b border-primary/20 py-3 px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-sm bg-primary/20 flex items-center justify-center shrink-0">
+              <Megaphone size={14} className="text-primary animate-bounce" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[10px] font-black uppercase text-primary tracking-widest leading-none mb-1">
+                SYSTEM_UPDATE_DEPLOYED v3.2.3
+              </p>
+              <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest truncate">
+                Universal Furigana Engine Stabilized: High-fidelity Kanji preservation and ruby alignment verified.
+              </p>
+            </div>
+          </div>
+          <Badge variant="outline" className="hidden md:flex border-primary/30 text-primary text-[8px] font-black uppercase tracking-tighter shrink-0">
+            STABLE_BUILD
+          </Badge>
         </div>
       </div>
 

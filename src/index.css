@@ -184,3 +184,35 @@
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite linear;
 }
+
+/* High-Fidelity Japanese Ruby Typography */
+.ruby-sentence-container {
+  display: inline;
+  line-height: normal; /* Avoid clipping ruby */
+  ruby-position: over;
+  ruby-align: center;
+}
+
+.ruby-text-item {
+  display: inline-ruby;
+  vertical-align: baseline;
+  margin: 0 0.05em;
+}
+
+.ruby-text-reading {
+  font-size: 0.55em;
+  color: var(--primary);
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0.05em;
+  user-select: none;
+  /* Clean positioning */
+  display: ruby-text;
+  line-height: 1;
+  transform: translateY(-0.12em); 
+}
+
+.ruby-base-text {
+  line-height: inherit;
+}

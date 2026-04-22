@@ -90,7 +90,7 @@ export const SettingsView: React.FC = () => {
       text: feedbackText,
       rating: feedbackRating,
       category: feedbackCategory,
-      appVersion: '3.0.0',
+      appVersion: '3.2.3',
       currentLevel: profile?.level || 5,
       timestamp: new Date().toISOString(),
       isResolved: false
@@ -339,7 +339,7 @@ export const SettingsView: React.FC = () => {
       </div>
 
       <div className="text-center pt-8 border-t border-border">
-        <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.5em] opacity-40 italic">JHAKKASNIHONGO V3.0.0 // SIMPLE EDITION</p>
+        <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.5em] opacity-40 italic">JHAKKASNIHONGO V3.2.3 // SIMPLE EDITION</p>
       </div>
     </div>
   );
