@@ -73,7 +73,7 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
               animate={{ opacity: 0.3 }}
               className="text-sm font-black uppercase tracking-[0.2em]"
             >
-              Sequence segments to sync...
+              Arrange the sequence...
             </motion.p>
           )}
           {selected.map((piece) => (
@@ -138,7 +138,7 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
           disabled={selected.length === 0}
           className="h-14 px-10 rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/30"
         >
-          Execute Sync
+          Check Answer
         </Button>
       </div>
     </div>

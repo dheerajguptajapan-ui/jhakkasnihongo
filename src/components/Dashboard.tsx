@@ -36,7 +36,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
   
   const [quotes] = useState([
     "Consistency is the path to mastery.",
-    "Every mission completed strengthens your Core link.",
+    "Every test completed strengthens your neural track.",
     "Focus on the matrix. Mastery is your destination.",
     "Your synaptic matrix is expanding. Keep pushing.",
     "Small steps, big impact. Keep learning.",
@@ -109,7 +109,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
               </p>
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                <p className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] opacity-60">SYNC ACTIVE</p>
+                <p className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] opacity-60">SYSTEM ACTIVE</p>
               </div>
             </div>
 
@@ -126,7 +126,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
                 />
               </div>
               <p className="text-[10px] font-bold opacity-40 uppercase tracking-widest">
-                {todayTotal} OBJECTS CACHED / GOAL {profile?.dailyGoal || 20}
+                {todayTotal} OBJECTS / GOAL {profile?.dailyGoal || 20}
               </p>
             </div>
           </div>
@@ -164,8 +164,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-1">
-              <h2 className="text-2xl font-black uppercase tracking-tight">MISSION STATUS</h2>
-              <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">Sector Performance & Review Protocols</p>
+              <h2 className="text-2xl font-black uppercase tracking-tight">TEST STATUS</h2>
+              <p className="text-[10px] font-black text-primary uppercase tracking-[0.4em]">Convergence Stable</p>
             </div>
             
             <div className="flex items-center gap-2 md:gap-4">
@@ -207,12 +207,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="flex items-center justify-between border-b border-white/10 pb-8">
             <div className="space-y-1">
-              <h2 className="text-3xl font-black uppercase tracking-tighter italic">LEARNING <span className="NOT-italic text-primary">TRACKS</span></h2>
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] opacity-40">Tactical Sector Access</p>
+              <h2 className="text-3xl font-black uppercase tracking-tighter italic text-primary">COURSES</h2>
+              <p className="text-[10px] font-black uppercase tracking-[0.4em] opacity-40">N5-N1</p>
             </div>
             <div className="hidden md:block">
                <p className="text-[8px] font-black uppercase tracking-[0.2em] opacity-30 text-right">REPOSITORY PROTECTED</p>
-               <p className="text-[8px] font-black uppercase tracking-[0.2em] opacity-30 text-right">ENROLLMENT REQUIRED FOR CORE SYNC</p>
+               <p className="text-[8px] font-black uppercase tracking-[0.2em] opacity-30 text-right">ENROLLMENT REQUIRED FOR CORE TEST</p>
             </div>
           </div>
 
@@ -240,7 +240,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
                 {/* Completion Bar */}
                 <div className="mt-2 space-y-1">
                   <div className="flex justify-between text-[8px] font-black uppercase opacity-60">
-                    <span>Sync Progress</span>
+                    <span>Test Progress</span>
                     <span>{stats.percentage}%</span>
                   </div>
                   <div className="w-full h-1 bg-muted rounded-full overflow-hidden">
@@ -261,7 +261,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
                   }`}
                   onClick={() => onSelectLevel(track.id)}
                 >
-                  {isEnrolled ? "RESUME MISSION" : "INIT SYNC"}
+                  {isEnrolled ? "RESUME TEST" : "START TEST"}
                 </Button>
               </div>
             );
@@ -288,7 +288,7 @@ const ActionCard = ({ title, subtitle, count, icon, onClick, disabled, statusTex
       <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] mb-1">Jhakkas Activity</p>
       <div className="flex items-end gap-3">
         <span className="text-4xl font-black tabular-nums">{count}</span>
-        <span className="text-sm font-bold text-muted-foreground uppercase pb-1 tracking-widest">Items SYNCED</span>
+        <span className="text-sm font-bold text-muted-foreground uppercase pb-1 tracking-widest">Items TESTED</span>
       </div>
     </div>
     <div className="w-16 h-16 rounded-sm bg-muted/50 flex items-center justify-center shrink-0 transition-transform group-hover:scale-110">

@@ -29,7 +29,7 @@ export const KanjiExplorer: React.FC<KanjiExplorerProps> = ({ items }) => {
   if (items.length === 0) {
     return (
       <div className="text-center py-20 bg-white/5 rounded-sm border-2 border-dashed border-white/10">
-        <p className="text-gray-400 font-black text-sm uppercase tracking-widest">No data synchronized for this level.</p>
+        <p className="text-gray-400 font-black text-sm uppercase tracking-widest">No data available for this level.</p>
       </div>
     );
   }
@@ -77,7 +77,7 @@ export const KanjiExplorer: React.FC<KanjiExplorerProps> = ({ items }) => {
                 <div className="space-y-4 flex-1 text-center md:text-left">
                   <div className="flex flex-wrap justify-center md:justify-start gap-2">
                     <Badge className="bg-primary/10 text-primary border-primary/20 font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-sm">
-                      JLPT N{kanji.level} Mission
+                      JLPT N{kanji.level} Test
                     </Badge>
                     <Badge className="bg-muted text-muted-foreground border-border font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-sm">
                       Radical: {kanji.radical || 'None'}

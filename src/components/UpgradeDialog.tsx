@@ -28,7 +28,7 @@ export const UpgradeDialog: React.FC<UpgradeDialogProps> = ({ isOpen, onClose })
     // Simulate Core Link upgrade process
     setTimeout(() => {
       setLoading(false);
-      toast.success("Jhakkas Link Synchronized", {
+      toast.success("Account Linked", {
         description: "Premium access unlocked. Welcome to the elite track.",
       });
       onClose();
@@ -70,7 +70,7 @@ export const UpgradeDialog: React.FC<UpgradeDialogProps> = ({ isOpen, onClose })
             <FeatureItem 
               icon={<ShieldCheck size={20} className="text-amber-500" />}
               title="Secure Progress"
-              description="Advanced cloud sync for your learning history."
+              description="Cloud Backup for your learning history."
             />
           </div>
 
@@ -94,7 +94,7 @@ export const UpgradeDialog: React.FC<UpgradeDialogProps> = ({ isOpen, onClose })
                 {loading ? (
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                    JHAKKAS SYNC IN PROGRESS...
+                    CONNECTING...
                   </div>
                 ) : (
                   "UPGRADE NOW"

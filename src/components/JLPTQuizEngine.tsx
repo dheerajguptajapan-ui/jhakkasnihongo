@@ -264,14 +264,14 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
       <div className="flex flex-col items-center gap-8 py-12 animate-in fade-in duration-700 max-w-xl mx-auto">
         <JhakkasBot state={correctCount > 0 ? "success" : "idle"} />
         <div className="text-center space-y-2">
-           <h2 className="text-4xl font-black uppercase tracking-tighter italic">MISSION <span className="text-primary NOT-italic">REPORT</span></h2>
-           <p className="text-primary font-black uppercase tracking-[0.4em] text-[10px]">Jhakkas Sync Complete</p>
+           <h2 className="text-4xl font-black uppercase tracking-tighter italic">TEST <span className="text-primary NOT-italic">REPORT</span></h2>
+           <p className="text-primary font-black uppercase tracking-[0.4em] text-[10px]">Test Complete</p>
         </div>
 
         <div className="w-full bg-card border border-border rounded-sm p-10 space-y-8 shadow-2xl">
            <div className="grid grid-cols-2 gap-8">
               <div className="space-y-1">
-                <p className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Cached Items</p>
+                <p className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Items</p>
                 <p className="text-4xl font-black">{correctCount} <span className="text-sm opacity-30">/ {queue.length}</span></p>
               </div>
               <div className="space-y-1 text-right">
@@ -290,7 +290,7 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
 
            <div className="pt-4 border-t border-border">
              <p className="text-[11px] text-center font-bold text-foreground uppercase tracking-wider leading-relaxed">
-               {finalPercentage === 0 ? `YOU HAVE ACHIEVED 0 PERCENT. GOOD TRY, RESUME MISSION.` : 
+               {finalPercentage === 0 ? `YOU HAVE ACHIEVED 0 PERCENT. GOOD TRY, RESUME TEST.` : 
                 `YOU HAVE COMPLETED ${finalPercentage} PERCENT OF YOUR GOAL. NEURAL MATRIX STABILIZING.`}
              </p>
            </div>
@@ -301,14 +301,14 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
             onClick={() => onFinish?.(score)} 
             className="h-14 rounded-sm font-black bg-primary text-white text-xs tracking-[0.4em] shadow-xl hover:opacity-90 uppercase"
           >
-            EXTRACT DATA & RETURN
+            CLOSE TEST
           </Button>
           <Button 
             variant="ghost" 
             onClick={() => window.location.reload()} 
             className="h-12 rounded-sm font-black text-muted-foreground hover:text-foreground text-[10px] tracking-widest uppercase"
           >
-            RETRY MISSION
+            RETRY TEST
           </Button>
         </div>
       </div>
@@ -438,7 +438,7 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
               <div className="text-center p-12 bg-background border border-border shadow-2xl rounded-sm max-w-sm w-full mx-6 space-y-6">
                  <div className="space-y-2">
                    <p className={`text-4xl font-black uppercase tracking-tighter ${isInterrupted ? 'text-foreground' : (feedback === 'correct' ? 'text-foreground' : 'text-primary')}`}>
-                      {isInterrupted ? 'SYNC INTERRUPTED' : (feedback === 'correct' ? 'STABLE' : 'FAILED')}
+                      {isInterrupted ? 'TEST INTERRUPTED' : (feedback === 'correct' ? 'STABLE' : 'FAILED')}
                    </p>
                    {isInterrupted && (
                      <p className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.2em]">Jhakkas stability failure detected</p>
@@ -482,14 +482,14 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
                        onClick={retryCurrentQuestion}
                        className="h-14 bg-primary text-white font-black uppercase tracking-[0.3em] text-[10px] rounded-sm shadow-xl"
                      >
-                       REPLY MISSION (RETRY)
+                       RETRY TEST
                      </Button>
                      <Button 
                        variant="ghost"
                        onClick={() => setShowExitReport(true)}
                        className="h-10 text-muted-foreground font-black uppercase tracking-widest text-[9px]"
                      >
-                       Abort Connection
+                       CLOSE TEST
                      </Button>
                    </div>
                  )}
@@ -506,7 +506,7 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
           className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-primary flex items-center gap-3 transition-colors"
         >
           <SkipForward size={14} />
-          TERMINATE LINK (SESSION EXIT)
+          CLOSE TEST
         </Button>
       </div>
     </div>

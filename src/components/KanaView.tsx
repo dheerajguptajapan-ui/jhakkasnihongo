@@ -155,7 +155,7 @@ export const KanaView: React.FC<KanaViewProps> = ({ onResult }) => {
           onClick={() => setIsTesting(false)}
           className="w-full text-muted-foreground font-black uppercase tracking-[0.4em] text-[10px] hover:text-primary transition-colors"
         >
-          ABORT MISSION
+          CLOSE TEST
         </Button>
       </div>
     );

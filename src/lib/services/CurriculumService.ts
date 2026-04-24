@@ -88,11 +88,11 @@ export const CurriculumService = {
 
   getLevelSubtitle(levelId: number): string {
     const subtitles: Record<number, string> = {
-      1: 'N5 Lexical Foundation',
-      2: 'N4 Syntactic Core',
+      1: 'N1 Master Synthesis',
+      2: 'N2 Advanced Nuance',
       3: 'N3 Relational Logic',
-      4: 'N2 Advanced Nuance',
-      5: 'N1 Master Synthesis'
+      4: 'N4 Syntactic Core',
+      5: 'N5 Kana Foundation'
     };
     return subtitles[levelId] || 'JLPT Preparation';
   },

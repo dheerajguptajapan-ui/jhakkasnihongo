@@ -35,8 +35,8 @@ export const JLPTSelectionView: React.FC<JLPTSelectionViewProps> = ({
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex flex-col gap-1">
-        <h2 className="text-3xl font-black text-slate-900 dark:text-slate-50 uppercase tracking-tight text-gradient">Mastery Tracks</h2>
-        <p className="text-muted-foreground font-bold text-[10px] uppercase tracking-[0.2em]">Synchronize with Core Matrix</p>
+        <h2 className="text-3xl font-black text-slate-900 dark:text-slate-50 uppercase tracking-tight text-gradient">COURSES</h2>
+        <p className="text-muted-foreground font-bold text-[10px] uppercase tracking-[0.2em]">Begin Assessment</p>
       </div>
 
       {/* Level Selection Grid */}
@@ -95,7 +95,7 @@ export const JLPTSelectionView: React.FC<JLPTSelectionViewProps> = ({
         {/* Lesson List */}
         <Card className="md:col-span-2 border-none bg-slate-50 dark:bg-slate-900/50 rounded-3xl overflow-hidden">
           <CardHeader className="p-6 pb-0">
-             <CardTitle className="text-sm font-black uppercase tracking-widest text-slate-400">Mission Select</CardTitle>
+             <CardTitle className="text-sm font-black uppercase tracking-widest text-slate-400">Test Select</CardTitle>
           </CardHeader>
           <CardContent className="p-6">
             <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-2">
@@ -152,7 +152,7 @@ export const JLPTSelectionView: React.FC<JLPTSelectionViewProps> = ({
                     className="w-full bg-white text-primary hover:bg-white/90 h-14 rounded-2xl font-black gap-2 shadow-none"
                   >
                     <Play size={18} fill="currentColor" />
-                    START MISSION
+                    START TEST
                   </Button>
                   
                   <Button 

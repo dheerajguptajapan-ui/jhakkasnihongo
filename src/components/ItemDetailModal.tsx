@@ -225,7 +225,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item: baseItem
                       onClick={() => setIsEditing(false)}
                       className="ml-auto text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
                     >
-                      Discard Sync
+                      Discard Changes
                     </button>
                   </div>
                 </motion.div>

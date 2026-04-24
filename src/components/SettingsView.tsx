@@ -276,7 +276,7 @@ export const SettingsView: React.FC = () => {
                             reader.onload = (event) => {
                                 const base64 = event.target?.result as string;
                                 updateProfile({ photoURL: base64 }).then(() => {
-                                    toast.success('Avatar Sync Complete');
+                                    toast.success('Profile Updated');
                                 });
                             };
                             reader.readAsDataURL(file);

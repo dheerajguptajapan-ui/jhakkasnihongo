@@ -111,7 +111,7 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
             ))}
           </div>
           <p className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.3em] opacity-60">
-            Select Tactical Sector for Synchronization
+            Select Tactical Sector for Testing
           </p>
         </div>
       )}
@@ -123,7 +123,7 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
               <span className="text-xs font-black text-primary uppercase tracking-[0.2em]">Active Sector: N{selectedLevel} Foundation</span>
            </div>
            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest opacity-60">
-              Access Restricted to Enrolled Mission Parameters
+              Access Restricted to Enrolled Test Parameters
            </p>
         </div>
       )}
@@ -144,7 +144,7 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
                   key={cat.id}
                   onClick={() => {
                     if (count === 0) {
-                      alert("NO MISSION DATA FOUND: Sector contains zero cached objects for this level.");
+                      alert("NO TEST DATA FOUND: Sector contains zero objects for this level.");
                       return;
                     }
                     setSelectedCategory(cat.id);
@@ -157,7 +157,7 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
                   <div className="space-y-2">
                     <h3 className="text-xs font-black uppercase tracking-[0.3em] text-foreground">{cat.label}</h3>
                     <p className="text-[9px] text-muted-foreground font-black uppercase tracking-[0.2em]">
-                      {count > 0 ? `${count} CACHED OBJECTS` : 'EMPTY'}
+                      {count > 0 ? `${count} OBJECTS` : 'EMPTY'}
                     </p>
                   </div>
                   <div className="w-full h-1 bg-muted rounded-sm mt-4 overflow-hidden">
@@ -216,8 +216,8 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
                     className="h-12 rounded-sm font-black gap-2 md:gap-3 px-4 md:px-8 bg-primary text-white shadow-lg shadow-primary/20 shrink-0 uppercase tracking-widest text-[10px] md:text-xs"
                   >
                     <Zap size={15} fill="currentColor" />
-                    <span className="hidden xs:inline">INIT SYNC</span>
-                    <span className="xs:hidden">SYNC</span>
+                    <span className="hidden xs:inline">START TEST</span>
+                    <span className="xs:hidden">TEST</span>
                   </Button>
                 )}
               </div>
@@ -389,9 +389,9 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
                     <Zap size={28} className="text-primary" fill="currentColor" />
                   </div>
                   <h3 className="text-sm font-black text-foreground uppercase tracking-[0.3em]">
-                    SYNC PARAMETERS
+                    TEST PARAMETERS
                   </h3>
-                  <p className="text-[10px] text-muted-foreground mt-2 font-bold uppercase tracking-widest">Select synchronization depth</p>
+                  <p className="text-[10px] text-muted-foreground mt-2 font-bold uppercase tracking-widest">Select testing depth</p>
                 </div>
 
                 <div className="grid grid-cols-3 gap-2 mb-10">
@@ -419,13 +419,13 @@ export const MasteryHubView: React.FC<MasteryHubViewProps> = ({
                     className="w-full h-14 rounded-sm font-black text-xs tracking-[0.3em] bg-primary text-white shadow-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 uppercase"
                   >
                     <Play size={14} fill="currentColor" />
-                    INITIATE MISSION
+                    START TEST
                   </button>
                   <button
                     onClick={() => setQuizSetup(null)}
                     className="w-full h-10 rounded-sm font-bold text-[10px] tracking-widest text-muted-foreground hover:bg-muted transition-all uppercase"
                   >
-                    Abort
+                    CLOSE TEST
                   </button>
                 </div>
               </motion.div>
