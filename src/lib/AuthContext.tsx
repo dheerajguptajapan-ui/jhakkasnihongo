@@ -258,24 +258,36 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const calculateCurrentStreak = () => {
     if (!profile?.dailySyncHistory) return 0;
-    const dates = Object.keys(profile.dailySyncHistory).sort().reverse();
-    if (dates.length === 0) return 0;
-
+    
     let streak = 0;
-    const today = new Date().toISOString().split('T')[0];
-    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    const today = new Date();
+    
+    const todayStr = today.toISOString().split('T')[0];
+    const playedToday = (profile.dailySyncHistory[todayStr]?.lessons || 0) + (profile.dailySyncHistory[todayStr]?.reviews || 0) > 0;
+    
+    if (playedToday) streak++;
 
-    const lastDate = dates[0];
-    if (lastDate !== today && lastDate !== yesterday) return 0;
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toISOString().split('T')[0];
+    const playedYesterday = (profile.dailySyncHistory[yesterdayStr]?.lessons || 0) + (profile.dailySyncHistory[yesterdayStr]?.reviews || 0) > 0;
+    
+    if (!playedToday && !playedYesterday) return 0;
 
-    for (const date of dates) {
-      const stats = profile.dailySyncHistory[date];
-      if ((stats.lessons || 0) + (stats.reviews || 0) > 0) {
-        streak++;
-      } else {
-        break;
-      }
+    let checkDate = new Date(today);
+    checkDate.setDate(checkDate.getDate() - 1);
+
+    while (true) {
+       const dateStr = checkDate.toISOString().split('T')[0];
+       const stats = profile.dailySyncHistory[dateStr];
+       if (stats && ((stats.lessons || 0) + (stats.reviews || 0) > 0)) {
+           streak++;
+           checkDate.setDate(checkDate.getDate() - 1);
+       } else {
+           break;
+       }
     }
+    
     return streak;
   };
 
