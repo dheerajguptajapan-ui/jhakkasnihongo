@@ -20,7 +20,11 @@ import {
   CheckCircle,
   Layout,
   BarChart3,
-  Megaphone
+  Megaphone,
+  Youtube,
+  Instagram,
+  Facebook,
+  Linkedin
 } from 'lucide-react';
 import { DashboardSkeleton } from './DashboardSkeleton';
 
@@ -268,6 +272,27 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLessons, onStartRev
           })}
         </div>
       </div>
+      </div>
+
+      {/* SECTION 4: Social Links Footer */}
+      <div className="bg-black text-white border-t border-white/10 py-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-6 md:px-12">
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-40">CONNECT WITH JHAKKAS NIHONGO</p>
+          <div className="flex items-center gap-6">
+            <a href="https://www.youtube.com/@jhakkasnihongo5094/featured" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 hover:text-red-500 transition-colors">
+              <Youtube size={20} />
+            </a>
+            <a href="https://www.instagram.com/jhakkasnihongo/?hl=en" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 hover:text-pink-500 transition-colors">
+              <Instagram size={20} />
+            </a>
+            <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjhakkasnihongo%2F" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 hover:text-blue-500 transition-colors">
+              <Facebook size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/jhakkas-nihongo-213a77315/" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 hover:text-blue-400 transition-colors">
+              <Linkedin size={20} />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
