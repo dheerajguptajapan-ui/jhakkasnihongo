@@ -1,47 +1,68 @@
-# 🏎️ JHAKKAS NIHONGO
-### Performance Japanese Mastery | Offline-First | Gamified SRS
+<div align="center">
+  <img src="public/pwa-512x512.png" alt="Jhakkas Nihongo Logo" width="120" />
+
+  # 🏎️ JHAKKAS NIHONGO
+  
+  **High-Performance Japanese Mastery | Offline-First PWA | Gamified SRS**
+
+  [![Version](https://img.shields.io/badge/Version-3.3.0-e11d48.svg?style=for-the-badge)](https://github.com/dheerajguptajapan-ui/jhakkasnihongo)
+  [![React](https://img.shields.io/badge/React-19-blue.svg?style=for-the-badge&logo=react)](https://react.dev/)
+  [![Vite](https://img.shields.io/badge/Vite-6-646CFF.svg?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+  [![Tailwind](https://img.shields.io/badge/Tailwind-4-38B2AC.svg?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+  [![Firebase](https://img.shields.io/badge/Firebase-Sync-FFCA28.svg?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
+
+  *Built for the next generation of Japanese Masters.*
+</div>
+
+---
 
 Jhakkas Nihongo is an elite, high-performance Japanese learning engine built for the modern mobile architect. Designed with a **"Top 1%" aesthetic**, it combines a robust Spaced Repetition System (SRS) with a zero-latency, offline-first architecture.
 
+## 🚀 Live Application & Download
+
+Jhakkas Nihongo is fully installable as a **Progressive Web App (PWA)**, meaning you can download it directly to your phone's home screen without needing an App Store!
+
+> [!TIP]
+> **How to Install on Mobile:**
+> 1. Open the Live Web App in Safari (iOS) or Chrome (Android).
+> 2. Tap the **Share** icon (iOS) or **Menu** (Android).
+> 3. Select **"Add to Home Screen"**.
+> 4. Launch the app directly from your phone!
+
+### 📥 [**LAUNCH LIVE WEB APP**](https://jhakkasnihongo.vercel.app/) *(Placeholder Link - Update with your real URL)*
+
+---
+
 ## ⚡ Core Architecture
-- **Offline-First Persistence**: Engineered with `@capacitor/preferences` to eliminate internet dependency. Study anywhere, anytime, with 100% data consistency.
-- **Global Scaling Engine**: A universal layout engine that adapts to user-defined font scales, ensuring a perfect "Mission Control" experience on any hardware.
-- **Atomic SRS Engine**: Advanced SM-2 algorithm integration for precision vocabulary retention and kanji mastery.
-- **Universal Grammar Engine**: Programmatic grammar parsing with native HTML5 `<ruby>` support for clean furigana rendering.
+
+- **Offline-First PWA (NEW in 3.3.0)**: Engineered with `vite-plugin-pwa`. The entire application caches locally, ensuring zero-latency access without an internet connection. Updates are downloaded silently via OTA (Over-The-Air) Service Workers.
+- **Firebase Cloud Sync (NEW in 3.3.0)**: Background synchronization engine that automatically beams offline progress (XP, streaks, SRS stages) to the cloud the second you regain connectivity.
+- **Global Admin Console**: Real-time overview of active operatives, study streaks, and intelligence feedback directly within the app.
+- **Atomic SRS Engine**: Advanced algorithm integration for precision vocabulary retention, grammar tracking, and kanji mastery.
 
 ## 📱 Mobile-First UI/UX
-- **Normalized Kana Selection**: Standardized 5-column Gojuuon grid for authentic linguistic alignment.
+
+- **Glassmorphic HUD**: A premium, high-contrast cyberpunk interface featuring cinematic transitions and reactive micro-animations.
 - **High-Density Dashboards**: Ferrari-inspired "Mission Status" grids optimized for maximum information density on small viewports.
-- **Glassmorphic HUD**: A premium, high-contrast interface featuring cinematic transitions and reactive micro-animations.
+- **Universal Furigana Engine**: Programmatic grammar parsing with native HTML5 `<ruby>` support for mathematically perfect rendering.
 
-## 🛠️ Tech Stack
-- **Framework**: React 19 + Vite
-- **Styling**: Tailwind CSS 4.0 + Shadcn UI
-- **Native Context**: Capacitor 8.3 (Android Optimized)
-- **CI/CD**: Automated GitHub Actions for APK Distribution
+## 🛠️ Local Development
 
-## 🚀 Get Started
+Clone the repository and run the engine locally:
 
-### Automated APK Download
-The latest Android build is automatically generated on every commit. 
-1. Go to the **Actions** tab on GitHub.
-2. Select the latest **"Build Android APK"** workflow.
-3. Download the **app-debug-apk** artifact.
-
-### Local Development
 ```bash
 # Install dependencies
 npm install
 
-# Run dev server
+# Run high-speed development server
 npm run dev
 
-# Build for production
+# Build the production PWA bundle
 npm run build
-
-# Sync to Android
-npx cap sync android
 ```
 
 ---
-*Built for the next generation of Japanese Masters. JHAKKAS CORE v3.1.0*
+
+<div align="center">
+  <i>JHAKKAS CORE v3.3.0 // SECURE LINK ESTABLISHED</i>
+</div>
