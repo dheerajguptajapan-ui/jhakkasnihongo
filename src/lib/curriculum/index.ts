@@ -88,6 +88,7 @@ import { n2kanji_expansion } from './n2kanji_expansion';
 import { n1kanji_expansion } from './n1kanji_expansion';
 import { n1tech_expansion } from './n1tech_expansion';
 import { n3grammar_expansion } from './n3grammar_expansion';
+import { n4grammar_expansion } from './n4grammar_expansion';
 import { n2grammar_expansion } from './n2grammar_expansion';
 import { n1grammar_expansion } from './n1grammar_expansion';
 
@@ -114,6 +115,7 @@ const n4Lessons: Record<number, Item[]> = {
   10: n4chapter10,
   11: n4chapter11,
   12: n4kanji_expansion,
+  13: n4grammar_expansion,
 };
 
 const n3Lessons: Record<number, Item[]> = {
@@ -191,7 +193,7 @@ export const getLesson = (n: number, level: number = 1): Item[] => {
 };
 
 export const totalLessons = 27; // N5 Lessons + Kanji + Dokkai Expansion
-export const totalN4Chapters = 12;
+export const totalN4Chapters = 13;
 export const totalN3Chapters = 13;
 export const totalN2Chapters = 16;
 export const totalN1Chapters = 14;
