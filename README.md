@@ -31,6 +31,12 @@ Jhakkas Nihongo is fully installable as a **Progressive Web App (PWA)**, meaning
 
 ### 📥 [**LAUNCH LIVE WEB APP**](https://jhakkasnihongo.vercel.app/) *(Placeholder Link - Update with your real URL)*
 
+### 🤖 Android APK Download
+If you prefer a native Android installation rather than the PWA:
+1. Go to the [**Releases**](https://github.com/dheerajguptajapan-ui/jhakkasnihongo/releases) page.
+2. Download the latest `app-debug.apk` asset.
+3. Alternatively, you can download the latest nightly build from the [**GitHub Actions**](https://github.com/dheerajguptajapan-ui/jhakkasnihongo/actions) tab.
+
 ---
 
 ## ⚡ Core Architecture
