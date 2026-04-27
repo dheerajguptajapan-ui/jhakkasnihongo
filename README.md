@@ -17,24 +17,33 @@
 ## 🔒 Privacy & Deployment Guide
 If you wish to keep your source code **Private** while keeping the app accessible to the public, follow these steps:
 
-### 1. Deploy to Netlify (Recommended)
-1.  **Sign up** at [Netlify.com](https://www.netlify.com/).
-2.  Click **"Add new site"** -> **"Import from existing project"**.
-3.  Connect your **GitHub** account and select the `jhakkasnihongo` repository.
-4.  **Settings:**
-    *   **Build Command:** `npm run build`
-    *   **Publish Directory:** `dist`
-5.  Click **Deploy**. Netlify will give you a public URL (e.g., `jhakkas-nihongo.netlify.app`).
+### 1. Deploy to Firebase Hosting (Recommended)
+Since you already have a Firebase project (`jhakkasnihongo-60f31`), this is the best place to host your app.
+
+1.  **Install Firebase CLI** (if not already installed):
+    ```bash
+    npm install -g firebase-tools
+    ```
+2.  **Login to Firebase**:
+    ```bash
+    firebase login
+    ```
+3.  **Deploy the App**:
+    ```bash
+    npm run build
+    firebase deploy --only hosting
+    ```
+*Your app will be live at:* `https://jhakkasnihongo-60f31.web.app`
 
 ### 2. Make the Repository Private
-Once Netlify is connected, you can safely go to your **GitHub Repo Settings** -> **General** -> **Danger Zone** -> **Change visibility** -> **Make Private**. 
-*   *Netlify will still have access to build your site, but the public will not see your code.*
+Once your app is deployed to Firebase, you can safely go to your **GitHub Repo Settings** -> **General** -> **Danger Zone** -> **Change visibility** -> **Make Private**. 
+*   *Firebase Hosting does not depend on the GitHub repository's visibility, so the app will stay online.*
 
 ### 3. Application Download (APK)
 To provide a download link on your new public site:
 1.  Place your latest APK file in the `public/download/` folder.
 2.  Rename it to `jhakkas_nihongo.apk`.
-3.  Your download link will be: `https://your-site-name.netlify.app/download/jhakkas_nihongo.apk`
+3.  Your download link will be: `https://jhakkasnihongo-60f31.web.app/download/jhakkas_nihongo.apk`
 
 ---
 
