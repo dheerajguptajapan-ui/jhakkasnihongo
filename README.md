@@ -1,41 +1,40 @@
 <div align="center">
   <img src="public/pwa-512x512.png" alt="Jhakkas Nihongo Logo" width="120" />
 
-  # 🏎️ JHAKKAS NIHONGO
+  # 🏎️ JHAKKAS NIHONGO v3.3.1
   
   **High-Performance Japanese Mastery | Offline-First PWA | Gamified SRS**
 
-  [![Version](https://img.shields.io/badge/Version-3.3.0-e11d48.svg?style=for-the-badge)](https://github.com/dheerajguptajapan-ui/jhakkasnihongo)
+  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/dheerajguptajapan-ui/jhakkasnihongo)
   [![React](https://img.shields.io/badge/React-19-blue.svg?style=for-the-badge&logo=react)](https://react.dev/)
   [![Vite](https://img.shields.io/badge/Vite-6-646CFF.svg?style=for-the-badge&logo=vite)](https://vitejs.dev/)
-  [![Tailwind](https://img.shields.io/badge/Tailwind-4-38B2AC.svg?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-  [![Firebase](https://img.shields.io/badge/Firebase-Sync-FFCA28.svg?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
 
   *Built for the next generation of Japanese Masters.*
 </div>
 
 ---
 
-Jhakkas Nihongo is an elite, high-performance Japanese learning engine built for the modern mobile architect. Designed with a **"Top 1%" aesthetic**, it combines a robust Spaced Repetition System (SRS) with a zero-latency, offline-first architecture.
+## 🔒 Privacy & Deployment Guide
+If you wish to keep your source code **Private** while keeping the app accessible to the public, follow these steps:
 
-## 🚀 Live Application & Download
+### 1. Deploy to Netlify (Recommended)
+1.  **Sign up** at [Netlify.com](https://www.netlify.com/).
+2.  Click **"Add new site"** -> **"Import from existing project"**.
+3.  Connect your **GitHub** account and select the `jhakkasnihongo` repository.
+4.  **Settings:**
+    *   **Build Command:** `npm run build`
+    *   **Publish Directory:** `dist`
+5.  Click **Deploy**. Netlify will give you a public URL (e.g., `jhakkas-nihongo.netlify.app`).
 
-Jhakkas Nihongo is fully installable as a **Progressive Web App (PWA)**, meaning you can download it directly to your phone's home screen without needing an App Store!
+### 2. Make the Repository Private
+Once Netlify is connected, you can safely go to your **GitHub Repo Settings** -> **General** -> **Danger Zone** -> **Change visibility** -> **Make Private**. 
+*   *Netlify will still have access to build your site, but the public will not see your code.*
 
-> [!TIP]
-> **How to Install on Mobile:**
-> 1. Open the Live Web App in Safari (iOS) or Chrome (Android).
-> 2. Tap the **Share** icon (iOS) or **Menu** (Android).
-> 3. Select **"Add to Home Screen"**.
-> 4. Launch the app directly from your phone!
-
-### 📥 [**LAUNCH LIVE WEB APP**](https://jhakkasnihongo.vercel.app/) *(Placeholder Link - Update with your real URL)*
-
-### 🤖 Android APK Download
-If you prefer a native Android installation rather than the PWA:
-1. Go to the [**Releases**](https://github.com/dheerajguptajapan-ui/jhakkasnihongo/releases) page.
-2. Download the latest `app-debug.apk` asset.
-3. Alternatively, you can download the latest nightly build from the [**GitHub Actions**](https://github.com/dheerajguptajapan-ui/jhakkasnihongo/actions) tab.
+### 3. Application Download (APK)
+To provide a download link on your new public site:
+1.  Place your latest APK file in the `public/download/` folder.
+2.  Rename it to `jhakkas_nihongo.apk`.
+3.  Your download link will be: `https://your-site-name.netlify.app/download/jhakkas_nihongo.apk`
 
 ---
 
