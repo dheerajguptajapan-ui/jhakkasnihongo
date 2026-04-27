@@ -108,14 +108,28 @@ export const JLPTQuizEngine: React.FC<JLPTQuizEngineProps> = ({
 
           // Pick a random significant segment (not punctuation)
           const validIndices = segments.map((s, i) => (!s.text.match(/^[。！？、、]$/) ? i : -1)).filter(i => i !== -1);
-          const targetIndex = validIndices.length > 0 ? validIndices[Math.floor(Math.random() * validIndices.length)] : 0;
+          
+          // Prioritize grammar markers (particles, copulas, common suffixes) over nouns/names
+          const grammarIndices = validIndices.filter(i => {
+            const text = segments[i].text;
+            return text.match(/^(は|が|を|に|で|と|も|へ|から|まで|や|か|ね|よ|です|ます|ました|ません|でした|じゃありません|ではありません)$/);
+          });
+          
+          const poolToPickFrom = grammarIndices.length > 0 ? grammarIndices : validIndices;
+          const targetIndex = poolToPickFrom.length > 0 ? poolToPickFrom[Math.floor(Math.random() * poolToPickFrom.length)] : 0;
           const targetSegment = segments[targetIndex]?.text || item.character;
           
           // Use Grammar Engine to get consistent distractors
           const analysis = analyzeGrammarSegment(targetSegment, grammarPool);
           
-          // Construct display string using professional Japanese blanking
-          const displayCharacter = segments.map((s, i) => (i === targetIndex ? "（　　）" : s.text)).join("");
+          // Construct display string using professional Japanese blanking with Furigana support
+          const displayCharacter = segments.map((s, i) => {
+            if (i === targetIndex) return "（　　）";
+            if (s.reading && s.reading !== s.text) {
+              return `[${s.text}:${s.reading}]`;
+            }
+            return s.text;
+          }).join("");
 
           return {
             ...item,

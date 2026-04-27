@@ -11,6 +11,25 @@ interface GrammarPuzzleProps {
   onSkip: () => void;
 }
 
+const N5_KANJI = "日一国人年大十二本中長出三時行見月後前生五間上東四今金九入学高円子外八六下来気小七山話女北午百書先名川千水半男西電校語土木聞食車何南万毎白天母火右読友左休父雨口目耳手足多少店古";
+const KANJI_REGEX = /[\u4e00-\u9faf]/;
+
+const isN5KanjiOnly = (str: string) => {
+  for (const char of str) {
+    if (KANJI_REGEX.test(char) && !N5_KANJI.includes(char)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const getDisplayProps = (segment: TextSegment) => {
+  if (segment.reading && !isN5KanjiOnly(segment.text)) {
+    return { kanji: segment.reading, kana: null };
+  }
+  return { kanji: segment.text, kana: segment.reading || null };
+};
+
 /**
  * Native Grammar Puzzle - Elite Implementation
  * No external DND dependencies. Uses native state for sorting.
@@ -22,9 +41,9 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const pieces = segments.map((s, i) => ({ 
-      id: `piece-${i}-${Date.now()}`, 
-      segment: s 
+    const pieces = segments.map((s, i) => ({
+      id: `piece-${i}-${Date.now()}`,
+      segment: s
     }));
     setShuffled([...pieces].sort(() => Math.random() - 0.5));
     setSelected([]);
@@ -45,7 +64,7 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
   const checkResult = () => {
     const result = selected.map(p => p.segment.text).join('');
     const correct = segments.map(s => s.text).join('');
-    
+
     if (result === correct) {
       onSuccess();
     } else {
@@ -68,7 +87,7 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
       <div className={`min-h-[140px] glass rounded-[2.5rem] p-8 flex flex-wrap gap-3 items-center justify-center border-2 transition-all duration-400 ${error ? 'border-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.3)]' : 'border-primary/10 shadow-premium'}`}>
         <AnimatePresence mode="popLayout">
           {selected.length === 0 && (
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.3 }}
               className="text-sm font-black uppercase tracking-[0.2em]"
@@ -83,14 +102,14 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
               onClick={() => togglePiece(piece, true)}
               className="px-5 py-3 bg-primary text-primary-foreground rounded-2xl font-black shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all"
             >
-              <FuriganaWord kanji={piece.segment.text} kana={piece.segment.reading || null} />
+              <FuriganaWord {...getDisplayProps(piece.segment)} />
             </motion.button>
           ))}
         </AnimatePresence>
       </div>
 
       {/* Segment Supply Vector */}
-      <motion.div 
+      <motion.div
         variants={{
           hidden: { opacity: 0 },
           show: {
@@ -106,7 +125,7 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
       >
         <AnimatePresence mode="popLayout">
           {shuffled.map((piece, index) => (
-             <motion.button
+            <motion.button
               key={piece.id}
               layoutId={piece.id}
               variants={{
@@ -118,7 +137,7 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
               whileTap={{ scale: 0.95 }}
               className="px-5 py-3 glass rounded-2xl border border-primary/20 font-black text-slate-700 dark:text-slate-200 hover:border-primary/50 transition-all shadow-premium text-xl"
             >
-              <FuriganaWord kanji={piece.segment.text} kana={piece.segment.reading || null} />
+              <FuriganaWord {...getDisplayProps(piece.segment)} />
             </motion.button>
           ))}
         </AnimatePresence>
@@ -126,14 +145,14 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
 
       {/* Synchronizer Controls */}
       <div className="flex justify-center gap-4 pt-4">
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           onClick={onSkip}
           className="h-14 px-8 rounded-2xl font-black uppercase tracking-widest text-xs border-primary/20 hover:bg-rose-500/10 hover:text-rose-500 hover:border-rose-500/50"
         >
           Bypass
         </Button>
-        <Button 
+        <Button
           onClick={checkResult}
           disabled={selected.length === 0}
           className="h-14 px-10 rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/30"
