@@ -11,25 +11,6 @@ interface GrammarPuzzleProps {
   onSkip: () => void;
 }
 
-const N5_KANJI = "日一国人年大十二本中長出三時行見月後前生五間上東四今金九入学高円子外八六下来気小七山話女北午百書先名川千水半男西電校語土木聞食車何南万毎白天母火右読友左休父雨口目耳手足多少店古";
-const KANJI_REGEX = /[\u4e00-\u9faf]/;
-
-const isN5KanjiOnly = (str: string) => {
-  for (const char of str) {
-    if (KANJI_REGEX.test(char) && !N5_KANJI.includes(char)) {
-      return false;
-    }
-  }
-  return true;
-};
-
-const getDisplayProps = (segment: TextSegment) => {
-  if (segment.reading && !isN5KanjiOnly(segment.text)) {
-    return { kanji: segment.reading, kana: null };
-  }
-  return { kanji: segment.text, kana: segment.reading || null };
-};
-
 /**
  * Native Grammar Puzzle - Elite Implementation
  * No external DND dependencies. Uses native state for sorting.
@@ -102,7 +83,7 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
               onClick={() => togglePiece(piece, true)}
               className="px-5 py-3 bg-primary text-primary-foreground rounded-2xl font-black shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all"
             >
-              <FuriganaWord {...getDisplayProps(piece.segment)} />
+              <FuriganaWord kanji={piece.segment.text} kana={piece.segment.reading || null} />
             </motion.button>
           ))}
         </AnimatePresence>
@@ -137,7 +118,7 @@ export const GrammarPuzzle: React.FC<GrammarPuzzleProps> = ({ segments, translat
               whileTap={{ scale: 0.95 }}
               className="px-5 py-3 glass rounded-2xl border border-primary/20 font-black text-slate-700 dark:text-slate-200 hover:border-primary/50 transition-all shadow-premium text-xl"
             >
-              <FuriganaWord {...getDisplayProps(piece.segment)} />
+              <FuriganaWord kanji={piece.segment.text} kana={piece.segment.reading || null} />
             </motion.button>
           ))}
         </AnimatePresence>
