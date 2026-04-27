@@ -36,6 +36,8 @@ import { CurriculumService } from './lib/services/CurriculumService';
 import { Button } from './components/ui/button';
 import { Toaster, toast } from 'sonner';
 
+import { PwaUpdater } from './components/PwaUpdater';
+
 export type JLPTLevel = 'n5' | 'n4' | 'n3' | 'n2' | 'n1';
 export type JLPTSection = 'kanji' | 'vocabulary' | 'grammar' | 'dokkai';
 
@@ -322,6 +324,9 @@ function App() {
       <div className="fixed bottom-24 right-6 md:bottom-10 md:right-10 z-[60]">
         <JhakkasBot state={mascotState} />
       </div>
+
+      {/* PWA Update Banner */}
+      <PwaUpdater />
     </div>
   );
 }
