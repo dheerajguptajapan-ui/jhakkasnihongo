@@ -1,5 +1,6 @@
 import { Item, UserItem, UserProfile } from '../../types';
 import { NativeStorage } from './NativeStorage';
+import { syncToFirestore } from '../firebase';
 
 /**
  * Top 1% Persistence Logic:
@@ -48,6 +49,13 @@ export const PersistenceService = {
         photoURL: profile.photoURL 
       };
       await NativeStorage.set(STORAGE_KEYS.ACCOUNTS, registry);
+    }
+    
+    // FIREBASE OFFLINE-FIRST SYNC
+    // Push the profile update to Firestore. 
+    // If offline, Firestore caches this mutation and syncs when online.
+    if (profile.uid) {
+      await syncToFirestore('profiles', profile.uid, profile);
     }
   },
 
@@ -202,6 +210,14 @@ export const PersistenceService = {
       registry.push(account);
     }
     await NativeStorage.set(STORAGE_KEYS.ACCOUNTS, registry);
+    
+    // FIREBASE OFFLINE-FIRST SYNC
+    // Ensure the admin can see this account globally
+    if (account.uid) {
+      // Don't sync the password hash to the cloud for security!
+      const { passwordHash, ...safeAccount } = account;
+      await syncToFirestore('accounts', account.uid, safeAccount);
+    }
   },
 
   async getSession(): Promise<any | null> {
