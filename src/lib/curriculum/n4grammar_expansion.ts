@@ -58,7 +58,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "んでいました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[夏休み:なつやすみ]の[間:あいだ]、ずっと[本:ほん]を[読:よ]んでいました。"
       },
       {
         "japanese": "会議の間は、電話に出られません。",
@@ -102,7 +103,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "られません。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[会議:かいぎ]の[間:あいだ]は、[電話:でんわ]に[出:で]られません。"
       }
     ]
   },
@@ -185,7 +187,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "わらせた。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[母:はは]が[買:かい]い[物:もの]に[行:い]っている[間:あいだ]に、[宿題:しゅくだい]を[終:お]わらせた。"
       },
       {
         "japanese": "私が寝ている間に、地震があったらしい。",
@@ -233,7 +236,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "あったらしい。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[私:わたし]が[寝:ね]ている[間:あいだ]に、[地震:じしん]があったらしい。"
       }
     ]
   },
@@ -281,7 +285,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "くなかった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[映画:えいが]はあまり[面白:おもしろ]くなかった。"
       },
       {
         "japanese": "最近、あまり運動していません。",
@@ -309,7 +314,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "していません。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[最近:さいきん]、あまり[運動:うんどう]していません。"
       }
     ]
   },
@@ -373,7 +379,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "します。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[宿題:しゅくだい]が[終:お]わった[後:あと]で、ゲームをします。"
       },
       {
         "japanese": "仕事の後で、一緒に飲みに行きませんか。",
@@ -429,7 +436,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "きませんか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[仕事:しごと]の[後:あと]で、[一緒:いっしょ]に[飲:の]みに[行:い]きませんか。"
       }
     ]
   },
@@ -477,7 +485,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いましょうか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[時間:じかん]があれば、[手伝:てつだ]いましょうか。"
       },
       {
         "japanese": "この薬を飲めば、熱が下がるでしょう。",
@@ -525,7 +534,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "がるでしょう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[薬:くすり]を[飲:の]めば、[熱:ねつ]が[下:さ]がるでしょう。"
       }
     ]
   },
@@ -585,7 +595,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "になります。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[雨:あめ]の[場合:ばあい]は、イベントは[中止:ちゅうし]になります。"
       },
       {
         "japanese": "ご不明な点がある場合は、お気軽にお問い合わせください。",
@@ -661,7 +672,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "わせください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "ご[不明:ふめい]な[点:てん]がある[場合:ばあい]は、お[気軽:きがる]にお[問:と]い[合:あ]わせください。"
       }
     ]
   },
@@ -709,7 +721,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "しています。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[毎日:まいにち]ゲームばかりしています。"
       },
       {
         "japanese": "この店は野菜ばかり売っている。",
@@ -745,7 +758,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っている。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[店:みせ]は[野菜:やさい]ばかり[売:う]っている。"
       }
     ]
   },
@@ -793,7 +807,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ちになる。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[見:み]るだけで[幸:しあわ]せな[気持:きも]ちになる。"
       },
       {
         "japanese": "彼の声を聞いただけで、安心した。",
@@ -837,7 +852,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "した。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]の[声:こえ]を[聞:き]いただけで、[安心:あんしん]した。"
       }
     ]
   },
@@ -895,7 +911,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "した。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[突然:とつぜん]、[雨:あめ]が[降:ふ]り[出:だ]した。"
       },
       {
         "japanese": "彼女は悲しくて泣き出した。",
@@ -935,7 +952,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "した。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼女:かのじょ]は[悲:かな]しくて[泣:な]き[出:だ]した。"
       }
     ]
   },
@@ -998,7 +1016,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "でございます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[本日:ほんじつ]はご[来店:らいてん]ありがとうございます。[担当:たんとう]の[田中:たなか][裕子:ゆうこ]でございます。"
       },
       {
         "japanese": "こちらは当ホテルのロビーでございます。",
@@ -1034,7 +1053,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "でございます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "こちらは[当:とう]ホテルのロビーでございます。"
       }
     ]
   },
@@ -1085,7 +1105,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "きませんか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "お[茶:ちゃ]でも[飲:の]みに[行:い]きませんか。"
       },
       {
         "japanese": "週末は映画でも見ようか。",
@@ -1117,7 +1138,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ようか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[週末:しゅうまつ]は[映画:えいが]でも[見:み]ようか。"
       }
     ]
   },
@@ -1168,7 +1190,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ではないか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[日本語:にほんご]がとても[上手:じょうず]ではないか。"
       },
       {
         "japanese": "この新しいデザインは素晴らしいではないか。",
@@ -1196,7 +1219,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "らしいではないか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[新:あたら]しいデザインは[素晴:すば]らしいではないか。"
       }
     ]
   },
@@ -1235,7 +1259,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "です。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[新:あたら]しいパスポートが[必要:ひつよう]です。"
       },
       {
         "japanese": "この仕事には高い集中力が必要です。",
@@ -1283,7 +1308,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "です。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[仕事:しごと]には[高:たか]い[集中:しゅうちゅう][力:りょく]が[必要:ひつよう]です。"
       }
     ]
   },
@@ -1330,7 +1356,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いがする。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[何:なに]か[焦:こ]げた[匂:にお]いがする。"
       },
       {
         "japanese": "遠くから変な音がする。",
@@ -1362,7 +1389,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "がする。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[遠:とお]くから[変:へん]な[音:おと]がする。"
       }
     ]
   },
@@ -1433,7 +1461,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "です。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼女:かのじょ]は[恥:はずか]しがり[屋:や]なので、[人前:ひとまえ]で[話:はな]すのが[苦手:にがて]です。"
       },
       {
         "japanese": "うちの犬は寂しがり屋で、いつも私の後をついてきます。",
@@ -1485,7 +1514,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "をついてきます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "うちの[犬:いぬ]は[寂:さび]しがり[屋:や]で、いつも[私:わたし]の[後:あと]をついてきます。"
       }
     ]
   },
@@ -1533,7 +1563,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "しがっている。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[子供:こども]は[新:あたら]しいおもちゃを[欲:ほし]しがっている。"
       },
       {
         "japanese": "彼はみんなの前で発表するのを怖がっているようだった。",
@@ -1573,7 +1604,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "がっているようだった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]はみんなの[前:まえ]で[発表:はっぴょう]するのを[怖:こわ]がっているようだった。"
       }
     ]
   },
@@ -1604,7 +1636,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ありがとうございます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "まことにありがとうございます。"
       },
       {
         "japanese": "こちらにパンフレットがございます。",
@@ -1620,7 +1653,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ございます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "こちらにパンフレットがございます。"
       }
     ]
   },
@@ -1667,7 +1701,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "めた。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[雨:あめ]が[降:ふ]り[始:はじ]めた。"
       },
       {
         "japanese": "日本語の勉強を来週から始めます。",
@@ -1707,7 +1742,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "めます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[日本語:にほんご]の[勉強:べんきょう]を[来週:らいしゅう]から[始:はじ]めます。"
       }
     ]
   },
@@ -1754,7 +1790,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "してみよう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[田中:たなか]さんはもう[着:つ]いているはずだ。[連絡:れんらく]してみよう。"
       },
       {
         "japanese": "このケーキは甘いはずだ。砂糖をたくさん入れたから。",
@@ -1790,7 +1827,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "れたから。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "このケーキは[甘:あま]いはずだ。[砂糖:さとう]をたくさん[入:い]れたから。"
       }
     ]
   },
@@ -1829,7 +1867,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "をつくはずがない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]がそんな[嘘:うそ]をつくはずがない。"
       },
       {
         "japanese": "こんなに早く終わるはずがない。まだ半分も終わっていない。",
@@ -1877,7 +1916,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "わっていない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "こんなに[早:はや]く[終:お]わるはずがない。まだ[半分:はんぶん]も[終:お]わっていない。"
       }
     ]
   },
@@ -1937,7 +1977,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "あります。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]、[早:はや]く[起:お]きる[必要:ひつよう]があります。"
       },
       {
         "japanese": "試験のために、もっと勉強する必要があります。",
@@ -1973,7 +2014,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "あります。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[試験:しけん]のために、もっと[勉強:べんきょう]する[必要:ひつよう]があります。"
       }
     ]
   },
@@ -2033,7 +2075,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "こう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "みんなで[一緒:いっしょ]に[映画:えいが]を[見:み]に[行:い]こう。"
       },
       {
         "japanese": "疲れたから、今日はもう休もう。",
@@ -2065,7 +2108,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "もう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[疲:つか]れたから、[今日:きょう]はもう[休:やす]もう。"
       }
     ]
   },
@@ -2110,7 +2154,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いらっしゃいますか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[先生:せんせい]はもう[教室:きょうしつ]にいらっしゃいますか。"
       },
       {
         "japanese": "お客様が今、こちらにいらっしゃいました。",
@@ -2138,7 +2183,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いらっしゃいました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[お客様:おきゃくさま]が[今:いま]、こちらにいらっしゃいました。"
       }
     ]
   },
@@ -2177,7 +2223,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いたします。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[私:わたし]がこのプロジェクトを[担当:たんとう]いたします。"
       },
       {
         "japanese": "後ほど、ご連絡いたします。",
@@ -2201,7 +2248,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いたします。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[後:のち]ほど、ご[連絡:れんらく]いたします。"
       }
     ]
   },
@@ -2247,7 +2295,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ゆっくりしようよ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]は[休:やす]みじゃないか。ゆっくりしようよ。"
       },
       {
         "japanese": "こんな所に財布を忘れるなんて、君らしくないじゃないか。",
@@ -2291,7 +2340,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "らしくないじゃないか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "こんな[所:ところ]に[財布:さいふ]を[忘:わす]れるなんて、[君:きみ]らしくないじゃないか。"
       }
     ]
   },
@@ -2338,7 +2388,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "かりません。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]が[来:く]るかどうか、まだ[分:わ]かりません。"
       },
       {
         "japanese": "この情報が本当かどうか、確認する必要があります。",
@@ -2386,7 +2437,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "あります。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[情報:じょうほう]が[本当:ほんとう]かどうか、[確認:かくにん]する[必要:ひつよう]があります。"
       }
     ]
   },
@@ -2433,7 +2485,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "るかしら。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]、[雨:あめ]が[降:ふ]るかしら。"
       },
       {
         "japanese": "彼は私のこと、どう思っているかしら。",
@@ -2465,7 +2518,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っているかしら。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[私:わたし]のこと、どう[思:おも]っているかしら。"
       }
     ]
   },
@@ -2516,7 +2570,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "えたのかい？",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "お[前:まえ]、もう[宿題:しゅくだい]を[終:お]えたのかい？"
       },
       {
         "japanese": "明日、一緒に映画でも見に行くかい？",
@@ -2564,7 +2619,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "くかい？",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]、[一緒:いっしょ]に[映画:えいが]でも[見:み]に[行:い]くかい？"
       }
     ]
   },
@@ -2629,7 +2685,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っていこう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[今日:きょう]は[雨:あめ]が[降:ふ]るかもしれない。[傘:かさ]を[持:も]っていこう。"
       },
       {
         "japanese": "彼なら、その問題を解決できるかもしれない。",
@@ -2661,7 +2718,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "できるかもしれない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]なら、その[問題:もんだい]を[解決:かいけつ]できるかもしれない。"
       }
     ]
   },
@@ -2713,7 +2771,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "うかな。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[服:ふく]、[私:わたし]に[似合:にあ]うかな。"
       },
       {
         "japanese": "明日、彼に電話してみようかな。",
@@ -2745,7 +2804,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "してみようかな。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]、[彼:かれ]に[電話:でんわ]してみようかな。"
       }
     ]
   },
@@ -2820,7 +2880,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "このワインは、[日本:にほん][産:さん]のブドウから[作:つく]られています。"
       },
       {
         "japanese": "チーズは牛乳から作られる食品です。",
@@ -2864,7 +2925,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "チーズは[牛乳:ぎゅうにゅう]から[作:つく]られる[食品:しょくひん]です。"
       }
     ]
   },
@@ -2915,7 +2977,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]はきっと[晴:は]れるでしょう。"
       },
       {
         "japanese": "彼はきっと成功すると思います。",
@@ -2959,7 +3022,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]はきっと[成功:せいこう]すると[思:おも]います。"
       }
     ]
   },
@@ -3027,7 +3091,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "10[時:じ][頃:ごろ]に[駅:えき]に[着:つ]く[予定:よてい]です。"
       },
       {
         "japanese": "子供の頃、よく公園で遊びました。",
@@ -3075,7 +3140,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[子供:こども]の[頃:ころ]、よく[公園:こうえん]で[遊:あそ]びました。"
       }
     ]
   },
@@ -3130,7 +3196,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[毎日:まいにち][運動:うんどう]することは[大切:たいせつ]です。"
       },
       {
         "japanese": "彼の趣味は本を読むことです。",
@@ -3182,7 +3249,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]の[趣味:しゅみ]は[本:ほん]を[読:よ]むことです。"
       }
     ]
   },
@@ -3249,7 +3317,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[私:わたし]はたまに[一人:ひとり]で[旅行:りょこう]することがあります。"
       },
       {
         "japanese": "彼も間違いをすることがある。",
@@ -3293,7 +3362,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]も[間違:まちが]いをすることがある。"
       }
     ]
   },
@@ -3352,7 +3422,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[日本:にほん][語:ご]を[話:はな]すことができます。"
       },
       {
         "japanese": "ここから富士山を見ることができます。",
@@ -3400,7 +3471,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "ここから[富士山:ふじさん]を[見:み]ることができます。"
       }
     ]
   },
@@ -3463,7 +3535,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[来月:らいげつ]から[東京:とうきょう]で[働:はたら]くことになりました。"
       },
       {
         "japanese": "明日の会議は中止することになった。",
@@ -3511,7 +3584,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]の[会議:かいぎ]は[中止:ちゅうし]することになった。"
       }
     ]
   },
@@ -3582,7 +3656,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[今日:きょう]から[毎日:まいにち][日本:にほん][語:ご]を[勉強:べんきょう]することにしました。"
       },
       {
         "japanese": "来週末は映画を見に行くことにしよう。",
@@ -3642,7 +3717,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[来週:らいしゅう][末:まつ]は[映画:えいが]を[見:み]に[行:い]くことにしよう。"
       }
     ]
   },
@@ -3697,7 +3773,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[料理:りょうり]をもっと[美味:おい]しくしてください。"
       },
       {
         "japanese": "髪を短くしたいです。",
@@ -3733,7 +3810,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[髪:かみ]を[短:みじか]くしたいです。"
       }
     ]
   },
@@ -3792,7 +3870,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[急:きゅう]に[雨:あめ]が[降:ふ]り[出:だ]しました。"
       },
       {
         "japanese": "彼は急に部屋を出て行った。",
@@ -3844,7 +3923,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[急:きゅう]に[部屋:へや]を[出:で]て[行:い]った。"
       }
     ]
   },
@@ -3901,7 +3981,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[来週:らいしゅう]の[月曜日:げつようび]までに、レポートを[提出:ていしゅつ]してください。"
       },
       {
         "japanese": "会議が始まるまでに、資料を読んでおいてください。",
@@ -3941,7 +4022,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "んでおいてください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[会議:かいぎ]が[始:はじ]まるまでに、[資料:しりょう]を[読:よ]んでおいてください。"
       }
     ]
   },
@@ -3986,7 +4068,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "かけないでください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "ドアを[開:あ]けたまま[出:で]かけないでください。"
       },
       {
         "japanese": "テレビをつけっぱなしのまま寝てしまった。",
@@ -4006,7 +4089,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "てしまった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "テレビをつけっぱなしのまま[寝:ね]てしまった。"
       }
     ]
   },
@@ -4075,7 +4159,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "わせください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "ご[質問:しつもん]はメール、またはお[電話:でんわ]でお[問:と]い[合:あ]わせください。"
       },
       {
         "japanese": "この薬は食前、または食後に服用してください。",
@@ -4119,7 +4204,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "してください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[薬:くすり]は[食前:しょくぜん]、または[食後:しょくご]に[服用:ふくよう]してください。"
       }
     ]
   },
@@ -4176,7 +4262,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "みたいだ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[本当:ほんとう]に[優:やさ]しい[人:ひと]みたいだ。"
       },
       {
         "japanese": "空が泣いているみたいだね。",
@@ -4200,7 +4287,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いているみたいだね。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[空:そら]が[泣:な]いているみたいだね。"
       }
     ]
   },
@@ -4247,7 +4335,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[子供:こども]みたいな[人:ひと]だ。"
       },
       {
         "japanese": "夢みたいな話だ。",
@@ -4271,7 +4360,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[夢:ゆめ]みたいな[話:はなし]だ。"
       }
     ]
   },
@@ -4299,7 +4389,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "まるでモデルみたいにスタイルがいいね。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "まるでモデルみたいにスタイルがいいね。"
       },
       {
         "japanese": "子供みたいに遊んで楽しかった。",
@@ -4331,7 +4422,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "しかった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[子供:こども]みたいに[遊:あそ]んで[楽:たの]しかった。"
       }
     ]
   },
@@ -4377,7 +4469,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "もしました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[本:ほん]は[一万円:いちまんえん]もしました。"
       },
       {
         "japanese": "彼女は毎日、3時間も日本語を勉強している。",
@@ -4429,7 +4522,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "している。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼女:かのじょ]は[毎日:まいにち]、3[時間:じかん]も[日本語:にほんご]を[勉強:べんきょう]している。"
       }
     ]
   },
@@ -4464,7 +4558,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "うな。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "ここでタバコを[吸:す]うな。"
       },
       {
         "japanese": "嘘をつくな。",
@@ -4484,7 +4579,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "つくな。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[嘘:うそ]をつくな。"
       }
     ]
   },
@@ -4524,7 +4620,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "きです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[野菜:やさい]では、トマトやきゅうりなどが[好:す]きです。"
       },
       {
         "japanese": "パーティーにはお菓子やジュースなどを持ってきてください。",
@@ -4548,7 +4645,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "やジュースなどを持ってきてください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "パーティーにはお[菓子:かし]やジュースなどを持ってきてください。"
       }
     ]
   },
@@ -4598,7 +4696,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "します。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[音楽:おんがく]を[聴:き]きながら、[勉強:べんきょう]します。"
       },
       {
         "japanese": "彼はいつも歌いながら、料理をします。",
@@ -4630,7 +4729,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "をします。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]はいつも[歌:うた]いながら、[料理:りょうり]をします。"
       }
     ]
   },
@@ -4677,7 +4777,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "けない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[問題:もんだい]はなかなか[解:と]けない。"
       },
       {
         "japanese": "彼はなかなか約束の時間に来なかった。",
@@ -4721,7 +4822,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "なかった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]はなかなか[約束:やくそく]の[時間:じかん]に[来:こ]なかった。"
       }
     ]
   },
@@ -4776,7 +4878,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "なければいけない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]までにこのレポートを[提出:ていしゅつ]しなければいけない。"
       },
       {
         "japanese": "毎日漢字を勉強しなければいけない。",
@@ -4808,7 +4911,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "なければいけない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[毎日:まいにち][漢字:かんじ]を[勉強:べんきょう]しなければいけない。"
       }
     ]
   },
@@ -4855,7 +4959,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "なければならない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "もっと[日本語:にほんご]を[練習:れんしゅう]しなければならない。"
       },
       {
         "japanese": "試験のために、今夜は徹夜しなければならない。",
@@ -4899,7 +5004,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "なければならない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[試験:しけん]のために、[今夜:こんや]は[徹夜:てつや]しなければならない。"
       }
     ]
   },
@@ -4962,7 +5068,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "れてください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[日本:にほん]に[行く:いく]なら、ぜひ[京都:きょうと]を[訪:おとず]れてください。"
       },
       {
         "japanese": "ラーメンなら、この店が一番美味しいよ。",
@@ -5006,7 +5113,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "しいよ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "ラーメンなら、この[店:みせ]が[一番:いちばん][美味:おい]しいよ。"
       }
     ]
   },
@@ -5049,7 +5157,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "なさい。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[宿題:しゅくだい]を[早く:はやく]しなさい。"
       },
       {
         "japanese": "寝る前に歯を磨きなさい。",
@@ -5089,7 +5198,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "なさい。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[寝:ね]る[前:まえ]に[歯:は]を[磨き:みがき]なさい。"
       }
     ]
   },
@@ -5168,7 +5278,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いますか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[社長:しゃちょう]はもうお[帰:かえ]りになりましたか、それともまだお[仕事:しごと]をなさっていますか。"
       },
       {
         "japanese": "先生は休日によくゴルフをなさいます。",
@@ -5208,7 +5319,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "なさいます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[先生:せんせい]は[休日:きゅうじつ]によくゴルフをなさいます。"
       }
     ]
   },
@@ -5267,7 +5379,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "つかなかった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[私:わたし]は[彼:かれ]の[親切:しんせつ]に[気:き]がつかなかった。"
       },
       {
         "japanese": "部屋の隅に虫がいることに気がついた。",
@@ -5323,7 +5436,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ついた。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[部屋:へや]の[隅:すみ]に[虫:むし]がいることに[気:き]がついた。"
       }
     ]
   },
@@ -5386,7 +5500,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "える。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "あの[山:やま]は[雪:ゆき]が[降:ふ]っているように[見:み]える。"
       },
       {
         "japanese": "彼女はいつも幸せそうに見える。",
@@ -5422,7 +5537,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "える。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼女:かのじょ]はいつも[幸せ:しあわせ]そうに[見:み]える。"
       }
     ]
   },
@@ -5465,7 +5581,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "にする。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[晩:ばん]ごはんはカレーライスにする。"
       },
       {
         "japanese": "彼を部長にすることにしました。",
@@ -5505,7 +5622,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "しました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]を[部長:ぶちょう]にすることにしました。"
       }
     ]
   },
@@ -5548,7 +5666,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "みにくい。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[字:じ]は[読:よ]みにくい。"
       },
       {
         "japanese": "彼は怒りにくい性格だ。",
@@ -5580,7 +5699,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[怒:おこ]りにくい[性格:せいかく]だ。"
       }
     ]
   },
@@ -5655,7 +5775,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "クラスの[中:なか]で、[彼:かれ]が[一番:いちばん][背:せ]が[高い:たかい]です。"
       },
       {
         "japanese": "箱の中で、古い写真を見つけました。",
@@ -5703,7 +5824,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[箱:はこ]の[中:なか]で、[古い:ふるい][写真:しゃしん]を[見つけました:みつけました]。"
       }
     ]
   },
@@ -5762,7 +5884,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[若い:わかい]のに[お酒:おさけ]をたくさん[飲みます:のみます]。"
       },
       {
         "japanese": "雨が降っているのに、傘を持っていません。",
@@ -5814,7 +5937,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[雨:あめ]が[降って:ふって]いるのに、[傘:かさ]を[持って:もって]いません。"
       }
     ]
   },
@@ -5877,7 +6001,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[機械:きかい]は[料理:りょうり]を[作る:つくる]のに[便利:べんり]です。"
       },
       {
         "japanese": "日本語を勉強するのに良い辞書を探しています。",
@@ -5929,7 +6054,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[日本語:にほんご]を[勉強:べんきょう]するのに[良い:よい][辞書:じしょ]を[探して:さがして]います。"
       }
     ]
   },
@@ -5992,7 +6118,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[私:わたし]が[一番:いちばん][好き:すき]な[季節:きせつ]は[夏:なつ]です。"
       },
       {
         "japanese": "彼が遅れたのは、電車が止まったからだ。",
@@ -6040,7 +6167,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]が[遅れた:おくれた]のは、[電車:でんしゃ]が[止まった:とまった]からだ。"
       }
     ]
   },
@@ -6087,7 +6215,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "こちらにお[座り:すわり]ください。"
       },
       {
         "japanese": "少々お待ちください。",
@@ -6115,7 +6244,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[少々:しょうしょう]お[待ち:まち]ください。"
       }
     ]
   },
@@ -6170,7 +6300,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[社長:しゃちょう]はもうお[帰り:かえり]になりました。"
       },
       {
         "japanese": "先生は何時にお休みになりますか。",
@@ -6218,7 +6349,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[先生:せんせい]は[何時:なんじ]にお[休み:やすみ]になりますか。"
       }
     ]
   },
@@ -6277,7 +6409,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "このバスは[10分:じゅっぷん]おきに[運行:うんこう]しています。"
       },
       {
         "japanese": "この薬は食後3時間おきに飲んでください。",
@@ -6321,7 +6454,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[薬:くすり]は[食後:しょくご][3時間:さんじかん]おきに[飲んで:のんで]ください。"
       }
     ]
   },
@@ -6384,7 +6518,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[仕事:しごと]が[終わったら:おわったら]、すぐに[家:いえ]に[帰り:かえり]ます。"
       },
       {
         "japanese": "会議は午後5時に終わる予定です。",
@@ -6428,7 +6563,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[会議:かいぎ]は[午後:ごご][5時:ごじ]に[終わる:おわる][予定:よてい]です。"
       }
     ]
   },
@@ -6483,7 +6619,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[私:わたし]は[辛い:からい]ものでも[食べ:たべ]られます。"
       },
       {
         "japanese": "このペンで細い字も書けます。",
@@ -6527,7 +6664,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "このペンで[細い:ほそい][字:じ]も[書け:かけ]ます。"
       }
     ]
   },
@@ -6582,7 +6720,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]は[雨:あめ]が[降る:ふる]らしいです。"
       },
       {
         "japanese": "あの二人は結婚するらしいですよ。",
@@ -6626,7 +6765,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "あの[二人:ふたり]は[結婚:けっこん]するらしいですよ。"
       }
     ]
   },
@@ -6681,7 +6821,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ですか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[部屋:へや]の[広:ひろ]さはどのくらいですか。"
       },
       {
         "japanese": "彼の優しさに感動しました。",
@@ -6721,7 +6862,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "しました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]の[優:やさ]しさに[感動:かんどう]しました。"
       }
     ]
   },
@@ -6764,7 +6906,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "さっき[彼:かれ]に[会:あ]いました。"
       },
       {
         "japanese": "さっきまで雨が降っていました。",
@@ -6796,7 +6939,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っていました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "さっきまで[雨:あめ]が[降:ふ]っていました。"
       }
     ]
   },
@@ -6847,7 +6991,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "させられました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[私:わたし]は[先生:せんせい]に[宿題:しゅくだい]をさせられました。"
       },
       {
         "japanese": "部長に毎日残業させられて、疲れました。",
@@ -6883,7 +7028,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "れました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[部長:ぶちょう]に[毎日:まいにち][残業:ざんぎょう]させられて、[疲:つか]れました。"
       }
     ]
   },
@@ -6938,7 +7084,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ませました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[先生:せんせい]は[生徒:せいと]に[本:ほん]を[読:よ]ませました。"
       },
       {
         "japanese": "子供に好きなだけ遊ばせました。",
@@ -6970,7 +7117,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ばせました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[子供:こども]に[好き:すき]なだけ[遊:あそ]ばせました。"
       }
     ]
   },
@@ -7013,7 +7161,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[窓:まど]を[開:あ]けさせてください。"
       },
       {
         "japanese": "少し考えさせてください。",
@@ -7037,7 +7186,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[少し:すこし][考:かんが]えさせてください。"
       }
     ]
   },
@@ -7092,7 +7242,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "さすがプロだね、[絵:え]がとても[上手:じょうず]だ。"
       },
       {
         "japanese": "この問題は、さすがの彼でも解けなかった。",
@@ -7136,7 +7287,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "けなかった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[問題:もんだい]は、さすがの[彼:かれ]でも[解:と]けなかった。"
       }
     ]
   },
@@ -7207,7 +7359,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[親切:しんせつ]だし、[頭:あたま]もいいし、[素晴:すば]らしい[人:ひと]だ。"
       },
       {
         "japanese": "雨も降っているし、時間もないし、今日は出かけたくない。",
@@ -7263,7 +7416,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "かけたくない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[雨:あめ]も[降:ふ]っているし、[時間:じかん]もないし、[今日:きょう]は[出:で]かけたくない。"
       }
     ]
   },
@@ -7306,7 +7460,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ですよ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "そんなに[急:いそ]がなくても[大丈夫:だいじょうぶ]ですよ。"
       },
       {
         "japanese": "この本はそんなに面白くなかったです。",
@@ -7342,7 +7497,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "です。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[本:ほん]はそんなに[面白:おもしろ]くなかったです。"
       }
     ]
   },
@@ -7401,7 +7557,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "かけた。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[雨:あめ]が[降:ふ]っていた。それでも[彼:かれ]は[出:で]かけた。"
       },
       {
         "japanese": "練習は厳しかった。それでもみんな頑張った。",
@@ -7441,7 +7598,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "った。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[練習:れんしゅう]は[厳:きび]しかった。それでもみんな[頑張:がんば]った。"
       }
     ]
   },
@@ -7508,7 +7666,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "い。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "このレストランは[美味:おい]しいし、それに[値段:ねだん]も[安:やす]い。"
       },
       {
         "japanese": "彼は英語が話せる。それに、日本語もとても上手だ。",
@@ -7564,7 +7723,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[英語:えいご]が[話:はな]せる。それに、[日本語:にほんご]もとても[上手:じょうず]だ。"
       }
     ]
   },
@@ -7612,7 +7772,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "るそうだ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]は[雨:あめ]が[降:ふ]るそうだ。"
       },
       {
         "japanese": "彼は先週、病気だったそうだ。",
@@ -7644,7 +7805,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だったそうだ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[先週:せんしゅう]、[病気:びょうき]だったそうだ。"
       }
     ]
   },
@@ -7681,7 +7843,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "しそうだ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "あのケーキはとても[美味:おい]しそうだ。"
       },
       {
         "japanese": "今にも雨が降りそうだ。",
@@ -7713,7 +7876,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "りそうだ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[今:いま]にも[雨:あめ]が[降:ふ]りそうだ。"
       }
     ]
   },
@@ -7762,7 +7926,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っていた。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼女:かのじょ]は[楽:たの]しそうに[歌:うた]っていた。"
       },
       {
         "japanese": "これは美味しそうなケーキだね。",
@@ -7782,7 +7947,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "しそうなケーキだね。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "これは[美味:おい]しそうなケーキだね。"
       }
     ]
   },
@@ -7838,7 +8004,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いたばかりだ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[今:いま]、[家:いえ]に[着:つ]いたばかりだ。"
       },
       {
         "japanese": "このパンは焼きたばかりで、まだ温かい。",
@@ -7866,7 +8033,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "かい。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "このパンは[焼:や]きたばかりで、まだ[温:あたた]かい。"
       }
     ]
   },
@@ -7934,7 +8102,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "た。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[宿題:しゅくだい]が[終:お]わったところに、[友達:ともだち]が[遊:あそ]びに[来:き]た。"
       },
       {
         "japanese": "ちょうど駅に着いたところです。",
@@ -7962,7 +8131,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いたところです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "ちょうど[駅:えき]に[着:つ]いたところです。"
       }
     ]
   },
@@ -8013,7 +8183,8 @@ export const n4grammar_expansion: Item[] = [
             "text": ")",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[窓:まど]を[開:あ]ける。 ([他動詞:たどうし])"
       },
       {
         "japanese": "窓が開く。 (自動詞)",
@@ -8049,7 +8220,8 @@ export const n4grammar_expansion: Item[] = [
             "text": ")",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[窓:まど]が[開:あ]く。 ([自動詞:じどうし])"
       }
     ]
   },
@@ -8096,7 +8268,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いたがっている。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[弟:おとうと]は[新:あたら]しいゲームを[買:か]いたがっている。"
       },
       {
         "japanese": "彼女は日本へ行きたがっているそうだ。",
@@ -8128,7 +8301,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "きたがっているそうだ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼女:かのじょ]は[日本:にほん]へ[行:い]きたがっているそうだ。"
       }
     ]
   },
@@ -8181,7 +8355,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "にいよう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "もし[雨:あめ]が[降:ふ]ったら、[家:いえ]にいよう。"
       },
       {
         "japanese": "宿題が終わったら、遊びに行ってもいいよ。",
@@ -8225,7 +8400,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ってもいいよ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[宿題:しゅくだい]が[終:お]わったら、[遊:あそ]びに[行:い]ってもいいよ。"
       }
     ]
   },
@@ -8273,7 +8449,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "んだらどうですか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[疲:つか]れているなら、[少:すこ]し[休:やす]んだらどうですか。"
       },
       {
         "japanese": "困っているなら、先生に相談したらどう？",
@@ -8305,7 +8482,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "したらどう？",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[困:こま]っているなら、[先生:せんせい]に[相談:そうだん]したらどう？"
       }
     ]
   },
@@ -8349,7 +8527,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "したらいいですか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[書類:しょるい]、どこに[提出:ていしゅつ]したらいいですか。"
       },
       {
         "japanese": "電車の乗り方が分からないんですが、どうしたらいいですか。",
@@ -8389,7 +8568,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "からないんですが、どうしたらいいですか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[電車:でんしゃ]の[乗:の]り[方:かた]が[分:わ]からないんですが、どうしたらいいですか。"
       }
     ]
   },
@@ -8449,7 +8629,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "なりました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[雨:あめ]が[降:ふ]って、ピクニックは[中止:ちゅうし]になりました。"
       },
       {
         "japanese": "病気で会社を休みました。",
@@ -8481,7 +8662,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "みました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[病気:びょうき]で[会社:かいしゃ]を[休:やす]みました。"
       }
     ]
   },
@@ -8528,7 +8710,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ってあげました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[友達:ともだち]の[宿題:しゅくだい]を[手伝:てつだ]ってあげました。"
       },
       {
         "japanese": "彼女のために、ケーキを作ってあげよう。",
@@ -8560,7 +8743,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ってあげよう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼女:かのじょ]のために、ケーキを[作:つく]ってあげよう。"
       }
     ]
   },
@@ -8603,7 +8787,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "してほしいです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "もっと[日本語:にほんご]を[話:はな]してほしいです。"
       },
       {
         "japanese": "この仕事を今日中に終わらせてほしい。",
@@ -8639,7 +8824,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "わらせてほしい。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[仕事:しごと]を[今日中:きょうじゅう]に[終:お]わらせてほしい。"
       }
     ]
   },
@@ -8682,7 +8868,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っていきます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "これからもっと[寒:さむ]くなっていきます。"
       },
       {
         "japanese": "本を読んでいくうちに、だんだん面白くなりました。",
@@ -8722,7 +8909,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "くなりました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[本:ほん]を[読:よ]んでいくうちに、だんだん[面白:おもしろ]くなりました。"
       }
     ]
   },
@@ -8781,7 +8969,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ていました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[昨日:きのう]の[夜:よる]、[私:わたし]はテレビを[見:み]ていました。"
       },
       {
         "japanese": "子供の頃、よく公園で遊んでいました。",
@@ -8825,7 +9014,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "んでいました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[子供:こども]の[頃:ころ]、よく[公園:こうえん]で[遊:あそ]んでいました。"
       }
     ]
   },
@@ -8868,7 +9058,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っていただけませんか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[荷物:にもつ]を[持:も]っていただけませんか。"
       },
       {
         "japanese": "もう一度、説明していただけませんか。",
@@ -8896,7 +9087,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "していただけませんか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "もう[一度:いちど]、[説明:せつめい]していただけませんか。"
       }
     ]
   },
@@ -8943,7 +9135,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ってくれました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[友達:ともだち]が[宿題:しゅくだい]を[手伝:てつだ]ってくれました。"
       },
       {
         "japanese": "困っている時、彼が助けてくれた。",
@@ -8983,7 +9176,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "けてくれた。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[困:こま]っている[時:とき]、[彼:かれ]が[助:たす]けてくれた。"
       }
     ]
   },
@@ -9030,7 +9224,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ってきます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[買:か]い[物:もの]に[行:い]ってきます。"
       },
       {
         "japanese": "だんだん日本語が分かってきました。",
@@ -9058,7 +9253,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "かってきました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "だんだん[日本語:にほんご]が[分:わ]かってきました。"
       }
     ]
   },
@@ -9101,7 +9297,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ってみませんか。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[新:あたら]しいレストランに[行:い]ってみませんか。"
       },
       {
         "japanese": "難しい問題でも、一度やってみることが大切だ。",
@@ -9145,7 +9342,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[難:むずか]しい[問題:もんだい]でも、[一度:いちど]やってみることが[大切:たいせつ]だ。"
       }
     ]
   },
@@ -9208,7 +9406,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "えてもらいました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[先生:せんせい]に[漢字:かんじ]の[読:よ]み[方:かた]を[教:おし]えてもらいました。"
       },
       {
         "japanese": "友達に空港まで送ってもらいました。",
@@ -9240,7 +9439,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ってもらいました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[友達:ともだち]に[空港:くうこう]まで[送:おく]ってもらいました。"
       }
     ]
   },
@@ -9287,7 +9487,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っておこう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[明日:あした]パーティーがあるから、[料理:りょうり]を[作:つく]っておこう。"
       },
       {
         "japanese": "旅行に行く前に、ホテルを予約しておいた。",
@@ -9335,7 +9536,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "しておいた。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[旅行:りょこう]に[行:い]く[前:まえ]に、ホテルを[予約:よやく]しておいた。"
       }
     ]
   },
@@ -9375,7 +9577,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "れてしまいました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[宿題:しゅくだい]を[忘:わす]れてしまいました。"
       },
       {
         "japanese": "このケーキ、全部食べちゃった。",
@@ -9399,7 +9602,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "べちゃった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "このケーキ、[全部:ぜんぶ][食:た]べちゃった。"
       }
     ]
   },
@@ -9430,7 +9634,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "れてすみません。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[遅:おく]れてすみません。"
       },
       {
         "japanese": "連絡が遅くなってすみませんでした。",
@@ -9454,7 +9659,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "くなってすみませんでした。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[連絡:れんらく]が[遅:おそ]くなってすみませんでした。"
       }
     ]
   },
@@ -9498,7 +9704,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "やってください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[犬:いぬ]に[餌:えさ]をやってください。"
       },
       {
         "japanese": "妹の宿題を手伝ってやった。",
@@ -9530,7 +9737,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ってやった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[妹:いもうと]の[宿題:しゅくだい]を[手伝:てつだ]ってやった。"
       }
     ]
   },
@@ -9569,7 +9777,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ってよかった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[間:ま]に[合:あ]ってよかった。"
       },
       {
         "japanese": "日本に来られてよかった。",
@@ -9593,7 +9802,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "られてよかった。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[日本:にほん]に[来:こ]られてよかった。"
       }
     ]
   },
@@ -9636,7 +9846,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "べているところです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[今、:いま、][ご飯:ごはん]を[食:た]べているところです。"
       },
       {
         "japanese": "ちょうど今、家を出ているところだよ。",
@@ -9664,7 +9875,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ているところだよ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[ちょうど今、:ちょうどいま、][家:いえ]を[出:で]ているところだよ。"
       }
     ]
   },
@@ -9713,7 +9925,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "きます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[雨:あめ]が[降:ふ]っても、[行:い]きます。"
       },
       {
         "japanese": "どれだけ考えても、答えが見つからない。",
@@ -9749,7 +9962,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "つからない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "どれだけ[考:かんが]えても、[答:こたえ]えが[見:み]つからない。"
       }
     ]
   },
@@ -9800,7 +10014,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "きます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[春:はる]になると、[桜:さくら]が[咲:さ]きます。"
       },
       {
         "japanese": "電気を消すと、暗くなる。",
@@ -9832,7 +10047,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "くなる。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[電気:でんき]を[消:け]すと、[暗:くら]くなる。"
       }
     ]
   },
@@ -9873,7 +10089,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "と言ってもいいだろう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[天才:てんさい]と言ってもいいだろう。"
       },
       {
         "japanese": "この町は静かと言ってもいいくらいだ。",
@@ -9901,7 +10118,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "かと言ってもいいくらいだ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[町:まち]は[静:しず]かと言ってもいいくらいだ。"
       }
     ]
   },
@@ -9950,7 +10168,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "です。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[田中:たなか]という[人:ひと]です。"
       },
       {
         "japanese": "この本は『日本昔話』というタイトルです。",
@@ -9982,7 +10201,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "タイトルです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[本:ほん]は[『日本昔話』:にほんむかしばなし]というタイトルです。"
       }
     ]
   },
@@ -10049,7 +10269,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ていました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "「[明日:あした]は[テスト:てすと]がある」ということを[忘れ:わすれ]ていました。"
       },
       {
         "japanese": "彼の話は、簡単に言うと「賛成できない」ということだ。",
@@ -10117,7 +10338,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]の[話:はなし]は、[簡単:かんたん]に[言う:いう]と「[賛成:さんせい]できない」ということだ。"
       }
     ]
   },
@@ -10208,7 +10430,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いる。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[地域:ちいき]には、[昔:むかし]から[大き:おおき]な[川:かわ]が[流れ:ながれ]ていると[言わ:いわ]れている。"
       },
       {
         "japanese": "日本の夏は湿度が高いと言われているが、今年は特にひどい。",
@@ -10280,7 +10503,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ひどい。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[日本:にほん]の[夏:なつ]は[湿度:しつど]が[高い:たかい]と[言わ:いわ]れているが、[今年:ことし]は[特に:とくに]ひどい。"
       }
     ]
   },
@@ -10339,7 +10563,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "た。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼女:かのじょ]は[来月:らいげつ]、[結婚:けっこん]すると[聞い:きい]た。"
       },
       {
         "japanese": "新しいカフェが駅前にできたと聞いたので、行ってみよう。",
@@ -10399,7 +10624,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "みよう。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[新しい:あたらしい][カフェ:かふぇ]が[駅前:えきまえ]にできたと[聞い:きい]たので、[行っ:いっ]てみよう。"
       }
     ]
   },
@@ -10442,7 +10668,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "思う。",
             "reading": "おもう"
           }
-        ]
+        ],
+        "furigana": "[明日:あした]は[晴れる:はれる]と[思う。:おもう]"
       },
       {
         "japanese": "彼はその提案に賛成しないと思うよ。",
@@ -10490,7 +10717,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "よ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]はその[提案:ていあん]に[賛成:さんせい]しないと[思う:おもう]よ。"
       }
     ]
   },
@@ -10573,7 +10801,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "たい。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[週末:しゅうまつ]は[映画:えいが]を[観る:みる]とか、[友達:ともだち]と[食事:しょくじ]に[行く:いく]とかして[過ごし:すごし]たい。"
       },
       {
         "japanese": "彼の趣味はギターを弾くとか、絵を描くとか、いろいろある。",
@@ -10637,7 +10866,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ある。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]の[趣味:しゅみ]は[ギター:ぎたー]を[弾く:ひく]とか、[絵:え]を[描く:かく]とか、いろいろある。"
       }
     ]
   },
@@ -10680,7 +10910,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "です。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[今:いま]から[出かける:でかける]ところです。"
       },
       {
         "japanese": "ご飯を食べるところに電話がかかってきた。",
@@ -10720,7 +10951,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "かかってきた。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[ご飯:ごはん]を[食べる:たべる]ところに[電話:でんわ]がかかってきた。"
       }
     ]
   },
@@ -10787,7 +11019,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[毎日:まいにち][日本:にほん][語:ご]を[勉強:べんきょう]し[続ける:つづける]ことは[大切:たいせつ]だ。"
       },
       {
         "japanese": "彼は十年以上、この会社で働き続けている。",
@@ -10839,7 +11072,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いる。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[十年:じゅうねん][以上:いじょう]、この[会社:かいしゃ]で[働き:はたらき][続けて:つづけて]いる。"
       }
     ]
   },
@@ -10894,7 +11128,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "知ってる？",
             "reading": "しってる"
           }
-        ]
+        ],
+        "furigana": "[私:わたし]の[友達:ともだち]の[山田:やまだ]って[人、:ひと][知ってる？:しってる]"
       },
       {
         "japanese": "この花はコスモスって言うんだよ。",
@@ -10934,7 +11169,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だよ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[花:はな]は[コスモス:こすもす]って[言う:いう]んだよ。"
       }
     ]
   },
@@ -10981,7 +11217,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "られました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[私:わたし]は[先生:せんせい]に[褒め:ほめ]られました。"
       },
       {
         "japanese": "その本は多くの人に読まれています。",
@@ -11029,7 +11266,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "います。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "その[本:ほん]は[多く:おおく]の[人:ひと]に[読ま:よま]れています。"
       }
     ]
   },
@@ -11092,7 +11330,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ません。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[英語:えいご]は[話せ:はなせ]ますが、[フランス:ふらんす][語:ご]は[話せ:はなせ]ません。"
       },
       {
         "japanese": "このりんごは大きいですが、あのりんごは小さいです。",
@@ -11140,7 +11379,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "です。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "このりんごは[大きい:おおきい]ですが、あのりんごは[小さい:ちいさい]です。"
       }
     ]
   },
@@ -11183,7 +11423,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "みやすいです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[本:ほん]はとても[読:よ]みやすいです。"
       },
       {
         "japanese": "彼は新しいことを忘れやすいです。",
@@ -11215,7 +11456,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "れやすいです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[新:あたら]しいことを[忘:わす]れやすいです。"
       }
     ]
   },
@@ -11274,7 +11516,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[何:なん][時間:じかん]も[待:ま]った[後:あと]、やっとバスが[来:き]ました。"
       },
       {
         "japanese": "長年の努力の結果、やっと夢が叶いました。",
@@ -11322,7 +11565,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[長年:ながねん]の[努力:どりょく]の[結果:けっか]、やっと[夢:ゆめ]が[叶:かな]いました。"
       }
     ]
   },
@@ -11377,7 +11621,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "いです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[富士山:ふじさん]は[他:ほか]の[山:やま]より[高:たか]いです。"
       },
       {
         "japanese": "昨日は今日より暖かかったです。",
@@ -11409,7 +11654,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "かかったです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[昨日:きのう]は[今日:きょう]より[暖:あたた]かかったです。"
       }
     ]
   },
@@ -11464,7 +11710,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "です。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[来週:らいしゅう]、[旅行:りょこう]に[行:い]く[予定:よてい]です。"
       },
       {
         "japanese": "会議は午後3時に始まる予定だ。",
@@ -11512,7 +11759,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "だ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[会議:かいぎ]は[午後:ごご][3:さん][時:じ]に[始:はじ]まる[予定:よてい]だ。"
       }
     ]
   },
@@ -11559,7 +11807,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っているようだ。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[外:そと]は[雨:あめ]が[降:ふ]っているようだ。"
       },
       {
         "japanese": "彼は何か困っているようでした。",
@@ -11591,7 +11840,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っているようでした。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[何:なに]か[困:こま]っているようでした。"
       }
     ]
   },
@@ -11639,7 +11889,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "った。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[子供:こども]のように[走:はし]り[回:まわ]った。"
       },
       {
         "japanese": "星のような美しい目を持っています。",
@@ -11679,7 +11930,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っています。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[星:ほし]のような[美:うつく]しい[目:め]を[持:も]っています。"
       }
     ]
   },
@@ -11722,7 +11974,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "けるようになりました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[毎日:まいにち][練習:れんしゅう]して、ピアノが[弾:ひ]けるようになりました。"
       },
       {
         "japanese": "最近、夜は早く寝るようになりました。",
@@ -11762,7 +12015,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "るようになりました。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[最近:さいきん]、[夜:よる]は[早:はや]く[寝:ね]るようになりました。"
       }
     ]
   },
@@ -11809,7 +12063,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "べるようにしています。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[毎日:まいにち]、[野菜:やさい]を[食:た]べるようにしています。"
       },
       {
         "japanese": "遅刻しないように、いつも早く家を出ます。",
@@ -11849,7 +12104,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "ます。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[遅刻:ちこく]しないように、いつも[早:はや]く[家:いえ]を[出:で]ます。"
       }
     ]
   },
@@ -11904,7 +12160,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "っています。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[来年:らいねん]、[海外:かいがい]で[働:はたら]こうと[思:おも]っています。"
       },
       {
         "japanese": "週末は映画を観に行こうと思う。",
@@ -11952,7 +12209,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "う。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[週末:しゅうまつ]は[映画:えいが]を[観:み]に[行:い]こうと[思:おも]う。"
       }
     ]
   },
@@ -12007,7 +12265,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "てください。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[今度:こんど]、ぜひ[私:わたし]のお[家:うち]に[来:き]てください。"
       },
       {
         "japanese": "この映画はぜひ観るべきです。",
@@ -12035,7 +12294,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "るべきです。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[映画:えいが]はぜひ[観:み]るべきです。"
       }
     ]
   },
@@ -12086,7 +12346,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "せない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "[彼:かれ]は[全然:ぜんぜん][日本語:にほんご]が[話:はな]せない。"
       },
       {
         "japanese": "この本は全然面白くない。",
@@ -12118,7 +12379,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "くない。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[本:ほん]は[全然:ぜんぜん][面白:おもしろ]くない。"
       }
     ]
   },
@@ -12165,7 +12427,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "です。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "この[靴:くつ]は[歩:ある]きづらいです。"
       },
       {
         "japanese": "その字は小さすぎて読みづらい。",
@@ -12201,7 +12464,8 @@ export const n4grammar_expansion: Item[] = [
             "text": "みづらい。",
             "reading": null
           }
-        ]
+        ],
+        "furigana": "その[字:じ]は[小:ちい]さすぎて[読:よ]みづらい。"
       }
     ]
   }

@@ -136,7 +136,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item: baseItem
                       : 'text-[clamp(1.2rem,8vw,3.5rem)] leading-tight'
                   }`}
                 >
-                  {isKanji ? item.character : <RubyText text={item.character} showFurigana={showFurigana} />}
+                  {isKanji ? item.character : <RubyText text={item.character} readings={item.readings} showFurigana={showFurigana} />}
                 </motion.div>
                 
                 <div className="flex-1 space-y-2 text-center md:text-left overflow-hidden w-full min-w-0">
