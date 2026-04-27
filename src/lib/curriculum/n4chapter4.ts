@@ -853,7 +853,14 @@ export const n4chapter4: Item[] = [
     readings: ["あん","やすい","やすまる","やす","やすらか"],
     meanings: ["Relax","Cheap","Low","Quiet","Rested","Contented","Peaceful"],
     level: 4,
-    explanation: 'Strokes: 6'
+    explanation: 'Strokes: 6',
+    sentences: [
+      {
+        japanese: 'この[靴:くつ]は[安:やす]いです。',
+        english: "These shoes are cheap.",
+        segments: [ { text: 'この', reading: null }, { text: '靴', reading: 'くつ' }, { text: 'は', reading: null }, { text: '安', reading: 'やす' }, { text: 'いです', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-2',
@@ -862,7 +869,14 @@ export const n4chapter4: Item[] = [
     readings: ["いん"],
     meanings: ["Inst.","Institution","Temple","Mansion","School"],
     level: 4,
-    explanation: 'Strokes: 10'
+    explanation: 'Strokes: 10',
+    sentences: [
+      {
+        japanese: '[病院:びょういん]に[行:い]きます。',
+        english: "I will go to the hospital.",
+        segments: [ { text: '病院', reading: 'びょういん' }, { text: 'に', reading: null }, { text: '行', reading: 'い' }, { text: 'きます', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-3',
@@ -871,7 +885,14 @@ export const n4chapter4: Item[] = [
     readings: ["しん","こころ","ごころ"],
     meanings: ["Heart","Mind","Spirit","Heart Radical (no. 61)"],
     level: 4,
-    explanation: 'Strokes: 4'
+    explanation: 'Strokes: 4',
+    sentences: [
+      {
+        japanese: '[心配:しんぱい]しないでください。',
+        english: "Please don't worry.",
+        segments: [ { text: '心配', reading: 'しんぱい' }, { text: 'しないでください', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-4',
@@ -880,7 +901,14 @@ export const n4chapter4: Item[] = [
     readings: ["かい"],
     meanings: ["World","Boundary"],
     level: 4,
-    explanation: 'Strokes: 9'
+    explanation: 'Strokes: 9',
+    sentences: [
+      {
+        japanese: '[世界:せかい]で[一番:いちばん][高:たか]い[山:やま]です。',
+        english: "It is the tallest mountain in the world.",
+        segments: [ { text: '世界', reading: 'せかい' }, { text: 'で', reading: null }, { text: '一番', reading: 'いちばん' }, { text: '高', reading: 'たか' }, { text: 'い', reading: null }, { text: '山', reading: 'やま' }, { text: 'です', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-5',
@@ -889,7 +917,14 @@ export const n4chapter4: Item[] = [
     readings: ["きょう","おしえる","おそわる"],
     meanings: ["Teach","Faith","Doctrine"],
     level: 4,
-    explanation: 'Strokes: 11'
+    explanation: 'Strokes: 11',
+    sentences: [
+      {
+        japanese: '[英語:えいご]を[教:おし]えます。',
+        english: "I teach English.",
+        segments: [ { text: '英語', reading: 'えいご' }, { text: 'を', reading: null }, { text: '教', reading: 'おし' }, { text: 'えます', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-6',
@@ -898,7 +933,14 @@ export const n4chapter4: Item[] = [
     readings: ["ぶん","もん","ふみ","あや"],
     meanings: ["Sentence","Literature","Style","Art","Decoration","Figures","Plan","Literary Radical (no. 67)"],
     level: 4,
-    explanation: 'Strokes: 4'
+    explanation: 'Strokes: 4',
+    sentences: [
+      {
+        japanese: '[作文:さくぶん]を[書:か]きました。',
+        english: "I wrote an essay.",
+        segments: [ { text: '作文', reading: 'さくぶん' }, { text: 'を', reading: null }, { text: '書', reading: 'か' }, { text: 'きました', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-7',
@@ -907,7 +949,14 @@ export const n4chapter4: Item[] = [
     readings: ["げん","がん","もと"],
     meanings: ["Beginning","Former Time","Origin"],
     level: 4,
-    explanation: 'Strokes: 4'
+    explanation: 'Strokes: 4',
+    sentences: [
+      {
+        japanese: '[元気:げんき]ですか。',
+        english: "Are you doing well?",
+        segments: [ { text: '元気', reading: 'げんき' }, { text: 'ですか', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-8',
@@ -916,7 +965,14 @@ export const n4chapter4: Item[] = [
     readings: ["じゅう","ちょう","え","おもい","おもり","おもなう","かさねる","かさなる","おも"],
     meanings: ["Heavy","Important","Esteem","Respect","Heap Up","Pile Up","Nest Of Boxes","-fold"],
     level: 4,
-    explanation: 'Strokes: 9'
+    explanation: 'Strokes: 9',
+    sentences: [
+      {
+        japanese: 'この[鞄:かばん]は[重:おも]いです。',
+        english: "This bag is heavy.",
+        segments: [ { text: 'この', reading: null }, { text: '鞄', reading: 'かばん' }, { text: 'は', reading: null }, { text: '重', reading: 'おも' }, { text: 'いです', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-9',
@@ -925,7 +981,14 @@ export const n4chapter4: Item[] = [
     readings: ["きん","こん","ちかい"],
     meanings: ["Near","Early","Akin","Tantamount"],
     level: 4,
-    explanation: 'Strokes: 7'
+    explanation: 'Strokes: 7',
+    sentences: [
+      {
+        japanese: '[近:ちか]くに[駅:えき]があります。',
+        english: "There is a station nearby.",
+        segments: [ { text: '近', reading: 'ちか' }, { text: 'くに', reading: null }, { text: '駅', reading: 'えき' }, { text: 'があります', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-10',
@@ -934,7 +997,14 @@ export const n4chapter4: Item[] = [
     readings: ["こう","かんがえる","かんがえ"],
     meanings: ["Consider","Think Over"],
     level: 4,
-    explanation: 'Strokes: 6'
+    explanation: 'Strokes: 6',
+    sentences: [
+      {
+        japanese: 'よく[考:かんが]えてください。',
+        english: "Please think carefully.",
+        segments: [ { text: 'よく', reading: null }, { text: '考', reading: 'かんが' }, { text: 'えてください', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-11',
@@ -943,7 +1013,14 @@ export const n4chapter4: Item[] = [
     readings: ["が","かく","え","かい","えがく","かくする","かぎる","はかりごと","はかる"],
     meanings: ["Brush-stroke","Picture"],
     level: 4,
-    explanation: 'Strokes: 8'
+    explanation: 'Strokes: 8',
+    sentences: [
+      {
+        japanese: '[映画:えいが]を[見:み]ました。',
+        english: "I watched a movie.",
+        segments: [ { text: '映画', reading: 'えいが' }, { text: 'を', reading: null }, { text: '見', reading: 'み' }, { text: 'ました', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-12',
@@ -952,7 +1029,14 @@ export const n4chapter4: Item[] = [
     readings: ["かい","うみ"],
     meanings: ["Sea","Ocean"],
     level: 4,
-    explanation: 'Strokes: 9'
+    explanation: 'Strokes: 9',
+    sentences: [
+      {
+        japanese: '[海:うみ]で[泳:およ]ぎます。',
+        english: "I swim in the sea.",
+        segments: [ { text: '海', reading: 'うみ' }, { text: 'で', reading: null }, { text: '泳', reading: 'およ' }, { text: 'ぎます', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-13',
@@ -961,7 +1045,14 @@ export const n4chapter4: Item[] = [
     readings: ["ばい","うる","うれる"],
     meanings: ["Sell"],
     level: 4,
-    explanation: 'Strokes: 7'
+    explanation: 'Strokes: 7',
+    sentences: [
+      {
+        japanese: '[切符:きっぷ]を[売:う]っています。',
+        english: "They are selling tickets.",
+        segments: [ { text: '切符', reading: 'きっぷ' }, { text: 'を', reading: null }, { text: '売', reading: 'う' }, { text: 'っています', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-14',
@@ -970,7 +1061,14 @@ export const n4chapter4: Item[] = [
     readings: ["ち","しる","しらせる"],
     meanings: ["Know","Wisdom"],
     level: 4,
-    explanation: 'Strokes: 8'
+    explanation: 'Strokes: 8',
+    sentences: [
+      {
+        japanese: '[道:みち]を[知:し]っていますか。',
+        english: "Do you know the way?",
+        segments: [ { text: '道', reading: 'みち' }, { text: 'を', reading: null }, { text: '知', reading: 'し' }, { text: 'っていますか', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   },
   {
     id: 'kj-n4-c4-15',
@@ -979,6 +1077,13 @@ export const n4chapter4: Item[] = [
     readings: ["どう","とう","みち","いう"],
     meanings: ["Road-way","Street","District","Journey","Course","Moral","Teachings"],
     level: 4,
-    explanation: 'Strokes: 12'
+    explanation: 'Strokes: 12',
+    sentences: [
+      {
+        japanese: '[道:みち]を[渡:わた]ります。',
+        english: "I cross the street.",
+        segments: [ { text: '道', reading: 'みち' }, { text: 'を', reading: null }, { text: '渡', reading: 'わた' }, { text: 'ります', reading: null }, { text: '。', reading: null } ]
+      }
+    ]
   }
 ];
